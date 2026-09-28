@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="Six-step research and design plan; steps zero to four are complete and step five, validate and prioritize, is in progress" font-family="Inter, Helvetica, Arial, sans-serif">
+<rect width="800" height="500" fill="#f3f3f0"/>
+<text x="48" y="52" font-size="13" fill="#0f0f0f" text-anchor="start" font-weight="600">The plan: every step produces a decision input</text>
+<text x="48" y="72" font-size="11" fill="#6b6b6b" text-anchor="start">Steps 0–4 complete · step 5 underway</text>
+<line x1="102" y1="250" x2="196" y2="250" stroke="#0f0f0f" stroke-width="1.25"/>
+<line x1="228" y1="250" x2="322" y2="250" stroke="#0f0f0f" stroke-width="1.25"/>
+<line x1="354" y1="250" x2="448" y2="250" stroke="#0f0f0f" stroke-width="1.25"/>
+<line x1="480" y1="250" x2="574" y2="250" stroke="#0f0f0f" stroke-width="1.25"/>
+<line x1="606" y1="250" x2="700" y2="250" stroke="#cfcfc8" stroke-width="1.25"/>
+<circle cx="86" cy="250" r="16" fill="#0f0f0f"/><path d="M80 250 L84.5 254.5 L92.5 245.5" fill="none" stroke="#fafaf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="86" y="186" font-size="9" fill="#6e6e6e" text-anchor="middle" letter-spacing="1">0</text>
+<text x="86" y="206.0" font-size="10.5" fill="#0f0f0f" text-anchor="middle" font-weight="500">Goals &amp; criteria</text>
+<text x="86" y="310.0" font-size="9.5" fill="#6b6b6b" text-anchor="middle">What success looks</text>
+<text x="86" y="323.775" font-size="9.5" fill="#6b6b6b" text-anchor="middle">like, agreed up front</text>
+<circle cx="212" cy="250" r="16" fill="#0f0f0f"/><path d="M206 250 L210.5 254.5 L218.5 245.5" fill="none" stroke="#fafaf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="212" y="186" font-size="9" fill="#6e6e6e" text-anchor="middle" letter-spacing="1">1</text>
+<text x="212" y="206.0" font-size="10.5" fill="#0f0f0f" text-anchor="middle" font-weight="500">Synthesize prior</text>
+<text x="212" y="221.225" font-size="10.5" fill="#0f0f0f" text-anchor="middle" font-weight="500">research</text>
+<text x="212" y="310.0" font-size="9.5" fill="#6b6b6b" text-anchor="middle">Sharp questions before</text>
+<text x="212" y="323.775" font-size="9.5" fill="#6b6b6b" text-anchor="middle">any vendor testing</text>
+<circle cx="338" cy="250" r="16" fill="#0f0f0f"/><path d="M332 250 L336.5 254.5 L344.5 245.5" fill="none" stroke="#fafaf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="338" y="186" font-size="9" fill="#6e6e6e" text-anchor="middle" letter-spacing="1">2</text>
+<text x="338" y="206.0" font-size="10.5" fill="#0f0f0f" text-anchor="middle" font-weight="500">Vendor testing with</text>
+<text x="338" y="221.225" font-size="10.5" fill="#0f0f0f" text-anchor="middle" font-weight="500">users</text>
+<text x="338" y="310.0" font-size="9.5" fill="#6b6b6b" text-anchor="middle">Usability scores for</text>
+<text x="338" y="323.775" font-size="9.5" fill="#6b6b6b" text-anchor="middle">each vendor</text>
+<circle cx="464" cy="250" r="16" fill="#0f0f0f"/><path d="M458 250 L462.5 254.5 L470.5 245.5" fill="none" stroke="#fafaf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="464" y="186" font-size="9" fill="#6e6e6e" text-anchor="middle" letter-spacing="1">3</text>
+<text x="464" y="206.0" font-size="10.5" fill="#0f0f0f" text-anchor="middle" font-weight="500">Design the experience</text>
+<text x="464" y="310.0" font-size="9.5" fill="#6b6b6b" text-anchor="middle">Migration flow, IA,</text>
+<text x="464" y="323.775" font-size="9.5" fill="#6b6b6b" text-anchor="middle">journey map</text>
+<circle cx="590" cy="250" r="16" fill="#0f0f0f"/><path d="M584 250 L588.5 254.5 L596.5 245.5" fill="none" stroke="#fafaf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="590" y="186" font-size="9" fill="#6e6e6e" text-anchor="middle" letter-spacing="1">4</text>
+<text x="590" y="206.0" font-size="10.5" fill="#0f0f0f" text-anchor="middle" font-weight="500">Build a live</text>
+<text x="590" y="221.225" font-size="10.5" fill="#0f0f0f" text-anchor="middle" font-weight="500">prototype</text>
+<text x="590" y="310.0" font-size="9.5" fill="#6b6b6b" text-anchor="middle">Real sandbox data, not</text>
+<text x="590" y="323.775" font-size="9.5" fill="#6b6b6b" text-anchor="middle">mocks</text>
+<circle cx="716" cy="250" r="16" fill="#fafaf8" stroke="#0f0f0f" stroke-width="1.5"/><text x="716" y="254" font-size="11" fill="#0f0f0f" text-anchor="middle" font-weight="600">5</text>
+<rect x="678" y="276" width="76" height="18" rx="9" fill="#fdf0dc"/><text x="716" y="288.5" font-size="9" fill="#8a5a12" text-anchor="middle" font-weight="600">In progress</text>
+<text x="716" y="186" font-size="9" fill="#6e6e6e" text-anchor="middle" letter-spacing="1">5</text>
+<text x="716" y="206.0" font-size="10.5" fill="#0f0f0f" text-anchor="middle" font-weight="500">Validate &amp; prioritize</text>
+<text x="716" y="328.0" font-size="9.5" fill="#6b6b6b" text-anchor="middle">Score, feature</text>
+<text x="716" y="341.775" font-size="9.5" fill="#6b6b6b" text-anchor="middle">priority, MVP scope</text>
+<text x="48" y="452" font-size="11" fill="#6b6b6b" text-anchor="start">The output of each step is an input to the vendor decision — not a deliverable for its own sake.</text>
+</svg>

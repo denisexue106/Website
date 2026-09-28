@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="Horizontal bar chart: share of survey respondents ranking each of six features in their top three; the top three — hidden fields, unstyled HTML, tags from field selections — are emphasised as the ones that became the roadmap" font-family="Inter, Helvetica, Arial, sans-serif">
+<rect width="800" height="500" fill="#f3f3f0"/>
+<text x="48" y="52" font-size="13" fill="#0f0f0f" text-anchor="start" font-weight="600">Share of respondents ranking each feature in their top three</text>
+<text x="48" y="72" font-size="11" fill="#6b6b6b" text-anchor="start">Survey · n = 13 of 25 · the three darker bars became the roadmap</text>
+<line x1="330.0" y1="96" x2="330.0" y2="452" stroke="#e0e0da" stroke-width="1"/>
+<text x="330.0" y="470" font-size="10" fill="#6e6e6e" text-anchor="middle">0%</text>
+<line x1="535.0" y1="96" x2="535.0" y2="452" stroke="#e0e0da" stroke-width="1"/>
+<text x="535.0" y="470" font-size="10" fill="#6e6e6e" text-anchor="middle">25%</text>
+<line x1="740.0" y1="96" x2="740.0" y2="452" stroke="#e0e0da" stroke-width="1"/>
+<text x="740.0" y="470" font-size="10" fill="#6e6e6e" text-anchor="middle">50%</text>
+<text x="316" y="129" font-size="12" fill="#0f0f0f" text-anchor="end" font-weight="500">Hidden fields</text>
+<path d="M330 114 H703.2 Q707.2 114 707.2 118 V130 Q707.2 134 703.2 134 H330 Z" fill="#0f0f0f"/>
+<text x="717.2" y="129" font-size="11" fill="#0f0f0f" text-anchor="start" font-weight="500">46%</text>
+<text x="316" y="187" font-size="12" fill="#0f0f0f" text-anchor="end" font-weight="500">Copy &amp; embed unstyled HTML</text>
+<path d="M330 172 H703.2 Q707.2 172 707.2 176 V188 Q707.2 192 703.2 192 H330 Z" fill="#0f0f0f"/>
+<text x="717.2" y="187" font-size="11" fill="#0f0f0f" text-anchor="start" font-weight="500">46%</text>
+<text x="316" y="245" font-size="12" fill="#0f0f0f" text-anchor="end" font-weight="500">Apply tags from field selections</text>
+<path d="M330 230 H645.8 Q649.8 230 649.8 234 V246 Q649.8 250 645.8 250 H330 Z" fill="#0f0f0f"/>
+<text x="659.8" y="245" font-size="11" fill="#0f0f0f" text-anchor="start" font-weight="500">39%</text>
+<text x="316" y="303" font-size="12" fill="#6b6b6b" text-anchor="end">Conditional fields</text>
+<path d="M330 288 H580.2 Q584.2 288 584.2 292 V304 Q584.2 308 580.2 308 H330 Z" fill="#86867f"/>
+<text x="594.2" y="303" font-size="11" fill="#6b6b6b" text-anchor="start">31%</text>
+<text x="316" y="361" font-size="12" fill="#6b6b6b" text-anchor="end">Thank-you page from a landing page</text>
+<path d="M330 346 H514.6 Q518.6 346 518.6 350 V362 Q518.6 366 514.6 366 H330 Z" fill="#86867f"/>
+<text x="528.6" y="361" font-size="11" fill="#6b6b6b" text-anchor="start">23%</text>
+<text x="316" y="419" font-size="12" fill="#6b6b6b" text-anchor="end">Insert merge fields in long text</text>
+<path d="M330 404 H449.0 Q453.0 404 453.0 408 V420 Q453.0 424 449.0 424 H330 Z" fill="#86867f"/>
+<text x="463.0" y="419" font-size="11" fill="#6b6b6b" text-anchor="start">15%</text>
+</svg>

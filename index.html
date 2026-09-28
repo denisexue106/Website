@@ -210,8 +210,10 @@
     .hero-actions {
       display: flex;
       align-items: center;
-      gap: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem 1.5rem;
     }
+    .btn-primary, .btn-ghost { white-space: nowrap; }
     .btn-primary {
       display: inline-flex;
       align-items: center;
@@ -239,14 +241,6 @@
     .btn-ghost:hover { color: var(--ink); }
     .btn-ghost svg { transition: transform 0.2s; }
     .btn-ghost:hover svg { transform: translateX(3px); }
-
-    .hero-stats {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      padding-left: 3rem;
-      border-left: 1px solid var(--rule);
-    }
     .stat {
       display: flex;
       flex-direction: column;
@@ -266,6 +260,37 @@
       text-transform: uppercase;
       color: var(--ink-subtle);
     }
+
+    /* ── HERO MOSAIC ── */
+    .hero-mosaic {
+      position: relative; display: block; height: clamp(300px, 34vw, 440px);
+      text-decoration: none; opacity: 0; transform: translateY(16px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .hero-mosaic.in { opacity: 1; transform: none; }
+    .mosaic-card {
+      position: absolute; display: block; width: 62%; aspect-ratio: 8 / 5;
+      border-radius: 10px; overflow: hidden; background: var(--surface-alt);
+      border: 1px solid var(--rule);
+      box-shadow: 0 18px 40px rgba(15,15,15,0.10), 0 2px 6px rgba(15,15,15,0.05);
+      transform: var(--r); transition: transform 0.5s cubic-bezier(.25,.46,.45,.94);
+    }
+    .mosaic-card img { width: 100%; height: 100%; object-fit: cover; object-position: top left; display: block; }
+    .mc-1 { --r: rotate(-3deg);  left: 0;    top: 14%;  z-index: 3; }
+    .mc-2 { --r: rotate(2.5deg); right: 0;   top: 0;    z-index: 2; width: 56%; }
+    .mc-3 { --r: rotate(-1deg);  left: 24%;  bottom: 0; z-index: 1; width: 58%; }
+    .hero-mosaic:hover .mosaic-card { transform: var(--r) translateY(-6px); }
+    .hero-mosaic:hover .mc-1 { transform: var(--r) translateY(-10px); }
+
+    /* ── HERO FACTS ── */
+    .hero-facts {
+      display: flex; flex-wrap: wrap; gap: 2.5rem 3.5rem;
+      margin-top: 3.5rem; padding-top: 1.75rem; border-top: 1px solid var(--rule);
+      opacity: 0; transform: translateY(12px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .hero-facts.in { opacity: 1; transform: none; }
+    .hero-facts .stat { flex: 1 1 200px; }
 
     /* ── MARQUEE ── */
     .marquee-strip {
@@ -503,6 +528,11 @@
     }
     .case-card:hover .case-cover{ transform:scale(1.03); }
 
+    /* ── PROCESS STRIP ── */
+    .process { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem .6rem; margin: -1.25rem 0 2.5rem; }
+    .p-step { font-size: var(--type-sm); font-weight: 500; padding: .45rem .95rem; border: 1px solid var(--rule); border-radius: 100px; background: var(--surface); }
+    .p-arrow { color: var(--ink-subtle); font-size: var(--type-sm); }
+
     /* ── APPROACH ── */
     #approach { background: var(--surface-alt); }
 
@@ -520,14 +550,13 @@
       flex-direction: column;
       gap: 1rem;
     }
-    .approach-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      font-weight: 400;
-      color: var(--rule);
-      line-height: 1;
-      letter-spacing: -0.04em;
+    .approach-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: .35rem; }
+    .approach-icon {
+      width: 40px; height: 40px; border-radius: 50%; background: var(--tag-bg);
+      display: inline-flex; align-items: center; justify-content: center;
     }
+    .approach-icon svg { width: 18px; height: 18px; fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .approach-num { font-family: 'Inter', sans-serif; font-size: var(--type-xs); letter-spacing: .1em; color: var(--ink-subtle); line-height: 1; }
     .approach-card h3, h4 {
       font-size: var(--type-base);
       font-weight: 500;
@@ -789,12 +818,6 @@
     }
     .hero-actions.in { opacity: 1; transform: none; }
 
-    .hero-stats {
-      opacity: 0;
-      transition: opacity 0.8s ease;
-    }
-    .hero-stats.in { opacity: 1; }
-
     /* stat number flip */
     .stat-num {
       display: inline-block;
@@ -894,6 +917,15 @@
     }
     .skip-link:focus { transform: translate(-50%, 0); }
 
+    /* ── BACK TO TOP ── */
+    .to-top {
+      position: fixed; right: 1.5rem; bottom: 1.5rem; width: 44px; height: 44px; border-radius: 50%;
+      border: none; background: var(--ink); color: var(--surface); font-size: 1.1rem; cursor: pointer;
+      box-shadow: 0 6px 18px rgba(15,15,15,.18); z-index: 90; display: grid; place-items: center;
+    }
+    .to-top[hidden] { display: none; }
+    .to-top:hover { opacity: .85; }
+
     /* ── FOCUS VISIBILITY ── */
     a:focus-visible, button:focus-visible, .case-card:focus-visible {
       outline: 2px solid var(--ink);
@@ -913,7 +945,7 @@
         transition-duration: 0.001ms !important;
         scroll-behavior: auto !important;
       }
-      .fade-up, .hero-eyebrow, .hero-desc, .hero-actions, .hero-stats {
+      .fade-up, .hero-eyebrow, .hero-desc, .hero-actions, .hero-facts, .hero-mosaic {
         opacity: 1 !important;
         transform: none !important;
       }
@@ -935,8 +967,9 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 860px) {
+      .hero-mosaic { height: clamp(240px, 62vw, 340px); }
+      .hero-facts { gap: 1.5rem 2rem; margin-top: 2.5rem; }
       .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
-      .hero-stats { flex-direction: row; padding-left: 0; border-left: none; padding-top: 2rem; border-top: 1px solid var(--rule); }
       .work-grid { grid-template-columns: 1fr; }
       .case-card.featured { flex-direction: column; }
       .case-thumb-wrap { max-width: 100%; flex: none; width: 100%; height: 240px; }
@@ -956,7 +989,7 @@
   <noscript>
     <style>
       #page-load { display: none !important; }
-      .fade-up, .hero-eyebrow, .hero-desc, .hero-actions, .hero-stats {
+      .fade-up, .hero-eyebrow, .hero-desc, .hero-actions, .hero-facts, .hero-mosaic {
         opacity: 1 !important;
         transform: none !important;
       }
@@ -1023,7 +1056,13 @@
           </div>
         </div>
 
-        <div class="hero-stats">
+        <a class="hero-mosaic" href="#work" aria-label="View selected work">
+          <span class="mosaic-card mc-1"><img src="img/cover-form-unification.svg" alt="" width="800" height="500" /></span>
+          <span class="mosaic-card mc-2"><img src="img/cover-branding-center.svg" alt="" width="800" height="500" /></span>
+          <span class="mosaic-card mc-3"><img src="img/cover-business-listing.svg" alt="" width="800" height="500" /></span>
+        </a>
+      </div>
+      <div class="hero-facts">
           <div class="stat">
             <span class="stat-num">10</span>
             <span class="stat-label">Years in product design, mostly platform</span>
@@ -1036,7 +1075,6 @@
             <span class="stat-num">4</span>
             <span class="stat-label">Surfaces, one brand definition</span>
           </div>
-        </div>
       </div>
     </div>
   </section>
@@ -1118,34 +1156,37 @@
           <h2>My approach</h2>
         </div>
       </div>
+      <div class="process fade-up" aria-label="How a project moves">
+        <span class="p-step">Measure</span><span class="p-arrow" aria-hidden="true">→</span><span class="p-step">Diagnose</span><span class="p-arrow" aria-hidden="true">→</span><span class="p-step">Design</span><span class="p-arrow" aria-hidden="true">→</span><span class="p-step">Ship</span><span class="p-arrow" aria-hidden="true">→</span><span class="p-step">Learn</span>
+      </div>
       <div class="approach-grid">
         <div class="approach-card fade-up">
-          <div class="approach-num">01</div>
+          <div class="approach-head"><span class="approach-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/><path d="M3 17l9 5 9-5"/></svg></span><span class="approach-num">01</span></div>
           <h3>Systems over screens</h3>
           <p class="approach-desc">I start with what has to stay true, not what has to be drawn. Fragmentation is usually a surface problem and the foundation is usually sound — that framing set the scope of my last three projects.</p>
         </div>
         <div class="approach-card fade-up">
-          <div class="approach-num">02</div>
+          <div class="approach-head"><span class="approach-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17L17 3l4 4L7 21z"/><path d="M8.5 11.5l2 2M11.5 8.5l2 2M14.5 5.5l2 2"/></svg></span><span class="approach-num">02</span></div>
           <h3>Measure before designing</h3>
           <p class="approach-desc">I pull the usability scores, support volume and usage data before I draw anything. The projects where I set a baseline are the ones where I can tell you what actually changed.</p>
         </div>
         <div class="approach-card fade-up">
-          <div class="approach-num">03</div>
+          <div class="approach-head"><span class="approach-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4"/><path d="M9 14.5l2 2 4-4.5"/></svg></span><span class="approach-num">03</span></div>
           <h3>Decisions over deliverables</h3>
           <p class="approach-desc">I document the why as carefully as the what, so decisions survive handoffs, re-orgs and the pressure of engineering timelines.</p>
         </div>
         <div class="approach-card fade-up">
-          <div class="approach-num">04</div>
+          <div class="approach-head"><span class="approach-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span class="approach-num">04</span></div>
           <h3>Design that carries business value</h3>
           <p class="approach-desc">I argue in the currency the room uses — cost, risk, roadmap slots, procurement criteria. A design decision that can’t connect to one of those is a design decision that gets cut.</p>
         </div>
         <div class="approach-card fade-up">
-          <div class="approach-num">05</div>
+          <div class="approach-head"><span class="approach-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l2.2 5.8L20 11l-5.8 2.2L12 19l-2.2-5.8L4 11l5.8-2.2z"/></svg></span><span class="approach-num">05</span></div>
           <h3>AI-accelerated execution</h3>
           <p class="approach-desc">AI is a material I design with, not just a tool I reach for. I build prototypes wired to real APIs to win alignment in days — the judgment doesn’t get faster, the artifact does.</p>
         </div>
         <div class="approach-card fade-up">
-          <div class="approach-num">06</div>
+          <div class="approach-head"><span class="approach-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="6.5"/><path d="M12 2.5v3.5M12 18v3.5M2.5 12H6M18 12h3.5"/></svg></span><span class="approach-num">06</span></div>
           <h3>Craft at the detail level</h3>
           <p class="approach-desc">Craft is the strategy and the 8px, both. I sweat transitions, error states, empty states, and the moments users least expect to be handled well.</p>
         </div>
@@ -1254,6 +1295,8 @@
 
   </main>
 
+  <button id="to-top" class="to-top" aria-label="Back to top" hidden>↑</button>
+
   <!-- FOOTER -->
   <footer>
     <span class="footer-name">© 2026 Denise Barrett</span>
@@ -1272,7 +1315,7 @@
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     function revealHero() {
-      ['.hero-eyebrow', '.hero-desc', '.hero-actions', '.hero-stats']
+      ['.hero-eyebrow', '.hero-desc', '.hero-actions', '.hero-facts', '.hero-mosaic']
         .forEach(sel => document.querySelector(sel)?.classList.add('in'));
     }
     function revealAll() {
@@ -1370,7 +1413,7 @@
       // Remaining hero elements
       setTimeout(() => document.querySelector('.hero-desc').classList.add('in'), (delay + 0.15) * 1000);
       setTimeout(() => document.querySelector('.hero-actions').classList.add('in'), (delay + 0.28) * 1000);
-      setTimeout(() => document.querySelector('.hero-stats').classList.add('in'), (delay + 0.4) * 1000);
+      setTimeout(() => document.querySelectorAll('.hero-facts, .hero-mosaic').forEach(e => e.classList.add('in')), (delay + 0.4) * 1000);
     }
 
     /* ── SCROLL PROGRESS ── */
@@ -1380,6 +1423,11 @@
       progressBar.style.width = (window.scrollY / max * 100) + '%';
     }
     window.addEventListener('scroll', updateProgress, { passive: true });
+
+    /* ── BACK TO TOP ── */
+    const toTop = document.getElementById('to-top');
+    window.addEventListener('scroll', () => { toTop.hidden = window.scrollY < 600; }, { passive: true });
+    toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' }));
 
     /* ── NAV SHADOW ── */
     const nav = document.getElementById('nav');

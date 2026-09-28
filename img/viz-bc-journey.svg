@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="Three-stage partner journey — create campaign, customise per client, client rebrands — with the time cost highlighted on the two stages where brand work was redone by hand" font-family="Inter, Helvetica, Arial, sans-serif">
+<rect width="800" height="500" fill="#f3f3f0"/>
+<text x="48" y="52" font-size="13" fill="#0f0f0f" text-anchor="start" font-weight="600">What partners actually did before</text>
+<text x="48" y="72" font-size="11" fill="#6b6b6b" text-anchor="start">Brand work did not happen once — it happened in every asset, and again every time a client rebranded</text>
+<rect x="48" y="108" width="224" height="300" rx="8" fill="#fafaf8" stroke="#e0e0da" stroke-width="1"/>
+<rect x="64" y="124" width="192" height="30" rx="6" fill="#0f0f0f"/><text x="160" y="144" font-size="11" fill="#fafaf8" text-anchor="middle" font-weight="600">Create campaign</text>
+<text x="64" y="182" font-size="8.5" fill="#6e6e6e" text-anchor="start" letter-spacing="1.2">WHAT THE PARTNER DOES</text>
+<text x="64" y="202.0" font-size="10.5" fill="#0f0f0f" text-anchor="start">Build 15+ emails and landing pages</text>
+<text x="64" y="217.225" font-size="10.5" fill="#0f0f0f" text-anchor="start">for a client.</text>
+<text x="64" y="268" font-size="8.5" fill="#6e6e6e" text-anchor="start" letter-spacing="1.2">ASSETS TOUCHED</text>
+<text x="64" y="288" font-size="12" fill="#0f0f0f" text-anchor="start" font-weight="500">15+ assets</text>
+<text x="64" y="322" font-size="8.5" fill="#6e6e6e" text-anchor="start" letter-spacing="1.2">TIME COST</text>
+<rect x="64" y="334" width="192" height="44" rx="6" fill="#fafaf8" stroke="#e0e0da"/>
+<text x="76" y="353.0" font-size="10.5" fill="#0f0f0f" text-anchor="start">Once</text>
+<line x1="274" y1="258" x2="286" y2="258" stroke="#cfcfc8" stroke-width="1.25"/><path d="M279 253 L286 258 L279 263" fill="none" stroke="#cfcfc8" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="288" y="108" width="224" height="300" rx="8" fill="#fafaf8" stroke="#e0e0da" stroke-width="1"/>
+<rect x="304" y="124" width="192" height="30" rx="6" fill="#0f0f0f"/><text x="400" y="144" font-size="11" fill="#fafaf8" text-anchor="middle" font-weight="600">Customise per client</text>
+<text x="304" y="182" font-size="8.5" fill="#6e6e6e" text-anchor="start" letter-spacing="1.2">WHAT THE PARTNER DOES</text>
+<text x="304" y="202.0" font-size="10.5" fill="#0f0f0f" text-anchor="start">Open every asset in every</text>
+<text x="304" y="217.225" font-size="10.5" fill="#0f0f0f" text-anchor="start">automation and apply the brand by</text>
+<text x="304" y="232.45" font-size="10.5" fill="#0f0f0f" text-anchor="start">hand.</text>
+<text x="304" y="268" font-size="8.5" fill="#6e6e6e" text-anchor="start" letter-spacing="1.2">ASSETS TOUCHED</text>
+<text x="304" y="288" font-size="12" fill="#0f0f0f" text-anchor="start" font-weight="500">15+ × every client</text>
+<text x="304" y="322" font-size="8.5" fill="#6e6e6e" text-anchor="start" letter-spacing="1.2">TIME COST</text>
+<rect x="304" y="334" width="192" height="44" rx="6" fill="#f4e4e2" stroke="#b8574e"/>
+<text x="316" y="353.0" font-size="10.5" fill="#0f0f0f" text-anchor="start" font-weight="500">Hours to weeks per client</text>
+<line x1="514" y1="258" x2="526" y2="258" stroke="#cfcfc8" stroke-width="1.25"/><path d="M519 253 L526 258 L519 263" fill="none" stroke="#cfcfc8" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="528" y="108" width="224" height="300" rx="8" fill="#fafaf8" stroke="#e0e0da" stroke-width="1"/>
+<rect x="544" y="124" width="192" height="30" rx="6" fill="#0f0f0f"/><text x="640" y="144" font-size="11" fill="#fafaf8" text-anchor="middle" font-weight="600">Client rebrands</text>
+<text x="544" y="182" font-size="8.5" fill="#6e6e6e" text-anchor="start" letter-spacing="1.2">WHAT THE PARTNER DOES</text>
+<text x="544" y="202.0" font-size="10.5" fill="#0f0f0f" text-anchor="start">New logo or colour arrives. Open</text>
+<text x="544" y="217.225" font-size="10.5" fill="#0f0f0f" text-anchor="start">every asset again and redo it.</text>
+<text x="544" y="268" font-size="8.5" fill="#6e6e6e" text-anchor="start" letter-spacing="1.2">ASSETS TOUCHED</text>
+<text x="544" y="288" font-size="12" fill="#0f0f0f" text-anchor="start" font-weight="500">15+ × every rebrand</text>
+<text x="544" y="322" font-size="8.5" fill="#6e6e6e" text-anchor="start" letter-spacing="1.2">TIME COST</text>
+<rect x="544" y="334" width="192" height="44" rx="6" fill="#f4e4e2" stroke="#b8574e"/>
+<text x="556" y="353.0" font-size="10.5" fill="#0f0f0f" text-anchor="start" font-weight="500">Hours to weeks, every time</text>
+<text x="48" y="450" font-size="11" fill="#6b6b6b" text-anchor="start">Where the time went: the customise step — and it ran again on every rebrand.</text>
+<rect x="48" y="462" width="12" height="12" rx="2" fill="#f4e4e2" stroke="#b8574e"/><text x="66" y="472" font-size="10" fill="#6e6e6e" text-anchor="start">repeated manual work</text>
+</svg>

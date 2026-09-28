@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="Discovery ranked colours first and logos second; in the first 180 days of usage, logos were uploaded three to one over colours" font-family="Inter, Helvetica, Arial, sans-serif">
+<rect width="800" height="500" fill="#f3f3f0"/>
+<text x="48" y="52" font-size="13" fill="#0f0f0f" text-anchor="start" font-weight="600">What discovery predicted, and what usage did</text>
+<text x="48" y="72" font-size="11" fill="#6b6b6b" text-anchor="start">First 180 days after launch</text>
+<text x="48" y="150" font-size="11" fill="#6b6b6b" text-anchor="start">Discovery ranked</text>
+<rect x="260" y="130" width="120" height="30" rx="15" fill="#fafaf8" stroke="#0f0f0f"/><text x="320" y="150" font-size="11" fill="#0f0f0f" text-anchor="middle" font-weight="500">1  Colours</text>
+<rect x="392" y="130" width="112" height="30" rx="15" fill="#fafaf8" stroke="#e0e0da"/><text x="448" y="150" font-size="11" fill="#6b6b6b" text-anchor="middle">2  Logos</text>
+<text x="48" y="262" font-size="11" fill="#6b6b6b" text-anchor="start">Usage, first 180 days</text>
+<path d="M260 238 H614 Q618 238 618 242 V258 Q618 262 614 262 H260 Z" fill="#0f0f0f"/>
+<rect x="260" y="238" width="358" height="24" fill="#0f0f0f"/>
+<rect x="618" y="238" width="2" height="24" fill="#f3f3f0"/>
+<path d="M620 238 H736 Q740 238 740 242 V258 Q740 262 736 262 H620 Z" fill="#86867f"/>
+<text x="274" y="255" font-size="11" fill="#fafaf8" text-anchor="start" font-weight="500">Logos · 3</text>
+<text x="632" y="255" font-size="11" fill="#fafaf8" text-anchor="start" font-weight="500">Colours · 1</text>
+<text x="48" y="336" font-size="12" fill="#0f0f0f" text-anchor="start" font-weight="500">Three logos uploaded for every colour — the inverse of the prediction.</text>
+<text x="48" y="360.0" font-size="10.5" fill="#6b6b6b" text-anchor="start">Discovery said colours first and logos second. Usage said the opposite. That inversion is the habit I carried into the next</text>
+<text x="48" y="375.225" font-size="10.5" fill="#6b6b6b" text-anchor="start">project: pull the baseline before you draw anything.</text>
+</svg>

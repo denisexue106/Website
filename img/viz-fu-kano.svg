@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="Diverging bar chart of a Kano study on three candidate features: conditional formatting scores 60% satisfaction and 30% dissatisfaction, appointments 60% and 10%, payments 22% and 33%" font-family="Inter, Helvetica, Arial, sans-serif">
+<rect width="800" height="500" fill="#f3f3f0"/>
+<text x="48" y="52" font-size="13" fill="#0f0f0f" text-anchor="start" font-weight="600">Satisfaction if present, dissatisfaction if absent</text>
+<text x="48" y="72" font-size="11" fill="#6b6b6b" text-anchor="start">Kano study · n = 11 · the answer did not match the plan we had already written</text>
+<rect x="48" y="94" width="10" height="10" rx="2" fill="#3567a6"/><text x="64" y="103" font-size="10" fill="#6b6b6b" text-anchor="start">Satisfaction if present</text>
+<rect x="200" y="94" width="10" height="10" rx="2" fill="#b8574e"/><text x="216" y="103" font-size="10" fill="#6b6b6b" text-anchor="start">Dissatisfaction if absent</text>
+<line x1="430" y1="128" x2="430" y2="436" stroke="#cfcfc8" stroke-width="1"/>
+<text x="48" y="166" font-size="12" fill="#0f0f0f" text-anchor="start" font-weight="500">Conditional formatting</text>
+<text x="48" y="184" font-size="10" fill="#6b6b6b" text-anchor="start">Attractive · highest stated importance</text>
+<path d="M430 158 H332.0 Q328.0 158 328.0 162 V176 Q328.0 180 332.0 180 H430 Z" fill="#b8574e"/>
+<text x="320.0" y="173" font-size="11" fill="#6b6b6b" text-anchor="end">30%</text>
+<path d="M430 158 H630.0 Q634.0 158 634.0 162 V176 Q634.0 180 630.0 180 H430 Z" fill="#3567a6"/>
+<text x="642.0" y="173" font-size="11" fill="#6b6b6b" text-anchor="start">60%</text>
+<text x="48" y="258" font-size="12" fill="#0f0f0f" text-anchor="start" font-weight="500">Appointments in forms</text>
+<text x="48" y="276" font-size="10" fill="#6b6b6b" text-anchor="start">Attractive · a pure delighter</text>
+<path d="M430 250 H400.0 Q396.0 250 396.0 254 V268 Q396.0 272 400.0 272 H430 Z" fill="#b8574e"/>
+<text x="388.0" y="265" font-size="11" fill="#6b6b6b" text-anchor="end">10%</text>
+<path d="M430 250 H630.0 Q634.0 250 634.0 254 V268 Q634.0 272 630.0 272 H430 Z" fill="#3567a6"/>
+<text x="642.0" y="265" font-size="11" fill="#6b6b6b" text-anchor="start">60%</text>
+<text x="48" y="350" font-size="12" fill="#0f0f0f" text-anchor="start" font-weight="500">Payments in forms</text>
+<text x="48" y="368" font-size="10" fill="#6b6b6b" text-anchor="start">Indifferent · two respondents did not want it</text>
+<path d="M430 342 H321.8 Q317.8 342 317.8 346 V360 Q317.8 364 321.8 364 H430 Z" fill="#b8574e"/>
+<text x="309.8" y="357" font-size="11" fill="#6b6b6b" text-anchor="end">33%</text>
+<path d="M430 342 H500.8 Q504.8 342 504.8 346 V360 Q504.8 364 500.8 364 H430 Z" fill="#3567a6"/>
+<text x="512.8" y="357" font-size="11" fill="#6b6b6b" text-anchor="start">22%</text>
+<text x="420" y="458" font-size="10" fill="#6e6e6e" text-anchor="end">← dissatisfaction if absent</text>
+<text x="440" y="458" font-size="10" fill="#6e6e6e" text-anchor="start">satisfaction if present →</text>
+</svg>
