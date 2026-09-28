@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>One UX, two possible backends — Denise Barrett</title>
+<meta name="description" content="Design and research lead on a platform-wide listings vendor migration: an abstraction layer that survives either vendor, a consolidated usability baseline, and an AI interaction criterion in the scorecard." />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="One UX, two possible backends — Denise Barrett" />
+<meta property="og:description" content="Design and research lead on a platform-wide listings vendor migration: an abstraction layer that survives either vendor, a consolidated usability baseline, and an AI interaction criterion in the scorecard." />
+<meta property="og:url" content="https://denisexue106.github.io/Website/case-business-listing.html" />
+<link rel="canonical" href="https://denisexue106.github.io/Website/case-business-listing.html" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f0f0f'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' fill='%23fafaf8' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="case.css" />
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<nav aria-label="Primary">
+  <a href="index.html#work" class="nav-back">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 7H2M7 2L2 7l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    All work
+  </a>
+  <a href="index.html#contact" class="nav-cta">Let&rsquo;s talk</a>
+</nav>
+<main id="main">
+  <header class="case-hero">
+    <div class="container">
+      <span class="eyebrow">Case study &mdash; Platform &middot; Vendor migration &middot; AI</span>
+      <h1>One UX,<br>two possible backends</h1>
+      <p class="lede">A platform-wide listings vendor migration on a fixed deadline. I could not choose the vendor &mdash; so I designed the decision so that the user experience could not lose.</p>
+      <div class="meta-row"><div class="meta"><span class="meta-k">Role</span><span class="meta-v">Design &amp; research lead</span></div><div class="meta"><span class="meta-k">Team</span><span class="meta-v">2 leads &middot; 4 PMs &middot; 2 designers</span></div><div class="meta"><span class="meta-k">Timeframe</span><span class="meta-v">2026 &middot; In flight</span></div><div class="meta"><span class="meta-k">Focus</span><span class="meta-v">Systems &middot; Research &middot; AI</span></div></div>
+    </div>
+  </header>
+<section><div class="container">
+<div class="sec-label">01 &mdash; Context</div>
+<h2>A two-year wind-down, and a user experience to protect</h2>
+<p class="lead-p">The platform had to replace its listings vendor on a fixed deadline, with a new partner fully live by 2028. I led the design and research work to make sure the switch protected the experience instead of quietly degrading it.</p><p>Four problems sat inside one decision: which vendor to move to and on what integration model; how the choice lands on existing users; what becomes possible on a new backend; and how to get PMs, dev leads, marketing and support aligned on the answer.</p><div class="cards"><div class="card"><h3>The SMB lens</h3><p>Our persona is a roofer running her own business. Every option got scored against what helps her, not what a platform can technically do.</p></div><div class="card"><h3>The real capability</h3><p>What the business is actually buying is AI search presence &mdash; being in the answer, not just listed in a directory.</p></div><div class="card"><h3>The risk nobody had measured</h3><p>None of the baseline studies covered reconnecting listings to a new vendor. That flow did not exist yet.</p></div></div>
+</div></section>
+<section><div class="container">
+<div class="sec-label">02 &mdash; My role</div>
+<h2>Design and research lead on the evaluation</h2>
+<p>I own the design and research track on the proof of concept, working alongside one other designer to keep research and prototyping moving in parallel. The vendor decision itself is not mine &mdash; so I focused on the decisions that were.</p><div class="moves"><div class="move"><div class="move-n">01</div><div><h3>Consolidated the baseline</h3><p>I pulled three prior usability studies &mdash; all A-grade &mdash; into a single bar any new vendor has to clear. Before this, &ldquo;don&rsquo;t make it worse&rdquo; had no number attached to it.</p></div></div><div class="move"><div class="move-n">02</div><div><h3>Specified an abstraction layer</h3><p>The vendor choice was not mine to make, so I made a different one: design the frontend so it does not care who wins. Our patterns on top, vendor fields underneath.</p></div></div><div class="move"><div class="move-n">03</div><div><h3>Put an AI criterion in the scorecard</h3><p>I argued interaction model into the evaluation: does the AI hand her a decision to approve, or a blank box to fill? That became a requirement rather than a nice-to-have.</p></div></div><div class="move"><div class="move-n">04</div><div><h3>Built a live prototype</h3><p>Wired to a real sandbox API rather than mocks, so every status and score on screen is live data &mdash; and the evaluation argues from behaviour, not comps.</p></div></div></div>
+</div></section>
+<section><div class="container">
+<div class="sec-label">03 &mdash; The core decision</div>
+<h2>One UX, two possible backends</h2>
+<p>The integration surfaced three design problems at once: the vendor API returned fields that did not map cleanly onto our patterns; what the API could return shaped what I could show &mdash; partial states, async generation delays, variable confidence in AI output; and SMBs had to trust that AI-generated content represented them accurately.</p><div class="band"><svg viewBox="0 0 620 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="One user interface sits on an abstraction layer that can resolve to either of two vendor backends">
+<rect x="230" y="12" width="160" height="36" rx="6" class="d-solid"/><text x="310" y="35">SMB user reviews &amp; approves</text>
+<path d="M310 48 V72" class="d-line"/>
+<rect x="150" y="72" width="320" height="38" rx="6" class="d-accent"/><text x="310" y="96" class="on-accent">Abstraction layer &mdash; my design surface</text>
+<path d="M310 110 V130 M150 130 H470 M150 130 V150 M470 130 V150" class="d-line"/>
+<rect x="74" y="150" width="152" height="44" rx="6" class="d-dash"/><text x="150" y="177" class="dim">Vendor A backend</text>
+<rect x="394" y="150" width="152" height="44" rx="6" class="d-dash"/><text x="470" y="177" class="dim">Vendor B backend</text>
+</svg></div><p>The abstraction layer is why this decision cannot produce a bad user experience. Whichever vendor wins, the frontend does not get rewritten.</p>
+</div></section>
+<section><div class="container">
+<div class="sec-label">04 &mdash; What research said to protect</div>
+<h2>Three findings that shaped the design</h2>
+<div class="cards"><div class="card"><h3>A mental-model mismatch</h3><p>Users expect to mark a closed period inside their open hours, not split a day into two blocks. It showed up in two separate studies.</p></div><div class="card"><h3>Terminology is fragile</h3><p>Existing platform vocabulary already causes hesitation. Third-party terminology would compound it.</p></div><div class="card"><h3>Consequences must be legible</h3><p>Users could not reliably tell what disabling something would do versus disconnecting it, before committing.</p></div></div>
+</div></section>
+<section><div class="container">
+<div class="sec-label">05 &mdash; Where it stands</div>
+<h2>Status, honestly</h2>
+<p>The vendor decision lands at the end of 2026 and the new partner goes live in 2028, so there is no adoption outcome to show yet. Here is what is already true either way.</p><div class="stats"><div><div class="stat-v">1 UX</div><div class="stat-l">Survives whichever vendor wins</div></div><div><div class="stat-v">3&rarr;1</div><div class="stat-l">Studies consolidated into one usability bar</div></div><div><div class="stat-v">160K</div><div class="stat-l">Locations in scope</div></div></div><div class="status"><div class="st"><span class="pill ship">Complete</span><span class="st-b">Proof-of-concept execution, integration setup and testing across both shortlisted vendors.</span></div><div class="st"><span class="pill prog">In progress</span><span class="st-b">Scoring and internal alignment, heading into formal review.</span></div><div class="st"><span class="pill park">Upcoming</span><span class="st-b">Vendor decision gate, then migration planning and rollout.</span></div></div><div class="quote">The vendor choice was not mine to make, so I made a different one: design the frontend so it does not care who wins.<cite>On the decision I could actually own</cite></div>
+</div></section>
+
+</main>
+<section class="next">
+  <div class="container">
+    <h2>Want the full story?</h2>
+    <p>This is the short version. The complete case study — research artifacts, flows and the decisions I&rsquo;d revisit — is what I walk through in an interview.</p>
+    <div class="next-actions">
+      <a href="mailto:denisexue106@gmail.com" class="btn-light">Get in touch</a>
+      <a href="index.html#work" class="btn-out">See other work</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <span>&copy; 2026 Denise Barrett</span>
+  <span><a href="index.html">Home</a> &nbsp;·&nbsp; <a href="mailto:denisexue106@gmail.com">Email</a></span>
+</footer>
+</body>
+</html>
