@@ -334,7 +334,7 @@
       min-height: 380px;
     }
     .case-card:hover { background: var(--surface-alt); }
-    .case-card:hover .case-thumb { transform: scale(1.02); }
+    .case-card:hover .case-thumb { overflow:hidden; transform: scale(1.02); }
 
     .case-card.featured {
       grid-column: 1 / -1;
@@ -420,7 +420,7 @@
       flex: none;
     }
 
-    .case-thumb {
+    .case-thumb { overflow:hidden;
       width: 100%;
       height: 100%;
       transition: transform 0.5s cubic-bezier(.25,.46,.45,.94);
@@ -473,18 +473,12 @@
     .case-card:hover .case-arrow svg { transform: translateX(4px); }
 
 
-    /* ── CASE DIAGRAMS ── */
-    .case-dia{ width:100%; height:100%; padding:1.25rem; overflow:visible; }
-    .case-dia .d-solid{ fill:var(--surface); stroke:var(--ink); stroke-width:1.25; }
-    .case-dia .d-dash{ fill:none; stroke:var(--ink-subtle); stroke-width:1.1; stroke-dasharray:3 3; }
-    .case-dia .d-accent-box{ fill:var(--ink); stroke:none; }
-    .case-dia .d-line{ stroke:var(--ink); stroke-width:1.25; fill:none; }
-    .case-dia .d-line-faint{ stroke:var(--ink-subtle); stroke-width:1; fill:none; }
-    .case-dia text{ font-family:'Inter',sans-serif; text-anchor:middle; fill:var(--ink); }
-    .case-dia .d-lbl{ font-size:13px; font-weight:500; letter-spacing:-0.01em; }
-    .case-dia .d-lbl-s{ font-size:11px; font-weight:500; letter-spacing:0.01em; }
-    .case-dia .d-on-accent{ fill:var(--surface); }
-    .case-dia .d-dim{ fill:var(--ink-muted); }
+    /* ── CASE COVERS ── */
+    .case-cover{
+      width:100%; height:100%; object-fit:cover; object-position:top left;
+      display:block; transition:transform .5s cubic-bezier(.25,.46,.45,.94);
+    }
+    .case-card:hover .case-cover{ transform:scale(1.03); }
 
     /* ── APPROACH ── */
     #approach { background: var(--surface-alt); }
@@ -1008,7 +1002,7 @@
 
         <div class="hero-stats">
           <div class="stat">
-            <span class="stat-num">12</span>
+            <span class="stat-num">10</span>
             <span class="stat-label">Years in product design, mostly platform</span>
           </div>
           <div class="stat">
@@ -1065,18 +1059,7 @@
         <a class="case-card featured fade-up" href="case-business-listing.html" aria-label="Read the Business Listing case study">
           <div class="case-thumb-wrap">
             <div class="case-thumb thumb-ai">
-              <svg class="case-dia" viewBox="0 0 360 200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram: one user interface sits on an abstraction layer that can resolve to either of two vendor backends">
-                <rect x="112" y="16" width="136" height="34" rx="6" class="d-solid"/>
-                <text x="180" y="38" class="d-lbl-s">One UX</text>
-                <path d="M180 50 V74" class="d-line"/>
-                <rect x="72" y="74" width="216" height="30" rx="6" class="d-accent-box"/>
-                <text x="180" y="94" class="d-lbl-s d-on-accent">Abstraction layer</text>
-                <path d="M180 104 V122 M110 122 H250 M110 122 V140 M250 122 V140" class="d-line"/>
-                <rect x="58" y="140" width="104" height="40" rx="6" class="d-dash"/>
-                <text x="110" y="164" class="d-lbl-s d-dim">Vendor A</text>
-                <rect x="198" y="140" width="104" height="40" rx="6" class="d-dash"/>
-                <text x="250" y="164" class="d-lbl-s d-dim">Vendor B</text>
-              </svg>
+              <img class="case-cover" src="img/cover-business-listing.svg" alt="Listings management interface showing a profile health score and directory connection statuses" loading="lazy" width="800" height="500" />
             </div>
           </div>
           <div class="case-content">
@@ -1111,20 +1094,7 @@
         <a class="case-card fade-up" href="case-form-unification.html">
           <div class="case-thumb-wrap">
             <div class="case-thumb thumb-crm">
-              <svg class="case-dia" viewBox="0 0 360 170" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram: seven separate form builders converging into one unified system">
-                <g class="d-dash">
-                  <rect x="14"  y="12" width="56" height="20" rx="4"/>
-                  <rect x="14"  y="40" width="56" height="20" rx="4"/>
-                  <rect x="14"  y="68" width="56" height="20" rx="4"/>
-                  <rect x="14"  y="96" width="56" height="20" rx="4"/>
-                  <rect x="14" y="124" width="56" height="20" rx="4"/>
-                  <rect x="82"  y="26" width="56" height="20" rx="4"/>
-                  <rect x="82" y="110" width="56" height="20" rx="4"/>
-                </g>
-                <path d="M70 22 C150 22 150 85 196 85 M70 50 C150 50 150 85 196 85 M70 78 C160 78 160 85 196 85 M70 106 C150 106 150 85 196 85 M70 134 C150 134 150 85 196 85 M138 36 C176 36 170 85 196 85 M138 120 C176 120 170 85 196 85" class="d-line-faint"/>
-                <rect x="196" y="62" width="150" height="46" rx="8" class="d-accent-box"/>
-                <text x="271" y="90" class="d-lbl d-on-accent">One system</text>
-              </svg>
+              <img class="case-cover" src="img/cover-form-unification.svg" alt="Form builder interface with a four-step progress indicator, field palette, canvas and live preview" loading="lazy" width="800" height="500" />
             </div>
           </div>
           <div class="case-meta">
@@ -1157,22 +1127,7 @@
         <a class="case-card fade-up" href="case-branding-center.html">
           <div class="case-thumb-wrap">
             <div class="case-thumb thumb-ds">
-              <svg class="case-dia" viewBox="0 0 360 170" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram: one brand definition feeding four product surfaces">
-                <rect x="14" y="58" width="116" height="54" rx="8" class="d-accent-box"/>
-                <text x="72" y="83" class="d-lbl-s d-on-accent">One brand</text>
-                <text x="72" y="99" class="d-lbl-s d-on-accent">definition</text>
-                <path d="M130 85 H166 M166 24 V146 M166 24 H196 M166 65 H196 M166 106 H196 M166 146 H196" class="d-line"/>
-                <g class="d-solid">
-                  <rect x="196" y="10"  width="150" height="28" rx="5"/>
-                  <rect x="196" y="51"  width="150" height="28" rx="5"/>
-                  <rect x="196" y="92"  width="150" height="28" rx="5"/>
-                  <rect x="196" y="133" width="150" height="28" rx="5"/>
-                </g>
-                <text x="271" y="29"  class="d-lbl-s">Email</text>
-                <text x="271" y="70"  class="d-lbl-s">Landing pages</text>
-                <text x="271" y="111" class="d-lbl-s">Popups</text>
-                <text x="271" y="152" class="d-lbl-s">Shared content</text>
-              </svg>
+              <img class="case-cover" src="img/cover-branding-center.svg" alt="Branding Center interface showing logo slots with one marked primary, a brand colour palette and a font list" loading="lazy" width="800" height="500" />
             </div>
           </div>
           <div class="case-meta">
@@ -1262,7 +1217,7 @@
         <div class="fade-up">
           <p class="about-lead">I design for durability. Most fragmentation is a surface problem, not a foundation problem — so I unify the surface, protect what’s underneath, and leave a system the next team can build on.</p>
           <div class="about-body">
-            <p>Twelve years designing products, most of it platform work — the layer other teams build on top of. The pattern I keep finding is the same: a system ends up with more ways to do a thing than it has definitions of the thing. Seven form builders. Four surfaces each rendering a brand differently. My job is to find the one definition underneath and make everything else read from it.</p>
+            <p>Ten years designing products, most of it platform work — the layer other teams build on top of. The pattern I keep finding is the same: a system ends up with more ways to do a thing than it has definitions of the thing. Seven form builders. Four surfaces each rendering a brand differently. My job is to find the one definition underneath and make everything else read from it.</p>
             <p>I measure before I design. On my last three projects I pulled the existing usability scores, support volume and usage data before drawing anything — because the projects where I set a baseline are the ones where I can tell you what actually changed. I document the why as carefully as the what, so decisions survive handoffs, re-orgs and engineering timelines.</p>
             <p>I lead without needing to own. On one initiative I was the only designer — I framed it, ran the research, designed it, sold it and oversaw delivery; when the study contradicted the plan I took it to leadership and the roadmap changed. On another I had to make one brand definition survive sixteen dependent teams without owning a single one of them. I run the workshops that get tech leads and engineers sketching against the same board, and I mentor the designers next to me.</p>
             <p>AI is a material I design with, not just a tool I reach for. I build working prototypes wired to real APIs to win alignment in days rather than argue over slides for weeks — and a structured system is the precondition for any of it. A model can’t generate a form across seven builders, or brand something it has no definition to read.</p>

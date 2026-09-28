@@ -139,3 +139,29 @@ footer a:hover{color:#fff}
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}
 }
+
+/* ── HERO COVER ── */
+.hero-cover{margin-top:2.25rem;border-radius:10px;overflow:hidden;border:1px solid var(--rule);line-height:0}
+.hero-cover img{width:100%;height:auto;display:block}
+
+/* ── MORE WORK (prev / next) ── */
+.more{padding:3.5rem 0;border-top:1px solid var(--rule);background:var(--surface-alt)}
+.more-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:1.75rem;gap:1rem;flex-wrap:wrap}
+.more-head h2{margin:0;font-size:clamp(1.3rem,2.4vw,1.75rem)}
+.more-all{font-size:var(--type-sm);color:var(--ink-muted);text-decoration:none}
+.more-all:hover{color:var(--ink)}
+.more-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.more-card{display:block;text-decoration:none;color:inherit;background:var(--surface);
+  border:1px solid var(--rule);border-radius:10px;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease}
+.more-card:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(15,15,15,.07)}
+.more-thumb{height:150px;overflow:hidden;line-height:0;border-bottom:1px solid var(--rule)}
+.more-thumb img{width:100%;height:100%;object-fit:cover;object-position:top left;
+  transition:transform .5s cubic-bezier(.25,.46,.45,.94)}
+.more-card:hover .more-thumb img{transform:scale(1.04)}
+.more-body{padding:1.15rem 1.3rem 1.35rem}
+.more-dir{font-size:var(--type-xs);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-subtle);
+  display:flex;align-items:center;gap:.4rem;margin-bottom:.5rem}
+.more-card h3{font-family:'Playfair Display',Georgia,serif;font-size:var(--type-lg);font-weight:400;
+  letter-spacing:-.02em;margin-bottom:.35rem}
+.more-card p{font-size:var(--type-sm);color:var(--ink-muted);margin:0}
+@media (max-width:700px){.more-grid{grid-template-columns:1fr}}

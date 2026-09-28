@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="Form builder interface: a four-step progress indicator, a field palette, a form canvas and a live preview panel">
+<defs>
+<linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#f4f1ea"/><stop offset="1" stop-color="#ebe6db"/>
+</linearGradient>
+<filter id="sh2" x="-8%" y="-8%" width="116%" height="124%">
+<feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#4a3f2a" flood-opacity="0.10"/>
+</filter>
+</defs>
+<rect width="800" height="500" fill="url(#bg2)"/>
+<g filter="url(#sh2)"><rect x="70" y="56" width="660" height="392" rx="10" fill="#ffffff"/></g>
+<path d="M70 66a10 10 0 0 1 10-10h640a10 10 0 0 1 10 10v22H70z" fill="#faf9f6"/>
+<circle cx="90" cy="77" r="3.5" fill="#ded8cc"/><circle cx="103" cy="77" r="3.5" fill="#ded8cc"/><circle cx="116" cy="77" r="3.5" fill="#ded8cc"/>
+<rect x="70" y="88" width="660" height="1" fill="#eeeae1"/>
+<!-- 4-step progress -->
+<g font-family="Inter,sans-serif" font-size="9">
+<circle cx="150" cy="114" r="9" fill="#8a6d3f"/><text x="150" y="117.5" text-anchor="middle" fill="#fff" font-size="8.5" font-weight="600">1</text>
+<text x="167" y="117" fill="#3a3229" font-weight="500">Set up</text>
+<rect x="212" y="113" width="60" height="1.5" fill="#e4ded2"/>
+<circle cx="288" cy="114" r="9" fill="#8a6d3f"/><text x="288" y="117.5" text-anchor="middle" fill="#fff" font-size="8.5" font-weight="600">2</text>
+<text x="305" y="117" fill="#3a3229" font-weight="500">Build</text>
+<rect x="344" y="113" width="60" height="1.5" fill="#e4ded2"/>
+<circle cx="420" cy="114" r="9" fill="#fff" stroke="#d8d1c3"/><text x="420" y="117.5" text-anchor="middle" fill="#a8a094" font-size="8.5">3</text>
+<text x="437" y="117" fill="#a8a094">Settings</text>
+<rect x="496" y="113" width="60" height="1.5" fill="#e4ded2"/>
+<circle cx="572" cy="114" r="9" fill="#fff" stroke="#d8d1c3"/><text x="572" y="117.5" text-anchor="middle" fill="#a8a094" font-size="8.5">4</text>
+<text x="589" y="117" fill="#a8a094">Publish</text>
+</g>
+<rect x="70" y="140" width="660" height="1" fill="#eeeae1"/>
+<!-- field palette -->
+<rect x="70" y="141" width="128" height="307" fill="#fcfbf8"/>
+<rect x="197" y="141" width="1" height="307" fill="#eeeae1"/>
+<text x="88" y="166" font-family="Inter,sans-serif" font-size="9" letter-spacing="0.06em" fill="#a8a094">FIELDS</text>
+<g>
+<rect x="86" y="178" width="96" height="26" rx="5" fill="#fff" stroke="#e8e3d8"/><rect x="96" y="188" width="52" height="6" rx="3" fill="#d6cfc1"/>
+<rect x="86" y="212" width="96" height="26" rx="5" fill="#fff" stroke="#e8e3d8"/><rect x="96" y="222" width="66" height="6" rx="3" fill="#d6cfc1"/>
+<rect x="86" y="246" width="96" height="26" rx="5" fill="#fff" stroke="#e8e3d8"/><rect x="96" y="256" width="44" height="6" rx="3" fill="#d6cfc1"/>
+<rect x="86" y="280" width="96" height="26" rx="5" fill="#fff" stroke="#e8e3d8"/><rect x="96" y="290" width="58" height="6" rx="3" fill="#d6cfc1"/>
+</g>
+<!-- canvas -->
+<rect x="220" y="162" width="270" height="266" rx="8" fill="#fbfaf7" stroke="#eeeae1"/>
+<rect x="240" y="182" width="88" height="7" rx="3.5" fill="#bdb4a3"/>
+<g>
+<rect x="240" y="206" width="230" height="30" rx="5" fill="#fff" stroke="#e8e3d8"/><rect x="252" y="218" width="64" height="6" rx="3" fill="#ddd6c8"/>
+<rect x="240" y="244" width="230" height="30" rx="5" fill="#fff" stroke="#e8e3d8"/><rect x="252" y="256" width="84" height="6" rx="3" fill="#ddd6c8"/>
+<rect x="240" y="282" width="230" height="30" rx="5" fill="#fff" stroke="#8a6d3f" stroke-width="1.4"/><rect x="252" y="294" width="72" height="6" rx="3" fill="#c3b79f"/>
+<rect x="240" y="320" width="230" height="48" rx="5" fill="#fff" stroke="#e8e3d8"/><rect x="252" y="334" width="100" height="6" rx="3" fill="#ddd6c8"/><rect x="252" y="348" width="140" height="5" rx="2.5" fill="#e7e1d5"/>
+<rect x="240" y="380" width="88" height="26" rx="5" fill="#8a6d3f"/>
+</g>
+<!-- live preview -->
+<rect x="512" y="162" width="198" height="266" rx="8" fill="#f7f5f0" stroke="#eeeae1"/>
+<text x="530" y="184" font-family="Inter,sans-serif" font-size="9" letter-spacing="0.06em" fill="#a8a094">LIVE PREVIEW</text>
+<rect x="530" y="198" width="162" height="212" rx="6" fill="#fff" stroke="#eae5da"/>
+<rect x="546" y="216" width="64" height="6" rx="3" fill="#cfc7b6"/>
+<rect x="546" y="236" width="130" height="22" rx="4" fill="#f6f4ef"/>
+<rect x="546" y="266" width="130" height="22" rx="4" fill="#f6f4ef"/>
+<rect x="546" y="296" width="130" height="22" rx="4" fill="#f6f4ef"/>
+<rect x="546" y="326" width="130" height="34" rx="4" fill="#f6f4ef"/>
+<rect x="546" y="372" width="66" height="20" rx="4" fill="#8a6d3f" opacity="0.85"/>
+</svg>

@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="Listings management interface: a profile health score above a list of directory platforms with connection statuses">
+<defs>
+<linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#eef1f6"/><stop offset="1" stop-color="#e3e8f0"/>
+</linearGradient>
+<filter id="sh1" x="-8%" y="-8%" width="116%" height="124%">
+<feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#25314a" flood-opacity="0.10"/>
+</filter>
+</defs>
+<rect width="800" height="500" fill="url(#bg1)"/>
+<g filter="url(#sh1)">
+<rect x="70" y="56" width="660" height="392" rx="10" fill="#ffffff"/>
+</g>
+<!-- title bar -->
+<path d="M70 66a10 10 0 0 1 10-10h640a10 10 0 0 1 10 10v22H70z" fill="#f7f8fa"/>
+<circle cx="90" cy="77" r="3.5" fill="#d9dde4"/><circle cx="103" cy="77" r="3.5" fill="#d9dde4"/><circle cx="116" cy="77" r="3.5" fill="#d9dde4"/>
+<rect x="70" y="88" width="660" height="1" fill="#eaedf2"/>
+<!-- sidebar -->
+<rect x="70" y="89" width="132" height="359" fill="#fbfcfd"/>
+<rect x="201" y="89" width="1" height="359" fill="#eaedf2"/>
+<rect x="88" y="110" width="58" height="7" rx="3.5" fill="#c8cdd6"/>
+<g fill="#dfe3ea">
+<rect x="88" y="140" width="86" height="6" rx="3"/><rect x="88" y="164" width="70" height="6" rx="3"/>
+<rect x="88" y="188" width="92" height="6" rx="3"/>
+</g>
+<rect x="78" y="206" width="114" height="26" rx="6" fill="#eaeff7"/>
+<rect x="88" y="216" width="80" height="6" rx="3" fill="#3d6b99"/>
+<g fill="#dfe3ea">
+<rect x="88" y="246" width="76" height="6" rx="3"/><rect x="88" y="270" width="88" height="6" rx="3"/>
+<rect x="88" y="294" width="64" height="6" rx="3"/>
+</g>
+<!-- health score card -->
+<rect x="224" y="108" width="212" height="72" rx="8" fill="#f7f9fc" stroke="#e7ebf1"/>
+<text x="240" y="132" font-family="Inter,sans-serif" font-size="10" fill="#6b7280">Profile health</text>
+<text x="240" y="157" font-family="Inter,sans-serif" font-size="22" font-weight="600" fill="#1c2534">78%</text>
+<rect x="240" y="166" width="180" height="5" rx="2.5" fill="#e4e8ee"/>
+<rect x="240" y="166" width="140" height="5" rx="2.5" fill="#3d6b99"/>
+<!-- AI suggestion -->
+<rect x="448" y="108" width="266" height="72" rx="8" fill="#f4f7fb" stroke="#e2e9f2"/>
+<circle cx="468" cy="130" r="7" fill="#3d6b99" opacity="0.15"/>
+<path d="M468 126l1.4 3.1 3.1 1.4-3.1 1.4-1.4 3.1-1.4-3.1-3.1-1.4 3.1-1.4z" fill="#3d6b99"/>
+<text x="484" y="134" font-family="Inter,sans-serif" font-size="10" font-weight="500" fill="#1c2534">Suggested fix</text>
+<rect x="468" y="146" width="210" height="5" rx="2.5" fill="#d8e0ea"/>
+<rect x="468" y="158" width="146" height="5" rx="2.5" fill="#e4eaf1"/>
+<!-- table header -->
+<text x="240" y="208" font-family="Inter,sans-serif" font-size="9" letter-spacing="0.08em" fill="#9aa2ae">PLATFORM</text>
+<text x="560" y="208" font-family="Inter,sans-serif" font-size="9" letter-spacing="0.08em" fill="#9aa2ae">STATUS</text>
+<rect x="224" y="218" width="490" height="1" fill="#eef1f5"/>
+<g font-family="Inter,sans-serif" font-size="10">
+<!-- row 1 -->
+<rect x="240" y="232" width="18" height="18" rx="5" fill="#e8edf4"/>
+<rect x="268" y="238" width="96" height="6" rx="3" fill="#cfd5de"/>
+<circle cx="566" cy="241" r="3.5" fill="#4a9a6b"/><text x="576" y="245" fill="#4a7a5f">Connected</text>
+<rect x="224" y="262" width="490" height="1" fill="#f2f4f7"/>
+<!-- row 2 -->
+<rect x="240" y="276" width="18" height="18" rx="5" fill="#e8edf4"/>
+<rect x="268" y="282" width="74" height="6" rx="3" fill="#cfd5de"/>
+<circle cx="566" cy="285" r="3.5" fill="#4a9a6b"/><text x="576" y="289" fill="#4a7a5f">Connected</text>
+<rect x="224" y="306" width="490" height="1" fill="#f2f4f7"/>
+<!-- row 3 processing -->
+<rect x="240" y="320" width="18" height="18" rx="5" fill="#e8edf4"/>
+<rect x="268" y="326" width="110" height="6" rx="3" fill="#cfd5de"/>
+<circle cx="566" cy="329" r="3.5" fill="#c99a3e"/><text x="576" y="333" fill="#8a6a2e">Processing</text>
+<rect x="224" y="350" width="490" height="1" fill="#f2f4f7"/>
+<!-- row 4 issue -->
+<rect x="240" y="364" width="18" height="18" rx="5" fill="#f6ecec"/>
+<rect x="268" y="370" width="84" height="6" rx="3" fill="#cfd5de"/>
+<circle cx="566" cy="373" r="3.5" fill="#b8574e"/><text x="576" y="377" fill="#9a4a43">Issue found</text>
+<rect x="662" y="364" width="52" height="18" rx="9" fill="#fff" stroke="#e0c4c1"/>
+<text x="688" y="376" text-anchor="middle" font-size="8.5" fill="#9a4a43">Fix</text>
+<rect x="224" y="394" width="490" height="1" fill="#f2f4f7"/>
+<!-- row 5 -->
+<rect x="240" y="408" width="18" height="18" rx="5" fill="#e8edf4"/>
+<rect x="268" y="414" width="92" height="6" rx="3" fill="#cfd5de"/>
+<circle cx="566" cy="417" r="3.5" fill="#4a9a6b"/><text x="576" y="421" fill="#4a7a5f">Connected</text>
+</g>
+</svg>
