@@ -1321,16 +1321,46 @@
     const loadOverlay = document.getElementById('page-load');
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    function revealAll() {
-      document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+    function revealHero() {
       ['.hero-eyebrow', '.hero-desc', '.hero-actions', '.hero-stats']
         .forEach(sel => document.querySelector(sel)?.classList.add('in'));
     }
+    function revealAll() {
+      document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+      revealHero();
+    }
 
-    if (reduceMotion) {
-      revealAll();
+    // The intro is a first-impression, not a toll gate. Returning from a case study —
+    // by back button, by the "All work" link, or to any #anchor — must not replay it.
+    let introSeen = false;
+    try { introSeen = sessionStorage.getItem('introSeen') === '1'; } catch (e) {}
+    const deepLink = !!location.hash;
+    const skipIntro = reduceMotion || introSeen || deepLink;
+
+    if (skipIntro) {
+      // A deep link has to land on a section that is already painted, so reveal everything.
+      // A plain revisit keeps the scroll animations and only skips the hero build.
+      if (deepLink || reduceMotion) revealAll(); else revealHero();
+      if (deepLink) {
+        // scroll-behavior:smooth would animate this arrival from the top of the page,
+        // which is the replay we are trying to avoid — force the jump to be instant.
+        const jump = () => {
+          const t = document.getElementById(location.hash.slice(1));
+          if (!t) return;
+          const root = document.documentElement;
+          const prev = root.style.scrollBehavior;
+          root.style.scrollBehavior = 'auto';
+          window.scrollTo(0, t.getBoundingClientRect().top + window.scrollY);
+          root.style.scrollBehavior = prev;
+        };
+        jump();
+        requestAnimationFrame(jump);
+        // Fonts and images settle after load and shift the target, so land it again.
+        window.addEventListener('load', jump, { once: true });
+      }
     } else {
       loadOverlay.hidden = false;
+      try { sessionStorage.setItem('introSeen', '1'); } catch (e) {}
       document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => loadOverlay.classList.add('gone'), 950);
         setTimeout(runHeroSequence, 1100);
@@ -1338,6 +1368,11 @@
       // Safety net: never let the overlay trap the page.
       setTimeout(() => loadOverlay.classList.add('gone'), 3000);
     }
+
+    // Restoring from bfcache re-runs nothing, so make sure the overlay is never left up.
+    window.addEventListener('pageshow', e => {
+      if (e.persisted) { loadOverlay.classList.add('gone'); revealAll(); }
+    });
 
     /* ── HERO SEQUENCE ── */
     function runHeroSequence() {

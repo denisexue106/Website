@@ -165,3 +165,8 @@ footer a:hover{color:#fff}
   letter-spacing:-.02em;margin-bottom:.35rem}
 .more-card p{font-size:var(--type-sm);color:var(--ink-muted);margin:0}
 @media (max-width:700px){.more-grid{grid-template-columns:1fr}}
+
+/* ── IN-BODY SCREENS ── */
+.shot{margin:1.75rem 0 0}
+.shot img{width:100%;height:auto;display:block;border:1px solid var(--rule);border-radius:10px}
+.shot figcaption{font-size:var(--type-sm);color:var(--ink-subtle);margin-top:.75rem;max-width:var(--read-w);line-height:1.55}
