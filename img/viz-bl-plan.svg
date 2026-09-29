@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="Six-step research and design plan; steps zero to four are complete and step five, validate and prioritize, is in progress" font-family="Inter, Helvetica, Arial, sans-serif">
 <rect width="800" height="500" fill="#f3f3f0"/>
 <text x="48" y="52" font-size="13" fill="#0f0f0f" text-anchor="start" font-weight="600">The plan: every step produces a decision input</text>
-<text x="48" y="72" font-size="11" fill="#6b6b6b" text-anchor="start">Steps 0–4 complete · step 5 underway</text>
+<text x="48" y="72" font-size="11" fill="#6b6b6b" text-anchor="start">Steps 0 to 4 complete · step 5 underway</text>
 <line x1="102" y1="250" x2="196" y2="250" stroke="#0f0f0f" stroke-width="1.25"/>
 <line x1="228" y1="250" x2="322" y2="250" stroke="#0f0f0f" stroke-width="1.25"/>
 <line x1="354" y1="250" x2="448" y2="250" stroke="#0f0f0f" stroke-width="1.25"/>
@@ -41,5 +41,5 @@
 <text x="716" y="206.0" font-size="10.5" fill="#0f0f0f" text-anchor="middle" font-weight="500">Validate &amp; prioritize</text>
 <text x="716" y="328.0" font-size="9.5" fill="#6b6b6b" text-anchor="middle">Score, feature</text>
 <text x="716" y="341.775" font-size="9.5" fill="#6b6b6b" text-anchor="middle">priority, MVP scope</text>
-<text x="48" y="452" font-size="11" fill="#6b6b6b" text-anchor="start">The output of each step is an input to the vendor decision — not a deliverable for its own sake.</text>
+<text x="48" y="452" font-size="11" fill="#6b6b6b" text-anchor="start">The output of each step is an input to the vendor decision, not a deliverable for its own sake.</text>
 </svg>

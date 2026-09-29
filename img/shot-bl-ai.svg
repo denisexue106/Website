@@ -38,6 +38,6 @@
 <text x="428" y="341" font-size="9.5" fill="#9aa2ae">A five-second decision</text>
 <!-- footnote -->
 <rect x="124" y="380" width="552" height="1" fill="#eef1f5"/>
-<text x="124" y="404" font-size="9.5" fill="#8a929e">Not a blank text box — the model proposes, the owner decides.</text>
+<text x="124" y="404" font-size="9.5" fill="#8a929e">Not a blank text box: the model proposes, the owner decides.</text>
 </g>
 </svg>

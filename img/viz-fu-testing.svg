@@ -5,7 +5,7 @@
 <rect x="48" y="116" width="224" height="280" rx="8" fill="#fafaf8" stroke="#e0e0da" stroke-width="1"/>
 <text x="70" y="150" font-size="11" fill="#6b6b6b" text-anchor="start">Manual creation</text>
 <text x="70" y="208" font-size="44" fill="#0f0f0f" text-anchor="start" font-weight="600">3.00</text>
-<text x="70" y="246.0" font-size="10.5" fill="#6b6b6b" text-anchor="start">Perfect score — the flow that</text>
+<text x="70" y="246.0" font-size="10.5" fill="#6b6b6b" text-anchor="start">Perfect score: the flow that</text>
 <text x="70" y="261.225" font-size="10.5" fill="#6b6b6b" text-anchor="start">broke for seven of seven</text>
 <text x="70" y="276.45" font-size="10.5" fill="#6b6b6b" text-anchor="start">participants a year earlier.</text>
 <rect x="288" y="116" width="224" height="280" rx="8" fill="#fafaf8" stroke="#e0e0da" stroke-width="1"/>
@@ -18,9 +18,9 @@
 <text x="550" y="150" font-size="11" fill="#6b6b6b" text-anchor="start">Finding Forms</text>
 <text x="550" y="208" font-size="44" fill="#0f0f0f" text-anchor="start" font-weight="600">5.88</text>
 <circle cx="558" cy="232" r="4" fill="#b8574e"/><text x="568" y="236" font-size="10" fill="#6e6e6e" text-anchor="start">The only friction</text>
-<text x="550" y="266.0" font-size="10.5" fill="#6b6b6b" text-anchor="start">Ease-of-use — the only real</text>
+<text x="550" y="266.0" font-size="10.5" fill="#6b6b6b" text-anchor="start">Ease-of-use: the only real</text>
 <text x="550" y="281.225" font-size="10.5" fill="#6b6b6b" text-anchor="start">friction. People looked in</text>
 <text x="550" y="296.45" font-size="10.5" fill="#6b6b6b" text-anchor="start">Automations, Contacts, Sales and</text>
 <text x="550" y="311.675" font-size="10.5" fill="#6b6b6b" text-anchor="start">Reporting first.</text>
-<text x="48" y="444" font-size="11" fill="#6b6b6b" text-anchor="start">Round one, a year earlier: every participant hit friction — 7 of 7 could not find how to add a step.</text>
+<text x="48" y="444" font-size="11" fill="#6b6b6b" text-anchor="start">Round one, a year earlier: every participant hit friction. 7 of 7 could not find how to add a step.</text>
 </svg>
