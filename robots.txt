@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://denisexue106.github.io/Website/sitemap.xml
+Sitemap: https://dbyxdesign.com/sitemap.xml
