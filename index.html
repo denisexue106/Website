@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Denise Barrett — Product Designer and Leader</title>
-  <meta name="description" content="Denise Barrett — Staff / Principal product designer and leader, remote (US). I design for durability: unify the surface, protect the foundation, and leave a system the next team can build on." />
+  <meta name="description" content="Denise Barrett — Senior Product Designer at Keap, a Thryv company, open to Staff and Principal roles, remote (US). Platform design: seven form builders into one system, one brand definition across four surfaces and sixteen teams." />
   <link rel="canonical" href="https://denisexue106.github.io/Website/" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://denisexue106.github.io/Website/" />
@@ -28,7 +28,9 @@
     "url": "https://denisexue106.github.io/Website/",
     "email": "mailto:denisexue106@gmail.com",
     "sameAs": ["https://www.linkedin.com/in/deniseb106/"],
-    "description": "Product designer and leader with ten years in B2B SaaS platform design. Open to Staff and Principal product design roles, remote in the US.",
+    "description": "Senior Product Designer at Keap, a Thryv company, with ten years in B2B SaaS platform design. Open to Staff and Principal product design roles, remote in the US.",
+    "worksFor": { "@type": "Organization", "name": "Keap, a Thryv company" },
+    "alumniOf": [{ "@type": "CollegeOrUniversity", "name": "Rochester Institute of Technology" }],
     "knowsAbout": ["Product Design","Design Systems","Platform Design","Systems Thinking","UX Research","AI Product Design","Figma","B2B SaaS","Information Architecture"],
     "seeks": {
       "@type": "JobPosting",
@@ -145,9 +147,8 @@
 
     /* ── HERO ── */
     #hero {
-      padding-top: calc(var(--space-xl) + 5rem);
-      padding-bottom: var(--space-xl);
-      min-height: 100vh;
+      padding-top: calc(var(--space-md) + 5rem);
+      padding-bottom: var(--space-md);
       display: flex;
       align-items: center;
     }
@@ -292,42 +293,8 @@
     .hero-facts.in { opacity: 1; transform: none; }
     .hero-facts .stat { flex: 1 1 200px; }
 
-    /* ── MARQUEE ── */
-    .marquee-strip {
-      border-top: 1px solid var(--rule);
-      border-bottom: 1px solid var(--rule);
-      padding: 1rem 0;
-      overflow: hidden;
-      background: var(--surface-alt);
-    }
-    .marquee-track {
-      display: flex;
-      gap: 3rem;
-      animation: marquee 22s linear infinite;
-      width: max-content;
-    }
-    @keyframes marquee {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
-    .marquee-item {
-      font-size: var(--type-xs);
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink-subtle);
-      white-space: nowrap;
-      display: flex;
-      align-items: center;
-      gap: 3rem;
-    }
-    .marquee-item::after {
-      content: '·';
-      color: var(--rule);
-    }
-
     /* ── WORK ── */
-    #work { background: var(--surface); }
+    #work { background: var(--surface); padding-top: var(--space-lg); }
 
     .section-header {
       display: flex;
@@ -945,12 +912,11 @@
         transition-duration: 0.001ms !important;
         scroll-behavior: auto !important;
       }
-      .fade-up, .hero-eyebrow, .hero-desc, .hero-actions, .hero-facts, .hero-mosaic {
+      .fade-up, .hero-eyebrow, .hero-role, .hero-desc, .hero-actions, .hero-facts, .hero-mosaic {
         opacity: 1 !important;
         transform: none !important;
       }
       .word-reveal span { transform: none !important; opacity: 1 !important; }
-      .marquee-track { animation: none !important; }
       .hero-eyebrow-dot { animation: none !important; }
       .cursor-dot, .cursor-ring { display: none !important; }
     }
@@ -985,11 +951,131 @@
       section { padding: 4rem 0; }
       #hero { padding-top: calc(4rem + 4rem); padding-bottom: 4rem; }
     }
+
+    /* ── HERO ROLE LINE (the placing facts) ── */
+    .hero-role {
+      font-size: var(--type-sm);
+      line-height: 1.6;
+      color: var(--ink-muted);
+      max-width: 480px;
+      margin-bottom: 1rem;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .hero-role.in { opacity: 1; transform: none; }
+    .hero-role strong { color: var(--ink); font-weight: 500; }
+
+    .nav-resume {
+      color: var(--ink) !important;
+      font-weight: 500;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+    }
+
+    /* ── SCOPE ── */
+    #scope {
+      background: var(--surface-alt);
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      padding: var(--space-md) 0;
+    }
+    .scope-inner { max-width: 760px; }
+    .scope-lead {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: var(--type-lg);
+      line-height: 1.4;
+      color: var(--ink);
+      margin: 0.75rem 0 1rem;
+    }
+    .scope-body {
+      font-size: var(--type-base);
+      line-height: 1.8;
+      color: var(--ink-muted);
+    }
+
+    /* ── EXPERIENCE ── */
+    #experience { background: var(--surface); }
+    .cv { border-top: 1px solid var(--rule); }
+    .cv-row {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 1.5rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .cv-when {
+      font-size: var(--type-xs);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-subtle);
+      padding-top: 0.35rem;
+      white-space: nowrap;
+    }
+    .cv-what h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: var(--type-lg);
+      font-weight: 400;
+      line-height: 1.3;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+    .cv-org {
+      font-family: 'Inter', sans-serif;
+      font-size: var(--type-sm);
+      color: var(--ink-muted);
+      display: inline-block;
+    }
+    .cv-org::before { content: '\00b7'; margin: 0 0.5rem; color: var(--rule); }
+    .cv-note { font-size: var(--type-sm); line-height: 1.7; color: var(--ink-muted); }
+    .cv-extra {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem 3rem;
+      margin-top: 2.5rem;
+    }
+    .cv-col h4 {
+      font-size: var(--type-xs);
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-subtle);
+      margin-bottom: 1rem;
+    }
+    .cv-col p { margin-bottom: 0.85rem; font-size: var(--type-sm); line-height: 1.5; }
+    .cv-col p strong { display: block; font-weight: 500; color: var(--ink); }
+    .cv-col p span { color: var(--ink-muted); }
+
+    /* ── CONTACT CRITERIA ── */
+    .contact-criteria {
+      font-size: var(--type-sm);
+      line-height: 1.75;
+      max-width: 640px;
+      margin: -0.5rem 0 2rem;
+      opacity: 0.78;
+    }
+    .contact-criteria .ck {
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: var(--type-xs);
+      margin-right: 0.5rem;
+      opacity: 0.85;
+    }
+
+    @media (max-width: 760px) {
+      .cv-row { grid-template-columns: 1fr; gap: 0.35rem; }
+      .cv-when { padding-top: 0; }
+      .cv-extra { grid-template-columns: 1fr; }
+      .cv-org { display: block; }
+      .cv-org::before { content: none; }
+    }
   </style>
   <noscript>
     <style>
       #page-load { display: none !important; }
-      .fade-up, .hero-eyebrow, .hero-desc, .hero-actions, .hero-facts, .hero-mosaic {
+      .fade-up, .hero-eyebrow, .hero-role, .hero-desc, .hero-actions, .hero-facts, .hero-mosaic {
         opacity: 1 !important;
         transform: none !important;
       }
@@ -1021,8 +1107,9 @@
     <a href="#hero" class="nav-logo">Denise Barrett</a>
     <ul class="nav-links">
       <li><a href="#work">Work</a></li>
-      <li><a href="#approach">Approach</a></li>
+      <li><a href="#experience">Experience</a></li>
       <li><a href="#about">About</a></li>
+      <li><a class="nav-resume" href="img/denise-barrett-resume.pdf" download>Resume</a></li>
     </ul>
     <a href="#contact" class="nav-cta">Let's talk</a>
   </nav>
@@ -1041,25 +1128,30 @@
             I design for<br>
             <em>durability</em>.
           </h1>
+          <p class="hero-role">Senior Product Designer at <strong>Keap, a Thryv company</strong> &middot; design lead for two development teams &middot; platform serving 100K+ small businesses</p>
           <p class="hero-desc">
-            Product designer and leader, ten years in B2B SaaS platforms serving 100K+ small businesses. Most fragmentation is a surface problem, not a foundation problem — so I unify the surface and protect what’s underneath.
+            I consolidated seven form builders into one system and shipped the three features users ranked highest. Most fragmentation is a surface problem, not a foundation problem — so I unify the surface and protect what’s underneath.
           </p>
           <div class="hero-actions">
             <a href="#work" class="btn-primary">
               View selected work
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
-            <a href="#contact" class="btn-ghost">
-              Get in touch
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <a href="img/denise-barrett-resume.pdf" class="btn-ghost" download>
+              Resume
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v8M4 7.5L7 10.5 10 7.5M2.5 12h9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/deniseb106/" target="_blank" rel="noopener" class="btn-ghost">
+              LinkedIn
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5.5v5.5M3 3v.5M6.5 11V7.75C6.5 6.78 7.28 6 8.25 6S10 6.78 10 7.75V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
             </a>
           </div>
         </div>
 
         <a class="hero-mosaic" href="#work" aria-label="View selected work">
-          <span class="mosaic-card mc-1"><img src="img/cover-form-unification.svg" alt="" width="800" height="500" /></span>
-          <span class="mosaic-card mc-2"><img src="img/cover-branding-center.svg" alt="" width="800" height="500" /></span>
-          <span class="mosaic-card mc-3"><img src="img/cover-business-listing.svg" alt="" width="800" height="500" /></span>
+          <span class="mosaic-card mc-1"><img src="img/real-fu-builder.jpg" alt="" width="1440" height="720" /></span>
+          <span class="mosaic-card mc-2"><img src="img/real-bc-settings.jpg" alt="" width="1109" height="700" /></span>
+          <span class="mosaic-card mc-3"><img src="img/real-bl-listings.jpg" alt="" width="1280" height="800" /></span>
         </a>
       </div>
       <div class="hero-facts">
@@ -1079,29 +1171,16 @@
     </div>
   </section>
 
-  <!-- MARQUEE -->
-  <div class="marquee-strip" aria-hidden="true">
-    <div class="marquee-track">
-      <span class="marquee-item">Systems thinking</span>
-      <span class="marquee-item">Platform design</span>
-      <span class="marquee-item">AI as a design material</span>
-      <span class="marquee-item">Vendor-agnostic architecture</span>
-      <span class="marquee-item">Research-led prioritisation</span>
-      <span class="marquee-item">Multi-surface consistency</span>
-      <span class="marquee-item">Design systems</span>
-      <span class="marquee-item">Cross-functional influence</span>
-      <span class="marquee-item">Prototyping with real APIs</span>
-      <span class="marquee-item">Systems thinking</span>
-      <span class="marquee-item">Platform design</span>
-      <span class="marquee-item">AI as a design material</span>
-      <span class="marquee-item">Vendor-agnostic architecture</span>
-      <span class="marquee-item">Research-led prioritisation</span>
-      <span class="marquee-item">Multi-surface consistency</span>
-      <span class="marquee-item">Design systems</span>
-      <span class="marquee-item">Cross-functional influence</span>
-      <span class="marquee-item">Prototyping with real APIs</span>
+  <!-- SCOPE -->
+  <section id="scope">
+    <div class="container">
+      <div class="scope-inner fade-up">
+        <div class="section-label">Scope</div>
+        <p class="scope-lead">My title says Senior. The work is platform scope &mdash; and that is the job I am looking for next.</p>
+        <p class="scope-body">I lead design for two development teams. I was the sole designer end to end on a seven-product consolidation: I framed it, ran the research, designed it and won the roadmap argument. I carried one brand definition across four surfaces and sixteen dependent teams I have no authority over. I took a Kano study to leadership and the roadmap changed. I backed engineering&rsquo;s slower architecture and it is the reason the system still holds. I run cross-team workshops with PMs, tech leads and engineers, and I mentor a junior designer. The three case studies below are the evidence.</p>
+      </div>
     </div>
-  </div>
+  </section>
 
   <!-- WORK -->
   <section id="work">
@@ -1117,32 +1196,81 @@
       <div class="work-grid">
 
         <a class="case-card featured fade-up" href="case-form-unification.html" aria-label="Read the Form Unification case study">
-          <div class="case-thumb-wrap"><div class="case-thumb thumb-crm"><img class="case-cover" src="img/cover-form-unification.svg" alt="Form builder interface with a four-step progress indicator, field palette, canvas and live preview" loading="lazy" width="800" height="500" /></div></div>
-          <div class="case-content"><div class="case-meta"><span class="case-tag">Systems · Research-led prioritisation</span><span class="case-year">2024–2026</span></div>
+          <div class="case-thumb-wrap"><div class="case-thumb thumb-crm"><img class="case-cover" src="img/real-fu-builder.jpg" alt="The unified form builder: a four-step Set up, Build, Settings, Publish indicator, use-case checkboxes and a live preview panel" loading="lazy" width="1440" height="720" /></div></div>
+          <div class="case-content"><div class="case-meta"><span class="case-tag">Keap, a Thryv company · Sole designer</span><span class="case-year">2024–2026</span></div>
           <h3>Seven builders, one system</h3>
-          <p class="case-desc">Seven form builders doing one job, and no single owner — so I took it on. I was the only designer on the initiative: I framed it, ran the research, designed it and sold it. When my Kano study contradicted the plan, I took it to leadership and changed the roadmap.</p>
+          <p class="case-desc">Seven form builders doing one job, and no single owner — so I took it on, as the only designer on the initiative. I argued down the assumed rebuild by showing the data models were sound, connected six years of orphaned research, and reordered the roadmap with a Kano study. All three top-ranked features shipped.</p>
           <div class="case-outcomes"><div class="outcome"><span class="outcome-val">3 of 3</span><span class="outcome-label">Top-ranked features I shipped</span></div><div class="outcome"><span class="outcome-val">7→1</span><span class="outcome-label">Builders consolidated in my design</span></div><div class="outcome"><span class="outcome-val">Roadmap</span><span class="outcome-label">I changed it with research</span></div></div>
           <div class="case-arrow">Read case study <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
         </a>
 
         <a class="case-card fade-up" href="case-branding-center.html">
-          <div class="case-thumb-wrap"><div class="case-thumb thumb-ds"><img class="case-cover" src="img/cover-branding-center.svg" alt="Branding Center interface showing logo slots with one marked primary, a brand colour palette and a font list" loading="lazy" width="800" height="500" /></div></div>
-          <div class="case-meta"><span class="case-tag">Platform systems · Multi-surface</span><span class="case-year">2023–2026</span></div>
+          <div class="case-thumb-wrap"><div class="case-thumb thumb-ds"><img class="case-cover" src="img/real-bc-settings.jpg" alt="The Branding Center: a grid of eight logo variants with the first badged Primary, above a palette of brand colours" loading="lazy" width="1109" height="700" /></div></div>
+          <div class="case-meta"><span class="case-tag">Keap, a Thryv company · Lead designer</span><span class="case-year">2023–2026</span></div>
           <h3>One definition, every surface</h3>
-          <p class="case-desc">A brand lived in a document kept outside the product, so a logo change became a scavenger hunt. I replaced it with one definition the system reads from, wrote the three rules that made it hold, and won the slower architecture over the quick fix that would not have scaled.</p>
+          <p class="case-desc">A brand lived in a document kept outside the product, so one logo change became a scavenger hunt. I replaced it with a single definition the system reads from, wrote the three rules that made it hold across sixteen dependent teams, and won the slower architecture on a design argument. Three releases shipped.</p>
           <div class="case-outcomes"><div class="outcome"><span class="outcome-val">4</span><span class="outcome-label">Surfaces I unified</span></div><div class="outcome"><span class="outcome-val">16</span><span class="outcome-label">Dependent teams I designed across</span></div><div class="outcome"><span class="outcome-val">3</span><span class="outcome-label">Releases shipped</span></div></div>
           <div class="case-arrow">Read case study <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </a>
 
         <a class="case-card fade-up" href="case-business-listing.html">
-          <div class="case-thumb-wrap"><div class="case-thumb thumb-ai"><img class="case-cover" src="img/cover-business-listing.svg" alt="Listings management interface showing a profile health score and directory connection statuses" loading="lazy" width="800" height="500" /></div></div>
-          <div class="case-meta"><span class="case-tag">Platform · Vendor migration · AI</span><span class="case-year">2026 · In flight</span></div>
+          <div class="case-thumb-wrap"><div class="case-thumb thumb-ai"><img class="case-cover" src="img/real-bl-listings.jpg" alt="Listings Management: connection status for each directory, with profile completion and per-listing actions" loading="lazy" width="1280" height="800" /></div></div>
+          <div class="case-meta"><span class="case-tag">Keap, a Thryv company · Design &amp; research lead</span><span class="case-year">2026 · In flight</span></div>
           <h3>One UX, two possible backends</h3>
-          <p class="case-desc">Design and research lead on a platform-wide listings vendor migration. The vendor choice was not mine, so I made a different one — I specified an abstraction layer so the frontend survives either outcome, set the usability bar any vendor has to clear, and argued an AI interaction model into the procurement scorecard.</p>
+          <p class="case-desc">Design and research lead on a platform-wide listings migration across 160K locations. The vendor choice was not mine, so I made a different one: an abstraction layer that holds one UX over either backend, a usability bar built from three studies, and an AI approve-or-decline model I argued into the procurement scorecard.</p>
           <div class="case-outcomes"><div class="outcome"><span class="outcome-val">1 UX</span><span class="outcome-label">I made it vendor-proof</span></div><div class="outcome"><span class="outcome-val">3→1</span><span class="outcome-label">Studies I turned into one bar</span></div><div class="outcome"><span class="outcome-val">160K</span><span class="outcome-label">Locations in scope</span></div></div>
           <div class="case-arrow">Read case study <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </a>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div>
+          <div class="section-label">Background</div>
+          <h2>Experience</h2>
+        </div>
+        <a href="img/denise-barrett-resume.pdf" class="section-link" download>Download resume &rarr;</a>
+      </div>
+      <div class="cv fade-up">
+        <div class="cv-row">
+          <div class="cv-when">2022 &mdash; Present</div>
+          <div class="cv-what">
+            <h3>Senior Product Designer <span class="cv-org">Keap, a Thryv company</span></h3>
+            <p class="cv-note">Platform design across forms, branding, listings and AI for a sales-and-marketing platform serving 100K+ small businesses. Design lead for two development teams.</p>
+          </div>
+        </div>
+        <div class="cv-row">
+          <div class="cv-when">2020 &mdash; 2022</div>
+          <div class="cv-what">
+            <h3>Senior UX/UI Designer <span class="cv-org">Blue Raster</span></h3>
+            <p class="cv-note">Data visualisation and geospatial products for government agencies and enterprise clients, from research through implementation.</p>
+          </div>
+        </div>
+        <div class="cv-row">
+          <div class="cv-when">2017 &mdash; 2020</div>
+          <div class="cv-what">
+            <h3>Product Designer <span class="cv-org">Allego</span></h3>
+            <p class="cv-note">Sales-enablement tools for an enterprise learning platform &mdash; where I built my enterprise UX and research practice.</p>
+          </div>
+        </div>
+      </div>
+      <div class="cv-extra fade-up">
+        <div class="cv-col">
+          <h4>Education</h4>
+          <p><strong>UX Management</strong><span>Nielsen Norman Group</span></p>
+          <p><strong>MFA, Visual Communication Design</strong><span>Rochester Institute of Technology &middot; 2014&ndash;2016</span></p>
+          <p><strong>BA, Graphic Design</strong><span>University of Shanghai for Science and Technology</span></p>
+        </div>
+        <div class="cv-col">
+          <h4>Awards</h4>
+          <p><strong>Esri Ocean Storymap Contest</strong><span>First place &middot; 2021</span></p>
+          <p><strong>CGDA Visual Communication Design</strong><span>Excellence award &middot; 2016</span></p>
+        </div>
       </div>
     </div>
   </section>
@@ -1274,6 +1402,7 @@
       <div class="section-label" style="margin-bottom:1rem;">Contact</div>
       <h2 style="margin-bottom:1rem;">Let’s talk about<br>the system you’re building</h2>
       <p class="contact-sub">If your platform has drifted into a dozen versions of the same thing, that’s the work I do best. I’d love to hear about it.</p>
+      <p class="contact-criteria"><span class="ck">Looking for</span> Platform, design systems or AI product work at a B2B SaaS company &middot; Remote (US) &middot; Happy to discuss Senior-titled roles that carry platform scope.</p>
       <div class="contact-actions">
         <a href="mailto:denisexue106@gmail.com" class="btn-light">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4h12v8H2V4zm0 0l6 5 6-5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1313,7 +1442,7 @@
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     function revealHero() {
-      ['.hero-eyebrow', '.hero-desc', '.hero-actions', '.hero-facts', '.hero-mosaic']
+      ['.hero-eyebrow', '.hero-role', '.hero-desc', '.hero-actions', '.hero-facts', '.hero-mosaic']
         .forEach(sel => document.querySelector(sel)?.classList.add('in'));
     }
     function revealAll() {
