@@ -1354,10 +1354,11 @@
     // moment the dark hero clears it. Measured off the live rect so late-loading images
     // that change the hero's height cannot strand it on the wrong theme.
     const nav = document.getElementById('nav');
-    const heroEl = document.getElementById('hero');
     function updateNav() {
-      const past = heroEl ? heroEl.getBoundingClientRect().bottom <= 72 : window.scrollY > 20;
-      nav.classList.toggle('scrolled', past);
+      // Transparent only while the page is at rest at the top, where the nav reads as
+      // part of the full-bleed hero. The moment anything scrolls it takes the solid
+      // light treatment, otherwise hero text runs underneath it and collides.
+      nav.classList.toggle('scrolled', window.scrollY > 24);
     }
     window.addEventListener('scroll', updateNav, { passive: true });
     window.addEventListener('resize', updateNav);
