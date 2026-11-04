@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Denise Barrett · Product Designer and Leader</title>
-  <meta name="description" content="Denise Barrett: product designer and leader, ten years in B2B SaaS platforms, MFA from Rochester Institute of Technology. Currently at Keap, acquired by Thryv. Systems thinking, AI product design and cross-team collaboration. Remote (US), open to new roles." />
+  <meta name="description" content="Denise Barrett: product designer and leader, 10+ years in B2B SaaS platforms, MFA from Rochester Institute of Technology. Most recently at Keap, acquired by Thryv. Systems thinking, AI product design and cross-team collaboration. Remote (US), open to new roles." />
   <link rel="canonical" href="https://dbyxdesign.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://dbyxdesign.com/" />
   <meta property="og:title" content="Denise Barrett · Product Designer and Leader" />
-  <meta property="og:description" content="I design for durability. Most fragmentation is a surface problem, not a foundation problem. I unify the surface, protect what's underneath, and leave a system the next team can build on." />
+  <meta property="og:description" content="Design strategy, from the problem up. Most fragmentation is a surface problem, not a foundation problem. I unify the surface, protect what's underneath, and leave a system the next team can build on." />
   <meta property="og:image" content="https://dbyxdesign.com/img/og-card.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -28,8 +28,7 @@
     "url": "https://dbyxdesign.com/",
     "email": "mailto:denisexue106@gmail.com",
     "sameAs": ["https://www.linkedin.com/in/deniseb106/"],
-    "description": "Product designer and leader with ten years in B2B SaaS platform design and an MFA from Rochester Institute of Technology. Currently at Keap, acquired by Thryv. Open to new roles, remote in the US.",
-    "worksFor": { "@type": "Organization", "name": "Keap, acquired by Thryv" },
+    "description": "Product designer and leader with 10+ years in B2B SaaS platform design and an MFA from Rochester Institute of Technology. Most recently at Keap, acquired by Thryv. Open to new roles, remote in the US.",
     "alumniOf": [{ "@type": "CollegeOrUniversity", "name": "Rochester Institute of Technology" }],
     "knowsAbout": ["Product Design","Design Systems","Platform Design","Systems Thinking","UX Research","AI Product Design","Figma","B2B SaaS","Information Architecture"]
   }
@@ -52,7 +51,7 @@
       --rule: #e3e3ea;
       --rule-strong: #c9c9d4;
 
-      /* ── THE ONE COLOUR ── */
+      /* ── THE ONE Color ── */
       --accent: #4f46e5;
       --accent-deep: #3a32c0;
       --accent-light: #8b84ff;
@@ -61,6 +60,7 @@
       /* ── DARK SURFACES ── */
       --d-bg: #0b0b0f;
       --d-bg-2: #13131b;
+      --d-bg-3: #1b1b24;    /* hero stat cards, readable as a card against --d-bg */
       --d-ink: #ffffff;
       --d-muted: rgba(255,255,255,0.62);
       --d-subtle: rgba(255,255,255,0.52);   /* 5.3:1 on --d-bg */
@@ -76,7 +76,10 @@
       --type-lg: 1.375rem;
       --type-xl: 2rem;
       --type-2xl: clamp(2.2rem, 5vw, 4rem);
-      --type-3xl: clamp(3.1rem, 8.6vw, 7.4rem);
+      /* Sized so "from the problem up." holds one line: it is 8.96em wide and the hero
+         column stops growing at 605px past 1180px. Any larger and the line wraps, and the
+         full stop, which is its own animated word, drops onto a line by itself. */
+      --type-3xl: clamp(2.2rem, 5vw, 4rem);
 
       --space-xs: 0.5rem;
       --space-sm: 1rem;
@@ -251,9 +254,25 @@
       background: radial-gradient(circle, rgba(79,70,229,0.34) 0%, rgba(79,70,229,0) 68%);
       filter: blur(10px);
     }
+    /* Film grain over the top of the hero. feTurbulence as a data URI, so there is no
+       extra request and nothing to go soft on a 2x screen; feColorMatrix drops the
+       saturation, because raw turbulence is RGB noise and reads as JPEG artefacting.
+       Blended normally rather than soft-light: against a backdrop this close to black,
+       soft-light has almost nothing to work with and the grain disappears. Masked out
+       by 76% so the hero is flat black again where it meets the stats band. */
+    /* Film grain over the top of the hero. feTurbulence as a data URI, so there is no
+       extra request and nothing to go soft on a 2x screen. The color matrix paints the
+       grain white and keeps the turbulence in the alpha channel, then feComponentTransfer
+       stretches that alpha: against a backdrop this close to black, flat grey noise only
+       lifts the whole surface and no texture survives. Masked out by 76% so the hero is
+       flat black again where it meets the stats band. */
     #hero::after {
-      content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
-      background: var(--d-rule);
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='2.6' intercept='-0.8'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      opacity: 0.1;
+      -webkit-mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,0.72) 40%, rgba(0,0,0,0) 76%);
+      mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,0.72) 40%, rgba(0,0,0,0) 76%);
     }
     #hero .container { position: relative; z-index: 1; }
 
@@ -267,7 +286,7 @@
     #hero h1 {
       font-size: var(--type-3xl);
       letter-spacing: -0.042em;
-      line-height: 0.95;
+      line-height: 1.1;
       margin-bottom: 2.25rem;
       text-wrap: balance;
     }
@@ -277,29 +296,50 @@
       display: inline-block;
     }
 
+    /* The intro steps down three times: the headline, the promise, the range.
+       Each level drops a size and a shade so the eye can stop after any one. */
+    .hero-eyebrow {
+      font-size: var(--type-xs); font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent-light);
+      margin-bottom: 1.1rem;
+      opacity: 0; transform: translateY(16px);
+      transition: opacity 0.7s ease, transform 0.7s var(--ease);
+    }
+    /* Inline rather than a flex item: as a flex item the 22px rule becomes its own
+       line the moment the label wraps, which it does on a phone. */
+    .hero-eyebrow::before {
+      content: ''; display: inline-block; vertical-align: middle;
+      width: 22px; height: 1px; margin-right: 0.6rem;
+      background: var(--accent-light);
+    }
+    .hero-eyebrow.in { opacity: 1; transform: none; }
+
     .hero-desc {
-      font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+      font-size: clamp(1.15rem, 1.6vw, 1.35rem);
       color: var(--d-ink);
       max-width: 34ch;
-      line-height: 1.45;
-      font-weight: 400;
-      margin-bottom: 1.25rem;
+      line-height: 1.35;
+      font-weight: 600;
+      letter-spacing: -0.012em;
+      margin-bottom: 0.9rem;
+      text-wrap: balance;
       opacity: 0; transform: translateY(16px);
       transition: opacity 0.7s ease, transform 0.7s var(--ease);
     }
     .hero-desc.in { opacity: 1; transform: none; }
 
-    .hero-role {
-      font-size: var(--type-sm);
+    .hero-body {
+      font-size: clamp(1rem, 1.2vw, 1.1rem);
       color: var(--d-muted);
       max-width: 48ch;
-      line-height: 1.65;
+      line-height: 1.6;
       margin-bottom: 2.25rem;
+      text-wrap: pretty;
       opacity: 0; transform: translateY(16px);
-      transition: opacity 0.7s ease 0.06s, transform 0.7s var(--ease) 0.06s;
+      transition: opacity 0.7s ease, transform 0.7s var(--ease);
     }
-    .hero-role.in { opacity: 1; transform: none; }
-    .hero-role strong { color: var(--d-ink); font-weight: 600; }
+    .hero-body.in { opacity: 1; transform: none; }
 
     .hero-actions {
       display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center;
@@ -348,43 +388,88 @@
       transform: var(--r);
       transition: transform 0.55s var(--ease), border-color 0.4s;
     }
-    .mosaic-card img { width: 100%; height: auto; }
-    .mc-1 { --r: rotate(-3deg);  left: 0;   top: 14%; z-index: 3; }
-    .mc-2 { --r: rotate(2.5deg); right: 0;  top: 0;   z-index: 2; width: 56%; }
-    .mc-3 { --r: rotate(-1deg);  left: 24%; bottom: 0; z-index: 1; width: 58%; }
+    .mosaic-card img { width: 100%; height: auto; display: block; }
+    /* Same window chrome as the case cards, scaled down so it still reads at this size. */
+    .mosaic-chrome {
+      display: block; height: 16px;
+      background: #eceaf4;
+      border-bottom: 1px solid rgba(11,11,15,0.10);
+      position: relative;
+    }
+    .mosaic-chrome::before {
+      content: ''; position: absolute; left: 7px; top: 50%;
+      width: 4px; height: 4px; margin-top: -2px;
+      border-radius: 50%; background: #c6c3d6;
+      box-shadow: 7px 0 0 #c6c3d6, 14px 0 0 #c6c3d6;
+    }
+    /* mc-1 is the near-square form crop, so it is kept narrower than the two wide shots
+       to stop it running past the bottom of the mosaic. */
+    .mc-1 { --r: rotate(-3deg);  left: 0;   top: 12%;  z-index: 3; width: 50%; }
+    .mc-2 { --r: rotate(2.5deg); right: 0;  top: 0;    z-index: 2; width: 60%; }
+    .mc-3 { --r: rotate(-1deg);  left: 22%; bottom: 0; z-index: 1; width: 62%; }
     .hero-mosaic:hover .mosaic-card { transform: var(--r) translateY(-6px); border-color: var(--accent-light); }
     .hero-mosaic:hover .mc-1 { transform: var(--r) translateY(-12px); }
 
     /* ── HERO STATS ── */
+    /* A row of cards rather than a rule-divided row, so the numbers get room to be large.
+       Four cards, so the grid divides evenly at 4, 2 and 1 columns. */
+    /* Dark the whole way through and continuous with the hero above it, ending on a
+       clean edge against the white of Work. */
+    .hero-stats {
+      position: relative;
+      background: var(--d-bg);
+      color: var(--d-ink);
+      padding: 4.5rem 0 var(--space-lg);
+    }
+    .hero-stats .container { position: relative; z-index: 1; }
+
     .hero-facts {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      margin-top: 5rem;
-      border-top: 1px solid var(--d-rule);
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
       opacity: 0; transform: translateY(16px);
       transition: opacity 0.8s ease, transform 0.8s var(--ease);
     }
     .hero-facts.in { opacity: 1; transform: none; }
-    .stat {
-      padding: 2.25rem 2rem 2.75rem 0;
-      border-right: 1px solid var(--d-rule);
-      display: flex; flex-direction: column; gap: 0.5rem;
+
+    .fact {
+      display: flex; flex-direction: column;
+      padding: 2.1rem 1.8rem 1.9rem;
+      border-radius: 16px;
+      background: var(--d-bg-3);
+      border: 1px solid var(--d-rule);
     }
-    .stat:first-child { padding-left: 0; }
-    .stat:not(:first-child) { padding-left: 2rem; }
-    .stat:last-child { border-right: none; }
+
     .stat-num {
       font-family: var(--font-display);
-      font-size: clamp(2.4rem, 4.6vw, 3.6rem);
+      font-size: clamp(2.5rem, 4.4vw, 3.5rem);
       font-weight: 800;
-      letter-spacing: -0.04em;
-      line-height: 1;
+      letter-spacing: -0.045em;
+      line-height: 0.95;
       color: var(--accent-light);
+      margin-bottom: 0.7rem;
     }
+
     .stat-label {
-      font-size: var(--type-xs);
+      font-family: var(--font-display);
+      font-size: 1.05rem; font-weight: 700;
+      letter-spacing: -0.022em; line-height: 1.25;
+      color: var(--d-ink);
+    }
+    /* Reserve two lines so the rule and the supporting line start level across the row,
+       even at widths where one label wraps and the others do not. */
+    .fact .stat-label { min-height: 2.5em; }
+
+    .stat-rule {
+      display: block; width: 36px; height: 1px;
+      background: rgba(255,255,255,0.45);
+      margin: 1.05rem 0;
+    }
+
+    .stat-sub {
+      font-size: var(--type-sm);
+      line-height: 1.5;
       color: var(--d-subtle);
-      line-height: 1.55;
-      max-width: 26ch;
+      max-width: 30ch;
     }
 
     /* ── SECTION HEADERS ── */
@@ -451,20 +536,59 @@
       align-items: stretch;
     }
 
-    .case-thumb-wrap { overflow: hidden; background: var(--surface-alt); }
+    /* The screenshots are light product UI, so they vanish on a white card. Each one sits
+       on a dark stage inside a browser-style window instead: the frame gives the shot an
+       edge, and the window runs off the bottom of the stage so the crop reads as deliberate
+       rather than as an image that happened not to fit. */
+    .case-thumb-wrap { overflow: hidden; background: var(--d-bg); }
     .case-thumb {
       height: 100%;
       overflow: hidden;
       position: relative;
-      background: linear-gradient(135deg, var(--surface-alt) 0%, var(--accent-wash) 100%);
+      display: flex; align-items: flex-end;
+      padding: 1.6rem 1.6rem 0;
+      background:
+        radial-gradient(90% 80% at 22% 0%, rgba(79,70,229,0.42) 0%, rgba(79,70,229,0) 68%),
+        linear-gradient(160deg, #191932 0%, var(--d-bg) 70%);
+    }
+    .case-shot {
+      position: relative;
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      border-radius: 9px 9px 0 0;
+      overflow: hidden;
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-bottom: 0;
+      box-shadow: 0 26px 55px rgba(0,0,0,0.55);
+      transition: transform 0.55s var(--ease), box-shadow 0.55s var(--ease);
+    }
+    /* Window chrome, drawn rather than screenshotted, so every card gets the same one. */
+    .case-chrome {
+      flex: none; height: 24px;
+      background: #eceaf4;
+      border-bottom: 1px solid rgba(11,11,15,0.09);
+      position: relative;
+    }
+    .case-chrome::before {
+      content: ''; position: absolute; left: 11px; top: 50%;
+      width: 7px; height: 7px; margin-top: -3.5px;
+      border-radius: 50%; background: #cfccdd;
+      box-shadow: 12px 0 0 #cfccdd, 24px 0 0 #cfccdd;
     }
     .case-cover {
-      width: 100%; height: 100%; object-fit: cover; object-position: top left;
-      transition: transform 0.75s var(--ease), filter 0.5s ease;
+      flex: 1 1 auto; min-height: 0;
+      width: 100%; object-fit: cover; object-position: top center;
     }
-    .case-card:hover .case-cover { transform: scale(1.045); }
+    .case-card:hover .case-shot {
+      transform: translateY(-7px);
+      box-shadow: 0 36px 70px rgba(0,0,0,0.62);
+    }
     .case-card:not(.featured) .case-thumb { aspect-ratio: 16 / 9; }
-    .case-card.featured .case-thumb { min-height: 100%; }
+    /* The featured thumb is taken out of flow so the screenshot cannot stretch the row:
+       the height of the featured card is set by its copy column, as it was before. */
+    .case-card.featured .case-thumb-wrap { position: relative; }
+    .case-card.featured .case-thumb { position: absolute; inset: 0; }
 
     .case-content, .case-card:not(.featured) > :not(.case-thumb-wrap) {
       padding-left: 2rem; padding-right: 2rem;
@@ -803,7 +927,11 @@
       transition: opacity 0.75s ease, transform 0.75s var(--ease);
     }
     .fade-up.visible { opacity: 1; transform: none; }
-    .word-reveal { display: inline-block; overflow: hidden; vertical-align: bottom; }
+    /* The clip is what hides each word below its line before it slides up, but at the
+       hero's 0.95 line height it also cut the descenders off g, y and the comma. The padding
+       makes room for them and the negative margin gives it back, so the line box is unchanged. */
+    .word-reveal { display: inline-block; overflow: hidden; vertical-align: bottom;
+      padding-bottom: 0.15em; margin-bottom: -0.15em; }
     .word-reveal span { display: inline-block; transform: translateY(105%); opacity: 0; }
 
     /* ── FOCUS ── */
@@ -821,8 +949,13 @@
       :root { --space-xl: 5.5rem; }
       .hero-inner { grid-template-columns: 1fr; gap: 3.5rem; }
       .hero-mosaic { max-width: 560px; aspect-ratio: 1 / 0.8; }
+      /* Four columns would leave about 200px a card, which the numbers overrun. */
+      .hero-facts { grid-template-columns: repeat(2, 1fr); }
       .case-card.featured { grid-template-columns: 1fr; }
-      .case-card.featured .case-thumb { aspect-ratio: 16 / 8; min-height: 0; }
+      /* Stacked, so the thumb sets its own height again and must come back into flow. */
+      .case-card.featured .case-thumb {
+        position: static; aspect-ratio: 16 / 8; min-height: 0;
+      }
       .about-grid { grid-template-columns: 1fr; gap: 3rem; }
     }
     @media (max-width: 1080px) and (min-width: 861px) {
@@ -835,10 +968,7 @@
       .nav-links { gap: 1.1rem; margin-right: 1.25rem; }
       .nav-links a { font-size: 0.8rem; }
       .nav-logo { font-size: 0.95rem; }
-      .hero-facts { grid-template-columns: 1fr; }
-      .stat { border-right: none; border-bottom: 1px solid var(--d-rule); padding: 1.5rem 0 !important; }
-      .stat:last-child { border-bottom: none; }
-      .stat-label { max-width: none; }
+      .stat-sub { max-width: none; }
     }
     @media (max-width: 860px) {
       :root { --space-xl: 4.5rem; }
@@ -862,8 +992,20 @@
       .container { padding: 0 1.25rem; }
       nav { padding: 0 1rem; }
       #hero { padding-top: calc(var(--nav-h) + 3rem); }
+      /* One up. */
+      .hero-facts { grid-template-columns: 1fr; }
+      .fact { padding: 1.7rem 1.45rem 1.55rem; }
+      .fact .stat-label { min-height: 0; }
       .section-header { margin-bottom: 2.5rem; }
       .case-content, .case-card:not(.featured) > :not(.case-thumb-wrap) { padding-left: 1.35rem; padding-right: 1.35rem; }
+      /* The stage and its chrome are sized for a desktop card. At phone width they would
+         eat the screenshot, so both shrink and the window keeps the room. */
+      .case-thumb { padding: 0.9rem 0.9rem 0; }
+      .case-chrome { height: 17px; }
+      .case-chrome::before {
+        left: 8px; width: 5px; height: 5px; margin-top: -2.5px;
+        box-shadow: 9px 0 0 #cfccdd, 18px 0 0 #cfccdd;
+      }
       .approach-card { padding: 1.75rem 1.35rem 2rem; }
       footer { flex-direction: column; align-items: flex-start; }
     }
@@ -880,7 +1022,7 @@
         transition-duration: 0.001ms !important;
         scroll-behavior: auto !important;
       }
-      .fade-up, .hero-role, .hero-desc, .hero-actions, .hero-facts, .hero-mosaic {
+      .fade-up, .hero-eyebrow, .hero-desc, .hero-body, .hero-actions, .hero-facts, .hero-mosaic {
         opacity: 1 !important;
         transform: none !important;
       }
@@ -891,7 +1033,7 @@
   <noscript>
     <style>
       #page-load { display: none !important; }
-      .fade-up, .hero-role, .hero-desc, .hero-actions, .hero-facts, .hero-mosaic {
+      .fade-up, .hero-eyebrow, .hero-desc, .hero-body, .hero-actions, .hero-facts, .hero-mosaic {
         opacity: 1 !important;
         transform: none !important;
       }
@@ -936,12 +1078,13 @@
     <div class="container">
       <div class="hero-inner">
         <div class="hero-left">
+          <p class="hero-eyebrow">Platform, design systems and AI</p>
           <h1>
-            I design for<br>
-            <em>durability</em>.
+            Design strategy,<br>
+            <em>from the problem up</em>.
           </h1>
-          <p class="hero-desc">I design in systems, treat AI as a material rather than a feature, and build both with the teams who own the pieces.</p>
-          <p class="hero-role">Now at <strong>Keap, acquired by Thryv</strong>, setting design direction across forms, branding, listings and AI for two development teams.</p>
+          <p class="hero-desc">I untangle complex products and build systems that last.</p>
+          <p class="hero-body">I work across research, design and AI, and mentor the designers around me. I dig in until I understand what is really going on, then design from there.</p>
           <div class="hero-actions">
             <a href="#work" class="btn-primary">
               View selected work
@@ -959,24 +1102,42 @@
         </div>
 
         <a class="hero-mosaic" href="#work" aria-label="View selected work">
-          <span class="mosaic-card mc-1"><img src="img/real-fu-builder.jpg" alt="" width="1440" height="720" /></span>
-          <span class="mosaic-card mc-2"><img src="img/real-bc-settings.jpg" alt="" width="1109" height="700" /></span>
-          <span class="mosaic-card mc-3"><img src="img/real-bl-listings.jpg" alt="" width="1280" height="800" /></span>
+          <span class="mosaic-card mc-1"><span class="mosaic-chrome"></span><img src="img/card-fu-builder.jpg" alt="" width="639" height="524" /></span>
+          <span class="mosaic-card mc-2"><span class="mosaic-chrome"></span><img src="img/card-bc-settings.jpg" alt="" width="896" height="480" /></span>
+          <span class="mosaic-card mc-3"><span class="mosaic-chrome"></span><img src="img/card-bl-listings.jpg" alt="" width="1022" height="545" /></span>
         </a>
       </div>
+    </div>
+  </section>
+
+  <!-- HERO STATS: dark, continuous with the hero, ending on a clean edge against Work. -->
+  <section class="hero-stats">
+    <div class="container">
       <div class="hero-facts">
-          <div class="stat">
-            <span class="stat-num">10</span>
-            <span class="stat-label">Years in product design, mostly platform</span>
-          </div>
-          <div class="stat">
-            <span class="stat-num">100K+</span>
-            <span class="stat-label">Small businesses on the platform I design for</span>
-          </div>
-          <div class="stat">
-            <span class="stat-num">16</span>
-            <span class="stat-label">Dependent teams read from one definition I wrote, none reporting to me</span>
-          </div>
+        <div class="fact">
+          <span class="stat-num">10+</span>
+          <span class="stat-label">Years in design</span>
+          <span class="stat-rule"></span>
+          <span class="stat-sub">Since 2015, across enterprise, startup and design agency.</span>
+        </div>
+        <div class="fact">
+          <span class="stat-num">16</span>
+          <span class="stat-label">Development teams</span>
+          <span class="stat-rule"></span>
+          <span class="stat-sub">Building on systems I designed.</span>
+        </div>
+        <div class="fact">
+          <span class="stat-num">6M</span>
+          <span class="stat-label">Users reached</span>
+          <span class="stat-rule"></span>
+          <span class="stat-sub">Through products and features I launched.</span>
+        </div>
+        <div class="fact">
+          <span class="stat-num">100K</span>
+          <span class="stat-label">Small businesses</span>
+          <span class="stat-rule"></span>
+          <span class="stat-sub">Running on software I helped design.</span>
+        </div>
       </div>
     </div>
   </section>
@@ -995,29 +1156,29 @@
       <div class="work-grid">
 
         <a class="case-card featured fade-up" href="case-form-unification.html" aria-label="Read the Form Unification case study">
-          <div class="case-thumb-wrap"><div class="case-thumb thumb-crm"><img class="case-cover" src="img/real-fu-builder.jpg" alt="The unified form builder: a four-step Set up, Build, Settings, Publish indicator, use-case checkboxes and a live preview panel" loading="lazy" width="1440" height="720" /></div></div>
-          <div class="case-content"><div class="case-meta"><span class="case-tag">Keap, acquired by Thryv · Sole designer</span><span class="case-year">2024 to 2026</span></div>
+          <div class="case-thumb-wrap"><div class="case-thumb thumb-crm"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/card-fu-builder.jpg" alt="The unified form builder: a four-step Set up, Build, Settings, Publish indicator above use-case checkboxes and the form details fields" loading="lazy" width="639" height="524" /></div></div></div>
+          <div class="case-content"><div class="case-meta"><span class="case-tag">Keap, acquired by Thryv · Sole designer</span><span class="case-year">Forms platform · 2024 to 2026</span></div>
           <h3>Seven builders, one system</h3>
-          <p class="case-desc">Seven form builders doing one job, and no single owner. I argued down the assumed full rebuild, then reordered the roadmap with a Kano study. Sole designer on the initiative.</p>
-          <div class="case-outcomes"><div class="outcome"><span class="outcome-val">3 of 3</span><span class="outcome-label">Top-ranked features I shipped</span></div><div class="outcome"><span class="outcome-val">4→1</span><span class="outcome-label">Teams needed to own forms</span></div><div class="outcome"><span class="outcome-val">79%</span><span class="outcome-label">Of the migration moved seamlessly</span></div></div>
+          <p class="case-desc">Seven form builders doing one job, and no single owner. I argued down the assumed full rebuild, then reordered the roadmap with a Kano study.</p>
+          <div class="case-outcomes"><div class="outcome"><span class="outcome-val">12+</span><span class="outcome-label">Months of engineering rebuild I argued down</span></div><div class="outcome"><span class="outcome-val">4→1</span><span class="outcome-label">Teams needed to own forms</span></div><div class="outcome"><span class="outcome-val">79%</span><span class="outcome-label">Of the migration moved with no repeat fixes</span></div></div>
           <div class="case-arrow">Read case study <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
         </a>
 
         <a class="case-card fade-up" href="case-branding-center.html">
-          <div class="case-thumb-wrap"><div class="case-thumb thumb-ds"><img class="case-cover" src="img/real-bc-settings.jpg" alt="The Branding Center: a grid of eight logo variants with the first badged Primary, above a palette of brand colours" loading="lazy" width="1109" height="700" /></div></div>
-          <div class="case-meta"><span class="case-tag">Keap, acquired by Thryv · Lead designer</span><span class="case-year">2023 to 2026</span></div>
+          <div class="case-thumb-wrap"><div class="case-thumb thumb-ds"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/card-bc-settings.jpg" alt="The Branding Center: a grid of eight logo variants with the first badged Primary, above a palette of brand colors" loading="lazy" width="896" height="480" /></div></div></div>
+          <div class="case-meta"><span class="case-tag">Keap, acquired by Thryv · Lead designer</span><span class="case-year">Brand system · 2023 to 2026</span></div>
           <h3>One definition, every surface</h3>
           <p class="case-desc">A brand lived in a document kept outside the product, so one logo change became a scavenger hunt. I replaced it with one definition the system reads from across sixteen teams.</p>
-          <div class="case-outcomes"><div class="outcome"><span class="outcome-val">3:1</span><span class="outcome-label">Usage inverted what discovery predicted</span></div><div class="outcome"><span class="outcome-val">25→15</span><span class="outcome-label">Minutes to build a landing page</span></div><div class="outcome"><span class="outcome-val">+20%</span><span class="outcome-label">Landing page builder adoption</span></div></div>
+          <div class="case-outcomes"><div class="outcome"><span class="outcome-val">16</span><span class="outcome-label">Teams using one brand definition</span></div><div class="outcome"><span class="outcome-val">25→15</span><span class="outcome-label">Minutes to build a landing page</span></div><div class="outcome"><span class="outcome-val">+20%</span><span class="outcome-label">Landing page builder adoption</span></div></div>
           <div class="case-arrow">Read case study <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </a>
 
         <a class="case-card fade-up" href="case-business-listing.html">
-          <div class="case-thumb-wrap"><div class="case-thumb thumb-ai"><img class="case-cover" src="img/real-bl-listings.jpg" alt="Listings Management: connection status for each directory, with profile completion and per-listing actions" loading="lazy" width="1280" height="800" /></div></div>
-          <div class="case-meta"><span class="case-tag">Keap, acquired by Thryv · Design &amp; research lead</span><span class="case-year">2026 · In flight</span></div>
+          <div class="case-thumb-wrap"><div class="case-thumb thumb-ai"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/card-bl-listings.jpg" alt="Listings Management: connection status for each directory, from Connected to Processing to Issue Found, with per-listing actions" loading="lazy" width="1022" height="545" /></div></div></div>
+          <div class="case-meta"><span class="case-tag">Keap, acquired by Thryv · Design &amp; research lead</span><span class="case-year">Local listings · 2026</span></div>
           <h3>One UX, two possible backends</h3>
-          <p class="case-desc">The vendor choice was not mine, so I made a different one: an abstraction layer that holds a single UX over either backend, whichever wins.</p>
-          <div class="case-outcomes"><div class="outcome"><span class="outcome-val">1 UX</span><span class="outcome-label">I made it vendor-proof</span></div><div class="outcome"><span class="outcome-val">3→1</span><span class="outcome-label">Studies I turned into one bar</span></div><div class="outcome"><span class="outcome-val">160K</span><span class="outcome-label">Locations in scope</span></div></div>
+          <p class="case-desc">The vendor choice was not mine, so I made a different one: an abstraction layer that holds a single UX over either backend, whichever won.</p>
+          <div class="case-outcomes"><div class="outcome"><span class="outcome-val">1 UX</span><span class="outcome-label">Holds over either vendor</span></div><div class="outcome"><span class="outcome-val">3→1</span><span class="outcome-label">Studies I turned into one bar</span></div><div class="outcome"><span class="outcome-val">160K</span><span class="outcome-label">Locations in scope</span></div></div>
           <div class="case-arrow">Read case study <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </a>
 
@@ -1037,17 +1198,17 @@
       </div>
       <div class="cv fade-up">
         <div class="cv-row">
-          <div class="cv-when">2022 to present</div>
+          <div class="cv-when">2022 to 2026</div>
           <div class="cv-what">
             <h3>Keap, acquired by Thryv <span class="cv-org">Product design &middot; platform</span></h3>
-            <p class="cv-note">All three case studies above sit in this role, alongside design team leadership and mentoring.</p>
+            <p class="cv-note">Led design for two development teams across forms, branding, listings and AI. Sixteen teams use the Branding Center I designed. I also ran the design team meetings and mentored six junior designers.</p>
           </div>
         </div>
         <div class="cv-row">
           <div class="cv-when">2020 to 2022</div>
           <div class="cv-what">
             <h3>Blue Raster <span class="cv-org">UX/UI design &middot; agency</span></h3>
-            <p class="cv-note">Data visualisation and geospatial products for government agencies and enterprise clients, from research through implementation.</p>
+            <p class="cv-note">Data visualization and geospatial products for government agencies and enterprise clients, from research through implementation.</p>
           </div>
         </div>
         <div class="cv-row">
@@ -1125,7 +1286,7 @@
           <p class="about-lead">I design the layer other teams build on, where one decision reaches every team downstream, including the ones I get wrong.</p>
           <div class="about-body">
             <p>That layer fragments quietly. Every team ships its own version of a shared thing, nobody owns the definition, and by the time it is anybody&rsquo;s problem there are seven of them.</p>
-            <p>I lead without needing to own it, and I mentor the same way. I run our design team meetings, share the team management work with the Design Manager, and mentor designers on craft and on the decisions behind it. One of them went from executing handed-down work to owning their own area, which they now run directly rather than through me.</p>
+            <p>I lead without needing to own it, and I mentor the same way. I ran our design team meetings, shared the team management work with the Design Manager, and mentored six junior designers on craft and on the decisions behind it. One of them went from executing handed-down work to owning their own area, which they now run directly rather than through me.</p>
           </div>
         </div>
         <div class="fade-up">
@@ -1148,7 +1309,7 @@
               </div>
             </div>
             <div class="skill-row">
-              <span class="skill-name">Research &amp; prioritisation</span>
+              <span class="skill-name">Research &amp; prioritization</span>
               <div class="skill-tags">
                 <span class="skill-tag">Kano</span>
                 <span class="skill-tag">Usability baselines</span>
@@ -1233,7 +1394,7 @@
 
     // Every hero element that ships at opacity 0 belongs in this list. Anything missing
     // from it stays invisible forever, which is how the eyebrow removal broke the hero once.
-    const HERO_PARTS = ['.hero-desc', '.hero-role', '.hero-actions', '.hero-facts', '.hero-mosaic'];
+    const HERO_PARTS = ['.hero-eyebrow', '.hero-desc', '.hero-body', '.hero-actions', '.hero-facts', '.hero-mosaic'];
 
     function revealHero() {
       HERO_PARTS.forEach(sel => document.querySelector(sel)?.classList.add('in'));
@@ -1294,7 +1455,7 @@
       // Split h1 words into animated spans
       const h1 = document.querySelector('h1');
       const originalHTML = h1.innerHTML;
-      // tokenise preserving <em> and <br>
+      // tokenize preserving <em> and <br>
       const tokens = originalHTML.split(/(<br>|<em>.*?<\/em>)/g);
       let delay = 0.18;
       let rebuilt = '';
@@ -1330,7 +1491,7 @@
       });
 
       // Remaining hero elements, staggered behind the headline.
-      const stagger = { '.hero-desc': 0.15, '.hero-role': 0.24, '.hero-actions': 0.32, '.hero-mosaic': 0.4, '.hero-facts': 0.48 };
+      const stagger = { '.hero-eyebrow': 0.08, '.hero-desc': 0.18, '.hero-body': 0.24, '.hero-actions': 0.3, '.hero-mosaic': 0.38, '.hero-facts': 0.46 };
       HERO_PARTS.forEach(sel => {
         setTimeout(() => document.querySelector(sel)?.classList.add('in'), (delay + stagger[sel]) * 1000);
       });
