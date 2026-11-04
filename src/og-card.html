@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Inter+Tight:wght@700;800&display=block" rel="stylesheet">
+<style>
+  :root {
+    --d-bg: #0b0b0f; --d-bg-3: #1b1b24; --d-ink: #ffffff;
+    --d-muted: rgba(255,255,255,0.62); --d-subtle: rgba(255,255,255,0.52); --d-rule: rgba(255,255,255,0.13);
+    --accent-light: #8b84ff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; background: var(--d-bg); }
+  body {
+    position: relative; color: var(--d-ink);
+    font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased;
+    padding: 60px 72px 56px;
+    display: flex; flex-direction: column;
+  }
+  body::before {
+    content: ''; position: absolute; pointer-events: none;
+    width: 820px; height: 820px; top: -300px; right: -220px;
+    background: radial-gradient(circle, rgba(79,70,229,0.34) 0%, rgba(79,70,229,0) 68%);
+  }
+  .top { position: relative; display: flex; justify-content: space-between; align-items: baseline; }
+  .name { font-family: 'Inter Tight', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: -0.04em; }
+  .domain { font-size: 18px; font-weight: 500; color: var(--d-muted); }
+  .main { position: relative; margin-top: auto; }
+  .eyebrow {
+    font-size: 15px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent-light); margin-bottom: 22px;
+  }
+  .eyebrow::before {
+    content: ''; display: inline-block; vertical-align: middle;
+    width: 22px; height: 1px; margin-right: 10px; background: var(--accent-light);
+  }
+  h1 {
+    font-family: 'Inter Tight', sans-serif; font-weight: 800;
+    font-size: 80px; line-height: 1.04; letter-spacing: -0.042em;
+  }
+  h1 em { font-style: normal; color: var(--accent-light); }
+  .desc { margin-top: 24px; font-size: 25px; font-weight: 500; letter-spacing: -0.012em; color: rgba(255,255,255,0.74); }
+  .stats {
+    position: relative; margin-top: 44px; padding-top: 26px;
+    border-top: 1px solid var(--d-rule);
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+  }
+  .num {
+    display: block; font-family: 'Inter Tight', sans-serif; font-weight: 800;
+    font-size: 44px; line-height: 1; letter-spacing: -0.045em; color: var(--accent-light);
+  }
+  .label {
+    display: block; margin-top: 10px;
+    font-family: 'Inter Tight', sans-serif; font-weight: 700; font-size: 19px; letter-spacing: -0.022em;
+  }
+</style>
+</head>
+<body>
+  <div class="top">
+    <span class="name">Denise Barrett</span>
+    <span class="domain">dbyxdesign.com</span>
+  </div>
+  <div class="main">
+    <p class="eyebrow">Platform, design systems and AI</p>
+    <h1>Design strategy,<br><em>from the problem up</em>.</h1>
+    <p class="desc">I simplify complex products and build systems that scale.</p>
+  </div>
+  <div class="stats">
+    <div><span class="num">10+</span><span class="label">Years in design</span></div>
+    <div><span class="num">16</span><span class="label">Development teams</span></div>
+    <div><span class="num">6M</span><span class="label">Users reached</span></div>
+    <div><span class="num">100K</span><span class="label">Small businesses</span></div>
+  </div>
+</body>
+</html>
