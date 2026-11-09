@@ -22,7 +22,7 @@
 <g font-size="9.5" fill="#6b7280">
 <circle cx="230" cy="244" r="2.4" fill="#4a9a6b"/><text x="240" y="247">Listing stays connected</text>
 <circle cx="230" cy="266" r="2.4" fill="#4a9a6b"/><text x="240" y="269">Data is preserved</text>
-<circle cx="230" cy="288" r="2.4" fill="#4a9a6b"/><text x="240" y="291">Re-enable any time</text>
+<circle cx="230" cy="288" r="2.4" fill="#4a9a6b"/><text x="240" y="291">Turn back on any time</text>
 </g>
 <rect x="226" y="300" width="112" height="1" fill="#eef1f5"/>
 <text x="226" y="316" font-size="9" fill="#9aa2ae">Reversible</text>
@@ -32,7 +32,7 @@
 <g font-size="9.5" fill="#6b7280">
 <circle cx="426" cy="244" r="2.4" fill="#b8574e"/><text x="436" y="247">Listing is removed</text>
 <circle cx="426" cy="266" r="2.4" fill="#b8574e"/><text x="436" y="269">Reviews stop syncing</text>
-<circle cx="426" cy="288" r="2.4" fill="#b8574e"/><text x="436" y="291">Re-verification needed</text>
+<circle cx="426" cy="288" r="2.4" fill="#b8574e"/><text x="436" y="291">Needs verifying again</text>
 </g>
 <rect x="422" y="300" width="112" height="1" fill="#f5eae9"/>
 <text x="422" y="316" font-size="9" fill="#b8574e">Cannot be undone</text>

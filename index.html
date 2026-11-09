@@ -10,12 +10,12 @@
   <meta property="og:url" content="https://dbyxdesign.com/" />
   <meta property="og:title" content="Denise Barrett · Product Designer and Leader" />
   <meta property="og:description" content="Product designer with 10+ years in B2B SaaS. I simplify complex products and build systems that scale, from user research to design systems and AI." />
-  <meta property="og:image" content="https://dbyxdesign.com/img/og-card.png?v=20261104" />
+  <meta property="og:image" content="https://dbyxdesign.com/img/og-card.png?v=20261109" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Denise Barrett. Design strategy, from the problem up. 10+ years in design, 16 development teams, 6M users reached, 100K small businesses." />
+  <meta property="og:image:alt" content="Denise Barrett. Design strategy, from the problem up. 10+ years in design, 16 development teams, 6M users reached, 220K small businesses." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://dbyxdesign.com/img/og-card.png?v=20261104" />
+  <meta name="twitter:image" content="https://dbyxdesign.com/img/og-card.png?v=20261109" />
   <meta name="twitter:title" content="Denise Barrett · Product Designer and Leader" />
   <meta name="twitter:description" content="Product designer with 10+ years in B2B SaaS. I simplify complex products and build systems that scale, from user research to design systems and AI." />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%234f46e5'/%3E%3Ctext x='16' y='23' font-family='Helvetica,Arial,sans-serif' font-weight='700' font-size='18' fill='%23ffffff' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E" />
@@ -209,7 +209,7 @@
     }
     .nav-logo {
       font-family: var(--font-display);
-      font-size: 1.05rem;
+      font-size: 1.4rem;
       font-weight: 700;
       letter-spacing: -0.04em;
       display: block;
@@ -373,22 +373,55 @@
     .btn-ghost:hover { color: var(--d-ink); border-color: var(--accent-light); background: rgba(139,132,255,0.08); }
 
     /* ── HERO MOSAIC ── */
+    /* Three windows, one per case study. The front one plays Thryv AI creating a form in the
+       Forms prototype. Each card links to its own case study. The stack leans toward the
+       pointer, the cards deal in with the hero, then drift slightly at rest. */
     .hero-mosaic {
       position: relative; aspect-ratio: 1 / 0.92; display: block;
       opacity: 0; transform: translateY(26px);
       transition: opacity 0.9s ease, transform 0.9s var(--ease);
     }
     .hero-mosaic.in { opacity: 1; transform: none; }
+    .mosaic-stage {
+      position: absolute; inset: 0;
+      transform: perspective(1300px) rotateX(calc(var(--ty, 0) * -4deg)) rotateY(calc(var(--tx, 0) * 6deg));
+      transition: transform 0.7s var(--ease);
+    }
+    /* a soft indigo light that follows the pointer behind the cards */
+    .mosaic-stage::before {
+      content: ''; position: absolute; inset: -16%; z-index: 0; pointer-events: none;
+      background: radial-gradient(40% 40% at calc(50% + var(--tx, 0) * 24%) calc(50% + var(--ty, 0) * 24%),
+        rgba(79,70,229,0.45), rgba(79,70,229,0) 72%);
+      transition: background 0.6s var(--ease);
+    }
     .mosaic-card {
-      position: absolute; width: 62%; display: block;
+      position: absolute; display: block;
       border-radius: 10px; overflow: hidden;
       background: var(--d-bg-2);
       border: 1px solid var(--d-rule);
       box-shadow: 0 28px 60px rgba(0,0,0,0.5);
-      transform: var(--r);
-      transition: transform 0.55s var(--ease), border-color 0.4s;
+      color: inherit; text-decoration: none;
+      transform: translate(calc(var(--tx, 0) * var(--d) * 1px), calc(var(--ty, 0) * var(--d) * 1px)) var(--r);
+      opacity: 0; translate: 0 34px;
+      transition: transform 0.6s var(--ease), border-color 0.4s, box-shadow 0.5s var(--ease), filter 0.4s ease,
+        opacity 0.7s ease var(--dl), translate 0.95s var(--ease) var(--dl);
     }
+    .hero-mosaic.in .mosaic-card {
+      opacity: 1; translate: 0 0;
+      animation: mosaic-float var(--fd) ease-in-out calc(var(--dl) + 1.2s) infinite;
+    }
+    @keyframes mosaic-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 var(--f); } }
     .mosaic-card img { width: 100%; height: auto; display: block; }
+    .mosaic-card:hover, .mosaic-card:focus-visible {
+      z-index: 5;
+      transform: translate(calc(var(--tx, 0) * var(--d) * 1px), calc(var(--ty, 0) * var(--d) * 1px - 10px)) rotate(0deg) scale(1.04);
+      border-color: var(--accent-light);
+      box-shadow: 0 40px 80px rgba(0,0,0,0.62), 0 0 0 1px rgba(139,132,255,0.4);
+      animation-play-state: paused;
+      outline: none;
+    }
+    .mosaic-stage:has(.mosaic-card:hover) .mosaic-card:not(:hover),
+    .mosaic-stage:has(.mosaic-card:focus-visible) .mosaic-card:not(:focus-visible) { filter: brightness(0.5) saturate(0.7); }
     /* Same window chrome as the case cards, scaled down so it still reads at this size. */
     .mosaic-chrome {
       display: block; height: 16px;
@@ -402,13 +435,37 @@
       border-radius: 50%; background: #c6c3d6;
       box-shadow: 7px 0 0 #c6c3d6, 14px 0 0 #c6c3d6;
     }
-    /* mc-1 is the near-square form crop, so it is kept narrower than the two wide shots
-       to stop it running past the bottom of the mosaic. */
-    .mc-1 { --r: rotate(-3deg);  left: 0;   top: 12%;  z-index: 3; width: 50%; }
-    .mc-2 { --r: rotate(2.5deg); right: 0;  top: 0;    z-index: 2; width: 60%; }
-    .mc-3 { --r: rotate(-1deg);  left: 22%; bottom: 0; z-index: 1; width: 62%; }
-    .hero-mosaic:hover .mosaic-card { transform: var(--r) translateY(-6px); border-color: var(--accent-light); }
-    .hero-mosaic:hover .mc-1 { transform: var(--r) translateY(-12px); }
+    /* the case title, shown when a card is pointed at or focused */
+    .mosaic-label {
+      position: absolute; left: 10px; bottom: 10px; z-index: 2;
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      padding: 0.45rem 0.8rem; border-radius: 100px;
+      background: rgba(11,11,15,0.88); color: #fff;
+      font-size: 0.75rem; font-weight: 600; white-space: nowrap;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+      opacity: 0; transform: translateY(8px);
+      transition: opacity 0.3s ease, transform 0.45s var(--ease);
+    }
+    .mosaic-card:hover .mosaic-label, .mosaic-card:focus-visible .mosaic-label { opacity: 1; transform: none; }
+    .mc-1 .mosaic-chrome { height: 22px; }
+    .mosaic-badge {
+      position: absolute; top: 50%; right: 6px; transform: translateY(-50%);
+      display: inline-flex; align-items: center; gap: 0.32rem;
+      padding: 0.16rem 0.5rem 0.16rem 0.42rem; border-radius: 100px;
+      background: var(--accent); color: #fff; line-height: 1.3;
+      font-size: 0.56rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      box-shadow: 0 3px 10px rgba(79,70,229,0.45);
+    }
+    .mosaic-badge i { width: 5px; height: 5px; border-radius: 50%; background: #fff; animation: badge-pulse 1.8s ease-in-out infinite; }
+    @keyframes badge-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.7); }
+      60% { box-shadow: 0 0 0 6px rgba(255,255,255,0); }
+    }
+    /* The front card plays the AI chat, so it is the largest. The two wide shots sit behind,
+       top and bottom, and each moves less with the pointer than the one in front of it. */
+    .mc-1 { --r: rotate(-2.5deg); --d: 16; --dl: 0.05s; --fd: 6.5s; --f: -8px; left: 0;  top: 20%;  z-index: 3; width: 68%; }
+    .mc-2 { --r: rotate(3deg);    --d: 9;  --dl: 0.2s;  --fd: 7.5s; --f: -6px; right: 0; top: 0;    z-index: 2; width: 60%; }
+    .mc-3 { --r: rotate(-1.5deg); --d: 6;  --dl: 0.32s; --fd: 8.5s; --f: -5px; right: 2%; bottom: 0; z-index: 1; width: 62%; }
 
     /* ── HERO STATS ── */
     /* A row of cards rather than a rule-divided row, so the numbers get room to be large.
@@ -968,7 +1025,7 @@
          Experience and Resume on a phone, so hiding them strands those sections. */
       .nav-links { gap: 1.1rem; margin-right: 1.25rem; }
       .nav-links a { font-size: 0.8rem; }
-      .nav-logo { font-size: 0.95rem; }
+      .nav-logo { font-size: 1.2rem; }
       .stat-sub { max-width: none; }
     }
     @media (max-width: 860px) {
@@ -987,7 +1044,7 @@
       .nav-cta { display: none; }
       .nav-links { gap: 0.75rem; margin-right: 0; }
       .nav-links a { font-size: 0.75rem; }
-      .nav-logo { font-size: 0.85rem; }
+      .nav-logo { font-size: 1rem; }
     }
     @media (max-width: 620px) {
       .container { padding: 0 1.25rem; }
@@ -1029,6 +1086,9 @@
       }
       .word-reveal span { transform: none !important; opacity: 1 !important; }
       .cursor-dot, .cursor-ring { display: none !important; }
+      .mosaic-card { opacity: 1 !important; translate: none !important; animation: none !important; }
+      .mosaic-stage { transform: none !important; }
+      .mosaic-badge i { animation: none !important; }
     }
   </style>
   <noscript>
@@ -1040,6 +1100,7 @@
       }
       .word-reveal span { transform: none !important; opacity: 1 !important; }
       .cursor-dot, .cursor-ring { display: none !important; }
+      .mosaic-card { opacity: 1 !important; translate: none !important; }
     </style>
   </noscript>
 </head>
@@ -1102,11 +1163,13 @@
           </div>
         </div>
 
-        <a class="hero-mosaic" href="#work" aria-label="View selected work">
-          <span class="mosaic-card mc-1"><span class="mosaic-chrome"></span><img src="img/card-fu-proto.jpg" alt="" width="720" height="590" /></span>
-          <span class="mosaic-card mc-2"><span class="mosaic-chrome"></span><img src="img/card-bc-settings.jpg" alt="" width="896" height="480" /></span>
-          <span class="mosaic-card mc-3"><span class="mosaic-chrome"></span><img src="img/card-bl-listings.jpg" alt="" width="1022" height="545" /></span>
-        </a>
+        <div class="hero-mosaic">
+          <div class="mosaic-stage">
+            <a class="mosaic-card mc-1" href="case-form-unification.html" aria-label="Read the Form Unification case study"><span class="mosaic-chrome"><span class="mosaic-badge" aria-hidden="true"><i></i>AI prototype</span></span><img src="img/fu-hero-chat.gif" alt="" width="680" height="590" decoding="async" /><span class="mosaic-label" aria-hidden="true">Seven builders, one system <svg width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+            <a class="mosaic-card mc-2" href="case-branding-center.html" aria-label="Read the Branding Center case study"><span class="mosaic-chrome"></span><img src="img/card-bc-settings.jpg" alt="" width="896" height="480" /><span class="mosaic-label" aria-hidden="true">One definition, every surface <svg width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+            <a class="mosaic-card mc-3" href="case-business-listing.html" aria-label="Read the Business Listing case study"><span class="mosaic-chrome"></span><img src="img/card-bl-listings.jpg" alt="" width="1022" height="545" /><span class="mosaic-label" aria-hidden="true">One UX, two possible backends <svg width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1134,7 +1197,7 @@
           <span class="stat-sub">Through products and features I launched.</span>
         </div>
         <div class="fact">
-          <span class="stat-num">100K</span>
+          <span class="stat-num">220K</span>
           <span class="stat-label">Small businesses</span>
           <span class="stat-rule"></span>
           <span class="stat-sub">Running on software I helped design.</span>
@@ -1175,7 +1238,7 @@
         </a>
 
         <a class="case-card fade-up" href="case-business-listing.html">
-          <div class="case-thumb-wrap"><div class="case-thumb thumb-ai"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/card-bl-listings.jpg" alt="Listings Management: connection status for each directory, from Connected to Processing to Issue Found, with per-listing actions" loading="lazy" width="1022" height="545" /></div></div></div>
+          <div class="case-thumb-wrap"><div class="case-thumb thumb-ai"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/card-bl-listings.jpg" alt="Listings Management: connection status for each directory, from Connected to Processing to Issue Found, with actions for each listing" loading="lazy" width="1022" height="545" /></div></div></div>
           <div class="case-meta"><span class="case-tag">Keap, acquired by Thryv · Design &amp; research lead</span><span class="case-year">Local listings · 2026</span></div>
           <h3>One UX, two possible backends</h3>
           <p class="case-desc">The vendor choice was not mine, so I made a different one: an abstraction layer that holds a single UX over either backend, whichever won.</p>
@@ -1216,7 +1279,7 @@
           <div class="cv-when">2017 to 2020</div>
           <div class="cv-what">
             <h3>Allego <span class="cv-org">Product design &middot; enterprise SaaS</span></h3>
-            <p class="cv-note">Sales-enablement tools for an enterprise learning platform, where I built my enterprise UX and research practice.</p>
+            <p class="cv-note">Sales enablement tools for an enterprise learning platform, where I built my enterprise UX and research practice.</p>
           </div>
         </div>
         <div class="cv-row">
@@ -1264,7 +1327,7 @@
         <div class="approach-card fade-up">
           <div class="approach-head"><span class="approach-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4"/><path d="M9 14.5l2 2 4-4.5"/></svg></span><span class="approach-num">02</span></div>
           <h3>Decisions over deliverables</h3>
-          <p class="approach-desc">I document the why as carefully as the what, so decisions survive re-orgs.</p>
+          <p class="approach-desc">I document the why as carefully as the what, so decisions survive reorgs.</p>
         </div>
         <div class="approach-card fade-up">
           <div class="approach-head"><span class="approach-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span class="approach-num">03</span></div>
@@ -1305,14 +1368,14 @@
               <div class="skill-tags">
                 <span class="skill-tag">Figma</span>
                 <span class="skill-tag">Abstraction layers</span>
-                <span class="skill-tag">Multi-surface</span>
+                <span class="skill-tag">Multisurface</span>
                 <span class="skill-tag">Design systems</span>
               </div>
             </div>
             <div class="skill-row">
               <span class="skill-name">AI product design</span>
               <div class="skill-tags">
-                <span class="skill-tag">Approve-not-author</span>
+                <span class="skill-tag">Approve, not author</span>
                 <span class="skill-tag">Uncertainty states</span>
                 <span class="skill-tag">Live prototypes</span>
               </div>
@@ -1326,7 +1389,7 @@
               </div>
             </div>
             <div class="skill-row">
-              <span class="skill-name">Cross-functional influence</span>
+              <span class="skill-name">Cross functional influence</span>
               <div class="skill-tags">
                 <span class="skill-tag">Procurement</span>
                 <span class="skill-tag">Eng leadership</span>
@@ -1605,6 +1668,22 @@
         });
       });
     }
+    /* ── HERO MOSAIC: the stack leans toward the pointer ── */
+    (() => {
+      const mosaic = document.querySelector('.hero-mosaic');
+      const hero = document.getElementById('hero');
+      if (!mosaic || !hero || reduceMotion || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+      let raf = 0, px = 0, py = 0;
+      const clamp = v => Math.max(-1, Math.min(1, v));
+      const apply = () => { raf = 0; mosaic.style.setProperty('--tx', px.toFixed(3)); mosaic.style.setProperty('--ty', py.toFixed(3)); };
+      hero.addEventListener('pointermove', e => {
+        const r = mosaic.getBoundingClientRect();
+        px = clamp((e.clientX - (r.left + r.width / 2)) / r.width);
+        py = clamp((e.clientY - (r.top + r.height / 2)) / r.height);
+        if (!raf) raf = requestAnimationFrame(apply);
+      });
+      hero.addEventListener('pointerleave', () => { px = 0; py = 0; if (!raf) raf = requestAnimationFrame(apply); });
+    })();
   </script>
 </body>
 </html>
