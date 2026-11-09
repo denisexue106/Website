@@ -447,20 +447,6 @@
       transition: opacity 0.3s ease, transform 0.45s var(--ease);
     }
     .mosaic-card:hover .mosaic-label, .mosaic-card:focus-visible .mosaic-label { opacity: 1; transform: none; }
-    .mc-1 .mosaic-chrome { height: 22px; }
-    .mosaic-badge {
-      position: absolute; top: 50%; right: 6px; transform: translateY(-50%);
-      display: inline-flex; align-items: center; gap: 0.32rem;
-      padding: 0.16rem 0.5rem 0.16rem 0.42rem; border-radius: 100px;
-      background: var(--accent); color: #fff; line-height: 1.3;
-      font-size: 0.56rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
-      box-shadow: 0 3px 10px rgba(79,70,229,0.45);
-    }
-    .mosaic-badge i { width: 5px; height: 5px; border-radius: 50%; background: #fff; animation: badge-pulse 1.8s ease-in-out infinite; }
-    @keyframes badge-pulse {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.7); }
-      60% { box-shadow: 0 0 0 6px rgba(255,255,255,0); }
-    }
     /* The front card plays the AI chat, so it is the largest. The two wide shots sit behind,
        top and bottom, and each moves less with the pointer than the one in front of it. */
     .mc-1 { --r: rotate(-2.5deg); --d: 16; --dl: 0.05s; --fd: 6.5s; --f: -8px; left: 0;  top: 20%;  z-index: 3; width: 68%; }
@@ -1088,7 +1074,6 @@
       .cursor-dot, .cursor-ring { display: none !important; }
       .mosaic-card { opacity: 1 !important; translate: none !important; animation: none !important; }
       .mosaic-stage { transform: none !important; }
-      .mosaic-badge i { animation: none !important; }
     }
   </style>
   <noscript>
@@ -1165,7 +1150,7 @@
 
         <div class="hero-mosaic">
           <div class="mosaic-stage">
-            <a class="mosaic-card mc-1" href="case-form-unification.html" aria-label="Read the Form Unification case study"><span class="mosaic-chrome"><span class="mosaic-badge" aria-hidden="true"><i></i>AI prototype</span></span><img src="img/fu-hero-chat.gif" alt="" width="680" height="590" decoding="async" /><span class="mosaic-label" aria-hidden="true">Seven builders, one system <svg width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+            <a class="mosaic-card mc-1" href="case-form-unification.html" aria-label="Read the Form Unification case study"><span class="mosaic-chrome"></span><img src="img/fu-hero-chat.gif" alt="" width="680" height="590" decoding="async" /><span class="mosaic-label" aria-hidden="true">Seven builders, one system <svg width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
             <a class="mosaic-card mc-2" href="case-branding-center.html" aria-label="Read the Branding Center case study"><span class="mosaic-chrome"></span><img src="img/card-bc-settings.jpg" alt="" width="896" height="480" /><span class="mosaic-label" aria-hidden="true">One definition, every surface <svg width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
             <a class="mosaic-card mc-3" href="case-business-listing.html" aria-label="Read the Business Listing case study"><span class="mosaic-chrome"></span><img src="img/card-bl-listings.jpg" alt="" width="1022" height="545" /><span class="mosaic-label" aria-hidden="true">One UX, two possible backends <svg width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
           </div>
@@ -1220,7 +1205,7 @@
       <div class="work-grid">
 
         <a class="case-card featured fade-up" href="case-form-unification.html" aria-label="Read the Form Unification case study">
-          <div class="case-thumb-wrap"><div class="case-thumb thumb-crm"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/fu-card.gif" alt="Thryv AI building a client intake form in the interactive prototype: a checklist ticks off fields, copy, brand and template while a live preview assembles, then template chips switch the look" loading="lazy" width="840" height="652" /></div></div></div>
+          <div class="case-thumb-wrap"><div class="case-thumb thumb-crm"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/fu-hero-chat.gif" alt="Thryv AI creating a client intake form in chat, in the interactive prototype: a prompt is typed, two questions are answered, and the form builds beside a live preview" loading="lazy" width="680" height="590" style="object-position:center 40%" /></div></div></div>
           <div class="case-content"><div class="case-meta"><span class="case-tag">Keap, acquired by Thryv · Sole designer</span><span class="case-year">Forms platform · 2024 to 2026</span></div>
           <h3>Seven builders, one system</h3>
           <p class="case-desc">Seven form builders doing one job, and no single owner. I argued down the assumed full rebuild, then reordered the roadmap with a Kano study.</p>
