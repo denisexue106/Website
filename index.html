@@ -10,15 +10,15 @@
   <meta property="og:url" content="https://dbyxdesign.com/" />
   <meta property="og:title" content="Denise Barrett · Product Designer and Leader" />
   <meta property="og:description" content="Product designer with 10+ years in B2B SaaS. I simplify complex products and build systems that scale, from user research to design systems and AI." />
-  <meta property="og:image" content="https://dbyxdesign.com/img/og-card.png?v=20261109" />
+  <meta property="og:image" content="https://dbyxdesign.com/img/og-card.png?v=20261109b" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Denise Barrett. Design strategy, from the problem up. 10+ years in design, 16 development teams, 6M users reached, 220K small businesses." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://dbyxdesign.com/img/og-card.png?v=20261109" />
+  <meta name="twitter:image" content="https://dbyxdesign.com/img/og-card.png?v=20261109b" />
   <meta name="twitter:title" content="Denise Barrett · Product Designer and Leader" />
   <meta name="twitter:description" content="Product designer with 10+ years in B2B SaaS. I simplify complex products and build systems that scale, from user research to design systems and AI." />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%234f46e5'/%3E%3Ctext x='16' y='23' font-family='Helvetica,Arial,sans-serif' font-weight='700' font-size='18' fill='%23ffffff' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A61C9'/%3E%3Ctext x='16' y='23' font-family='Helvetica,Arial,sans-serif' font-weight='700' font-size='18' fill='%23ffffff' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -41,30 +41,30 @@
 
     :root {
       /* ── LIGHT SURFACES ── */
-      --ink: #0b0b0f;
-      --ink-2: #1a1a22;
-      --ink-muted: #595966;
-      --ink-subtle: #6c6c7a;      /* 5.2:1 on white, 4.7:1 on --surface-alt */
-      --ink-faint: #8a8a9b;       /* large text only: 3.1:1 on --surface-alt */
+      --ink: #07326A;             /* navy: 12.6:1 on white */
+      --ink-2: #064089;
+      --ink-muted: #43546B;       /* 7.7:1 on white, 7.1:1 on --surface-alt */
+      --ink-subtle: #57677C;      /* 5.8:1 on white, 5.3:1 on --surface-alt */
+      --ink-faint: #7B8BA0;       /* large text only: 3.2:1 on --surface-alt */
       --surface: #ffffff;
-      --surface-alt: #f4f4f8;
-      --rule: #e3e3ea;
-      --rule-strong: #c9c9d4;
+      --surface-alt: #F1F7F9;
+      --rule: #DCE5EE;
+      --rule-strong: #C3D0DE;
 
       /* ── THE ONE Color ── */
-      --accent: #4f46e5;
-      --accent-deep: #3a32c0;
-      --accent-light: #8b84ff;
-      --accent-wash: #eeedff;
+      --accent: #0A61C9;          /* 5.9:1 on white */
+      --accent-deep: #064089;
+      --accent-light: #82A8D1;    /* #749DC8 lifted a step so small labels clear 4.5:1 on navy (5.1:1) */
+      --accent-wash: #E7EFFA;
 
       /* ── DARK SURFACES ── */
-      --d-bg: #0b0b0f;
-      --d-bg-2: #13131b;
-      --d-bg-3: #1b1b24;    /* hero stat cards, readable as a card against --d-bg */
+      --d-bg: #07326A;
+      --d-bg-2: #064089;
+      --d-bg-3: #064089;    /* hero stat cards, readable as a card against --d-bg */
       --d-ink: #ffffff;
-      --d-muted: rgba(255,255,255,0.62);
-      --d-subtle: rgba(255,255,255,0.52);   /* 5.3:1 on --d-bg */
-      --d-rule: rgba(255,255,255,0.13);
+      --d-muted: rgba(255,255,255,0.74);
+      --d-subtle: rgba(255,255,255,0.62);   /* 5.8:1 on --d-bg, 4.8:1 on the stat cards */
+      --d-rule: rgba(255,255,255,0.16);
 
       --font-display: 'Inter Tight', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -124,60 +124,6 @@
     }
 
     section { padding: var(--space-xl) 0; position: relative; }
-
-    /* ── PAGE LOAD ── */
-    #page-load[hidden] { display: none; }
-    #page-load {
-      position: fixed; inset: 0; background: var(--d-bg); z-index: 1000;
-      display: flex; align-items: center; justify-content: center;
-      transition: opacity 0.6s ease, visibility 0.6s ease;
-    }
-    #page-load.gone { opacity: 0; visibility: hidden; pointer-events: none; }
-    .load-name {
-      font-family: var(--font-display);
-      font-size: clamp(1.6rem, 5vw, 2.6rem);
-      font-weight: 700;
-      letter-spacing: -0.045em;
-      color: #fff;
-      overflow: hidden;
-    }
-    .load-name span {
-      display: inline-block;
-      animation: loadReveal 0.55s var(--ease) forwards;
-    }
-    @keyframes loadReveal {
-      from { transform: translateY(105%); opacity: 0; }
-      to   { transform: translateY(0);    opacity: 1; }
-    }
-    .load-bar {
-      position: absolute; bottom: 0; left: 0; height: 2px;
-      background: var(--accent);
-      animation: loadBar 0.9s var(--ease) forwards;
-    }
-    @keyframes loadBar { from { width: 0; } to { width: 100%; } }
-
-    /* ── SCROLL PROGRESS ── */
-    #scroll-progress {
-      position: fixed; top: 0; left: 0; height: 2px; width: 0;
-      background: var(--accent); z-index: 200;
-      transition: width 0.08s linear;
-    }
-
-    /* ── CURSOR ── */
-    .cursor-dot, .cursor-ring {
-      position: fixed; top: 0; left: 0; pointer-events: none; z-index: 900;
-      border-radius: 50%; translate: -50% -50%; opacity: 0;
-    }
-    .cursor-dot {
-      width: 6px; height: 6px; background: var(--accent);
-      transition: opacity 0.2s, width 0.22s var(--ease), height 0.22s var(--ease);
-    }
-    .cursor-ring {
-      width: 34px; height: 34px; border: 1px solid var(--accent);
-      transition: opacity 0.2s, width 0.3s var(--ease), height 0.3s var(--ease), border-color 0.3s;
-    }
-    body.cursor-hover .cursor-ring { width: 56px; height: 56px; border-color: var(--accent); }
-    body.cursor-hover .cursor-dot { width: 0; height: 0; }
 
     /* ── SKIP LINK ── */
     .skip-link {
@@ -246,13 +192,6 @@
       color: var(--d-ink);
       padding: calc(var(--nav-h) + 5.5rem) 0 0;
       overflow: hidden;
-    }
-    #hero::before {
-      content: ''; position: absolute; pointer-events: none;
-      width: 70vw; height: 70vw; max-width: 900px; max-height: 900px;
-      top: -22%; right: -14%;
-      background: radial-gradient(circle, rgba(79,70,229,0.34) 0%, rgba(79,70,229,0) 68%);
-      filter: blur(10px);
     }
     /* Film grain over the top of the hero. feTurbulence as a data URI, so there is no
        extra request and nothing to go soft on a 2x screen; feColorMatrix drops the
@@ -370,7 +309,7 @@
       border-radius: 100px;
       transition: color 0.25s, border-color 0.25s, background 0.25s;
     }
-    .btn-ghost:hover { color: var(--d-ink); border-color: var(--accent-light); background: rgba(139,132,255,0.08); }
+    .btn-ghost:hover { color: var(--d-ink); border-color: var(--accent-light); background: rgba(130,168,209,0.14); }
 
     /* ── HERO MOSAIC ── */
     /* Three windows, one per case study. The front one plays Thryv AI creating a form in the
@@ -391,7 +330,7 @@
     .mosaic-stage::before {
       content: ''; position: absolute; inset: -16%; z-index: 0; pointer-events: none;
       background: radial-gradient(40% 40% at calc(50% + var(--tx, 0) * 24%) calc(50% + var(--ty, 0) * 24%),
-        rgba(79,70,229,0.45), rgba(79,70,229,0) 72%);
+        rgba(10,97,201,0.5), rgba(10,97,201,0) 72%);
       transition: background 0.6s var(--ease);
     }
     .mosaic-card {
@@ -416,7 +355,7 @@
       z-index: 5;
       transform: translate(calc(var(--tx, 0) * var(--d) * 1px), calc(var(--ty, 0) * var(--d) * 1px - 10px)) rotate(0deg) scale(1.04);
       border-color: var(--accent-light);
-      box-shadow: 0 40px 80px rgba(0,0,0,0.62), 0 0 0 1px rgba(139,132,255,0.4);
+      box-shadow: 0 40px 80px rgba(0,0,0,0.62), 0 0 0 1px rgba(130,168,209,0.5);
       animation-play-state: paused;
       outline: none;
     }
@@ -425,22 +364,22 @@
     /* Same window chrome as the case cards, scaled down so it still reads at this size. */
     .mosaic-chrome {
       display: block; height: 16px;
-      background: #eceaf4;
-      border-bottom: 1px solid rgba(11,11,15,0.10);
+      background: #E6EEF5;
+      border-bottom: 1px solid rgba(7,50,106,0.10);
       position: relative;
     }
     .mosaic-chrome::before {
       content: ''; position: absolute; left: 7px; top: 50%;
       width: 4px; height: 4px; margin-top: -2px;
-      border-radius: 50%; background: #c6c3d6;
-      box-shadow: 7px 0 0 #c6c3d6, 14px 0 0 #c6c3d6;
+      border-radius: 50%; background: #C3D0DE;
+      box-shadow: 7px 0 0 #C3D0DE, 14px 0 0 #C3D0DE;
     }
     /* the case title, shown when a card is pointed at or focused */
     .mosaic-label {
       position: absolute; left: 10px; bottom: 10px; z-index: 2;
       display: inline-flex; align-items: center; gap: 0.45rem;
       padding: 0.45rem 0.8rem; border-radius: 100px;
-      background: rgba(11,11,15,0.88); color: #fff;
+      background: rgba(7,50,106,0.92); color: #fff;
       font-size: 0.75rem; font-weight: 600; white-space: nowrap;
       box-shadow: 0 8px 20px rgba(0,0,0,0.35);
       opacity: 0; transform: translateY(8px);
@@ -568,7 +507,7 @@
     .case-card:hover {
       border-color: var(--rule-strong);
       transform: translateY(-5px);
-      box-shadow: 0 22px 50px rgba(11,11,15,0.10);
+      box-shadow: 0 22px 50px rgba(7,50,106,0.12);
     }
     .case-card:hover::after { transform: scaleX(1); }
 
@@ -591,8 +530,8 @@
       display: flex; align-items: flex-end;
       padding: 1.6rem 1.6rem 0;
       background:
-        radial-gradient(90% 80% at 22% 0%, rgba(79,70,229,0.42) 0%, rgba(79,70,229,0) 68%),
-        linear-gradient(160deg, #191932 0%, var(--d-bg) 70%);
+        radial-gradient(90% 80% at 22% 0%, rgba(10,97,201,0.5) 0%, rgba(10,97,201,0) 68%),
+        linear-gradient(160deg, #064089 0%, var(--d-bg) 70%);
     }
     .case-shot {
       position: relative;
@@ -609,15 +548,15 @@
     /* Window chrome, drawn rather than screenshotted, so every card gets the same one. */
     .case-chrome {
       flex: none; height: 24px;
-      background: #eceaf4;
-      border-bottom: 1px solid rgba(11,11,15,0.09);
+      background: #E6EEF5;
+      border-bottom: 1px solid rgba(7,50,106,0.10);
       position: relative;
     }
     .case-chrome::before {
       content: ''; position: absolute; left: 11px; top: 50%;
       width: 7px; height: 7px; margin-top: -3.5px;
-      border-radius: 50%; background: #cfccdd;
-      box-shadow: 12px 0 0 #cfccdd, 24px 0 0 #cfccdd;
+      border-radius: 50%; background: #C3D0DE;
+      box-shadow: 12px 0 0 #C3D0DE, 24px 0 0 #C3D0DE;
     }
     .case-cover {
       flex: 1 1 auto; min-height: 0;
@@ -759,22 +698,6 @@
 
     /* ── APPROACH ── */
     #approach { background: var(--surface-alt); }
-    .process {
-      display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem;
-      margin-bottom: 3rem;
-    }
-    .p-step {
-      font-size: var(--type-xs); font-weight: 600;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 0.5rem 1rem;
-      background: var(--surface);
-      border: 1px solid var(--rule);
-      border-radius: 100px;
-      transition: border-color 0.3s, color 0.3s;
-    }
-    .p-step:hover { border-color: var(--accent); color: var(--accent); }
-    .p-arrow { color: var(--accent); font-size: var(--type-sm); }
-
     /* 4 cards divide evenly by 4, 2 or 1, never 3, or empty cells show the grid rule */
     .approach-grid {
       display: grid;
@@ -792,32 +715,6 @@
       transition: background 0.35s ease;
     }
     .approach-card:hover { background: var(--accent-wash); }
-    .approach-head {
-      display: flex; align-items: center; justify-content: space-between;
-      margin-bottom: 2rem;
-    }
-    .approach-icon {
-      width: 40px; height: 40px; display: grid; place-items: center;
-      border-radius: 10px;
-      background: var(--accent-wash);
-      color: var(--accent);
-      transition: background 0.35s ease, color 0.35s ease;
-    }
-    .approach-card:hover .approach-icon { background: var(--accent); color: #fff; }
-    .approach-icon svg {
-      width: 20px; height: 20px; fill: none;
-      stroke: currentColor; stroke-width: 1.6;
-      stroke-linecap: round; stroke-linejoin: round;
-    }
-    .approach-num {
-      font-family: var(--font-display);
-      font-size: var(--type-xl); font-weight: 800;
-      letter-spacing: -0.04em;
-      color: var(--ink-faint);
-      line-height: 1;
-      transition: color 0.35s ease;
-    }
-    .approach-card:hover .approach-num { color: var(--accent); }
     .approach-card h3 {
       font-size: var(--type-md);
       line-height: 1.2;
@@ -879,12 +776,6 @@
       overflow: hidden;
       text-align: center;
     }
-    #contact::before {
-      content: ''; position: absolute; pointer-events: none;
-      width: 80vw; height: 60vw; max-width: 1000px; max-height: 700px;
-      left: 50%; translate: -50% 0; bottom: -40%;
-      background: radial-gradient(circle, rgba(79,70,229,0.36) 0%, rgba(79,70,229,0) 66%);
-    }
     #contact .container { position: relative; z-index: 1; }
     #contact .section-label { justify-content: center; color: var(--accent-light); }
     #contact .section-label::before { background: var(--accent-light); }
@@ -936,7 +827,7 @@
       border-radius: 100px;
       transition: color 0.25s, border-color 0.25s, background 0.25s;
     }
-    .btn-outline-light:hover { color: var(--d-ink); border-color: var(--accent-light); background: rgba(139,132,255,0.08); }
+    .btn-outline-light:hover { color: var(--d-ink); border-color: var(--accent-light); background: rgba(130,168,209,0.14); }
 
     /* ── FOOTER ── */
     footer {
@@ -959,7 +850,7 @@
       width: 46px; height: 46px; border-radius: 50%;
       border: none; background: var(--accent); color: #fff;
       font-size: 1.1rem; cursor: pointer;
-      box-shadow: 0 10px 28px rgba(79,70,229,0.4);
+      box-shadow: 0 10px 28px rgba(10,97,201,0.4);
       z-index: 90; display: grid; place-items: center;
       transition: background 0.25s, transform 0.25s var(--ease);
     }
@@ -1049,13 +940,12 @@
       .case-chrome { height: 17px; }
       .case-chrome::before {
         left: 8px; width: 5px; height: 5px; margin-top: -2.5px;
-        box-shadow: 9px 0 0 #cfccdd, 18px 0 0 #cfccdd;
+        box-shadow: 9px 0 0 #C3D0DE, 18px 0 0 #C3D0DE;
       }
       .approach-card { padding: 1.75rem 1.35rem 2rem; }
       footer { flex-direction: column; align-items: flex-start; }
     }
     @media (hover: none) {
-      .cursor-dot, .cursor-ring { display: none !important; }
     }
 
     /* ── REDUCED MOTION ── */
@@ -1072,41 +962,23 @@
         transform: none !important;
       }
       .word-reveal span { transform: none !important; opacity: 1 !important; }
-      .cursor-dot, .cursor-ring { display: none !important; }
       .mosaic-card { opacity: 1 !important; translate: none !important; animation: none !important; }
       .mosaic-stage { transform: none !important; }
     }
   </style>
   <noscript>
     <style>
-      #page-load { display: none !important; }
       .fade-up, .hero-eyebrow, .hero-desc, .hero-body, .hero-actions, .hero-facts, .hero-mosaic {
         opacity: 1 !important;
         transform: none !important;
       }
       .word-reveal span { transform: none !important; opacity: 1 !important; }
-      .cursor-dot, .cursor-ring { display: none !important; }
       .mosaic-card { opacity: 1 !important; translate: none !important; }
     </style>
   </noscript>
 </head>
 <body>
   <a href="#work" class="skip-link">Skip to work</a>
-
-  <!-- PAGE LOAD OVERLAY -->
-  <div id="page-load" hidden>
-    <div class="load-name">
-      <span style="animation-delay:0.05s">Denise Barrett</span>
-    </div>
-    <div class="load-bar"></div>
-  </div>
-
-  <!-- SCROLL PROGRESS -->
-  <div id="scroll-progress"></div>
-
-  <!-- CURSOR -->
-  <div class="cursor-dot" id="cursor-dot"></div>
-  <div class="cursor-ring" id="cursor-ring"></div>
 
   <!-- NAV -->
   <nav id="nav" aria-label="Primary">
@@ -1151,9 +1023,9 @@
 
         <div class="hero-mosaic">
           <div class="mosaic-stage">
-            <a class="mosaic-card mc-1" href="case-form-unification.html" aria-label="Read the Form Unification case study"><span class="mosaic-chrome"></span><img src="img/fu-hero-chat.gif" alt="" width="680" height="590" decoding="async" /><span class="mosaic-label" aria-hidden="true">Seven builders, one system <svg width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-            <a class="mosaic-card mc-2" href="case-branding-center.html" aria-label="Read the Branding Center case study"><span class="mosaic-chrome"></span><img src="img/bc-spread.gif" alt="" width="840" height="496" decoding="async" /><span class="mosaic-label" aria-hidden="true">One definition, every surface <svg width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-            <a class="mosaic-card mc-3" href="case-business-listing.html" aria-label="Read the Business Listing case study"><span class="mosaic-chrome"></span><img src="img/card-bl-listings.jpg" alt="" width="1022" height="545" /><span class="mosaic-label" aria-hidden="true">One UX, two possible backends <svg width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+            <a class="mosaic-card mc-1" href="case-form-unification.html" aria-label="Read the Form Unification case study"><span class="mosaic-chrome"></span><img src="img/fu-hero-chat.gif" alt="" width="680" height="590" decoding="async" /><span class="mosaic-label" aria-hidden="true">Merging seven form builders into one <svg width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+            <a class="mosaic-card mc-2" href="case-branding-center.html" aria-label="Read the Branding Center case study"><span class="mosaic-chrome"></span><img src="img/bc-card-ai.gif" alt="" width="840" height="500" decoding="async" /><span class="mosaic-label" aria-hidden="true">Building the Branding Center <svg width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+            <a class="mosaic-card mc-3" href="case-business-listing.html" aria-label="Read the Business Listing case study"><span class="mosaic-chrome"></span><img src="img/card-bl-listings.jpg" alt="" width="1022" height="545" /><span class="mosaic-label" aria-hidden="true">Moving listings to a new vendor <svg width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
           </div>
         </div>
       </div>
@@ -1208,17 +1080,17 @@
         <a class="case-card featured fade-up" href="case-form-unification.html" aria-label="Read the Form Unification case study">
           <div class="case-thumb-wrap"><div class="case-thumb thumb-crm"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/fu-hero-chat.gif" alt="Thryv AI creating a client intake form in chat, in the interactive prototype: a prompt is typed, two questions are answered, and the form builds beside a live preview" loading="lazy" width="680" height="590" style="object-position:center 40%" /></div></div></div>
           <div class="case-content"><div class="case-meta"><span class="case-tag">Keap · Sole designer</span><span class="case-year">Forms platform · AI · 2026</span></div>
-          <h3>Seven builders, one system</h3>
-          <p class="case-desc">Seven form builders doing one job, and no single owner. I unified them into one builder instead of a full rebuild, and that one target lets AI draft a complete form from a prompt.</p>
+          <h3>Merging seven form builders into one</h3>
+          <p class="case-desc">Keap had seven form builders doing the same job, and no single team owned the problem. I merged them into one builder instead of rebuilding from scratch, and having one builder is what lets AI draft a full form from a prompt.</p>
           <div class="case-outcomes"><div class="outcome"><span class="outcome-val">12+</span><span class="outcome-label">Months of engineering rebuild I argued down</span></div><div class="outcome"><span class="outcome-val">4→1</span><span class="outcome-label">Teams needed to own forms</span></div><div class="outcome"><span class="outcome-val">79%</span><span class="outcome-label">Of the migration moved with no repeat fixes</span></div></div>
           <div class="case-arrow">Read case study <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
         </a>
 
         <a class="case-card fade-up" href="case-branding-center.html">
-          <div class="case-thumb-wrap"><div class="case-thumb thumb-ds"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/bc-spread.gif" alt="A primary logo change in the Branding Center prototype reaching every surface that reads it: the landing page and email builders, both made by a third party, the popup builder and shared content" loading="lazy" width="840" height="496" style="object-position:center top" /></div></div></div>
+          <div class="case-thumb-wrap"><div class="case-thumb thumb-ds"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/bc-card-ai.gif" alt="Concept in the Branding Center prototype: Thryv AI reads a business website while logos, brand colors and fonts appear on the Branding tab one by one, then asks which logo should be primary" loading="lazy" width="840" height="500" style="object-position:center top" /></div></div></div>
           <div class="case-meta"><span class="case-tag">Keap · Lead designer</span><span class="case-year">Brand system · 2024</span></div>
-          <h3>One definition, every surface</h3>
-          <p class="case-desc">A brand lived in a document kept outside the product, so one logo change became a scavenger hunt. I replaced it with one definition the system reads from across sixteen teams.</p>
+          <h3>Building the Branding Center</h3>
+          <p class="case-desc">A business&rsquo;s brand lived in a document outside the product, so changing a logo meant redoing every email and landing page by hand. I designed one place to keep the brand that every builder reads from, and sixteen teams use it.</p>
           <div class="case-outcomes"><div class="outcome"><span class="outcome-val">16</span><span class="outcome-label">Teams using one brand definition</span></div><div class="outcome"><span class="outcome-val">25→15</span><span class="outcome-label">Minutes to build a landing page</span></div><div class="outcome"><span class="outcome-val">+20%</span><span class="outcome-label">Landing page builder adoption</span></div></div>
           <div class="case-arrow">Read case study <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </a>
@@ -1226,9 +1098,9 @@
         <a class="case-card fade-up" href="case-business-listing.html">
           <div class="case-thumb-wrap"><div class="case-thumb thumb-ai"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/card-bl-listings.jpg" alt="Listings Management: connection status for each directory, from Connected to Processing to Issue Found, with actions for each listing" loading="lazy" width="1022" height="545" /></div></div></div>
           <div class="case-meta"><span class="case-tag">Thryv · Design &amp; research lead</span><span class="case-year">Business listing · Third party vendor · 2026</span></div>
-          <h3>One UX, two possible backends</h3>
-          <p class="case-desc">The vendor choice was not mine, so I made a different one: an abstraction layer that holds a single UX over either backend, whichever won.</p>
-          <div class="case-outcomes"><div class="outcome"><span class="outcome-val">1 UX</span><span class="outcome-label">Holds over either vendor</span></div><div class="outcome"><span class="outcome-val">3→1</span><span class="outcome-label">Studies I turned into one bar</span></div><div class="outcome"><span class="outcome-val">160K</span><span class="outcome-label">Locations in scope</span></div></div>
+          <h3>Moving listings to a new vendor</h3>
+          <p class="case-desc">Picking the vendor wasn&rsquo;t my call. The frontend was, so I specified a layer that keeps the user experience the same whichever vendor won.</p>
+          <div class="case-outcomes"><div class="outcome"><span class="outcome-val">1 UX</span><span class="outcome-label">Same UX on either vendor</span></div><div class="outcome"><span class="outcome-val">3→1</span><span class="outcome-label">Studies combined into one usability bar</span></div><div class="outcome"><span class="outcome-val">160K</span><span class="outcome-label">Locations in scope</span></div></div>
           <div class="case-arrow">Read case study <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </a>
 
@@ -1301,29 +1173,22 @@
           <h2>My approach</h2>
         </div>
       </div>
-      <div class="process fade-up" aria-label="How a project moves">
-        <span class="p-step">Measure</span><span class="p-arrow" aria-hidden="true">→</span><span class="p-step">Diagnose</span><span class="p-arrow" aria-hidden="true">→</span><span class="p-step">Design</span><span class="p-arrow" aria-hidden="true">→</span><span class="p-step">Ship</span><span class="p-arrow" aria-hidden="true">→</span><span class="p-step">Learn</span>
-      </div>
       <div class="approach-grid">
         <div class="approach-card fade-up">
-          <div class="approach-head"><span class="approach-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17L17 3l4 4L7 21z"/><path d="M8.5 11.5l2 2M11.5 8.5l2 2M14.5 5.5l2 2"/></svg></span><span class="approach-num">01</span></div>
-          <h3>Measure before designing</h3>
-          <p class="approach-desc">A baseline first. It is the only reason I can tell you what changed.</p>
+          <h3>I measure first</h3>
+          <p class="approach-desc">I pull the current numbers before I design anything. Otherwise I can&rsquo;t tell you what changed.</p>
         </div>
         <div class="approach-card fade-up">
-          <div class="approach-head"><span class="approach-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4"/><path d="M9 14.5l2 2 4-4.5"/></svg></span><span class="approach-num">02</span></div>
-          <h3>Decisions over deliverables</h3>
-          <p class="approach-desc">I document the why as carefully as the what, so decisions survive reorgs.</p>
+          <h3>I write down the why</h3>
+          <p class="approach-desc">I keep a record of why we made each call, so the reasoning still makes sense after a reorg or a new hire.</p>
         </div>
         <div class="approach-card fade-up">
-          <div class="approach-head"><span class="approach-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span class="approach-num">03</span></div>
-          <h3>Design that carries business value</h3>
-          <p class="approach-desc">I argue in the currency the room uses: cost, risk, roadmap slots, procurement criteria.</p>
+          <h3>I tie design to the business</h3>
+          <p class="approach-desc">When I make a case to leadership, I talk about cost, risk and the roadmap, because those are what they&rsquo;re deciding on.</p>
         </div>
         <div class="approach-card fade-up">
-          <div class="approach-head"><span class="approach-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="6.5"/><path d="M12 2.5v3.5M12 18v3.5M2.5 12H6M18 12h3.5"/></svg></span><span class="approach-num">04</span></div>
-          <h3>Craft at the detail level</h3>
-          <p class="approach-desc">I design the states nobody demos: errors, empty accounts, and data that already disagrees with itself.</p>
+          <h3>I design the messy cases</h3>
+          <p class="approach-desc">Errors, empty accounts and data that doesn&rsquo;t match. Those are what turn into support tickets, so I design them early.</p>
         </div>
       </div>
     </div>
@@ -1353,16 +1218,14 @@
               <span class="skill-name">Platform &amp; design systems</span>
               <div class="skill-tags">
                 <span class="skill-tag">Figma</span>
-                <span class="skill-tag">Abstraction layers</span>
-                <span class="skill-tag">Multisurface</span>
-                <span class="skill-tag">Design systems</span>
+                                <span class="skill-tag">Design systems</span>
               </div>
             </div>
             <div class="skill-row">
               <span class="skill-name">AI product design</span>
               <div class="skill-tags">
-                <span class="skill-tag">Approve, not author</span>
-                <span class="skill-tag">Uncertainty states</span>
+                <span class="skill-tag">Review and approve flows</span>
+                <span class="skill-tag">Error and confidence states</span>
                 <span class="skill-tag">Live prototypes</span>
               </div>
             </div>
@@ -1370,16 +1233,16 @@
               <span class="skill-name">Research &amp; prioritization</span>
               <div class="skill-tags">
                 <span class="skill-tag">Kano</span>
-                <span class="skill-tag">Usability baselines</span>
-                <span class="skill-tag">Synthesis</span>
+                <span class="skill-tag">Usability testing</span>
+                <span class="skill-tag">Surveys</span>
               </div>
             </div>
             <div class="skill-row">
-              <span class="skill-name">Cross functional influence</span>
+              <span class="skill-name">Working across teams</span>
               <div class="skill-tags">
-                <span class="skill-tag">Procurement</span>
-                <span class="skill-tag">Eng leadership</span>
-                <span class="skill-tag">PMM &amp; CS</span>
+                <span class="skill-tag">Engineering</span>
+                <span class="skill-tag">Product marketing</span>
+                <span class="skill-tag">Vendor evaluation</span>
               </div>
             </div>
             <div class="skill-row">
@@ -1408,8 +1271,8 @@
   <section id="contact">
     <div class="container">
       <div class="section-label" style="margin-bottom:1rem;">Contact</div>
-      <h2 style="margin-bottom:1rem;">Let’s talk about <br>the system you’re building</h2>
-      <p class="contact-sub">If your platform has drifted into a dozen versions of the same thing, that’s the work I do best.</p>
+      <h2 style="margin-bottom:1rem;">Let’s talk</h2>
+      <p class="contact-sub">If your product has ended up with several versions of the same thing, that&rsquo;s the kind of problem I like working on.</p>
       <p class="contact-criteria"><span class="ck">Looking for</span> platform, design systems or AI product work at a B2B SaaS company, where the job is setting direction across more than one product area. Remote US.</p>
       <div class="contact-actions">
         <a href="mailto:denisexue106@gmail.com" class="btn-light">
@@ -1445,9 +1308,6 @@
 
   <script>
     /* ── PAGE LOAD ── */
-    // The overlay ships `hidden` so that a failed or slow script never leaves a black screen.
-    // JS opts into it, and reduced-motion users skip the whole sequence.
-    const loadOverlay = document.getElementById('page-load');
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     // Every hero element that ships at opacity 0 belongs in this list. Anything missing
@@ -1462,106 +1322,26 @@
       revealHero();
     }
 
-    // The intro is a first-impression, not a toll gate. Returning from a case study —
-    // by back button, by the "All work" link, or to any #anchor — must not replay it.
-    let introSeen = false;
-    try { introSeen = sessionStorage.getItem('introSeen') === '1'; } catch (e) {}
+    // The hero paints straight away. A deep link still has to land on a section that is already visible.
     const deepLink = !!location.hash;
-    const skipIntro = reduceMotion || introSeen || deepLink;
-
-    if (skipIntro) {
-      // A deep link has to land on a section that is already painted, so reveal everything.
-      // A plain revisit keeps the scroll animations and only skips the hero build.
-      if (deepLink || reduceMotion) revealAll(); else revealHero();
-      if (deepLink) {
-        // scroll-behavior:smooth would animate this arrival from the top of the page,
-        // which is the replay we are trying to avoid — force the jump to be instant.
-        const jump = () => {
-          const t = document.getElementById(location.hash.slice(1));
-          if (!t) return;
-          const root = document.documentElement;
-          const prev = root.style.scrollBehavior;
-          root.style.scrollBehavior = 'auto';
-          window.scrollTo(0, t.getBoundingClientRect().top + window.scrollY);
-          root.style.scrollBehavior = prev;
-        };
-        jump();
-        requestAnimationFrame(jump);
-        // Fonts and images settle after load and shift the target, so land it again.
-        window.addEventListener('load', jump, { once: true });
-      }
-    } else {
-      loadOverlay.hidden = false;
-      try { sessionStorage.setItem('introSeen', '1'); } catch (e) {}
-      document.addEventListener('DOMContentLoaded', () => {
-        setTimeout(() => loadOverlay.classList.add('gone'), 950);
-        setTimeout(runHeroSequence, 1100);
-      });
-      // Safety net: never let the overlay trap the page.
-      setTimeout(() => loadOverlay.classList.add('gone'), 3000);
-      // And never let a thrown hero sequence leave the hero half-painted.
-      setTimeout(revealHero, 3200);
+    if (deepLink || reduceMotion) revealAll(); else revealHero();
+    if (deepLink) {
+      // scroll-behavior:smooth would animate this arrival from the top of the page, so force the jump to be instant.
+      const jump = () => {
+        const t = document.getElementById(location.hash.slice(1));
+        if (!t) return;
+        const root = document.documentElement;
+        const prev = root.style.scrollBehavior;
+        root.style.scrollBehavior = 'auto';
+        window.scrollTo(0, t.getBoundingClientRect().top + window.scrollY);
+        root.style.scrollBehavior = prev;
+      };
+      jump();
+      requestAnimationFrame(jump);
+      // Fonts and images settle after load and shift the target, so land it again.
+      window.addEventListener('load', jump, { once: true });
     }
-
-    // Restoring from bfcache re-runs nothing, so make sure the overlay is never left up.
-    window.addEventListener('pageshow', e => {
-      if (e.persisted) { loadOverlay.classList.add('gone'); revealAll(); }
-    });
-
-    /* ── HERO SEQUENCE ── */
-    function runHeroSequence() {
-      // Split h1 words into animated spans
-      const h1 = document.querySelector('h1');
-      const originalHTML = h1.innerHTML;
-      // tokenize preserving <em> and <br>
-      const tokens = originalHTML.split(/(<br>|<em>.*?<\/em>)/g);
-      let delay = 0.18;
-      let rebuilt = '';
-      tokens.forEach(tok => {
-        if (!tok) return;
-        if (tok.startsWith('<br>')) { rebuilt += '<br>'; return; }
-        if (tok.startsWith('<em>')) {
-          // wrap the inner text only
-          const inner = tok.replace(/<\/?em>/g, '');
-          const words = inner.trim().split(' ');
-          rebuilt += '<em>' + words.map(w => {
-            delay += 0.08;
-            return `<span class="word-reveal"><span style="transition:transform 0.6s cubic-bezier(.25,.46,.45,.94) ${delay}s, opacity 0.6s ease ${delay}s">${w}</span></span>`;
-          }).join(' ') + '</em>';
-          return;
-        }
-        tok.trim().split(' ').forEach(w => {
-          if (!w) return;
-          delay += 0.07;
-          rebuilt += `<span class="word-reveal"><span style="transition:transform 0.6s cubic-bezier(.25,.46,.45,.94) ${delay}s, opacity 0.6s ease ${delay}s">${w}</span></span> `;
-        });
-      });
-      h1.innerHTML = rebuilt;
-
-      // Trigger word reveals
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          h1.querySelectorAll('.word-reveal span').forEach(s => {
-            s.style.transform = 'translateY(0)';
-            s.style.opacity = '1';
-          });
-        });
-      });
-
-      // Remaining hero elements, staggered behind the headline.
-      const stagger = { '.hero-eyebrow': 0.08, '.hero-desc': 0.18, '.hero-body': 0.24, '.hero-actions': 0.3, '.hero-mosaic': 0.38, '.hero-facts': 0.46 };
-      HERO_PARTS.forEach(sel => {
-        setTimeout(() => document.querySelector(sel)?.classList.add('in'), (delay + stagger[sel]) * 1000);
-      });
-    }
-
-    /* ── SCROLL PROGRESS ── */
-    const progressBar = document.getElementById('scroll-progress');
-    function updateProgress() {
-      const max = document.documentElement.scrollHeight - window.innerHeight;
-      progressBar.style.width = (max > 0 ? window.scrollY / max * 100 : 0) + '%';
-    }
-    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('pageshow', e => { if (e.persisted) revealAll(); });
 
     /* ── BACK TO TOP ── */
     const toTop = document.getElementById('to-top');
@@ -1602,58 +1382,6 @@
     if (!reduceMotion) document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
 
-    /* ── CUSTOM CURSOR ── */
-    const dot  = document.getElementById('cursor-dot');
-    const ring = document.getElementById('cursor-ring');
-    let mx = 0, my = 0, rx = 0, ry = 0;
-
-    document.addEventListener('mousemove', e => {
-      mx = e.clientX; my = e.clientY;
-      dot.style.left  = mx + 'px';
-      dot.style.top   = my + 'px';
-      dot.style.opacity = '1';
-      ring.style.opacity = '1';
-    });
-
-    // Ring follows with lerp
-    function lerpCursor() {
-      rx += (mx - rx) * 0.12;
-      ry += (my - ry) * 0.12;
-      ring.style.left = rx + 'px';
-      ring.style.top  = ry + 'px';
-      requestAnimationFrame(lerpCursor);
-    }
-    if (!reduceMotion && window.matchMedia('(hover: hover)').matches) lerpCursor();
-
-    const hoverTargets = 'a, button, .case-card, .approach-card, .skill-row, .nav-cta, .btn-primary, .btn-ghost';
-    document.querySelectorAll(hoverTargets).forEach(el => {
-      el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-      el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
-    });
-
-    document.addEventListener('mouseleave', () => {
-      dot.style.opacity = '0';
-      ring.style.opacity = '0';
-    });
-
-    /* ── MAGNETIC BUTTONS ── */
-    if (!reduceMotion && window.matchMedia('(hover: hover)').matches) {
-      document.querySelectorAll('.btn-primary, .btn-light, .nav-cta').forEach(btn => {
-        btn.addEventListener('mousemove', e => {
-          const r = btn.getBoundingClientRect();
-          const x = e.clientX - (r.left + r.width  / 2);
-          const y = e.clientY - (r.top  + r.height / 2);
-          btn.style.transform = `translate(${x * 0.25}px, ${y * 0.3}px)`;
-        });
-        btn.addEventListener('mouseleave', () => {
-          btn.style.transform = '';
-          btn.style.transition = 'transform 0.5s cubic-bezier(.25,.46,.45,.94)';
-        });
-        btn.addEventListener('mouseenter', () => {
-          btn.style.transition = 'transform 0.1s ease';
-        });
-      });
-    }
     /* ── HERO MOSAIC: the stack leans toward the pointer ── */
     (() => {
       const mosaic = document.querySelector('.hero-mosaic');

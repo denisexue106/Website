@@ -5,9 +5,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Inter+Tight:wght@700;800&display=block" rel="stylesheet">
 <style>
   :root {
-    --d-bg: #0b0b0f; --d-bg-3: #1b1b24; --d-ink: #ffffff;
-    --d-muted: rgba(255,255,255,0.62); --d-subtle: rgba(255,255,255,0.52); --d-rule: rgba(255,255,255,0.13);
-    --accent-light: #8b84ff;
+    --d-bg: #07326A; --d-bg-3: #064089; --d-ink: #ffffff;
+    --d-muted: rgba(255,255,255,0.74); --d-subtle: rgba(255,255,255,0.62); --d-rule: rgba(255,255,255,0.16);
+    --accent-light: #82A8D1;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body { width: 1200px; height: 630px; overflow: hidden; background: var(--d-bg); }
@@ -16,11 +16,6 @@
     font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased;
     padding: 60px 72px 56px;
     display: flex; flex-direction: column;
-  }
-  body::before {
-    content: ''; position: absolute; pointer-events: none;
-    width: 820px; height: 820px; top: -300px; right: -220px;
-    background: radial-gradient(circle, rgba(79,70,229,0.34) 0%, rgba(79,70,229,0) 68%);
   }
   .top { position: relative; display: flex; justify-content: space-between; align-items: baseline; }
   .name { font-family: 'Inter Tight', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: -0.04em; }
