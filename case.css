@@ -168,7 +168,7 @@ footer a:hover{color:var(--accent-light)}
 /* ── HERO COVER ── */
 .hero-cover{margin-top:2.5rem;border-radius:12px;overflow:hidden;border:1px solid var(--d-rule);line-height:0;
   box-shadow:0 30px 70px rgba(0,0,0,.5)}
-.hero-cover img{width:100%;height:auto;display:block}
+.hero-cover img,.hero-cover video{width:100%;height:auto;display:block}
 
 /* ── MORE WORK (prev / next) ── */
 .more{padding:4rem 0;border-top:1px solid var(--rule);background:var(--surface-alt)}
