@@ -26,7 +26,6 @@
     "name": "Denise Barrett",
     "jobTitle": "Product Designer and Leader",
     "url": "https://dbyxdesign.com/",
-    "image": "https://dbyxdesign.com/img/denise-barrett.jpg",
     "email": "mailto:denisexue106@gmail.com",
     "sameAs": ["https://www.linkedin.com/in/deniseb106/"],
     "description": "Product designer and leader with 10+ years in B2B SaaS platform design and an MFA from Rochester Institute of Technology. Most recently at Keap, acquired by Thryv. Open to new roles, remote in the US.",
@@ -86,7 +85,7 @@
       --space-sm: 1rem;
       --space-md: 2rem;
       --space-lg: 4rem;
-      --space-xl: 6.5rem;
+      --space-xl: 7.5rem;
 
       --nav-h: 4.5rem;
       --max-w: 1180px;
@@ -401,15 +400,15 @@
     .mc-3 { --r: rotate(-1.5deg); --d: 6;  --dl: 0.32s; --fd: 8.5s; --f: -5px; right: 2%; bottom: 0; z-index: 1; width: 62%; }
 
     /* ── HERO STATS ── */
-    /* An open row on the navy, divided by hairlines instead of boxed, so the numbers carry
-       the row and the first screen has less chrome. Four facts, so the grid divides evenly
-       at 4 and 2 columns. Dark the whole way through and continuous with the hero above it,
-       ending on a clean edge against the white of Work. */
+    /* A row of cards rather than a rule-divided row, so the numbers get room to be large.
+       Four cards, so the grid divides evenly at 4, 2 and 1 columns. */
+    /* Dark the whole way through and continuous with the hero above it, ending on a
+       clean edge against the white of Work. */
     .hero-stats {
       position: relative;
       background: var(--d-bg);
       color: var(--d-ink);
-      padding: 4rem 0 6rem;
+      padding: 4.5rem 0 var(--space-lg);
     }
     .hero-stats .container { position: relative; z-index: 1; }
     /* Faint mountains along the bottom of the navy block. Drawn in .hero-stats so the ridges
@@ -421,7 +420,7 @@
 
     .hero-facts {
       display: grid; grid-template-columns: repeat(4, 1fr);
-      border-top: 1px solid var(--d-rule);
+      gap: 1rem;
       opacity: 0; transform: translateY(16px);
       transition: opacity 0.8s ease, transform 0.8s var(--ease);
     }
@@ -429,34 +428,43 @@
 
     .fact {
       display: flex; flex-direction: column;
-      padding: 2.4rem 2rem 0;
-      border-left: 1px solid var(--d-rule);
+      padding: 2.1rem 1.8rem 1.9rem;
+      border-radius: 16px;
+      background: var(--d-bg-3);
+      border: 1px solid var(--d-rule);
     }
-    .fact:first-child { padding-left: 0; border-left: 0; }
 
     .stat-num {
       font-family: var(--font-display);
-      font-size: clamp(2.6rem, 4.6vw, 4rem);
+      font-size: clamp(2.5rem, 4.4vw, 3.5rem);
       font-weight: 800;
-      letter-spacing: -0.05em;
+      letter-spacing: -0.045em;
       line-height: 0.95;
-      color: var(--d-ink);
-      margin-bottom: 1rem;
+      color: var(--accent-light);
+      margin-bottom: 0.7rem;
     }
 
     .stat-label {
-      font-size: var(--type-xs); font-weight: 600;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      line-height: 1.4;
-      color: var(--accent-light);
-      margin-bottom: 0.5rem;
+      font-family: var(--font-display);
+      font-size: 1.05rem; font-weight: 700;
+      letter-spacing: -0.022em; line-height: 1.25;
+      color: var(--d-ink);
+    }
+    /* Reserve two lines so the rule and the supporting line start level across the row,
+       even at widths where one label wraps and the others do not. */
+    .fact .stat-label { min-height: 2.5em; }
+
+    .stat-rule {
+      display: block; width: 36px; height: 1px;
+      background: rgba(255,255,255,0.45);
+      margin: 1.05rem 0;
     }
 
     .stat-sub {
       font-size: var(--type-sm);
       line-height: 1.5;
       color: var(--d-subtle);
-      max-width: 26ch;
+      max-width: 30ch;
     }
 
     /* ── SECTION HEADERS ── */
@@ -488,27 +496,21 @@
 
     /* ── WORK ── */
     #work { padding-top: var(--space-lg); }
-    /* One row per case. The screen takes the wider side and the side alternates, so the
-       work reads before the words do. */
     .work-grid {
       display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 2.5rem;
     }
 
     .case-card {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      align-items: stretch;
-      min-height: 500px;
+      display: block;
       position: relative;
       background: var(--surface);
       border: 1px solid var(--rule);
-      border-radius: 16px;
+      border-radius: 14px;
       overflow: hidden;
       transition: border-color 0.35s var(--ease), transform 0.45s var(--ease), box-shadow 0.45s var(--ease);
     }
-    .case-card.flip { grid-template-columns: 1fr 1.2fr; }
-    .case-card.flip .case-thumb-wrap { order: 2; }
     .case-card::after {
       content: ''; position: absolute; left: 0; top: 0; height: 3px; width: 100%;
       background: var(--accent);
@@ -522,17 +524,24 @@
     }
     .case-card:hover::after { transform: scaleX(1); }
 
+    .case-card.featured {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1.08fr 1fr;
+      align-items: stretch;
+    }
+
     /* The screenshots are light product UI, so they vanish on a white card. Each one sits
        on a dark stage inside a browser-style window instead: the frame gives the shot an
        edge, and the window runs off the bottom of the stage so the crop reads as deliberate
        rather than as an image that happened not to fit. */
-    .case-thumb-wrap { overflow: hidden; background: var(--d-bg); position: relative; }
-    /* Out of flow, so the copy column sets the height of the row and the screen fills it. */
+    .case-thumb-wrap { overflow: hidden; background: var(--d-bg); }
     .case-thumb {
-      position: absolute; inset: 0;
+      height: 100%;
       overflow: hidden;
+      position: relative;
       display: flex; align-items: flex-end;
-      padding: 2.75rem 2.75rem 0;
+      padding: 1.6rem 1.6rem 0;
       background:
         radial-gradient(90% 80% at 22% 0%, rgba(10,97,201,0.5) 0%, rgba(10,97,201,0) 68%),
         linear-gradient(160deg, #064089 0%, var(--d-bg) 70%);
@@ -570,10 +579,18 @@
       transform: translateY(-7px);
       box-shadow: 0 36px 70px rgba(0,0,0,0.62);
     }
-    .case-content {
-      padding: 3rem 2.75rem 2.75rem;
-      display: flex; flex-direction: column;
+    .case-card:not(.featured) .case-thumb { aspect-ratio: 16 / 9; }
+    /* The featured thumb is taken out of flow so the screenshot cannot stretch the row:
+       the height of the featured card is set by its copy column, as it was before. */
+    .case-card.featured .case-thumb-wrap { position: relative; }
+    .case-card.featured .case-thumb { position: absolute; inset: 0; }
+
+    .case-content, .case-card:not(.featured) > :not(.case-thumb-wrap) {
+      padding-left: 2rem; padding-right: 2rem;
     }
+    .case-content { padding-top: 2.25rem; padding-bottom: 2.25rem; display: flex; flex-direction: column; }
+    .case-card:not(.featured) .case-meta { padding-top: 1.75rem; }
+    .case-card:not(.featured) .case-arrow { padding-bottom: 2rem; }
 
     /* The company pill, then the project line on its own row, the same on every card. */
     .case-meta {
@@ -595,71 +612,53 @@
     }
 
     .case-card h3 {
-      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
-      margin-bottom: 1rem;
+      font-size: clamp(1.5rem, 2.6vw, 2.35rem);
+      margin-bottom: 0.9rem;
       line-height: 1.05;
-      text-wrap: balance;
     }
+    .case-card:not(.featured) h3 { font-size: clamp(1.35rem, 2vw, 1.7rem); }
     .case-desc {
-      font-size: var(--type-base);
+      font-size: var(--type-sm);
       color: var(--ink-muted);
-      line-height: 1.65;
-      margin-bottom: 2rem;
-      text-wrap: pretty;
+      line-height: 1.7;
+      margin-bottom: 1.75rem;
     }
+    .case-card.featured .case-desc { font-size: var(--type-base); }
 
     .case-outcomes {
       display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
+      gap: 1rem;
       padding-top: 1.5rem;
       border-top: 1px solid var(--rule);
       margin-top: auto;
     }
-    .outcome { display: flex; flex-direction: column; gap: 0.35rem; }
+    .outcome { display: flex; flex-direction: column; gap: 0.3rem; }
     .outcome-val {
       font-family: var(--font-display);
-      font-size: var(--type-lg); font-weight: 800;
-      letter-spacing: -0.035em; line-height: 1.1;
+      font-size: var(--type-md); font-weight: 700;
+      letter-spacing: -0.03em;
       color: var(--accent);
     }
+    .case-card.featured .outcome-val { font-size: var(--type-lg); }
     .outcome-label {
-      font-size: var(--type-xs); color: var(--ink-subtle); line-height: 1.45;
+      font-size: 0.7rem; color: var(--ink-subtle); line-height: 1.45;
     }
 
     .case-arrow {
       display: inline-flex; align-items: center; gap: 0.5rem;
       font-size: var(--type-sm); font-weight: 600;
       color: var(--accent);
-      margin-top: 1.5rem;
+      margin-top: 1.75rem;
       transition: gap 0.3s var(--ease);
     }
     .case-card:hover .case-arrow { gap: 0.85rem; }
 
-    /* ── SIDE HEADED SECTIONS ── */
-    /* Experience, approach and about keep their heading in a narrow column that stays put
-       while the content scrolls past. Only Work gets the full width header, so the case
-       studies stay the loudest thing on the page. */
-    .sec-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 17rem) minmax(0, 1fr);
-      gap: 2rem 5rem;
-    }
-    .sec-head {
-      align-self: start;
-      position: sticky; top: calc(var(--nav-h) + 2.5rem);
-      padding-top: 0.25rem;
-    }
-    .sec-head h2 {
-      font-size: clamp(2rem, 3.2vw, 2.75rem);
-      margin-bottom: 1.4rem;
-    }
-
     /* ── EXPERIENCE ── */
-    .cv { border-top: 1px solid var(--ink); }
+    .cv { border-top: 1px solid var(--rule); }
     .cv-row {
-      display: grid; grid-template-columns: 9.5rem 1fr;
-      gap: 1.5rem;
-      padding: 1.6rem 1.25rem 1.6rem 0;
+      display: grid; grid-template-columns: 210px 1fr;
+      gap: 2rem;
+      padding: 2rem 1.25rem 2rem 0;
       border-bottom: 1px solid var(--rule);
       position: relative;
       transition: background 0.3s ease, padding-left 0.35s var(--ease);
@@ -694,7 +693,7 @@
 
     .cv-extra {
       display: grid; grid-template-columns: repeat(2, 1fr);
-      gap: 3rem; margin-top: 3rem;
+      gap: 3rem; margin-top: 3.5rem;
     }
     .cv-col h4 {
       font-family: var(--font-body);
@@ -708,39 +707,41 @@
     .cv-col p strong { font-size: var(--type-sm); font-weight: 600; color: var(--ink); }
     .cv-col p span { font-size: var(--type-xs); color: var(--ink-subtle); }
 
+    .case-card:not(.featured) { display: flex; flex-direction: column; }
+
     /* ── APPROACH ── */
     #approach { background: var(--surface-alt); }
-    /* Two by two, open, with a hairline over each. No boxes: the band color already sets
-       the section apart. */
+    /* 4 cards divide evenly by 4, 2 or 1, never 3, or empty cells show the grid rule */
     .approach-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 3rem 3.5rem;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      border-radius: 14px;
+      overflow: hidden;
     }
     .approach-card {
-      padding-top: 1.4rem;
-      border-top: 1px solid var(--ink);
+      background: var(--surface);
+      padding: 2.25rem 1.75rem 2.5rem;
       display: flex; flex-direction: column;
+      transition: background 0.35s ease;
     }
+    .approach-card:hover { background: var(--accent-wash); }
     .approach-card h3 {
-      font-size: var(--type-lg);
-      line-height: 1.15;
-      margin-bottom: 0.8rem;
+      font-size: var(--type-md);
+      line-height: 1.2;
+      margin-bottom: 0.7rem;
+      /* two lines reserved so the body copy starts on the same line in every card */
+      min-height: 2.4em;
     }
-    .approach-desc { font-size: var(--type-base); color: var(--ink-muted); line-height: 1.65; text-wrap: pretty; }
+    .approach-desc { font-size: var(--type-sm); color: var(--ink-muted); line-height: 1.65; }
 
     /* ── ABOUT ── */
-    /* Her photo fills the heading column under her name. Navy hairline and a soft shadow,
-       so the gray studio backdrop gets an edge on white. */
-    .about-photo {
-      width: 100%; height: auto; aspect-ratio: 1;
-      object-fit: cover;
-      border-radius: 16px;
-      margin-top: 2rem;
-      background: var(--surface-alt);
-      box-shadow: 0 0 0 1px rgba(7,50,106,0.08), 0 18px 40px rgba(7,50,106,0.12);
+    .about-grid {
+      display: grid; grid-template-columns: 1.15fr 0.85fr;
+      gap: 4.5rem;
     }
-    .about-body-wrap { max-width: 40rem; }
     .about-lead {
       font-family: var(--font-display);
       font-size: clamp(1.5rem, 2.8vw, 2.1rem);
@@ -752,22 +753,18 @@
       text-wrap: balance;
     }
     .about-body p {
-      font-size: var(--type-base);
+      font-size: var(--type-sm);
       color: var(--ink-muted);
-      line-height: 1.7;
+      line-height: 1.8;
+      max-width: var(--reading-w);
     }
-    .about-body p + p { margin-top: 1.1rem; }
+    .about-body p + p { margin-top: 1.25rem; }
     .about-body p { text-wrap: pretty; }
 
-    /* Six groups in three columns, so the list reads as one block instead of a long column. */
-    .skills-list {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 0 2rem;
-      margin-top: 3.5rem;
-    }
+    .skills-list { border-top: 1px solid var(--rule); }
     .skill-row {
-      padding: 1.1rem 0 1.5rem;
-      border-top: 1px solid var(--rule);
+      padding: 1.35rem 0;
+      border-bottom: 1px solid var(--rule);
       display: flex; flex-direction: column; gap: 0.7rem;
     }
     .skill-name {
@@ -902,35 +899,20 @@
       :root { --space-xl: 5.5rem; }
       .hero-inner { grid-template-columns: 1fr; gap: 3.5rem; }
       .hero-mosaic { max-width: 680px; aspect-ratio: 1 / 0.8; }
-      /* Two by two. The first pair's padding meets the second pair's top rule, so the
-         hairlines join into a cross. */
+      /* Four columns would leave about 200px a card, which the numbers overrun. */
       .hero-facts { grid-template-columns: repeat(2, 1fr); }
-      .fact:nth-child(-n+2) { padding-bottom: 2.4rem; }
-      .fact:nth-child(3) { padding-left: 0; border-left: 0; }
-      .fact:nth-child(n+3) { border-top: 1px solid var(--d-rule); }
+      .case-card.featured { grid-template-columns: 1fr; }
       /* Stacked, so the thumb sets its own height again and must come back into flow. */
-      .case-card, .case-card.flip { grid-template-columns: 1fr; min-height: 0; }
-      .case-card.flip .case-thumb-wrap { order: 0; }
-      .case-thumb { position: static; aspect-ratio: 16 / 10; }
-      .sec-grid { grid-template-columns: 1fr; gap: 0; }
-      .sec-head { position: static; margin-bottom: 2.25rem; }
-      .sec-head h2 { margin-bottom: 1rem; }
-      /* Stacked, the photo would run the full width, so it shrinks and sits beside the name. */
-      #about .sec-head {
-        display: grid; grid-template-columns: auto 1fr;
-        column-gap: 1.4rem; align-items: center;
+      .case-card.featured .case-thumb {
+        position: static; aspect-ratio: 16 / 8; min-height: 0;
       }
-      #about .sec-head > :not(.about-photo) { grid-column: 2; }
-      #about .sec-head h2 { margin-bottom: 0; }
-      .about-photo {
-        grid-column: 1; grid-row: 1 / span 2;
-        width: 128px; margin-top: 0; border-radius: 14px;
-      }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
     }
-    @media (max-width: 620px) {
-      .about-photo { width: 96px; border-radius: 12px; }
+    @media (max-width: 1080px) and (min-width: 861px) {
+      .approach-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 900px) {
+      .work-grid { grid-template-columns: 1fr; }
       /* The links shrink rather than collapse: this nav is the only way to reach
          Experience and Resume on a phone, so hiding them strands those sections. */
       .nav-links { gap: 1.1rem; margin-right: 1.25rem; }
@@ -940,9 +922,13 @@
     }
     @media (max-width: 860px) {
       :root { --space-xl: 4.5rem; }
+      .approach-grid { grid-template-columns: 1fr; }
       .cv-row { grid-template-columns: 1fr; gap: 0.5rem; }
       .cv-when { padding-top: 0; }
-      .skills-list { grid-template-columns: repeat(2, 1fr); }
+      .cv-extra { grid-template-columns: 1fr; gap: 2.25rem; }
+      .case-outcomes { grid-template-columns: 1fr; gap: 0.85rem; }
+      .outcome { flex-direction: row; align-items: baseline; gap: 0.6rem; }
+      .outcome-label { max-width: 30ch; }
     }
     @media (max-width: 560px) {
       /* Below this the CTA and the four links cannot share the bar. The links win:
@@ -956,32 +942,12 @@
       .container { padding: 0 1.25rem; }
       nav { padding: 0 1rem; }
       #hero { padding-top: calc(var(--nav-h) + 3rem); }
-      /* Still two by two on a phone: four stacked blocks were most of a screen each. */
-      .hero-stats { padding: 3rem 0 4.5rem; }
-      .fact { padding: 1.6rem 0 0 1.1rem; }
-      .fact:nth-child(-n+2) { padding-bottom: 1.6rem; }
-      .stat-num { font-size: 2.35rem; margin-bottom: 0.75rem; }
-      .stat-label { font-size: 0.68rem; letter-spacing: 0.1em; }
-      .stat-sub { font-size: 0.8rem; }
+      /* One up. */
+      .hero-facts { grid-template-columns: 1fr; }
+      .fact { padding: 1.7rem 1.45rem 1.55rem; }
+      .fact .stat-label { min-height: 0; }
       .section-header { margin-bottom: 2.5rem; }
-      .case-content { padding: 1.75rem 1.35rem 1.85rem; }
-      .case-desc { font-size: var(--type-sm); margin-bottom: 1.5rem; }
-      .case-outcomes { gap: 0.9rem; padding-top: 1.25rem; }
-      .outcome-val { font-size: 1.2rem; }
-      .outcome-label { font-size: 0.7rem; }
-      .approach-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .cv-extra { grid-template-columns: 1fr; gap: 2.25rem; }
-      .about-body p { font-size: var(--type-sm); }
-      /* One column on a phone: two columns wrapped every pill onto its own line. */
-      .skills-list { grid-template-columns: 1fr; margin-top: 2.5rem; }
-      .skill-row { padding: 0.9rem 0 1rem; gap: 0.35rem; }
-      /* Pills wrapped onto two lines in every group. As a line of text they fit in one. */
-      .skill-tags { gap: 0; }
-      .skill-tag, .skill-row:hover .skill-tag {
-        border: 0; padding: 0; border-radius: 0; background: none;
-        font-size: 0.8rem; color: var(--ink-muted);
-      }
-      .skill-tag:not(:last-child)::after { content: '\00B7'; margin: 0 0.45rem; color: var(--ink-faint); }
+      .case-content, .case-card:not(.featured) > :not(.case-thumb-wrap) { padding-left: 1.35rem; padding-right: 1.35rem; }
       /* The stage and its chrome are sized for a desktop card. At phone width they would
          eat the screenshot, so both shrink and the window keeps the room. */
       .case-thumb { padding: 0.9rem 0.9rem 0; }
@@ -990,6 +956,7 @@
         left: 8px; width: 5px; height: 5px; margin-top: -2.5px;
         box-shadow: 9px 0 0 #C3D0DE, 18px 0 0 #C3D0DE;
       }
+      .approach-card { padding: 1.75rem 1.35rem 2rem; }
       footer { flex-direction: column; align-items: flex-start; }
     }
     @media (hover: none) {
@@ -1087,21 +1054,25 @@
         <div class="fact">
           <span class="stat-num">10+</span>
           <span class="stat-label">Years in design</span>
+          <span class="stat-rule"></span>
           <span class="stat-sub">Since 2016, across enterprise, startup and design agency.</span>
         </div>
         <div class="fact">
           <span class="stat-num">16</span>
           <span class="stat-label">Development teams</span>
+          <span class="stat-rule"></span>
           <span class="stat-sub">Building on systems I designed.</span>
         </div>
         <div class="fact">
           <span class="stat-num">6M</span>
           <span class="stat-label">Users reached</span>
+          <span class="stat-rule"></span>
           <span class="stat-sub">Through products and features I launched.</span>
         </div>
         <div class="fact">
           <span class="stat-num">220K</span>
           <span class="stat-label">Small businesses</span>
+          <span class="stat-rule"></span>
           <span class="stat-sub">Running on software I helped design.</span>
         </div>
       </div>
@@ -1130,22 +1101,22 @@
           <div class="case-arrow">Read case study <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
         </a>
 
-        <a class="case-card flip fade-up" href="case-branding-center.html">
-          <div class="case-thumb-wrap"><div class="case-thumb thumb-ds"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/bc-card-ai.gif" alt="Concept in the Branding Center prototype: Thryv AI reads a business website while logos, brand colors and fonts appear on the Branding tab one by one, then asks which logo should be primary" loading="lazy" width="840" height="500" style="object-position:left top" /></div></div></div>
-          <div class="case-content"><div class="case-meta"><span class="case-tag">Keap · Lead designer</span><span class="case-year">Brand system · 2024</span></div>
+        <a class="case-card fade-up" href="case-branding-center.html">
+          <div class="case-thumb-wrap"><div class="case-thumb thumb-ds"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/bc-card-ai.gif" alt="Concept in the Branding Center prototype: Thryv AI reads a business website while logos, brand colors and fonts appear on the Branding tab one by one, then asks which logo should be primary" loading="lazy" width="840" height="500" style="object-position:center top" /></div></div></div>
+          <div class="case-meta"><span class="case-tag">Keap · Lead designer</span><span class="case-year">Brand system · 2024</span></div>
           <h3>Building the Branding Center</h3>
           <p class="case-desc">A business&rsquo;s brand lived in a document outside the product, so changing a logo meant redoing every email and landing page by hand. I designed one place to keep the brand that every builder reads from, and sixteen teams use it.</p>
           <div class="case-outcomes"><div class="outcome"><span class="outcome-val">16</span><span class="outcome-label">Teams using one brand definition</span></div><div class="outcome"><span class="outcome-val">25→15</span><span class="outcome-label">Minutes to build a landing page</span></div><div class="outcome"><span class="outcome-val">+20%</span><span class="outcome-label">Landing page builder adoption</span></div></div>
-          <div class="case-arrow">Read case study <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+          <div class="case-arrow">Read case study <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </a>
 
         <a class="case-card fade-up" href="case-business-listing.html">
-          <div class="case-thumb-wrap"><div class="case-thumb thumb-ai"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/card-bl-listings.jpg" alt="Listings Management: connection status for each directory, from Connected to Processing to Issue Found, with actions for each listing" loading="lazy" width="1022" height="545" style="object-position:66% top" /></div></div></div>
-          <div class="case-content"><div class="case-meta"><span class="case-tag">Thryv · Design &amp; research lead</span><span class="case-year">Business listing · Third party vendor · 2026</span></div>
+          <div class="case-thumb-wrap"><div class="case-thumb thumb-ai"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/card-bl-listings.jpg" alt="Listings Management: connection status for each directory, from Connected to Processing to Issue Found, with actions for each listing" loading="lazy" width="1022" height="545" /></div></div></div>
+          <div class="case-meta"><span class="case-tag">Thryv · Design &amp; research lead</span><span class="case-year">Business listing · Third party vendor · 2026</span></div>
           <h3>Moving listings to a new vendor</h3>
           <p class="case-desc">Picking the vendor wasn&rsquo;t my call. I set the usability bar every vendor had to meet, got an AI requirement into the scorecard, and specified a layer that keeps the experience the same whichever one won.</p>
           <div class="case-outcomes"><div class="outcome"><span class="outcome-val">2</span><span class="outcome-label">Shortlisted vendors tested in a live prototype</span></div><div class="outcome"><span class="outcome-val">3→1</span><span class="outcome-label">Studies combined into one usability bar</span></div><div class="outcome"><span class="outcome-val">160K</span><span class="outcome-label">Locations in scope</span></div></div>
-          <div class="case-arrow">Read case study <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+          <div class="case-arrow">Read case study <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </a>
 
       </div>
@@ -1154,13 +1125,14 @@
 
   <!-- EXPERIENCE -->
   <section id="experience">
-    <div class="container sec-grid">
-      <div class="sec-head fade-up">
-        <div class="section-label">Background</div>
-        <h2>Experience</h2>
+    <div class="container">
+      <div class="section-header fade-up">
+        <div>
+          <div class="section-label">Background</div>
+          <h2>Experience</h2>
+        </div>
         <a href="img/denise-barrett-resume.pdf" class="section-link" download>Download resume &rarr;</a>
       </div>
-      <div class="sec-body">
       <div class="cv fade-up">
         <div class="cv-row">
           <div class="cv-when">2022 to 2026</div>
@@ -1204,16 +1176,17 @@
           <p><strong>CGDA Visual Communication Design</strong><span>Excellence award &middot; 2016</span></p>
         </div>
       </div>
-      </div>
     </div>
   </section>
 
   <!-- APPROACH -->
   <section id="approach">
-    <div class="container sec-grid">
-      <div class="sec-head fade-up">
-        <div class="section-label">How I work</div>
-        <h2>My approach</h2>
+    <div class="container">
+      <div class="section-header fade-up">
+        <div>
+          <div class="section-label">How I work</div>
+          <h2>My approach</h2>
+        </div>
       </div>
       <div class="approach-grid">
         <div class="approach-card fade-up">
@@ -1238,14 +1211,15 @@
 
   <!-- ABOUT -->
   <section id="about">
-    <div class="container sec-grid">
-      <div class="sec-head fade-up">
-        <div class="section-label">About</div>
-        <h2>Denise Barrett</h2>
-        <img class="about-photo" src="img/denise-barrett.jpg" alt="Denise Barrett" width="640" height="640" loading="lazy" decoding="async" />
+    <div class="container">
+      <div class="section-header fade-up">
+        <div>
+          <div class="section-label">About</div>
+          <h2>Denise Barrett</h2>
+        </div>
       </div>
-      <div class="sec-body">
-        <div class="about-body-wrap fade-up">
+      <div class="about-grid">
+        <div class="fade-up">
           <p class="about-lead">I build systems and use AI to move faster.</p>
           <div class="about-body">
             <p>I&rsquo;ve spent over a decade in product design. Most recently, I worked on landing pages, email broadcasts, forms and automation tools for small businesses. Before that, I designed web and mobile apps for enterprise learning and geospatial mapping.</p>
