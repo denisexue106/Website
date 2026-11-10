@@ -26,6 +26,7 @@
     "name": "Denise Barrett",
     "jobTitle": "Product Designer and Leader",
     "url": "https://dbyxdesign.com/",
+    "image": "https://dbyxdesign.com/img/denise-barrett.jpg",
     "email": "mailto:denisexue106@gmail.com",
     "sameAs": ["https://www.linkedin.com/in/deniseb106/"],
     "description": "Product designer and leader with 10+ years in B2B SaaS platform design and an MFA from Rochester Institute of Technology. Most recently at Keap, acquired by Thryv. Open to new roles, remote in the US.",
@@ -729,6 +730,16 @@
     .approach-desc { font-size: var(--type-base); color: var(--ink-muted); line-height: 1.65; text-wrap: pretty; }
 
     /* ── ABOUT ── */
+    /* Her photo fills the heading column under her name. Navy hairline and a soft shadow,
+       so the gray studio backdrop gets an edge on white. */
+    .about-photo {
+      width: 100%; height: auto; aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-top: 2rem;
+      background: var(--surface-alt);
+      box-shadow: 0 0 0 1px rgba(7,50,106,0.08), 0 18px 40px rgba(7,50,106,0.12);
+    }
     .about-body-wrap { max-width: 40rem; }
     .about-lead {
       font-family: var(--font-display);
@@ -904,6 +915,20 @@
       .sec-grid { grid-template-columns: 1fr; gap: 0; }
       .sec-head { position: static; margin-bottom: 2.25rem; }
       .sec-head h2 { margin-bottom: 1rem; }
+      /* Stacked, the photo would run the full width, so it shrinks and sits beside the name. */
+      #about .sec-head {
+        display: grid; grid-template-columns: auto 1fr;
+        column-gap: 1.4rem; align-items: center;
+      }
+      #about .sec-head > :not(.about-photo) { grid-column: 2; }
+      #about .sec-head h2 { margin-bottom: 0; }
+      .about-photo {
+        grid-column: 1; grid-row: 1 / span 2;
+        width: 128px; margin-top: 0; border-radius: 14px;
+      }
+    }
+    @media (max-width: 620px) {
+      .about-photo { width: 96px; border-radius: 12px; }
     }
     @media (max-width: 900px) {
       /* The links shrink rather than collapse: this nav is the only way to reach
@@ -949,7 +974,14 @@
       .about-body p { font-size: var(--type-sm); }
       /* One column on a phone: two columns wrapped every pill onto its own line. */
       .skills-list { grid-template-columns: 1fr; margin-top: 2.5rem; }
-      .skill-row { padding: 1rem 0 1.2rem; gap: 0.6rem; }
+      .skill-row { padding: 0.9rem 0 1rem; gap: 0.35rem; }
+      /* Pills wrapped onto two lines in every group. As a line of text they fit in one. */
+      .skill-tags { gap: 0; }
+      .skill-tag, .skill-row:hover .skill-tag {
+        border: 0; padding: 0; border-radius: 0; background: none;
+        font-size: 0.8rem; color: var(--ink-muted);
+      }
+      .skill-tag:not(:last-child)::after { content: '\00B7'; margin: 0 0.45rem; color: var(--ink-faint); }
       /* The stage and its chrome are sized for a desktop card. At phone width they would
          eat the screenshot, so both shrink and the window keeps the room. */
       .case-thumb { padding: 0.9rem 0.9rem 0; }
@@ -1210,6 +1242,7 @@
       <div class="sec-head fade-up">
         <div class="section-label">About</div>
         <h2>Denise Barrett</h2>
+        <img class="about-photo" src="img/denise-barrett.jpg" alt="Denise Barrett" width="640" height="640" loading="lazy" decoding="async" />
       </div>
       <div class="sec-body">
         <div class="about-body-wrap fade-up">
