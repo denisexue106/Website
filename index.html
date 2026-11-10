@@ -26,6 +26,7 @@
     "name": "Denise Barrett",
     "jobTitle": "Product Designer and Leader",
     "url": "https://dbyxdesign.com/",
+    "image": "https://dbyxdesign.com/img/denise-barrett.jpg",
     "email": "mailto:denisexue106@gmail.com",
     "sameAs": ["https://www.linkedin.com/in/deniseb106/"],
     "description": "Product designer and leader with 10+ years in B2B SaaS platform design and an MFA from Rochester Institute of Technology. Most recently at Keap, acquired by Thryv. Open to new roles, remote in the US.",
@@ -738,6 +739,14 @@
     .approach-desc { font-size: var(--type-sm); color: var(--ink-muted); line-height: 1.65; }
 
     /* ── ABOUT ── */
+    /* Her photo sits beside her name in the section header, so the layout below is unchanged. */
+    .about-id { display: flex; align-items: center; gap: 1.5rem; }
+    .about-photo {
+      flex: none; width: 112px; height: 112px;
+      object-fit: cover; border-radius: 16px;
+      background: var(--surface-alt);
+      box-shadow: 0 0 0 1px rgba(7,50,106,0.08), 0 14px 32px rgba(7,50,106,0.12);
+    }
     .about-grid {
       display: grid; grid-template-columns: 1.15fr 0.85fr;
       gap: 4.5rem;
@@ -939,6 +948,8 @@
       .nav-logo { font-size: 1rem; }
     }
     @media (max-width: 620px) {
+      .about-id { gap: 1.1rem; }
+      .about-photo { width: 84px; height: 84px; border-radius: 12px; }
       .container { padding: 0 1.25rem; }
       nav { padding: 0 1rem; }
       #hero { padding-top: calc(var(--nav-h) + 3rem); }
@@ -1213,9 +1224,12 @@
   <section id="about">
     <div class="container">
       <div class="section-header fade-up">
-        <div>
-          <div class="section-label">About</div>
-          <h2>Denise Barrett</h2>
+        <div class="about-id">
+          <img class="about-photo" src="img/denise-barrett.jpg" alt="Denise Barrett" width="640" height="640" loading="lazy" decoding="async" />
+          <div>
+            <div class="section-label">About</div>
+            <h2>Denise Barrett</h2>
+          </div>
         </div>
       </div>
       <div class="about-grid">
