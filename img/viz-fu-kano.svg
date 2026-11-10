@@ -1,11 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="Diverging bar chart of a Kano study on three candidate features: conditional formatting scores 60% satisfaction and 30% dissatisfaction, appointments 60% and 10%, payments 22% and 33%" font-family="Inter, Helvetica, Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="Diverging bar chart of a Kano study on three candidate features: conditional logic scores 60% satisfaction and 30% dissatisfaction, appointments 60% and 10%, payments 22% and 33%" font-family="Inter, Helvetica, Arial, sans-serif">
 <rect width="800" height="500" fill="#F1F7F9"/>
 <text x="48" y="52" font-size="13" fill="#07326A" text-anchor="start" font-weight="600">Satisfaction if present, dissatisfaction if absent</text>
 <text x="48" y="72" font-size="11" fill="#57677C" text-anchor="start">Kano study · n = 11 · the answer didn’t match the plan we’d already written</text>
 <rect x="48" y="94" width="10" height="10" rx="2" fill="#0A61C9"/><text x="64" y="103" font-size="10" fill="#57677C" text-anchor="start">Satisfaction if present</text>
 <rect x="200" y="94" width="10" height="10" rx="2" fill="#b8574e"/><text x="216" y="103" font-size="10" fill="#57677C" text-anchor="start">Dissatisfaction if absent</text>
 <line x1="430" y1="128" x2="430" y2="436" stroke="#C3D0DE" stroke-width="1"/>
-<text x="48" y="166" font-size="12" fill="#07326A" text-anchor="start" font-weight="500">Conditional formatting</text>
+<text x="48" y="166" font-size="12" fill="#07326A" text-anchor="start" font-weight="500">Conditional logic</text>
 <text x="48" y="184" font-size="10" fill="#57677C" text-anchor="start">Attractive · highest stated importance</text>
 <path d="M430 158 H332.0 Q328.0 158 328.0 162 V176 Q328.0 180 332.0 180 H430 Z" fill="#b8574e"/>
 <text x="320.0" y="173" font-size="11" fill="#57677C" text-anchor="end">30%</text>
