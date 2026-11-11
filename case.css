@@ -199,7 +199,6 @@ footer a:hover{color:var(--accent-light)}
 .jump{border-bottom:1px solid var(--rule);background:var(--surface);position:sticky;top:57px;z-index:60}
 .jump .container{display:flex;align-items:center;gap:1.25rem;padding-block:.85rem;overflow-x:auto;scrollbar-width:none}
 .jump .container::-webkit-scrollbar{display:none}
-.jump-k{font-size:var(--type-xs);font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);flex:none;margin-right:.25rem}
 .jump a{font-size:var(--type-sm);color:var(--ink-muted);text-decoration:none;white-space:nowrap;padding:.2rem 0;border-bottom:1px solid transparent;transition:color .25s,border-color .25s}
 .jump a:hover{color:var(--accent);border-bottom-color:var(--accent)}
 section[id]{scroll-margin-top:110px}
