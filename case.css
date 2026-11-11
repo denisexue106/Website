@@ -431,8 +431,7 @@ svg.icon{width:1em;height:1em;flex:none;fill:none;stroke:currentColor;stroke-wid
 /* the results strip opens every case study */
 .glance .stats{margin-top:0}
 
-/* the tour: its length on the button, played in a dialog over the page */
-.tour-len{font-weight:500;opacity:.8;font-variant-numeric:tabular-nums;margin-left:.1rem}
+/* the tour plays in a dialog over the page */
 .tour-dlg{margin:auto;padding:0;border:0;background:transparent;width:min(1180px,94vw);max-width:none;max-height:none;overflow:visible}
 .tour-dlg::backdrop{background:rgba(4,22,48,.84)}
 .tour-box{position:relative;background:#000;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.45)}
