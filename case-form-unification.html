@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="case.css" />
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="i-block" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M6 6l12 12"/></symbol><symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.6 2.6L16.2 9"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v5l3.3 1.9"/></symbol><symbol id="i-flag" viewBox="0 0 24 24"><line x1="6" y1="3" x2="6" y2="21"/><path d="M6 4.2h11l-3 3.9 3 3.9H6"/></symbol><symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></symbol><symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><line x1="15.1" y1="15.1" x2="20" y2="20"/></symbol><symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 8h13.5l-3-3"/><path d="M20 16H6.5l3 3"/></symbol><symbol id="i-users" viewBox="0 0 24 24"><circle cx="8.7" cy="8" r="3"/><path d="M2.7 20a6 6 0 0 1 12 0"/><circle cx="16.7" cy="9" r="2.3"/><path d="M15 14.3a5.5 5.5 0 0 1 6.6 5.2"/></symbol></svg>
 <a href="#main" class="skip-link">Skip to content</a>
 <nav aria-label="Primary">
   <a href="index.html#work" class="nav-back">
@@ -42,23 +43,23 @@
 <nav class="jump" aria-label="On this page"><div class="container"><span class="jump-k">On this page</span><a href="#s01">The problem</a><a href="#s02">My role</a><a href="#s03">The approach</a><a href="#s04">Testing</a><a href="#s05">AI</a><a href="#s06">Decisions</a><a href="#s07">Outcome</a></div></nav>
 <section class="glance" aria-label="At a glance"><div class="container">
 <div class="sec-label">At a glance</div>
-<div class="stats stats-4"><div><div class="stat-v">12+</div><div class="stat-l">Month rebuild I argued against, by engineering&rsquo;s estimate</div></div><div><div class="stat-v">4&rarr;1</div><div class="stat-l">Teams needed to own forms</div></div><div><div class="stat-v">79%</div><div class="stat-l">Of the migration moved across with no repeat fixes</div></div><div><div class="stat-v">3 of 3</div><div class="stat-l">Top ranked survey features shipped</div></div></div>
+<div class="stats stats-4"><div><svg class="icon sc-icon" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg><div class="stat-v">12+</div><div class="stat-l">Month rebuild I argued against, by engineering&rsquo;s estimate</div></div><div class="hi"><svg class="icon sc-icon" aria-hidden="true" focusable="false"><use href="#i-users"/></svg><div class="stat-v">4&rarr;1</div><div class="stat-l">Teams needed to own forms</div></div><div><svg class="icon sc-icon" aria-hidden="true" focusable="false"><use href="#i-check-circle"/></svg><div class="stat-v">79%</div><div class="stat-l">Of the migration moved across with no repeat fixes</div><span class="sc-bar" style="--v:79%"><i></i></span></div><div><svg class="icon sc-icon" aria-hidden="true" focusable="false"><use href="#i-flag"/></svg><div class="stat-v">3 of 3</div><div class="stat-l">Top ranked survey features shipped</div></div></div>
 </div></section>
 <section id="s01"><div class="container">
 <div class="sec-label">01 &middot; The problem</div>
-<h2>Seven ways to build a form, and users still left</h2>
+<h2>Seven ways to build a form, and <span class="hl">users still left</span></h2>
 <div class="split"><p class="lead-p">There were four live form products and three legacy ones, each with its own UX. My team owned four of them, and three other teams owned one each. Any improvement had to be rebuilt for every builder, or it only reached one. No single team owned the whole problem, so I took it on.</p><div class="quote pull">I thought web forms ARE public forms. Do not know the difference.<cite>Survey respondent</cite></div></div>
-<div class="cards"><div class="card"><h3>Users couldn&rsquo;t tell them apart</h3><p>The names came from our product vocabulary, not theirs. It&rsquo;s also why the legacy migration stalled. With three modern builders, there was no obvious one to move to.</p></div><div class="card"><h3>So they built forms elsewhere</h3><p>Our own survey turned up four other form tools people were using instead. A quarter of respondents named the same general purpose tool.</p></div><div class="card"><h3>One form got worse</h3><p>Before drawing anything, I pulled the measured score for every form. Only one hit its target, and the most used form scored lower after its rebuild than before.</p></div></div>
+<div class="cards"><div class="card"><span class="ring"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-layers"/></svg></span><h3>Users couldn&rsquo;t tell them apart</h3><p>The names came from our product vocabulary, not theirs. It&rsquo;s also why the legacy migration stalled. With three modern builders, there was no obvious one to move to.</p></div><div class="card"><span class="ring"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-swap"/></svg></span><h3>So they built forms elsewhere</h3><p>Our own survey turned up four other form tools people were using instead. A quarter of respondents named the same general purpose tool.</p></div><div class="card"><span class="ring"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-block"/></svg></span><h3>One form got worse</h3><p>Before drawing anything, I pulled the measured score for every form. Only one hit its target, and the most used form scored lower after its rebuild than before.</p></div></div>
 </div></section>
 <section id="s02"><div class="container">
 <div class="sec-label">02 &middot; My role</div>
-<h2>The only designer on it</h2>
+<h2>The <span class="hl">only designer</span> on it</h2>
 <p class="lead-p">I took it from scoping and research through design, the pitch to leadership, and delivery.</p><div class="moves grid2"><div class="move"><div class="move-n">01</div><div><h3>Pulled six years of old research together</h3><p>There were studies going back to 2020. Each one answered a single question and then sat in a folder, and nobody had put them side by side. Those five earlier studies are what let me argue the problem was structural and not just my opinion.</p></div></div><div class="move"><div class="move-n">02</div><div><h3>Ran new research</h3><p>A survey of 25 people with two researchers, a competitor audit of nine platforms and a prioritization workshop. I also designed both usability studies.</p></div></div><div class="move"><div class="move-n">03</div><div><h3>Set the direction and the phases</h3><p>Parity first, then consolidation, then appointments and payments. Checkout belonged to another team, so I had to get that team on board before I could design anything in their part of the product.</p></div></div><div class="move"><div class="move-n">04</div><div><h3>Argued against the full rebuild</h3><p>Everyone assumed we&rsquo;d rebuild, and engineering estimated that at twelve months or more. I showed that the data models were already sound and the fragmentation was in what users saw, so a rebuild would add regression risk without much payoff. Once I won that argument, it set the scope for everything after.</p></div></div></div>
 <figure class="shot"><div class="pan"><img src="img/viz-fu-timeline.svg" alt="Timeline of nine research studies from 2020 to 2026, with the four the designer ran highlighted" loading="lazy" width="800" height="500" /></div><figcaption>Nine studies from 2020 to 2026. I ran the four highlighted ones. The other five came before me.</figcaption></figure>
 </div></section>
 <section id="s03"><div class="container">
 <div class="sec-label">03 &middot; The approach</div>
-<h2>Ask what the form is for</h2>
+<h2>Ask what <span class="hl">the form is for</span></h2>
 <p>Seven products became one builder with four use cases. The use case you pick also decides where the form is allowed to appear in the product.</p>
 <figure class="shot diagram"><div class="band pan"><svg viewBox="0 0 620 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Seven separate form builders converging into one system with four use cases">
 <g class="d-dash">
@@ -78,12 +79,12 @@
 </div></section>
 <section id="s04"><div class="container">
 <div class="sec-label">04 &middot; Testing</div>
-<h2>Round one went badly, and that was useful</h2>
-<div class="cards"><div class="card"><h3>Round one &middot; 7 participants</h3><p>Everyone hit friction. None of the seven could figure out how to add a step, and six of seven got tripped up by the old categories. The live side by side preview was what people mentioned most when they talked about trusting it.</p></div><div class="card"><h3>Round two &middot; 8 participants</h3><p>A year later, manual creation scored a perfect 3.00 on the same flow that had broken for everyone. Most people didn&rsquo;t even notice the public/internal split was gone.</p></div><div class="card"><h3>What still didn&rsquo;t work</h3><p>Nobody could find Forms. People looked in Automations, Contacts, Sales and Reporting first. The merge itself went unnoticed, which was good, but getting to Forms was still a problem.</p></div></div><figure class="shot"><div class="pan"><img src="img/viz-fu-testing.svg" alt="Three stat tiles from the second usability round" loading="lazy" width="800" height="500" /></div><figcaption>Results from round two, a year after round one.</figcaption></figure>
+<h2>Round one went badly, and <span class="hl">that was useful</span></h2>
+<div class="cards"><div class="card"><span class="ring"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-search"/></svg></span><h3>Round one &middot; 7 participants</h3><p>Everyone hit friction. None of the seven could figure out how to add a step, and six of seven got tripped up by the old categories. The live side by side preview was what people mentioned most when they talked about trusting it.</p></div><div class="card"><span class="ring"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check-circle"/></svg></span><h3>Round two &middot; 8 participants</h3><p>A year later, manual creation scored a perfect 3.00 on the same flow that had broken for everyone. Most people didn&rsquo;t even notice the public/internal split was gone.</p></div><div class="card"><span class="ring"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-flag"/></svg></span><h3>What still didn&rsquo;t work</h3><p>Nobody could find Forms. People looked in Automations, Contacts, Sales and Reporting first. The merge itself went unnoticed, which was good, but getting to Forms was still a problem.</p></div></div><figure class="shot"><div class="pan"><img src="img/viz-fu-testing.svg" alt="Three stat tiles from the second usability round" loading="lazy" width="800" height="500" /></div><figcaption>Results from round two, a year after round one.</figcaption></figure>
 </div></section>
 <section id="s05"><div class="container">
 <div class="sec-label">05 &middot; AI</div>
-<h2>One builder made AI drafts possible</h2>
+<h2>One builder made <span class="hl">AI drafts possible</span></h2>
 <div class="split media-right">
 <div><p>Having one builder is also what made AI generation work. With seven builders, a model would have had seven targets, each with different features. With one, it can produce a complete form that uses everything the builder supports.</p><p class="note">The fields, copy, brand and template all come in together, and switching templates changes the look without touching the fields. Recorded from the interactive prototype.</p></div>
 <figure class="shot screen"><div class="screen-frame" style="--shot-w:732px"><div class="screen-win"><div class="screen-bar"></div><img src="img/fu-ai-build.gif" alt="Thryv AI building a client intake form: a checklist ticks off fields, copy, brand and template while a live preview assembles beside it, then template chips switch the look" loading="lazy" width="732" height="690" /></div></div></figure>
@@ -96,7 +97,7 @@
 </div></section>
 <section id="s06"><div class="container">
 <div class="sec-label">06 &middot; Decisions</div>
-<h2>Where I changed direction</h2>
+<h2>Where I <span class="hl">changed direction</span></h2>
 <figure class="shot"><div class="pan"><img src="img/viz-fu-ranking.svg" alt="Bar chart of six features ranked by survey respondents, with the top three emphasized" loading="lazy" width="800" height="500" /></div><figcaption>What 25 users ranked, before any of it was on a roadmap. The three darker bars are the three parity features I shipped.</figcaption></figure>
 <div class="dec dec-grid"><div class="dec-row"><div class="dec-q">The full rebuild</div><div class="dec-a"><strong>I kept the existing backend, merged the UI on top of it, and shipped it in stages.</strong></div></div><div class="dec-row"><div class="dec-q">Merging all form types at once</div><div class="dec-a">The backend was still split, and checkout had payment logic the others didn&rsquo;t. <strong>I merged the two closest first and designed the rest as future states.</strong></div></div><div class="dec-row"><div class="dec-q">Full AI form creation</div><div class="dec-a">Testing showed people didn&rsquo;t want AI for everything. They wanted it to start a new form, not to make small edits. <strong>I shipped AI drafting with manual editing after it, and templates as the fallback.</strong></div></div><div class="dec-row"><div class="dec-q">Selling it with a deck</div><div class="dec-a">Slides weren&rsquo;t going to show leadership what a three year plan would feel like to use. <strong>I built a working prototype instead. Leadership got it within days, and I got the sign off.</strong></div></div></div>
 <div class="after"><p>A Kano study on the three candidate features didn&rsquo;t match the plan we&rsquo;d already written. Conditional logic wasn&rsquo;t on the roadmap at all, even though it was the top complaint in the survey and the top ranked feature in the study. I took the results to leadership and got the roadmap changed: conditional logic moved up, and the payments phase came out.</p></div>
@@ -105,7 +106,7 @@
 </div></section>
 <section id="s07"><div class="container">
 <div class="sec-label">07 &middot; Outcome</div>
-<h2>What shipped and what&rsquo;s next</h2>
+<h2>What shipped and <span class="hl">what&rsquo;s next</span></h2>
 <div class="status grid2"><div class="st"><span class="pill ship">Shipped</span><span class="st-b">All three of the survey&rsquo;s top ranked parity features, live to users.</span></div><div class="st"><span class="pill ship">Shipped</span><span class="st-b">The first half of the unified builder. It ships in stages, and the second half is in development.</span></div><div class="st"><span class="pill prog">In progress</span><span class="st-b">A single form service that deploys on its own, replacing 32 legacy endpoints. Twelve are done, and the remaining gaps are mapped.</span></div><div class="st"><span class="pill park">Unfunded</span><span class="st-b">More was scoped but didn&rsquo;t get funded.</span></div></div>
 <div class="after"><p>One team can own the form service now, and the tech debt and upkeep of seven separate implementations goes away with it. Forms also work across every area of the platform instead of living inside one product, so people can use a form wherever they&rsquo;re working. Getting there meant working across four teams, and the system now has AI and MCP layers on top. The migration is going well so far: 79% moved across seamlessly, support tickets are down, and the same issues aren&rsquo;t coming back.</p><p>Not all of it has shipped yet. It&rsquo;s going out in stages, and I ordered them by what users ranked highest, so the first ones out are the ones the research backed most.</p></div>
 <h3 class="revisit-h">One thing I&rsquo;d do differently</h3>
@@ -115,7 +116,7 @@
 </main>
 <section class="more">
   <div class="container">
-    <div class="more-head"><h2>More work</h2><a class="more-all" href="index.html#work">All case studies &rarr;</a></div>
+    <div class="more-head"><h2>More <span class="hl">work</span></h2><a class="more-all" href="index.html#work">All case studies &rarr;</a></div>
     <div class="more-grid">
       <a class="more-card" href="case-business-listing.html"><div class="more-thumb"><img src="img/card-bl-listings.jpg" alt="" loading="lazy" /></div><div class="more-body"><div class="more-dir"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M12 7H2M7 2L2 7l5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Previous</div><h3>Moving listings to a new vendor</h3><p>Business listing · Third party vendor</p></div></a>
       <a class="more-card" href="case-branding-center.html"><div class="more-thumb"><img src="img/more-bc.jpg" alt="" loading="lazy" /></div><div class="more-body"><div class="more-dir">Next <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Building the Branding Center</h3><p>Brand system</p></div></a>
@@ -124,7 +125,7 @@
 </section>
 <section class="next">
   <div class="container">
-    <h2>Let&rsquo;s talk</h2>
+    <h2>Let&rsquo;s <span class="hl">talk</span></h2>
     <div class="next-actions">
       <a href="mailto:denisexue106@gmail.com" class="btn-light">Get in touch</a>
       <a href="img/denise-barrett-resume.pdf" class="btn-out" download>Download resume</a>

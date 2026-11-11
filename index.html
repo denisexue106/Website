@@ -501,6 +501,30 @@
     }
     .section-link:hover { color: var(--accent); gap: 0.7rem; }
 
+/* ── DECK GRAMMAR ──
+       The layout language of her interview deck, in the site's navy and blue:
+       1. a screen sits in a bezel on a band of raised ground and overhangs the band's top edge
+       2. the text that explains a screen sits beside it as ring callouts, not under it
+       3. figures sit in stat cards, and in any row exactly one is promoted
+       4. lists sit in panels or icon rows that read like a product surface
+       5. titles are two tone, with the operative phrase in the accent */
+    .hl { color: var(--accent); }
+    #contact .hl { color: var(--accent-light); }
+    svg.icon {
+      width: 1em; height: 1em; flex: none;
+      fill: none; stroke: currentColor; stroke-width: 1.7;
+      stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    /* children of a revealed block arrive one after another */
+    .fade-up .iconrow, .fade-up .statcard, .fade-up .callout, .fade-up .panel {
+      opacity: 0; transform: translateY(12px);
+      transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    }
+    .fade-up.visible .iconrow, .fade-up.visible .statcard, .fade-up.visible .callout, .fade-up.visible .panel {
+      opacity: 1; transform: none;
+    }
+
     /* ── WORK ── */
     #work { padding-top: var(--space-lg); }
     .work-grid {
@@ -508,18 +532,18 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 2.5rem;
     }
-
     .case-card {
-      display: block;
+      display: flex; flex-direction: column;
       position: relative;
       background: var(--surface);
       border: 1px solid var(--rule);
-      border-radius: 14px;
-      overflow: hidden;
+      border-radius: 18px;
+      padding: 1.6rem 1.6rem 1.75rem;
       transition: border-color 0.35s var(--ease), transform 0.45s var(--ease), box-shadow 0.45s var(--ease);
     }
     .case-card::after {
-      content: ''; position: absolute; left: 0; top: 0; height: 3px; width: 100%;
+      content: ''; position: absolute; left: 18px; right: 18px; top: -1px; height: 3px;
+      border-radius: 0 0 3px 3px;
       background: var(--accent);
       transform: scaleX(0); transform-origin: left;
       transition: transform 0.5s var(--ease);
@@ -530,42 +554,34 @@
       box-shadow: 0 22px 50px rgba(7,50,106,0.12);
     }
     .case-card:hover::after { transform: scaleX(1); }
+    .case-card.featured { grid-column: 1 / -1; padding: 2.25rem 2.25rem 2.4rem; }
 
-    .case-card.featured {
-      grid-column: 1 / -1;
-      display: grid;
-      grid-template-columns: 1.08fr 1fr;
-      align-items: stretch;
+    /* The band: raised ground that starts below the top of the screen, so the screen
+       overhangs its edge instead of floating on the card. */
+    .band {
+      position: relative; isolation: isolate;
+      padding: 0 clamp(1rem, 2.4vw, 1.6rem) clamp(1rem, 2.4vw, 1.5rem);
+      margin-bottom: 1.6rem;
     }
+    .band::before {
+      content: ''; position: absolute; z-index: -1;
+      left: 0; right: 0; top: 2.6rem; bottom: 0;
+      border-radius: 16px;
+      background: linear-gradient(180deg, #E1EBF8 0%, var(--surface-alt) 100%);
+      box-shadow: inset 0 0 0 1px rgba(7,50,106,0.05);
+    }
+    .case-card.featured .band { margin: 1.75rem 0 0; padding-bottom: 2rem; }
 
-    /* The screenshots are light product UI, so they vanish on a white card. Each one sits
-       on a dark stage inside a browser-style window instead: the frame gives the shot an
-       edge, and the window runs off the bottom of the stage so the crop reads as deliberate
-       rather than as an image that happened not to fit. */
-    .case-thumb-wrap { overflow: hidden; background: var(--d-bg); }
-    .case-thumb {
-      height: 100%;
-      overflow: hidden;
-      position: relative;
-      display: flex; align-items: flex-end;
-      padding: 1.6rem 1.6rem 0;
-      background:
-        radial-gradient(90% 80% at 22% 0%, rgba(10,97,201,0.5) 0%, rgba(10,97,201,0) 68%),
-        linear-gradient(160deg, #064089 0%, var(--d-bg) 70%);
-    }
+    /* the bezel: drawn window chrome, so every screen gets the same one */
     .case-shot {
       position: relative;
-      width: 100%; height: 100%;
       display: flex; flex-direction: column;
-      border-radius: 9px 9px 0 0;
+      border-radius: 10px;
       overflow: hidden;
       background: var(--surface);
-      border: 1px solid rgba(255,255,255,0.18);
-      border-bottom: 0;
-      box-shadow: 0 26px 55px rgba(0,0,0,0.55);
+      box-shadow: 0 0 0 1px rgba(7,50,106,0.12), 0 22px 46px rgba(7,50,106,0.20);
       transition: transform 0.55s var(--ease), box-shadow 0.55s var(--ease);
     }
-    /* Window chrome, drawn rather than screenshotted, so every card gets the same one. */
     .case-chrome {
       flex: none; height: 24px;
       background: #E6EEF5;
@@ -578,31 +594,88 @@
       border-radius: 50%; background: #C3D0DE;
       box-shadow: 12px 0 0 #C3D0DE, 24px 0 0 #C3D0DE;
     }
-    .case-cover {
-      flex: 1 1 auto; min-height: 0;
-      width: 100%; object-fit: cover; object-position: top center;
-    }
+    .case-cover { display: block; width: 100%; height: auto; object-fit: cover; object-position: top center; }
+    .case-card:not(.featured) .case-cover { aspect-ratio: 16 / 9.4; }
     .case-card:hover .case-shot {
-      transform: translateY(-7px);
-      box-shadow: 0 36px 70px rgba(0,0,0,0.62);
+      transform: translateY(-6px);
+      box-shadow: 0 0 0 1px rgba(7,50,106,0.14), 0 32px 60px rgba(7,50,106,0.26);
     }
-    .case-card:not(.featured) .case-thumb { aspect-ratio: 16 / 9; }
-    /* The featured thumb is taken out of flow so the screenshot cannot stretch the row:
-       the height of the featured card is set by its copy column, as it was before. */
-    .case-card.featured .case-thumb-wrap { position: relative; }
-    .case-card.featured .case-thumb { position: absolute; inset: 0; }
 
-    .case-content, .case-card:not(.featured) > :not(.case-thumb-wrap) {
-      padding-left: 2rem; padding-right: 2rem;
+    /* featured: callouts on the left, the screen in the middle, the numbers on the right */
+    .case-head {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      gap: 1.25rem 2.5rem; flex-wrap: wrap;
     }
-    .case-content { padding-top: 2.25rem; padding-bottom: 2.25rem; display: flex; flex-direction: column; }
-    .case-card:not(.featured) .case-meta { padding-top: 1.75rem; }
-    .case-card:not(.featured) .case-arrow { padding-bottom: 2rem; }
+    .case-head .case-meta { margin-bottom: 0.9rem; }
+    .case-head h3 { margin-bottom: 0; }
+    .case-head .case-arrow { margin-top: 0; }
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.35fr) minmax(0, 0.6fr);
+      gap: 1.5rem clamp(1.25rem, 2.6vw, 2.25rem);
+      align-items: center;
+    }
+    .showcase-grid > .stage { min-width: 0; }
+    .callouts { display: grid; gap: 1.25rem; padding-top: 3.4rem; }
+    .callout { text-align: center; max-width: 16.5rem; margin-inline: auto; }
+    .callout .ring {
+      width: 3rem; aspect-ratio: 1; border-radius: 50%;
+      margin: 0 auto 0.6rem;
+      display: grid; place-items: center;
+      background: var(--surface);
+      border: 1.5px solid rgba(10,97,201,0.45);
+      color: var(--accent);
+      transition: transform 0.45s var(--ease), background 0.3s;
+    }
+    .callout .ring .icon { width: 42%; height: 42%; }
+    .case-card:hover .callout .ring { transform: scale(1.06); }
+    .callout h4 {
+      font-family: var(--font-body);
+      font-size: var(--type-xs); font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 0.35rem;
+    }
+    .callout p { font-size: 0.84rem; color: var(--ink-muted); line-height: 1.55; text-wrap: pretty; }
+
+    /* stat cards: figure, icon, label, and a bar only where the figure is a share */
+    .statcards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.7rem; margin-top: auto; }
+    .statcards.stack { grid-template-columns: 1fr; gap: 0.85rem; padding-top: 2.6rem; margin-top: 0; }
+    .statcard {
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: 14px;
+      padding: 0.95rem 1rem 1rem;
+      box-shadow: 0 8px 22px rgba(7,50,106,0.06);
+    }
+    .statcard .sc-icon { position: absolute; top: 0.85rem; right: 0.9rem; width: 1.05rem; height: 1.05rem; color: var(--ink-faint); }
+    .statcard .sc-value {
+      display: block;
+      font-family: var(--font-display);
+      font-weight: 800; letter-spacing: -0.03em; line-height: 1;
+      font-size: clamp(1.2rem, 1.55vw, 1.45rem);
+      color: var(--ink);
+      font-variant-numeric: tabular-nums;
+      padding-right: 1.5rem;
+    }
+    .case-card.featured .statcard .sc-value { font-size: clamp(1.7rem, 2.5vw, 2.2rem); }
+    .statcard .sc-label { display: block; margin-top: 0.45rem; font-size: 0.74rem; color: var(--ink-subtle); line-height: 1.45; }
+    .statcard .sc-bar { display: block; margin-top: 0.75rem; height: 0.28rem; border-radius: 999px; background: var(--rule); overflow: hidden; }
+    .statcard .sc-bar i { display: block; height: 100%; width: 0; border-radius: 999px; background: var(--accent); transition: width 1.2s var(--ease) 0.35s; }
+    .fade-up.visible .statcard .sc-bar i { width: var(--v); }
+    .statcard.hi {
+      background: var(--accent-wash);
+      border-color: rgba(10,97,201,0.42);
+      box-shadow: inset 0 0 0 1px rgba(10,97,201,0.22), 0 14px 32px rgba(10,97,201,0.14);
+    }
+    .statcard.hi .sc-value, .statcard.hi .sc-icon { color: var(--accent); }
+    .statcard.hi .sc-label { color: var(--ink); }
 
     /* The company pill, then the project line on its own row, the same on every card. */
     .case-meta {
       display: flex; flex-direction: column; align-items: flex-start; gap: 0.6rem;
-      margin-bottom: 1.1rem;
+      margin-bottom: 1rem;
     }
     .case-tag {
       font-size: var(--type-xs); font-weight: 600;
@@ -617,10 +690,9 @@
       letter-spacing: 0.08em; text-transform: uppercase;
       color: var(--ink-subtle);
     }
-
     .case-card h3 {
       font-size: clamp(1.5rem, 2.6vw, 2.35rem);
-      margin-bottom: 0.9rem;
+      margin-bottom: 0.8rem;
       line-height: 1.05;
     }
     .case-card:not(.featured) h3 { font-size: clamp(1.35rem, 2vw, 1.7rem); }
@@ -628,61 +700,46 @@
       font-size: var(--type-sm);
       color: var(--ink-muted);
       line-height: 1.7;
-      margin-bottom: 1.75rem;
+      margin-bottom: 1.4rem;
     }
-    .case-card.featured .case-desc { font-size: var(--type-base); }
-
-    .case-outcomes {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--rule);
-      margin-top: auto;
-    }
-    .outcome { display: flex; flex-direction: column; gap: 0.3rem; }
-    .outcome-val {
-      font-family: var(--font-display);
-      font-size: var(--type-md); font-weight: 700;
-      letter-spacing: -0.03em;
-      color: var(--accent);
-    }
-    .case-card.featured .outcome-val { font-size: var(--type-lg); }
-    .outcome-label {
-      font-size: 0.7rem; color: var(--ink-subtle); line-height: 1.45;
-    }
-
     .case-arrow {
       display: inline-flex; align-items: center; gap: 0.5rem;
       font-size: var(--type-sm); font-weight: 600;
       color: var(--accent);
-      margin-top: 1.75rem;
+      margin-top: 1.4rem;
       transition: gap 0.3s var(--ease);
     }
     .case-card:hover .case-arrow { gap: 0.85rem; }
 
+    /* ── ICON ROWS ──
+       An outlined tile spine down the left edge, and row fills stepped through a tonal
+       ramp, so the rows read as one object rather than separate cards. */
+    .iconrows { display: flex; flex-direction: column; border-radius: 16px; overflow: hidden; box-shadow: 0 14px 36px rgba(7,50,106,0.07); }
+    .iconrow { display: grid; grid-template-columns: 4.75rem minmax(0, 1fr); }
+    .ir-icon { display: grid; place-items: center; background: #D5E2F1; color: var(--accent); }
+    .ir-icon::before {
+      content: ''; grid-area: 1 / 1;
+      width: 2.4rem; height: 2.4rem; border-radius: 8px;
+      border: 1px solid rgba(10,97,201,0.40);
+      background: rgba(255,255,255,0.5);
+      transition: transform 0.4s var(--ease), background 0.3s;
+    }
+    .ir-icon .icon { grid-area: 1 / 1; width: 1.15rem; height: 1.15rem; position: relative; }
+    .ir-body { padding: 1.6rem 1.9rem; background: #E4EDF8; transition: background 0.3s; }
+    .iconrow + .iconrow .ir-body { box-shadow: inset 0 1px 0 rgba(255,255,255,0.7); }
+    .iconrow:nth-child(2) .ir-body { background: #EAF1F9; }
+    .iconrow:nth-child(3) .ir-body { background: #F0F5FB; }
+    .iconrow:nth-child(4) .ir-body { background: #F6F9FC; }
+    .iconrow:hover .ir-icon::before { transform: scale(1.08); background: #fff; }
+    .iconrow:hover .ir-body { background: #DCE8F6; }
+
     /* ── EXPERIENCE ── */
-    .cv { border-top: 1px solid var(--rule); }
-    .cv-row {
-      display: grid; grid-template-columns: 210px 1fr;
-      gap: 2rem;
-      padding: 2rem 1.25rem 2rem 0;
-      border-bottom: 1px solid var(--rule);
-      position: relative;
-      transition: background 0.3s ease, padding-left 0.35s var(--ease);
-    }
-    .cv-row::before {
-      content: ''; position: absolute; left: 0; top: -1px; bottom: -1px; width: 3px;
-      background: var(--accent);
-      transform: scaleY(0); transform-origin: top;
-      transition: transform 0.4s var(--ease);
-    }
-    .cv-row:hover { background: var(--surface-alt); padding-left: 1.25rem; }
-    .cv-row:hover::before { transform: scaleY(1); }
+    .cv-body { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 1.75rem; }
     .cv-when {
       font-size: var(--type-xs); font-weight: 600;
       letter-spacing: 0.1em; text-transform: uppercase;
       color: var(--accent);
-      padding-top: 0.4rem;
+      padding-top: 0.45rem;
     }
     .cv-what h3 {
       font-size: var(--type-lg);
@@ -698,50 +755,42 @@
     }
     .cv-note { font-size: var(--type-sm); color: var(--ink-muted); line-height: 1.65; max-width: 62ch; }
 
+    /* panels: a small label, a ··· affordance, and the content, like a product surface */
+    .panel {
+      background: var(--surface-alt);
+      border-radius: 16px;
+      padding: 1.2rem 1.6rem 1.35rem;
+      box-shadow: 0 0 0 1px rgba(7,50,106,0.05), 0 14px 36px rgba(7,50,106,0.07);
+    }
+    .panel-head {
+      display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
+      padding-bottom: 0.8rem; margin-bottom: 1.1rem;
+      border-bottom: 1px solid var(--rule-strong);
+    }
+    .panel-head h4 {
+      font-family: var(--font-body);
+      font-size: var(--type-xs); font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--ink-subtle);
+    }
+    .panel-head .aff { color: var(--ink-faint); letter-spacing: 0.16em; font-size: 0.9rem; line-height: 1; }
     .cv-extra {
       display: grid; grid-template-columns: repeat(2, 1fr);
-      gap: 3rem; margin-top: 3.5rem;
+      gap: 1.5rem; margin-top: 2.5rem;
     }
-    .cv-col h4 {
-      font-family: var(--font-body);
-      font-size: var(--type-xs); font-weight: 600;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--accent);
-      padding-bottom: 0.9rem; margin-bottom: 1.25rem;
-      border-bottom: 1px solid var(--rule);
-    }
-    .cv-col p { margin-bottom: 1.1rem; display: flex; flex-direction: column; gap: 0.2rem; }
+    .cv-col p { margin-bottom: 1rem; display: flex; flex-direction: column; gap: 0.2rem; }
+    .cv-col p:last-child { margin-bottom: 0; }
     .cv-col p strong { font-size: var(--type-sm); font-weight: 600; color: var(--ink); }
     .cv-col p span { font-size: var(--type-xs); color: var(--ink-subtle); }
 
-    .case-card:not(.featured) { display: flex; flex-direction: column; }
-
     /* ── APPROACH ── */
     #approach { background: var(--surface-alt); }
-    /* 4 cards divide evenly by 4, 2 or 1, never 3, or empty cells show the grid rule */
-    .approach-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: var(--rule);
-      border: 1px solid var(--rule);
-      border-radius: 14px;
-      overflow: hidden;
-    }
-    .approach-card {
-      background: var(--surface);
-      padding: 2.25rem 1.75rem 2.5rem;
-      display: flex; flex-direction: column;
-      transition: background 0.35s ease;
-    }
-    .approach-card:hover { background: var(--accent-wash); }
-    .approach-card h3 {
-      font-size: var(--type-md);
-      line-height: 1.2;
-      margin-bottom: 0.7rem;
-      /* two lines reserved so the body copy starts on the same line in every card */
-      min-height: 2.4em;
-    }
+    .approach-rows .ir-body { display: grid; grid-template-columns: minmax(0, 17rem) minmax(0, 1fr); gap: 2rem; align-items: baseline; background: #FFFFFF; }
+    .approach-rows .iconrow:nth-child(2) .ir-body { background: #FAFCFE; }
+    .approach-rows .iconrow:nth-child(3) .ir-body { background: #F5F9FD; }
+    .approach-rows .iconrow:nth-child(4) .ir-body { background: #EFF5FB; }
+    .approach-rows .iconrow:hover .ir-body { background: var(--accent-wash); }
+    .approach-rows h3 { font-size: var(--type-md); line-height: 1.2; }
     .approach-desc { font-size: var(--type-sm); color: var(--ink-muted); line-height: 1.65; }
 
     /* ── ABOUT ── */
@@ -776,9 +825,10 @@
     .about-body p + p { margin-top: 1.25rem; }
     .about-body p { text-wrap: pretty; }
 
-    .skills-list { border-top: 1px solid var(--rule); }
+    .skills-panel { padding-bottom: 0.6rem; }
+    .skills-panel .panel-head { margin-bottom: 0; }
     .skill-row {
-      padding: 1.35rem 0;
+      padding: 1.1rem 0;
       border-bottom: 1px solid var(--rule);
       display: flex; flex-direction: column; gap: 0.7rem;
     }
@@ -795,6 +845,8 @@
       border-radius: 100px;
       transition: border-color 0.3s, color 0.3s, background 0.3s;
     }
+    .skill-row:last-child { border-bottom: 0; }
+    .skill-tag { background: var(--surface); }
     .skill-row:hover .skill-tag { border-color: var(--accent); color: var(--accent); background: var(--accent-wash); }
 
     /* ── CONTACT (dark, full bleed) ── */
@@ -916,15 +968,11 @@
       .hero-mosaic { max-width: 680px; aspect-ratio: 1 / 0.8; }
       /* Four columns would leave about 200px a card, which the numbers overrun. */
       .hero-facts { grid-template-columns: repeat(2, 1fr); }
-      .case-card.featured { grid-template-columns: 1fr; }
-      /* Stacked, so the thumb sets its own height again and must come back into flow. */
-      .case-card.featured .case-thumb {
-        position: static; aspect-ratio: 16 / 8; min-height: 0;
-      }
+      /* The screen takes the full row, with the callouts and numbers side by side under it. */
+      .showcase-grid { grid-template-columns: 1fr 1fr; }
+      .showcase-grid > .stage { grid-column: 1 / -1; order: -1; max-width: 560px; width: 100%; margin-inline: auto; }
+      .callouts, .statcards.stack { padding-top: 0; }
       .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-    }
-    @media (max-width: 1080px) and (min-width: 861px) {
-      .approach-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 900px) {
       .work-grid { grid-template-columns: 1fr; }
@@ -937,13 +985,9 @@
     }
     @media (max-width: 860px) {
       :root { --space-xl: 4.5rem; }
-      .approach-grid { grid-template-columns: 1fr; }
-      .cv-row { grid-template-columns: 1fr; gap: 0.5rem; }
+      .cv-body, .approach-rows .ir-body { grid-template-columns: 1fr; gap: 0.5rem; }
       .cv-when { padding-top: 0; }
-      .cv-extra { grid-template-columns: 1fr; gap: 2.25rem; }
-      .case-outcomes { grid-template-columns: 1fr; gap: 0.85rem; }
-      .outcome { flex-direction: row; align-items: baseline; gap: 0.6rem; }
-      .outcome-label { max-width: 30ch; }
+      .cv-extra { grid-template-columns: 1fr; gap: 1.25rem; }
     }
     @media (max-width: 560px) {
       /* Below this the CTA and the four links cannot share the bar. The links win:
@@ -964,16 +1008,20 @@
       .fact { padding: 1.7rem 1.45rem 1.55rem; }
       .fact .stat-label { min-height: 0; }
       .section-header { margin-bottom: 2.5rem; }
-      .case-content, .case-card:not(.featured) > :not(.case-thumb-wrap) { padding-left: 1.35rem; padding-right: 1.35rem; }
-      /* The stage and its chrome are sized for a desktop card. At phone width they would
-         eat the screenshot, so both shrink and the window keeps the room. */
-      .case-thumb { padding: 0.9rem 0.9rem 0; }
+      .case-card, .case-card.featured { padding: 1.25rem 1.15rem 1.4rem; }
+      .showcase-grid { grid-template-columns: 1fr; }
+      .statcards { grid-template-columns: 1fr; }
+      .iconrow { grid-template-columns: 3.4rem minmax(0, 1fr); }
+      .ir-icon::before { width: 2rem; height: 2rem; }
+      .ir-body { padding: 1.2rem 1.15rem; }
+      .panel { padding: 1.1rem 1.15rem 1.2rem; }
+      /* The chrome is sized for a desktop card. At phone width it would eat the
+         screenshot, so it shrinks and the window keeps the room. */
       .case-chrome { height: 17px; }
       .case-chrome::before {
         left: 8px; width: 5px; height: 5px; margin-top: -2.5px;
         box-shadow: 9px 0 0 #C3D0DE, 18px 0 0 #C3D0DE;
       }
-      .approach-card { padding: 1.75rem 1.35rem 2rem; }
       footer { flex-direction: column; align-items: flex-start; }
     }
     @media (hover: none) {
@@ -988,10 +1036,12 @@
         transition-duration: 0.001ms !important;
         scroll-behavior: auto !important;
       }
-      .fade-up, .hero-eyebrow, .hero-desc, .hero-body, .hero-actions, .hero-facts, .hero-mosaic {
+      .fade-up, .hero-eyebrow, .hero-desc, .hero-body, .hero-actions, .hero-facts, .hero-mosaic,
+      .fade-up .iconrow, .fade-up .statcard, .fade-up .callout, .fade-up .panel {
         opacity: 1 !important;
         transform: none !important;
       }
+      .statcard .sc-bar i { width: var(--v) !important; }
       .word-reveal span { transform: none !important; opacity: 1 !important; }
       .mosaic-card { opacity: 1 !important; translate: none !important; animation: none !important; }
       .mosaic-stage { transform: none !important; }
@@ -999,16 +1049,19 @@
   </style>
   <noscript>
     <style>
-      .fade-up, .hero-eyebrow, .hero-desc, .hero-body, .hero-actions, .hero-facts, .hero-mosaic {
+      .fade-up, .hero-eyebrow, .hero-desc, .hero-body, .hero-actions, .hero-facts, .hero-mosaic,
+      .fade-up .iconrow, .fade-up .statcard, .fade-up .callout, .fade-up .panel {
         opacity: 1 !important;
         transform: none !important;
       }
+      .statcard .sc-bar i { width: var(--v) !important; }
       .word-reveal span { transform: none !important; opacity: 1 !important; }
       .mosaic-card { opacity: 1 !important; translate: none !important; }
     </style>
   </noscript>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="i-chart-up" viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M7 15.5l3.3-4 2.9 2.4L17.8 8"/></symbol><symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></symbol><symbol id="i-document" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="12" y2="16"/></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></symbol><symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.4-7-11.3A7 7 0 1 1 19 9.7C19 14.6 12 21 12 21z"/><circle cx="12" cy="9.7" r="2.4"/></symbol><symbol id="i-mentor" viewBox="0 0 24 24"><circle cx="9" cy="7" r="3"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0"/><path d="M16.5 4.8a3 3 0 0 1 0 5.9"/><path d="M15.5 14.3c2.9.8 5 3.2 5 5.7"/></symbol><symbol id="i-code" viewBox="0 0 24 24"><path d="M8.7 8L4.3 12l4.4 4"/><path d="M15.3 8l4.4 4-4.4 4"/></symbol><symbol id="i-users" viewBox="0 0 24 24"><circle cx="8.7" cy="8" r="3"/><path d="M2.7 20a6 6 0 0 1 12 0"/><circle cx="16.7" cy="9" r="2.3"/><path d="M15 14.3a5.5 5.5 0 0 1 6.6 5.2"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v5l3.3 1.9"/></symbol><symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.6 2.6L16.2 9"/></symbol><symbol id="i-flag" viewBox="0 0 24 24"><line x1="6" y1="3" x2="6" y2="21"/><path d="M6 4.2h11l-3 3.9 3 3.9H6"/></symbol><symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z"/><path d="M19 15l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7.7-2z"/></symbol><symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 8h13.5l-3-3"/><path d="M20 16H6.5l3 3"/></symbol></svg>
   <a href="#work" class="skip-link">Skip to work</a>
 
   <!-- NAV -->
@@ -1102,7 +1155,7 @@
       <div class="section-header fade-up">
         <div>
           <div class="section-label">Selected work</div>
-          <h2>Case studies</h2>
+          <h2>Case <span class="hl">studies</span></h2>
         </div>
         <a href="#contact" class="section-link">Get in touch →</a>
       </div>
@@ -1110,29 +1163,43 @@
       <div class="work-grid">
 
         <a class="case-card featured fade-up" href="case-form-unification.html" aria-label="Read the Form Unification case study">
-          <div class="case-thumb-wrap"><div class="case-thumb thumb-crm"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/fu-hero-chat.gif" alt="Thryv AI creating a client intake form in chat, in the interactive prototype: a prompt is typed, two questions are answered, and the form builds beside a live preview" loading="lazy" width="680" height="590" style="object-position:center 40%" /></div></div></div>
-          <div class="case-content"><div class="case-meta"><span class="case-tag">Keap · Sole designer</span><span class="case-year">Forms platform · AI · 2026</span></div>
-          <h3>Merging seven form builders into one</h3>
-          <p class="case-desc">Keap had seven form builders doing the same job, and no team owned the whole problem, so I took it on. I argued for merging them into one builder instead of a full rebuild, and that one builder is what lets AI draft a complete form from a prompt.</p>
-          <div class="case-outcomes"><div class="outcome"><span class="outcome-val">12+</span><span class="outcome-label">Month rebuild I argued against</span></div><div class="outcome"><span class="outcome-val">4→1</span><span class="outcome-label">Teams needed to own forms</span></div><div class="outcome"><span class="outcome-val">79%</span><span class="outcome-label">Of the migration moved with no repeat fixes</span></div></div>
-          <div class="case-arrow">Read case study <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+          <div class="case-head">
+            <div>
+              <div class="case-meta"><span class="case-tag">Keap · Sole designer</span><span class="case-year">Forms platform · AI · 2026</span></div>
+              <h3>Merging seven form builders <span class="hl">into one</span></h3>
+            </div>
+            <div class="case-arrow">Read case study <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          </div>
+          <div class="band"><div class="showcase-grid">
+            <div class="callouts">
+              <div class="callout"><span class="ring"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-layers"/></svg></span><h4>The problem</h4><p>Keap had seven form builders doing the same job, and no team owned the whole problem, so I took it on.</p></div>
+              <div class="callout"><span class="ring"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-flag"/></svg></span><h4>My call</h4><p>I argued for merging them into one builder instead of a full rebuild.</p></div>
+              <div class="callout"><span class="ring"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg></span><h4>What it unlocked</h4><p>That one builder is what lets AI draft a complete form from a prompt.</p></div>
+            </div>
+            <div class="stage"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/fu-hero-chat.gif" alt="Thryv AI creating a client intake form in chat, in the interactive prototype: a prompt is typed, two questions are answered, and the form builds beside a live preview" loading="lazy" width="680" height="590" /></div></div>
+            <div class="statcards stack">
+              <div class="statcard"><svg class="icon sc-icon" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg><span class="sc-value">12+</span><span class="sc-label">Month rebuild I argued against</span></div>
+              <div class="statcard hi"><svg class="icon sc-icon" aria-hidden="true" focusable="false"><use href="#i-users"/></svg><span class="sc-value">4→1</span><span class="sc-label">Teams needed to own forms</span></div>
+              <div class="statcard"><svg class="icon sc-icon" aria-hidden="true" focusable="false"><use href="#i-check-circle"/></svg><span class="sc-value">79%</span><span class="sc-label">Of the migration moved with no repeat fixes</span><span class="sc-bar" style="--v:79%"><i></i></span></div>
+            </div>
+          </div></div>
         </a>
 
         <a class="case-card fade-up" href="case-branding-center.html">
-          <div class="case-thumb-wrap"><div class="case-thumb thumb-ds"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/bc-card-ai.gif" alt="Concept in the Branding Center prototype: Thryv AI reads a business website while logos, brand colors and fonts appear on the Branding tab one by one, then asks which logo should be primary" loading="lazy" width="840" height="500" style="object-position:center top" /></div></div></div>
+          <div class="band"><div class="stage"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/bc-card-ai.gif" alt="Concept in the Branding Center prototype: Thryv AI reads a business website while logos, brand colors and fonts appear on the Branding tab one by one, then asks which logo should be primary" loading="lazy" width="840" height="500" /></div></div></div>
           <div class="case-meta"><span class="case-tag">Keap · Lead designer</span><span class="case-year">Brand system · 2024</span></div>
-          <h3>Building the Branding Center</h3>
+          <h3>Building the <span class="hl">Branding Center</span></h3>
           <p class="case-desc">A business&rsquo;s brand lived in a document outside the product, so changing a logo meant redoing every email and landing page by hand. I designed one place to keep the brand that every builder reads from, and sixteen teams use it.</p>
-          <div class="case-outcomes"><div class="outcome"><span class="outcome-val">16</span><span class="outcome-label">Teams using one brand definition</span></div><div class="outcome"><span class="outcome-val">25→15</span><span class="outcome-label">Minutes to build a landing page</span></div><div class="outcome"><span class="outcome-val">+20%</span><span class="outcome-label">Landing page builder adoption</span></div></div>
+          <div class="statcards"><div class="statcard hi"><svg class="icon sc-icon" aria-hidden="true" focusable="false"><use href="#i-users"/></svg><span class="sc-value">16</span><span class="sc-label">Teams using one brand definition</span></div><div class="statcard"><svg class="icon sc-icon" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg><span class="sc-value">25→15</span><span class="sc-label">Minutes to build a landing page</span></div><div class="statcard"><svg class="icon sc-icon" aria-hidden="true" focusable="false"><use href="#i-chart-up"/></svg><span class="sc-value">+20%</span><span class="sc-label">Landing page builder adoption</span></div></div>
           <div class="case-arrow">Read case study <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </a>
 
         <a class="case-card fade-up" href="case-business-listing.html">
-          <div class="case-thumb-wrap"><div class="case-thumb thumb-ai"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/card-bl-listings.jpg" alt="Listings Management: connection status for each directory, from Connected to Processing to Issue Found, with actions for each listing" loading="lazy" width="1022" height="545" /></div></div></div>
+          <div class="band"><div class="stage"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/card-bl-listings.jpg" alt="Listings Management: connection status for each directory, from Connected to Processing to Issue Found, with actions for each listing" loading="lazy" width="1022" height="545" /></div></div></div>
           <div class="case-meta"><span class="case-tag">Thryv · Design &amp; research lead</span><span class="case-year">Business listing · Third party vendor · 2026</span></div>
-          <h3>Moving listings to a new vendor</h3>
+          <h3>Moving listings to <span class="hl">a new vendor</span></h3>
           <p class="case-desc">Picking the vendor wasn&rsquo;t my call. I set the usability bar every vendor had to meet, got an AI requirement into the scorecard, and specified a layer that keeps the experience the same whichever one won.</p>
-          <div class="case-outcomes"><div class="outcome"><span class="outcome-val">2</span><span class="outcome-label">Shortlisted vendors tested in a live prototype</span></div><div class="outcome"><span class="outcome-val">3→1</span><span class="outcome-label">Studies combined into one usability bar</span></div><div class="outcome"><span class="outcome-val">160K</span><span class="outcome-label">Locations in scope</span></div></div>
+          <div class="statcards"><div class="statcard"><svg class="icon sc-icon" aria-hidden="true" focusable="false"><use href="#i-swap"/></svg><span class="sc-value">2</span><span class="sc-label">Shortlisted vendors tested in a live prototype</span></div><div class="statcard"><svg class="icon sc-icon" aria-hidden="true" focusable="false"><use href="#i-layers"/></svg><span class="sc-value">3→1</span><span class="sc-label">Studies combined into one usability bar</span></div><div class="statcard hi"><svg class="icon sc-icon" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span class="sc-value">160K</span><span class="sc-label">Locations in scope</span></div></div>
           <div class="case-arrow">Read case study <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </a>
 
@@ -1150,45 +1217,57 @@
         </div>
         <a href="img/denise-barrett-resume.pdf" class="section-link" download>Download resume &rarr;</a>
       </div>
-      <div class="cv fade-up">
-        <div class="cv-row">
-          <div class="cv-when">2022 to 2026</div>
-          <div class="cv-what">
+      <div class="iconrows cv fade-up">
+        <div class="iconrow">
+          <div class="ir-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-layers"/></svg></div>
+          <div class="ir-body cv-body">
+            <div class="cv-when">2022 to 2026</div>
+            <div class="cv-what">
             <h3>Keap, acquired by Thryv <span class="cv-org">Product design &middot; platform</span></h3>
             <p class="cv-note">Led design for two development teams across forms, branding, listings and AI. Sixteen teams use the Branding Center I designed. I also ran the design team meetings and mentored six junior designers.</p>
           </div>
+          </div>
         </div>
-        <div class="cv-row">
-          <div class="cv-when">2020 to 2022</div>
-          <div class="cv-what">
+        <div class="iconrow">
+          <div class="ir-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg></div>
+          <div class="ir-body cv-body">
+            <div class="cv-when">2020 to 2022</div>
+            <div class="cv-what">
             <h3>Blue Raster <span class="cv-org">UX/UI design &middot; agency</span></h3>
             <p class="cv-note">Data visualization and geospatial products for government agencies and enterprise clients, from research through implementation.</p>
           </div>
+          </div>
         </div>
-        <div class="cv-row">
-          <div class="cv-when">2017 to 2020</div>
-          <div class="cv-what">
+        <div class="iconrow">
+          <div class="ir-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-mentor"/></svg></div>
+          <div class="ir-body cv-body">
+            <div class="cv-when">2017 to 2020</div>
+            <div class="cv-what">
             <h3>Allego <span class="cv-org">Product design &middot; enterprise SaaS</span></h3>
             <p class="cv-note">Sales enablement tools for an enterprise learning platform, where I built my enterprise UX and research practice.</p>
           </div>
+          </div>
         </div>
-        <div class="cv-row">
-          <div class="cv-when">2016 to 2017</div>
-          <div class="cv-what">
+        <div class="iconrow">
+          <div class="ir-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-code"/></svg></div>
+          <div class="ir-body cv-body">
+            <div class="cv-when">2016 to 2017</div>
+            <div class="cv-what">
             <h3>Monterey DevOps <span class="cv-org">Visual design &middot; custom software</span></h3>
             <p class="cv-note">UI and visual design across client projects for a custom software development firm.</p>
+          </div>
           </div>
         </div>
       </div>
       <div class="cv-extra fade-up">
-        <div class="cv-col">
-          <h4>Education</h4>
+        <div class="panel cv-col">
+          <div class="panel-head"><h4>Education</h4><span class="aff" aria-hidden="true">&middot;&middot;&middot;</span></div>
           <p><strong>UX Management</strong><span>Nielsen Norman Group</span></p>
           <p><strong>MFA, Visual Communication Design</strong><span>Rochester Institute of Technology</span></p>
           <p><strong>BA, Graphic Design</strong><span>University of Shanghai for Science and Technology</span></p>
         </div>
-        <div class="cv-col">
-          <h4>Awards</h4>
+        <div class="panel cv-col">
+          <div class="panel-head"><h4>Awards</h4><span class="aff" aria-hidden="true">&middot;&middot;&middot;</span></div>
           <p><strong>Esri Ocean Storymap Contest</strong><span>First place &middot; 2021</span></p>
           <p><strong>CGDA Visual Communication Design</strong><span>Excellence award &middot; 2016</span></p>
         </div>
@@ -1202,25 +1281,25 @@
       <div class="section-header fade-up">
         <div>
           <div class="section-label">How I work</div>
-          <h2>My approach</h2>
+          <h2>My <span class="hl">approach</span></h2>
         </div>
       </div>
-      <div class="approach-grid">
-        <div class="approach-card fade-up">
-          <h3>I measure first</h3>
-          <p class="approach-desc">I pull the current numbers before I design anything, or I can&rsquo;t tell you what changed. On forms, that&rsquo;s how I found the most used form had gotten worse after its rebuild.</p>
+      <div class="iconrows approach-rows fade-up">
+        <div class="iconrow">
+          <div class="ir-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chart-up"/></svg></div>
+          <div class="ir-body"><h3>I measure first</h3><p class="approach-desc">I pull the current numbers before I design anything, or I can&rsquo;t tell you what changed. On forms, that&rsquo;s how I found the most used form had gotten worse after its rebuild.</p></div>
         </div>
-        <div class="approach-card fade-up">
-          <h3>I argue in business terms</h3>
-          <p class="approach-desc">Leadership decides on cost, risk and the roadmap, so that&rsquo;s how I make the case. On forms, it&rsquo;s how I talked us out of a rebuild engineering put at twelve months or more.</p>
+        <div class="iconrow">
+          <div class="ir-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-target"/></svg></div>
+          <div class="ir-body"><h3>I argue in business terms</h3><p class="approach-desc">Leadership decides on cost, risk and the roadmap, so that&rsquo;s how I make the case. On forms, it&rsquo;s how I talked us out of a rebuild engineering put at twelve months or more.</p></div>
         </div>
-        <div class="approach-card fade-up">
-          <h3>I write the rules down</h3>
-          <p class="approach-desc">Sixteen teams build on the Branding Center, and I can&rsquo;t sit in on all their reviews. So I wrote down three rules every surface has to follow, whoever builds it.</p>
+        <div class="iconrow">
+          <div class="ir-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-document"/></svg></div>
+          <div class="ir-body"><h3>I write the rules down</h3><p class="approach-desc">Sixteen teams build on the Branding Center, and I can&rsquo;t sit in on all their reviews. So I wrote down three rules every surface has to follow, whoever builds it.</p></div>
         </div>
-        <div class="approach-card fade-up">
-          <h3>I design the messy cases</h3>
-          <p class="approach-desc">Errors, empty accounts and data that doesn&rsquo;t match. Those turn into support tickets, so I design them early. In the Branding Center, that meant accounts with no logo, or a logo that didn&rsquo;t match the profile.</p>
+        <div class="iconrow">
+          <div class="ir-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-shield"/></svg></div>
+          <div class="ir-body"><h3>I design the messy cases</h3><p class="approach-desc">Errors, empty accounts and data that doesn&rsquo;t match. Those turn into support tickets, so I design them early. In the Branding Center, that meant accounts with no logo, or a logo that didn&rsquo;t match the profile.</p></div>
         </div>
       </div>
     </div>
@@ -1250,6 +1329,8 @@
           </div>
         </div>
         <div class="fade-up">
+          <div class="panel skills-panel">
+          <div class="panel-head"><h4>Skills</h4><span class="aff" aria-hidden="true">&middot;&middot;&middot;</span></div>
           <div class="skills-list">
             <div class="skill-row">
               <span class="skill-name">Platform &amp; design systems</span>
@@ -1312,6 +1393,7 @@
               </div>
             </div>
           </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1321,7 +1403,7 @@
   <section id="contact">
     <div class="container">
       <div class="section-label" style="margin-bottom:1rem;">Contact</div>
-      <h2 style="margin-bottom:1rem;">Let’s talk</h2>
+      <h2 style="margin-bottom:1rem;">Let’s <span class="hl">talk</span></h2>
       <p class="contact-sub">I want to help teams solve complex business and product problems, whatever shape they take. I&rsquo;m open to every kind of challenge, including research and product work.</p>
       <p class="contact-criteria"><span class="ck">Looking for</span> platform, design systems or AI product work at a B2B SaaS company, where the job is setting direction across more than one product area. Remote US.</p>
       <div class="contact-actions">
@@ -1419,7 +1501,7 @@
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           // stagger children if grid
-          const children = entry.target.querySelectorAll('.approach-card');
+          const children = entry.target.querySelectorAll('.iconrow, .statcard, .callout, .panel');
           if (children.length) {
             children.forEach((c, j) => {
               c.style.transitionDelay = `${j * 0.07}s`;
