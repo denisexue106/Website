@@ -508,3 +508,30 @@ html.gated .gate{display:grid;position:fixed;inset:0;z-index:1000;place-items:ce
     .phone{animation:settle linear both;animation-timeline:view();animation-range:entry 0% entry 55%}
   }
 }
+
+/* ── EARLIER CASES ── pain points beside what was designed, before and after pairs, tablets */
+.pp{margin-top:1.75rem;border-radius:16px;overflow:hidden;box-shadow:0 0 0 1px rgba(7,50,106,.08),0 14px 36px rgba(7,50,106,.07)}
+.pp-head,.pp-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.pp-head span{padding:.85rem 1.4rem;font-size:var(--type-xs);font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);background:#E1EBF8}
+.pp-row p{margin:0;max-width:none;padding:1.05rem 1.4rem;line-height:1.55;color:var(--ink)}
+.pp-row p:first-child{background:var(--surface-alt)}
+.pp-row p:last-child{background:var(--surface)}
+.pp-row+.pp-row p{border-top:1px solid rgba(7,50,106,.08)}
+.pp-row em{display:block;margin-bottom:.25rem;font-style:normal;font-size:var(--type-xs);font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-subtle)}
+@media (max-width:700px){
+  .pp-head{display:none}
+  .pp-row{grid-template-columns:minmax(0,1fr)}
+  .pp-row+.pp-row p:last-child{border-top:0}
+  .pp-row p:last-child::before{content:"What I designed";content:"What I designed" / "";display:block;margin-bottom:.25rem;font-size:var(--type-xs);font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+}
+.ba{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1.5rem;align-items:start}
+.ba-tag{display:block;margin-bottom:.6rem;font-size:var(--type-xs);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-subtle)}
+.ba-tag.after{color:var(--accent)}
+.ba-fig+.ba-fig{margin-top:2.5rem}
+@media (max-width:700px){.ba{grid-template-columns:minmax(0,1fr);gap:1.25rem}}
+.phones.tabs{grid-template-columns:repeat(3,minmax(0,1fr))}
+.phone.tab{max-width:340px;padding:2.6%;border-radius:6.5%/4.6%}
+.phone.tab img,.shot .phone.tab img{aspect-ratio:786/1145;border-radius:2.6%/1.8%;object-fit:cover}
+@media (max-width:700px){.phones .phone.tab{width:min(72vw,290px)}}
+/* flows and wireframes pan like charts, with their own hint */
+@media (max-width:700px){figure:has(> .pan.see-all) > figcaption::before{content:"Swipe sideways to see all of it";content:"Swipe sideways to see all of it" / ""}}

@@ -531,6 +531,10 @@
 
     /* ── WORK ── */
     #work { padding-top: var(--space-lg); }
+    /* earlier work sits under the Keap cases with its own small heading */
+    .earlier-head { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem 2rem; margin: 4.5rem 0 2rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--rule); }
+    .earlier-head .section-label { margin-bottom: 0; }
+    .earlier-head p { max-width: 56ch; font-size: var(--type-sm); color: var(--ink-muted); line-height: 1.6; }
     .work-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -1230,6 +1234,24 @@
         </a>
 
       </div>
+      <div class="earlier-head fade-up"><div class="section-label">Earlier work</div><p>Before Keap: a sales platform redesigned for every screen, and a fintech app for web and phone.</p></div>
+      <div class="work-grid earlier-grid">
+        <a class="case-card fade-up" href="case-allego.html">
+          <div class="band"><div class="stage"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/al-card.jpg" alt="The redesigned Allego home page: a greeting, colored summary tiles and side navigation" loading="lazy" width="840" height="494" /></div></div></div>
+          <div class="case-meta"><span class="case-tag">Allego &middot; UX/UI designer</span><span class="case-year">Sales enablement &middot; Web, tablet, mobile &middot; 2020</span></div>
+          <h3>Redesigning Allego <span class="hl">for every screen</span></h3>
+          <p class="case-desc">Allego&rsquo;s interface hadn&rsquo;t changed since 2010, and the clutter was costing it business. We tested three proposals with 15 people, and I led the final design that merged them, on web, tablet and phone.</p>
+          <div class="case-arrow">Read case study <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </a>
+        <a class="case-card fade-up" href="case-widget-cloud.html">
+          <div class="band"><div class="stage"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/wc-card.jpg" alt="The Widget Cloud dashboard: total account value with an allocation chart and a list of accounts" loading="lazy" width="840" height="494" /></div></div></div>
+          <div class="case-meta"><span class="case-tag">Freelance &middot; Sole designer</span><span class="case-year">Fintech &middot; Web and mobile &middot; 2018</span></div>
+          <h3>An investment app for <span class="hl">web and phone</span></h3>
+          <p class="case-desc">Clients of an investment firm had to visit the office to manage their money. I designed a dashboard for web and phone where they can see every account, plan for retirement and reach their advisor.</p>
+          <div class="case-arrow">Read case study <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </a>
+      </div>
+
     </div>
   </section>
 
