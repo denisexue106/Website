@@ -449,3 +449,33 @@ svg.icon{width:1em;height:1em;flex:none;fill:none;stroke:currentColor;stroke-wid
 /* six facts sit in two rows of three */
 .meta-row.six{display:grid;grid-template-columns:repeat(3,minmax(0,max-content));justify-content:start;gap:1.5rem 3.5rem}
 @media (max-width:560px){.meta-row.six{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:1.25rem}}
+
+/* ── password gate (2026-11-11) ──
+   A soft gate: the password is printed under the box on purpose. html.gated is set in each page head
+   before first paint, so the case study never flashes. Without JavaScript the class is never set and
+   the page simply shows. */
+.gate{display:none}
+html.gated,html.gated body{background:var(--d-bg)}
+html.gated body{overflow:hidden}
+html.gated body>:not(.gate){visibility:hidden}
+html.gated .gate{display:grid;position:fixed;inset:0;z-index:1000;place-items:center;padding:2rem 1.5rem;overflow-y:auto;
+  color:#fff;background:radial-gradient(900px 560px at 88% -12%,rgba(10,97,201,.32),transparent 62%),var(--d-bg)}
+.gate-box{width:min(34rem,100%)}
+.gate-eyebrow{display:block;font-size:var(--type-xs);font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-light);margin-bottom:1.1rem}
+.gate-h{font-family:var(--font-display);font-weight:800;font-size:clamp(2rem,5.2vw,3.1rem);line-height:1.03;letter-spacing:-.035em;margin:0 0 .9rem;text-wrap:balance}
+.gate-p{color:var(--d-muted);font-size:var(--type-md);line-height:1.6;margin:0 0 2rem}
+.gate-label{display:block;font-size:var(--type-xs);font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-light);margin-bottom:.55rem}
+.gate-row{display:flex;flex-wrap:wrap;gap:.6rem}
+.gate-row input{flex:1 1 13rem;min-width:0;height:3.1rem;padding:0 1.15rem;border:1px solid rgba(255,255,255,.28);border-radius:100px;
+  background:rgba(255,255,255,.07);color:#fff;font:inherit;font-size:1rem;letter-spacing:.04em}
+.gate-row input:focus{outline:2px solid var(--accent-light);outline-offset:2px;border-color:transparent}
+.gate-btn{flex:none;height:3.1rem;padding:0 1.5rem;border:0;border-radius:100px;background:var(--accent);color:#fff;font:inherit;
+  font-size:var(--type-sm);font-weight:600;cursor:pointer;transition:background .25s}
+.gate-btn:hover{background:var(--accent-deep)}
+.gate-btn:focus-visible,.gate-back:focus-visible{outline:2px solid var(--accent-light);outline-offset:3px}
+.gate-err{min-height:1.35em;margin:.65rem 0 0;font-size:var(--type-sm);color:#FFC7BD}
+.gate-note{margin:.2rem 0 0;font-size:var(--type-sm);color:var(--d-muted)}
+.gate-note strong{color:#fff;font-weight:600;letter-spacing:.02em}
+.gate-back{display:inline-flex;align-items:center;gap:.45rem;margin-top:2.25rem;font-size:var(--type-sm);font-weight:500;color:var(--d-muted);text-decoration:none;transition:color .25s}
+.gate-back:hover{color:#fff}
+@media (max-width:480px){.gate-btn{flex:1 1 100%}}
