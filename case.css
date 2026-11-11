@@ -420,3 +420,30 @@ svg.icon{width:1em;height:1em;flex:none;fill:none;stroke:currentColor;stroke-wid
   .screen .screen-frame{padding:0 .9rem .9rem}
   .screen .screen-frame::before{top:1.6rem}
 }
+
+/* ── hiring manager pass (2026-11-11) ── */
+/* Resume sits beside the CTA, so it's one click from any case study */
+.nav-right{display:flex;align-items:center;gap:1.5rem}
+.nav-link{font-size:var(--type-sm);font-weight:500;text-decoration:none;color:var(--d-muted);transition:color .25s}
+.nav-link:hover{color:#fff}
+@media (max-width:420px){.nav-right{gap:1rem}}
+
+/* the results strip opens every case study */
+.glance .stats{margin-top:0}
+
+/* the tour: its length on the button, played in a dialog over the page */
+.tour-len{font-weight:500;opacity:.8;font-variant-numeric:tabular-nums;margin-left:.1rem}
+.tour-dlg{margin:auto;padding:0;border:0;background:transparent;width:min(1180px,94vw);max-width:none;max-height:none;overflow:visible}
+.tour-dlg::backdrop{background:rgba(4,22,48,.84)}
+.tour-box{position:relative;background:#000;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.tour-box video{display:block;width:100%;height:auto;max-height:calc(100vh - 7rem);border-radius:14px}
+.tour-x{position:absolute;top:-3rem;right:0;width:2.4rem;height:2.4rem;border-radius:50%;border:0;display:grid;place-items:center;
+  background:rgba(255,255,255,.94);color:#0b1a33;cursor:pointer;transition:background .2s}
+.tour-x:hover{background:#fff}
+.tour-x:focus-visible{outline:2px solid var(--accent-light);outline-offset:3px}
+
+/* on a phone, say that a chart scrolls sideways */
+@media (max-width:700px){
+  figure:has(> .pan) > figcaption::before{content:"Swipe sideways to see the whole chart";content:"Swipe sideways to see the whole chart" / "";
+    display:block;margin-bottom:.35rem;font-size:var(--type-xs);font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+}

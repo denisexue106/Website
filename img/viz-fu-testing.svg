@@ -1,22 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="Three stat tiles from the second usability round: manual creation scored a perfect 3.00. 8 of 8 participants never noticed the merge. Finding Forms scored 5.88 on ease of use, the only friction" font-family="Inter, Helvetica, Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="Three stat tiles from the second usability round: manual creation scored a perfect 3.00 out of 3. Most participants never noticed the merge. Finding Forms scored 5.88 out of 7 on ease of use, the only friction" font-family="Inter, Helvetica, Arial, sans-serif">
 <rect width="800" height="500" fill="#F1F7F9"/>
 <text x="48" y="52" font-size="13" fill="#07326A" text-anchor="start" font-weight="600">Round two: eight participants, seven tasks</text>
-<text x="48" y="72" font-size="11" fill="#57677C" text-anchor="start">Scored out of 3.00 · nobody noticed the merge, but finding Forms was still hard</text>
+<text x="48" y="72" font-size="11" fill="#57677C" text-anchor="start">Most never noticed the merge, but finding Forms was still hard</text>
 <rect x="48" y="116" width="224" height="280" rx="8" fill="#FAFCFD" stroke="#DCE5EE" stroke-width="1"/>
 <text x="70" y="150" font-size="11" fill="#57677C" text-anchor="start">Manual creation</text>
 <text x="70" y="208" font-size="44" fill="#07326A" text-anchor="start" font-weight="600">3.00</text>
+<text x="177" y="207" font-size="12" fill="#57677C" text-anchor="start">out of 3</text>
 <text x="70" y="246.0" font-size="10.5" fill="#57677C" text-anchor="start">Perfect score: the flow that</text>
 <text x="70" y="261.225" font-size="10.5" fill="#57677C" text-anchor="start">broke for seven of seven</text>
 <text x="70" y="276.45" font-size="10.5" fill="#57677C" text-anchor="start">participants a year earlier.</text>
 <rect x="288" y="116" width="224" height="280" rx="8" fill="#FAFCFD" stroke="#DCE5EE" stroke-width="1"/>
 <text x="310" y="150" font-size="11" fill="#57677C" text-anchor="start">Never noticed the merge</text>
-<text x="310" y="208" font-size="44" fill="#07326A" text-anchor="start" font-weight="600">8 of 8</text>
-<text x="310" y="246.0" font-size="10.5" fill="#57677C" text-anchor="start">Not one participant noticed the</text>
-<text x="310" y="261.225" font-size="10.5" fill="#57677C" text-anchor="start">public and internal split had</text>
-<text x="310" y="276.45" font-size="10.5" fill="#57677C" text-anchor="start">been removed.</text>
+<text x="310" y="208" font-size="44" fill="#07326A" text-anchor="start" font-weight="600">Most</text>
+<text x="310" y="246.0" font-size="10.5" fill="#57677C" text-anchor="start">Most participants never noticed</text>
+<text x="310" y="261.225" font-size="10.5" fill="#57677C" text-anchor="start">the public and internal split</text>
+<text x="310" y="276.45" font-size="10.5" fill="#57677C" text-anchor="start">had been removed.</text>
 <rect x="528" y="116" width="224" height="280" rx="8" fill="#FAFCFD" stroke="#DCE5EE" stroke-width="1"/>
 <text x="550" y="150" font-size="11" fill="#57677C" text-anchor="start">Finding Forms</text>
 <text x="550" y="208" font-size="44" fill="#07326A" text-anchor="start" font-weight="600">5.88</text>
+<text x="655" y="207" font-size="12" fill="#57677C" text-anchor="start">out of 7</text>
 <circle cx="558" cy="232" r="4" fill="#b8574e"/><text x="568" y="236" font-size="10" fill="#57677C" text-anchor="start">The only friction</text>
 <text x="550" y="266.0" font-size="10.5" fill="#57677C" text-anchor="start">Ease of use: the only real</text>
 <text x="550" y="281.225" font-size="10.5" fill="#57677C" text-anchor="start">friction. People looked in</text>

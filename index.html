@@ -890,6 +890,25 @@
       color: var(--accent-light);
       margin-bottom: 0.5rem;
     }
+    /* the address itself, for anyone whose browser has no mail app set up */
+    .contact-mail {
+      margin-top: 1.6rem;
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.6rem;
+      font-size: var(--type-sm); color: var(--d-muted);
+    }
+    .contact-mail a {
+      color: #fff; font-weight: 600;
+      text-decoration: underline; text-decoration-color: rgba(255,255,255,0.35); text-underline-offset: 3px;
+    }
+    .contact-mail a:hover { text-decoration-color: #fff; }
+    .copy-mail {
+      font: inherit; font-size: var(--type-xs); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--accent-light); background: transparent; cursor: pointer;
+      border: 1px solid var(--d-rule); border-radius: 100px; padding: 0.3rem 0.8rem;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .copy-mail:hover { color: #fff; border-color: rgba(255,255,255,0.5); }
+    .copy-note { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
     .contact-actions {
       display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center;
     }
@@ -1007,10 +1026,13 @@
       .container { padding: 0 1.25rem; }
       nav { padding: 0 1rem; }
       #hero { padding-top: calc(var(--nav-h) + 3rem); }
-      /* One up. */
-      .hero-facts { grid-template-columns: 1fr; }
-      .fact { padding: 1.7rem 1.45rem 1.55rem; }
-      .fact .stat-label { min-height: 0; }
+      /* Two up, so the four numbers take about one screen on a phone instead of four. */
+      .hero-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
+      .fact { padding: 1.3rem 1.1rem 1.25rem; border-radius: 14px; }
+      .stat-num { font-size: 2.3rem; margin-bottom: 0.55rem; }
+      .stat-label { font-size: 0.95rem; }
+      .stat-rule { margin: 0.8rem 0; }
+      .stat-sub { font-size: 0.8rem; }
       .section-header { margin-bottom: 2.5rem; }
       .case-card, .case-card.featured { padding: 1.25rem 1.15rem 1.4rem; }
       .showcase-grid { grid-template-columns: 1fr; }
@@ -1193,7 +1215,7 @@
           <div class="band"><div class="stage"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/bc-card-ai.gif" alt="Concept in the Branding Center prototype: Thryv AI reads a business website while logos, brand colors and fonts appear on the Branding tab one by one, then asks which logo should be primary" loading="lazy" width="840" height="500" /></div></div></div>
           <div class="case-meta"><span class="case-tag">Keap · Lead designer</span><span class="case-year">Brand system · 2024</span></div>
           <h3>Building the <span class="hl">Branding Center</span></h3>
-          <p class="case-desc">A business&rsquo;s brand lived in a document outside the product, so changing a logo meant redoing every email and landing page by hand. I designed one place to keep the brand that every builder reads from, and sixteen teams use it.</p>
+          <p class="case-desc">A business&rsquo;s brand lived in a document outside the product, so changing a logo meant redoing every email and landing page by hand. I designed one place to keep the brand that every builder reads from.</p>
           <div class="statcards"><div class="statcard hi"><svg class="icon sc-icon" aria-hidden="true" focusable="false"><use href="#i-users"/></svg><span class="sc-value">16</span><span class="sc-label">Teams using one brand definition</span></div><div class="statcard"><svg class="icon sc-icon" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg><span class="sc-value">25→15</span><span class="sc-label">Minutes to build a landing page</span></div><div class="statcard"><svg class="icon sc-icon" aria-hidden="true" focusable="false"><use href="#i-chart-up"/></svg><span class="sc-value">+20%</span><span class="sc-label">Landing page builder adoption after it shipped</span></div></div>
           <div class="case-arrow">Read case study <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </a>
@@ -1424,6 +1446,7 @@
           Download resume
         </a>
       </div>
+      <p class="contact-mail">Or write to <a href="mailto:denisexue106@gmail.com">denisexue106@gmail.com</a><button type="button" class="copy-mail" data-copy="denisexue106@gmail.com">Copy</button><span class="copy-note" role="status"></span></p>
     </div>
   </section>
 
@@ -1552,6 +1575,9 @@
       });
       hero.addEventListener('pointerleave', () => { px = 0; py = 0; if (!raf) raf = requestAnimationFrame(apply); });
     })();
+  
+    /* copy the email address, for anyone whose browser has no mail app set up */
+    (function(){var b=document.querySelector('.copy-mail');if(!b)return;var n=document.querySelector('.copy-note'),a=b.previousElementSibling;b.addEventListener('click',function(){var t=b.getAttribute('data-copy');var done=function(){b.textContent='Copied';n.textContent='Email address copied';setTimeout(function(){b.textContent='Copy';n.textContent='';},2000);};var pick=function(){var r=document.createRange();r.selectNodeContents(a);var g=getSelection();g.removeAllRanges();g.addRange(r);};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,pick);}else{pick();}});})();
   </script>
 </body>
 </html>
