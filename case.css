@@ -211,8 +211,6 @@ section[id]{scroll-margin-top:110px}
 .to-top[hidden]{display:none}
 .to-top:hover{background:var(--accent-deep);transform:translateY(-3px)}
 
-/* real product screens carry a quiet provenance note under the cover */
-.cover-note{margin-top:.7rem;font-size:.75rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--d-subtle);opacity:.9}
 .revisit-h{font-family:var(--font-display);font-weight:800;font-size:1.375rem;letter-spacing:-.03em;margin:2.25rem 0 1rem}
 
 /* ── PRODUCT SCREENS ── */
