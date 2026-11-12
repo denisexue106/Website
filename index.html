@@ -427,6 +427,19 @@
     .mc-1 { --r: rotate(-2.5deg); --d: 16; --dl: 0.05s; --fd: 6.5s; --f: -8px; left: 0;  top: 20%;  z-index: 3; width: 68%; }
     .mc-2 { --r: rotate(3deg);    --d: 9;  --dl: 0.2s;  --fd: 7.5s; --f: -6px; right: 0; top: 0;    z-index: 2; width: 60%; }
     .mc-3 { --r: rotate(-1.5deg); --d: 6;  --dl: 0.32s; --fd: 8.5s; --f: -5px; right: 2%; bottom: 0; z-index: 1; width: 62%; }
+    /* A phone in front of the stack, bottom right: the Forms flow on a phone, linked to that section. */
+    .mc-4 {
+      --r: rotate(5deg); --d: 22; --dl: 0.44s; --fd: 7s; --f: -7px;
+      right: -3%; bottom: -4%; z-index: 4; width: 21%;
+      padding: 0.8%; border: 0; border-radius: 16% / 7.4%; overflow: visible;
+      background: linear-gradient(155deg, #FFFFFF 0%, #EEF3F8 50%, #D9E2EC 100%);
+    }
+    .mc-4 img { border-radius: 13.4% / 6.2%; }
+    .mc-4 .mosaic-label { left: auto; right: 8px; bottom: 8px; }
+    @media (max-width: 620px) { .mc-4 { right: 0; bottom: -3%; width: 24%; } }
+    /* the hover recording sits over the still and fades in once it is actually playing */
+    .mosaic-video { position: absolute; left: 0; right: 0; top: 16px; width: 100%; height: auto; opacity: 0; transition: opacity 0.25s ease; pointer-events: none; }
+    .mosaic-card.playing .mosaic-video { opacity: 1; }
 
     /* ── HERO STATS ── */
     /* A row of cards rather than a rule-divided row, so the numbers get room to be large.
@@ -615,6 +628,7 @@
     }
     .case-cover { display: block; width: 100%; height: auto; object-fit: cover; object-position: top center; }
     .case-card:not(.featured) .case-cover { aspect-ratio: 16 / 9.4; }
+    .case-card.featured video.case-cover { aspect-ratio: 680 / 590; }
     .case-card:hover .case-shot {
       transform: translateY(-6px);
       box-shadow: 0 0 0 1px rgba(7,50,106,0.14), 0 32px 60px rgba(7,50,106,0.26);
@@ -794,7 +808,6 @@
       letter-spacing: 0.12em; text-transform: uppercase;
       color: var(--ink-subtle);
     }
-    .panel-head .aff { color: var(--ink-faint); letter-spacing: 0.16em; font-size: 0.9rem; line-height: 1; }
     .cv-extra {
       display: grid; grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem; margin-top: 2.5rem;
@@ -1217,9 +1230,10 @@
 
         <div class="hero-mosaic">
           <div class="mosaic-stage">
-            <a class="mosaic-card mc-1" href="case-form-unification.html" aria-label="Read the Form Unification case study"><span class="mosaic-chrome"></span><img src="img/fu-hero-chat-still.jpg" data-gif="img/fu-hero-chat.gif" alt="" width="680" height="590" decoding="async" /><span class="mosaic-label" aria-hidden="true">Merging seven form builders into one <svg width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-            <a class="mosaic-card mc-2" href="case-branding-center.html" aria-label="Read the Branding Center case study"><span class="mosaic-chrome"></span><img src="img/bc-card-ai-still.jpg" data-gif="img/bc-card-ai.gif" alt="" width="840" height="500" decoding="async" /><span class="mosaic-label" aria-hidden="true">Building the Branding Center <svg width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-            <a class="mosaic-card mc-3" href="case-business-listing.html" aria-label="Read the Business Listing case study"><span class="mosaic-chrome"></span><img src="img/bl-card-still.jpg" data-gif="img/bl-card.gif" alt="" width="840" height="476" decoding="async" /><span class="mosaic-label" aria-hidden="true">Moving listings to a new vendor <svg width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+            <a class="mosaic-card mc-1" href="case-form-unification.html" aria-label="Read the Form Unification case study"><span class="mosaic-chrome"></span><img src="img/fu-hero-chat-still.jpg" data-video="img/fu-hero-chat.mp4" alt="" width="680" height="590" decoding="async" /><span class="mosaic-label" aria-hidden="true">Merging seven form builders into one <svg width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+            <a class="mosaic-card mc-2" href="case-branding-center.html" aria-label="Read the Branding Center case study"><span class="mosaic-chrome"></span><img src="img/bc-card-ai-still.jpg" data-video="img/bc-card-ai.mp4" alt="" width="840" height="500" decoding="async" /><span class="mosaic-label" aria-hidden="true">Building the Branding Center <svg width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+            <a class="mosaic-card mc-3" href="case-business-listing.html" aria-label="Read the Business Listing case study"><span class="mosaic-chrome"></span><img src="img/bl-card-still.jpg" data-video="img/bl-card.mp4" alt="" width="840" height="476" decoding="async" /><span class="mosaic-label" aria-hidden="true">Moving listings to a new vendor <svg width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+            <a class="mosaic-card mc-4" href="case-form-unification.html#s06" aria-label="See forms on a phone in the Form Unification case study"><img src="img/hero-m-fu.jpg" alt="" width="360" height="779" decoding="async" /><span class="mosaic-label" aria-hidden="true">Forms on a phone <svg width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
           </div>
         </div>
       </div>
@@ -1286,7 +1300,7 @@
               <div class="callout"><span class="ring"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-flag"/></svg></span><h4>My call</h4><p>I argued for merging them into one builder instead of a full rebuild.</p></div>
               <div class="callout"><span class="ring"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg></span><h4>What it unlocked</h4><p>That one builder is what lets AI draft a complete form from a prompt.</p></div>
             </div>
-            <div class="stage"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/fu-hero-chat.gif" alt="Thryv AI creating a client intake form in chat, in the interactive prototype: a prompt is typed, two questions are answered, and the form builds beside a live preview" loading="lazy" width="680" height="590" /></div><span class="case-phone"><img src="img/home-m-fu.jpg" alt="The finished client intake form on a phone, in the Spotlight template" loading="lazy" decoding="async" width="360" height="779" /></span></div>
+            <div class="stage"><div class="case-shot"><div class="case-chrome"></div><video class="case-cover" data-src="img/fu-hero-chat.mp4" poster="img/fu-hero-chat-still.jpg" muted loop playsinline preload="none" width="680" height="590" aria-label="Thryv AI creating a client intake form in chat, in the interactive prototype: a prompt is typed, two questions are answered, and the form builds beside a live preview"></video></div><span class="case-phone"><img src="img/home-m-fu.jpg" alt="The finished client intake form on a phone, in the Spotlight template" loading="lazy" decoding="async" width="360" height="779" /></span></div>
             <div class="statcards stack">
               <div class="statcard"><svg class="icon sc-icon" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg><span class="sc-value">12+</span><span class="sc-label">Month rebuild I argued against</span></div>
               <div class="statcard hi"><svg class="icon sc-icon" aria-hidden="true" focusable="false"><use href="#i-users"/></svg><span class="sc-value">7→1</span><span class="sc-label">Form builders became one, owned by one team</span></div>
@@ -1296,7 +1310,7 @@
         </a>
 
         <a class="case-card fade-up" href="case-branding-center.html">
-          <div class="band"><div class="stage"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/bc-card-ai.gif" alt="Concept in the Branding Center prototype: Thryv AI reads a business website while logos, brand colors and fonts appear on the Branding tab one by one, then asks which logo should be primary" loading="lazy" width="840" height="500" /></div></div></div>
+          <div class="band"><div class="stage"><div class="case-shot"><div class="case-chrome"></div><video class="case-cover" data-src="img/bc-card-ai.mp4" poster="img/bc-card-ai-still.jpg" muted loop playsinline preload="none" width="840" height="500" aria-label="Concept in the Branding Center prototype: Thryv AI reads a business website while logos, brand colors and fonts appear on the Branding tab one by one, then asks which logo should be primary"></video></div></div></div>
           <div class="case-meta"><span class="case-tag">Keap · Lead designer</span><span class="case-year">Brand system · 2024</span></div>
           <h3>Building the <span class="hl">Branding Center</span></h3>
           <p class="case-desc">A business&rsquo;s brand lived in a document outside the product, so changing a logo meant redoing every email and landing page by hand. I designed one place to keep the brand that every builder reads from.</p>
@@ -1305,7 +1319,7 @@
         </a>
 
         <a class="case-card fade-up" href="case-business-listing.html">
-          <div class="band"><div class="stage"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/bl-card.gif" alt="Concept in the Listings Management prototype: Apple Maps shows the wrong phone, hours and category, Thryv AI drafts the three corrections, and they are sent only after approval" loading="lazy" width="840" height="476" /></div><span class="case-phone"><img src="img/home-m-bl.jpg" alt="The reviews inbox on a phone, with the reviews that still need a reply at the top" loading="lazy" decoding="async" width="360" height="779" /></span></div></div>
+          <div class="band"><div class="stage"><div class="case-shot"><div class="case-chrome"></div><video class="case-cover" data-src="img/bl-card.mp4" poster="img/bl-card-still.jpg" muted loop playsinline preload="none" width="840" height="476" aria-label="Concept in the Listings Management prototype: Apple Maps shows the wrong phone, hours and category, Thryv AI drafts the three corrections, and they are sent only after approval"></video></div><span class="case-phone"><img src="img/home-m-bl.jpg" alt="The reviews inbox on a phone, with the reviews that still need a reply at the top" loading="lazy" decoding="async" width="360" height="779" /></span></div></div>
           <div class="case-meta"><span class="case-tag">Thryv · Design &amp; research lead</span><span class="case-year">Business listing · Third party vendor · Web and mobile · 2026</span></div>
           <h3>Moving listings to <span class="hl">a new vendor</span></h3>
           <p class="case-desc">Picking the vendor wasn&rsquo;t my call. I set the usability bar every vendor had to meet, got an AI requirement into the scorecard, and specified a layer that keeps the experience the same whichever one won.</p>
@@ -1389,13 +1403,13 @@
       </div>
       <div class="cv-extra fade-up">
         <div class="panel cv-col">
-          <div class="panel-head"><h4>Education</h4><span class="aff" aria-hidden="true">&middot;&middot;&middot;</span></div>
+          <div class="panel-head"><h4>Education</h4></div>
           <p><strong>UX Management</strong><span>Nielsen Norman Group</span></p>
           <p><strong>MFA, Visual Communication Design</strong><span>Rochester Institute of Technology</span></p>
           <p><strong>BA, Graphic Design</strong><span>University of Shanghai for Science and Technology</span></p>
         </div>
         <div class="panel cv-col">
-          <div class="panel-head"><h4>Awards</h4><span class="aff" aria-hidden="true">&middot;&middot;&middot;</span></div>
+          <div class="panel-head"><h4>Awards</h4></div>
           <p><strong>Esri Ocean Storymap Contest</strong><span>First place &middot; Smithsonian whale story map &middot; 2021</span></p>
           <p><strong>CGDA Visual Communication Design</strong><span>Excellence award &middot; 2016</span></p>
         </div>
@@ -1458,7 +1472,7 @@
         </div>
         <div class="fade-up">
           <div class="panel skills-panel">
-          <div class="panel-head"><h4>Skills</h4><span class="aff" aria-hidden="true">&middot;&middot;&middot;</span></div>
+          <div class="panel-head"><h4>Skills</h4></div>
           <div class="skills-list">
             <div class="skill-row">
               <span class="skill-name">Web and mobile</span>
@@ -1660,22 +1674,42 @@
     if (!reduceMotion) document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
 
-    /* ── HERO MOSAIC GIFS: a still first frame at rest, the GIF only while hovered or focused ── */
+    /* ── HERO MOSAIC VIDEOS: a still first frame at rest, the recording only while hovered or focused ── */
     (() => {
-      const imgs = [...document.querySelectorAll('.mosaic-card img[data-gif]')];
-      if (!imgs.length || reduceMotion) return;
+      const imgs = [...document.querySelectorAll('.mosaic-card img[data-video]')];
+      if (!imgs.length || reduceMotion || !window.matchMedia('(hover: hover)').matches) return;
       imgs.forEach(img => {
         const card = img.closest('.mosaic-card');
-        const still = img.getAttribute('src');
-        const play = () => { img.src = img.dataset.gif; };
-        const stop = () => { img.src = still; };
+        const v = document.createElement('video');
+        v.className = 'mosaic-video'; v.muted = true; v.loop = true; v.playsInline = true; v.preload = 'none';
+        v.setAttribute('aria-hidden', 'true');
+        img.after(v);
+        const play = () => { if (!v.src) v.src = img.dataset.video; v.currentTime = 0; v.play().catch(() => {}); };
+        const stop = () => { v.pause(); card.classList.remove('playing'); };
+        v.addEventListener('playing', () => card.classList.add('playing'));
         card.addEventListener('mouseenter', play);
         card.addEventListener('mouseleave', stop);
         card.addEventListener('focus', play);
         card.addEventListener('blur', stop);
       });
-      // Fetch the GIFs once the page has settled, so a hover starts playing straight away.
-      window.addEventListener('load', () => imgs.forEach(img => { new Image().src = img.dataset.gif; }), { once: true });
+      // Fetch the recordings once the page has settled, so a hover starts playing straight away.
+      window.addEventListener('load', () => imgs.forEach(img => {
+        const v = img.nextElementSibling;
+        if (v && !v.src) { v.preload = 'auto'; v.src = img.dataset.video; }
+      }), { once: true });
+    })();
+
+    /* ── CARD VIDEOS: loaded when near the screen and played only while on it. With reduced
+       motion they keep the still poster. ── */
+    (() => {
+      const vids = [...document.querySelectorAll('video.case-cover[data-src]')];
+      if (!vids.length || reduceMotion || !('IntersectionObserver' in window)) return;
+      const io = new IntersectionObserver(entries => entries.forEach(e => {
+        const v = e.target;
+        if (e.isIntersecting) { if (!v.src) v.src = v.dataset.src; v.play().catch(() => {}); }
+        else if (v.src) v.pause();
+      }), { rootMargin: '200px 0px' });
+      vids.forEach(v => io.observe(v));
     })();
 
     /* ── HERO MOSAIC: the stack leans toward the pointer ── */
