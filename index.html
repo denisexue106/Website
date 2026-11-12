@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Denise Barrett · Product Designer and Leader</title>
-  <meta name="description" content="Denise Barrett, product designer with 10+ years designing web and mobile apps, from B2B SaaS to fintech and enterprise platforms, and an MFA from Rochester Institute of Technology. Most recently at Keap, acquired by Thryv. Design strategy, UX research, product management, design systems and AI. Remote in the US, open to new roles." />
+  <title>Denise Barrett · Lead Product Designer</title>
+  <meta name="description" content="Denise Barrett, lead product designer with 10+ years designing web and mobile apps across B2B SaaS, fintech, nonprofits and government, and an MFA from Rochester Institute of Technology. Most recently at Keap, acquired by Thryv. Design strategy, UX research, product management, design systems and AI. Remote in the US, open to new roles." />
   <link rel="canonical" href="https://dbyxdesign.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Denise Barrett" />
   <meta property="og:url" content="https://dbyxdesign.com/" />
-  <meta property="og:title" content="Denise Barrett · Product Designer and Leader" />
-  <meta property="og:description" content="Product designer with 10+ years designing web and mobile apps, from B2B SaaS to fintech and enterprise platforms. I untangle complex product and business problems and build systems that scale." />
-  <meta property="og:image" content="https://dbyxdesign.com/img/og-card.png?v=20261111" />
+  <meta property="og:title" content="Denise Barrett · Lead Product Designer" />
+  <meta property="og:description" content="Lead product designer with 10+ years designing web and mobile apps across B2B SaaS, fintech, nonprofits and government. I untangle complex product and business problems and build systems that scale." />
+  <meta property="og:image" content="https://dbyxdesign.com/img/og-card.png?v=20261111b" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Denise Barrett. Design strategy, from the problem up. 10+ years in design, 16 teams on one brand system, 6M users reached, 220K small businesses." />
+  <meta property="og:image:alt" content="Denise Barrett, lead product designer. Design strategy, from the problem up. 10+ years in design, 16 teams on one brand system, 6M users reached, 220K small businesses." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://dbyxdesign.com/img/og-card.png?v=20261111" />
-  <meta name="twitter:image:alt" content="Denise Barrett. Design strategy, from the problem up. 10+ years in design, 16 teams on one brand system, 6M users reached, 220K small businesses." />
-  <meta name="twitter:title" content="Denise Barrett · Product Designer and Leader" />
-  <meta name="twitter:description" content="Product designer with 10+ years designing web and mobile apps, from B2B SaaS to fintech and enterprise platforms. I untangle complex product and business problems and build systems that scale." />
+  <meta name="twitter:image" content="https://dbyxdesign.com/img/og-card.png?v=20261111b" />
+  <meta name="twitter:image:alt" content="Denise Barrett, lead product designer. Design strategy, from the problem up. 10+ years in design, 16 teams on one brand system, 6M users reached, 220K small businesses." />
+  <meta name="twitter:title" content="Denise Barrett · Lead Product Designer" />
+  <meta name="twitter:description" content="Lead product designer with 10+ years designing web and mobile apps across B2B SaaS, fintech, nonprofits and government. I untangle complex product and business problems and build systems that scale." />
   <link rel="icon" href="favicon.ico" sizes="48x48" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
@@ -28,14 +28,14 @@
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Denise Barrett",
-    "jobTitle": "Product Designer and Leader",
+    "jobTitle": "Lead Product Designer",
     "url": "https://dbyxdesign.com/",
     "image": "https://dbyxdesign.com/img/denise-barrett.jpg",
     "email": "mailto:denisexue106@gmail.com",
     "sameAs": ["https://www.linkedin.com/in/deniseb106/"],
-    "description": "Product designer and leader with 10+ years designing web and mobile apps, from B2B SaaS platforms to fintech and enterprise learning, and an MFA from Rochester Institute of Technology. Most recently at Keap, acquired by Thryv. Open to new roles, remote in the US.",
+    "description": "Lead product designer with 10+ years designing web and mobile apps across B2B SaaS, fintech, enterprise learning, nonprofits and government, and an MFA from Rochester Institute of Technology. Most recently at Keap, acquired by Thryv. Open to new roles, remote in the US.",
     "alumniOf": [{ "@type": "CollegeOrUniversity", "name": "Rochester Institute of Technology" }],
-    "knowsAbout": ["Product Design","Design Systems","Platform Design","Systems Thinking","UX Research","Usability Testing","Product Management","Product Roadmapping","AI Product Design","Figma","B2B SaaS","Information Architecture","Mobile App Design","Responsive Web Design","Fintech","Enterprise SaaS"]
+    "knowsAbout": ["Product Design","Design Systems","Platform Design","Systems Thinking","UX Research","Usability Testing","Product Management","Product Roadmapping","AI Product Design","Figma","B2B SaaS","Information Architecture","Mobile App Design","Responsive Web Design","Fintech","Enterprise SaaS","Data Visualization","Dashboards","Nonprofit","Government"]
   }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -984,6 +984,58 @@
       outline-color: var(--accent-light);
     }
 
+    /* ── PHONE BESIDE THE SCREEN ──
+       On cards with a phone design, a phone overlaps the corner of the desktop screen, so
+       web and mobile both show before anyone opens a case study. */
+    .stage { position: relative; }
+    .case-phone {
+      position: absolute; z-index: 2; right: -3%; bottom: -7%;
+      width: 23%; padding: clamp(3px, 0.4vw, 5px);
+      border-radius: 16% / 7.4%;
+      background: #10151d; line-height: 0;
+      box-shadow: inset 0 0 0 1.5px #2c3544, 0 0 0 1px rgba(7,50,106,0.10), 0 18px 40px rgba(7,50,106,0.30);
+      transition: transform 0.55s var(--ease);
+    }
+    .case-phone img {
+      display: block; width: 100%; height: auto; aspect-ratio: 390 / 844; object-fit: cover;
+      border-radius: 13.4% / 6.2%; background: #F3F5F8;
+    }
+    .case-card:hover .case-phone { transform: translateY(-10px); }
+    .case-card.featured .case-phone { width: 24%; right: -7%; bottom: -6%; }
+
+    /* ── RANGE ──
+       Two smaller project cards, then four one line tiles, so the range shows without a
+       case study for every project. Same card grammar as Work, on the alt surface. */
+    #range { background: var(--surface-alt); }
+    .range-lede { max-width: 60ch; margin: -1.25rem 0 2.75rem; font-size: var(--type-md); line-height: 1.65; color: var(--ink-muted); }
+    .range-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem; }
+    #range .case-card h3 { font-size: clamp(1.25rem, 1.8vw, 1.5rem); }
+    .range-tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; margin-top: 2.5rem; }
+    .range-tile {
+      background: var(--surface); border: 1px solid var(--rule); border-radius: 14px;
+      padding: 1.25rem 1.25rem 1.35rem;
+      box-shadow: 0 8px 22px rgba(7,50,106,0.05);
+    }
+    .rt-icon {
+      display: grid; place-items: center; width: 2.4rem; height: 2.4rem; margin-bottom: 0.95rem;
+      border-radius: 8px; border: 1px solid rgba(10,97,201,0.40);
+      background: var(--accent-wash); color: var(--accent);
+    }
+    .rt-icon .icon { width: 1.15rem; height: 1.15rem; }
+    .range-tile h3 {
+      font-family: var(--font-body); font-size: var(--type-xs); font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink);
+      margin-bottom: 0.45rem;
+    }
+    .range-tile p { font-size: 0.86rem; line-height: 1.6; color: var(--ink-muted); }
+    @media (max-width: 1080px) { .range-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 900px) { .range-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 620px) {
+      .range-lede { margin: -0.75rem 0 2rem; font-size: var(--type-base); }
+      .range-tiles { grid-template-columns: 1fr; }
+      .case-card .case-phone, .case-card.featured .case-phone { width: 26%; right: -2%; bottom: -5%; }
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 1080px) {
       :root { --space-xl: 5.5rem; }
@@ -1087,7 +1139,7 @@
   </noscript>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="i-chart-up" viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M7 15.5l3.3-4 2.9 2.4L17.8 8"/></symbol><symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></symbol><symbol id="i-document" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="12" y2="16"/></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></symbol><symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.4-7-11.3A7 7 0 1 1 19 9.7C19 14.6 12 21 12 21z"/><circle cx="12" cy="9.7" r="2.4"/></symbol><symbol id="i-mentor" viewBox="0 0 24 24"><circle cx="9" cy="7" r="3"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0"/><path d="M16.5 4.8a3 3 0 0 1 0 5.9"/><path d="M15.5 14.3c2.9.8 5 3.2 5 5.7"/></symbol><symbol id="i-code" viewBox="0 0 24 24"><path d="M8.7 8L4.3 12l4.4 4"/><path d="M15.3 8l4.4 4-4.4 4"/></symbol><symbol id="i-users" viewBox="0 0 24 24"><circle cx="8.7" cy="8" r="3"/><path d="M2.7 20a6 6 0 0 1 12 0"/><circle cx="16.7" cy="9" r="2.3"/><path d="M15 14.3a5.5 5.5 0 0 1 6.6 5.2"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v5l3.3 1.9"/></symbol><symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.6 2.6L16.2 9"/></symbol><symbol id="i-flag" viewBox="0 0 24 24"><line x1="6" y1="3" x2="6" y2="21"/><path d="M6 4.2h11l-3 3.9 3 3.9H6"/></symbol><symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z"/><path d="M19 15l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7.7-2z"/></symbol><symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 8h13.5l-3-3"/><path d="M20 16H6.5l3 3"/></symbol></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="i-chart-up" viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M7 15.5l3.3-4 2.9 2.4L17.8 8"/></symbol><symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></symbol><symbol id="i-document" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="12" y2="16"/></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></symbol><symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.4-7-11.3A7 7 0 1 1 19 9.7C19 14.6 12 21 12 21z"/><circle cx="12" cy="9.7" r="2.4"/></symbol><symbol id="i-mentor" viewBox="0 0 24 24"><circle cx="9" cy="7" r="3"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0"/><path d="M16.5 4.8a3 3 0 0 1 0 5.9"/><path d="M15.5 14.3c2.9.8 5 3.2 5 5.7"/></symbol><symbol id="i-code" viewBox="0 0 24 24"><path d="M8.7 8L4.3 12l4.4 4"/><path d="M15.3 8l4.4 4-4.4 4"/></symbol><symbol id="i-users" viewBox="0 0 24 24"><circle cx="8.7" cy="8" r="3"/><path d="M2.7 20a6 6 0 0 1 12 0"/><circle cx="16.7" cy="9" r="2.3"/><path d="M15 14.3a5.5 5.5 0 0 1 6.6 5.2"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v5l3.3 1.9"/></symbol><symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.6 2.6L16.2 9"/></symbol><symbol id="i-flag" viewBox="0 0 24 24"><line x1="6" y1="3" x2="6" y2="21"/><path d="M6 4.2h11l-3 3.9 3 3.9H6"/></symbol><symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z"/><path d="M19 15l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7.7-2z"/></symbol><symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 8h13.5l-3-3"/><path d="M20 16H6.5l3 3"/></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7 7-7z"/></symbol><symbol id="i-landmark" viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M6 17.5v-6.5"/><path d="M10 17.5v-6.5"/><path d="M14 17.5v-6.5"/><path d="M18 17.5v-6.5"/><path d="M12 3l8.5 5h-17L12 3z"/></symbol><symbol id="i-box" viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M4 7.5l8 4.5 8-4.5"/><path d="M12 12v9"/></symbol><symbol id="i-ball" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/><path d="M5.6 18.4L18.4 5.6"/><path d="M12 3a9 9 0 0 0 9 9"/><path d="M3 12a9 9 0 0 1 9 9"/></symbol></svg>
   <a href="#work" class="skip-link">Skip to work</a>
 
   <!-- NAV -->
@@ -1108,13 +1160,13 @@
     <div class="container">
       <div class="hero-inner">
         <div class="hero-left">
-          <p class="hero-eyebrow">Web and mobile apps, design systems and AI</p>
+          <p class="hero-eyebrow">Lead&nbsp;product&nbsp;designer&nbsp;&middot; Web&nbsp;and&nbsp;mobile&nbsp;&middot; Design&nbsp;systems&nbsp;and&nbsp;AI</p>
           <h1>
             Design strategy,<br>
             <em>from the problem up</em>.
           </h1>
           <p class="hero-desc">I untangle complex product and business problems and build systems that scale.</p>
-          <p class="hero-body">I lead product design for web and mobile apps across B2B SaaS, fintech, sales enablement and geospatial mapping, from user research to design systems and AI. I set priorities, write requirements, run the backlog with product and engineering, and mentor other designers.</p>
+          <p class="hero-body">I lead product design for web and mobile apps across B2B SaaS, fintech, nonprofits and government, from user research to design systems and AI. I set priorities, write requirements, run the backlog with product and engineering, and mentor other designers.</p>
           <div class="hero-actions">
             <a href="#work" class="btn-primary">
               View selected work
@@ -1202,7 +1254,7 @@
               <div class="callout"><span class="ring"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-flag"/></svg></span><h4>My call</h4><p>I argued for merging them into one builder instead of a full rebuild.</p></div>
               <div class="callout"><span class="ring"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg></span><h4>What it unlocked</h4><p>That one builder is what lets AI draft a complete form from a prompt.</p></div>
             </div>
-            <div class="stage"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/fu-hero-chat.gif" alt="Thryv AI creating a client intake form in chat, in the interactive prototype: a prompt is typed, two questions are answered, and the form builds beside a live preview" loading="lazy" width="680" height="590" /></div></div>
+            <div class="stage"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/fu-hero-chat.gif" alt="Thryv AI creating a client intake form in chat, in the interactive prototype: a prompt is typed, two questions are answered, and the form builds beside a live preview" loading="lazy" width="680" height="590" /></div><span class="case-phone"><img src="img/home-m-fu.jpg" alt="The finished client intake form on a phone, in the Spotlight template" loading="lazy" decoding="async" width="360" height="779" /></span></div>
             <div class="statcards stack">
               <div class="statcard"><svg class="icon sc-icon" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg><span class="sc-value">12+</span><span class="sc-label">Month rebuild I argued against</span></div>
               <div class="statcard hi"><svg class="icon sc-icon" aria-hidden="true" focusable="false"><use href="#i-users"/></svg><span class="sc-value">7→1</span><span class="sc-label">Form builders became one, owned by one team</span></div>
@@ -1221,28 +1273,49 @@
         </a>
 
         <a class="case-card fade-up" href="case-business-listing.html">
-          <div class="band"><div class="stage"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/bl-card.gif" alt="Concept in the Listings Management prototype: Apple Maps shows the wrong phone, hours and category, Thryv AI drafts the three corrections, and they are sent only after approval" loading="lazy" width="840" height="476" /></div></div></div>
+          <div class="band"><div class="stage"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/bl-card.gif" alt="Concept in the Listings Management prototype: Apple Maps shows the wrong phone, hours and category, Thryv AI drafts the three corrections, and they are sent only after approval" loading="lazy" width="840" height="476" /></div><span class="case-phone"><img src="img/home-m-bl.jpg" alt="The reviews inbox on a phone, with the reviews that still need a reply at the top" loading="lazy" decoding="async" width="360" height="779" /></span></div></div>
           <div class="case-meta"><span class="case-tag">Thryv · Design &amp; research lead</span><span class="case-year">Business listing · Third party vendor · Web and mobile · 2026</span></div>
           <h3>Moving listings to <span class="hl">a new vendor</span></h3>
           <p class="case-desc">Picking the vendor wasn&rsquo;t my call. I set the usability bar every vendor had to meet, got an AI requirement into the scorecard, and specified a layer that keeps the experience the same whichever one won.</p>
           <div class="statcards"><div class="statcard"><svg class="icon sc-icon" aria-hidden="true" focusable="false"><use href="#i-swap"/></svg><span class="sc-value">2</span><span class="sc-label">Shortlisted vendors tested in a live prototype</span></div><div class="statcard"><svg class="icon sc-icon" aria-hidden="true" focusable="false"><use href="#i-layers"/></svg><span class="sc-value">3→1</span><span class="sc-label">Studies combined into one usability bar</span></div><div class="statcard hi"><svg class="icon sc-icon" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span class="sc-value">160K</span><span class="sc-label">Locations in scope</span></div></div>
           <div class="case-arrow">Read case study <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </a>
-        <a class="case-card fade-up" href="case-allego.html">
-          <div class="band"><div class="stage"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/al-card.jpg" alt="The redesigned Allego home page: a greeting, colored summary tiles and side navigation" loading="lazy" width="840" height="494" /></div></div></div>
-          <div class="case-meta"><span class="case-tag">Allego &middot; UX/UI designer</span><span class="case-year">Sales enablement &middot; Web, tablet, mobile &middot; 2020</span></div>
-          <h3>Redesigning Allego <span class="hl">for every screen</span></h3>
-          <p class="case-desc">Allego&rsquo;s interface hadn&rsquo;t changed since 2010, and the clutter was costing it business. We tested three proposals with 15 people, and I led the final design that merged them, on web, tablet and phone.</p>
-          <div class="case-arrow">Read case study <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- RANGE -->
+  <section id="range">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div>
+          <div class="section-label">Range</div>
+          <h2>Work across <span class="hl">industries</span></h2>
+        </div>
+      </div>
+      <p class="range-lede fade-up">The case studies above are software for small businesses. I&rsquo;ve also designed for fintech, sales enablement, nonprofits, local government, supply chain and sports, on web, tablet and phone.</p>
+      <div class="range-grid">
         <a class="case-card fade-up" href="case-widget-cloud.html">
-          <div class="band"><div class="stage"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/wc-card.jpg" alt="The Widget Cloud dashboard: total account value with an allocation chart and a list of accounts" loading="lazy" width="840" height="494" /></div></div></div>
+          <div class="band"><div class="stage"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/wc-card.jpg" alt="The Widget Cloud dashboard: total account value with an allocation chart and a list of accounts" loading="lazy" width="840" height="494" /></div><span class="case-phone"><img src="img/home-m-wc.jpg" alt="The accounts screen on a phone: total account value with an allocation chart" loading="lazy" decoding="async" width="360" height="779" /></span></div></div>
           <div class="case-meta"><span class="case-tag">Freelance &middot; Sole designer</span><span class="case-year">Fintech &middot; Web and mobile &middot; 2022</span></div>
           <h3>An investment app for <span class="hl">web and phone</span></h3>
           <p class="case-desc">Clients of an investment firm had to visit the office to manage their money. I designed a dashboard for web and phone where they can see every account, plan for retirement and reach their advisor.</p>
           <div class="case-arrow">Read case study <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </a>
-
+        <a class="case-card fade-up" href="case-allego.html">
+          <div class="band"><div class="stage"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/al-card.jpg" alt="The redesigned Allego home page: a greeting, colored summary tiles and side navigation" loading="lazy" width="840" height="494" /></div><span class="case-phone"><img src="img/home-m-al.jpg" alt="The redesigned Allego home on a phone, with recommended videos" loading="lazy" decoding="async" width="360" height="779" /></span></div></div>
+          <div class="case-meta"><span class="case-tag">Allego &middot; Product designer</span><span class="case-year">Sales enablement &middot; Web, tablet, mobile &middot; 2020</span></div>
+          <h3>Redesigning Allego <span class="hl">for every screen</span></h3>
+          <p class="case-desc">Allego&rsquo;s interface hadn&rsquo;t changed since 2010, and the clutter was costing it business. We tested three proposals with 15 people, and I led the final design that merged them, on web, tablet and phone.</p>
+          <div class="case-arrow">Read case study <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </a>
+      </div>
+      <div class="range-tiles">
+        <div class="range-tile fade-up"><span class="rt-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-heart"/></svg></span><h3>Nonprofits</h3><p>Esri dashboards for the Red Cross and Feeding America, and a story map about saving whales for the Smithsonian.</p></div>
+        <div class="range-tile fade-up"><span class="rt-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-landmark"/></svg></span><h3>Local government</h3><p>Mobile apps for Sacramento County, and data and map products for government agencies.</p></div>
+        <div class="range-tile fade-up"><span class="rt-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-box"/></svg></span><h3>Supply chain</h3><p>Supply Savvy, a supply chain web app for makeup supplies.</p></div>
+        <div class="range-tile fade-up"><span class="rt-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-ball"/></svg></span><h3>Sports analytics</h3><p>Gameday, a data analysis app for basketball.</p></div>
       </div>
     </div>
   </section>
@@ -1263,8 +1336,8 @@
           <div class="ir-body cv-body">
             <div class="cv-when">2022 to 2026</div>
             <div class="cv-what">
-            <h3>Keap, acquired by Thryv <span class="cv-org">Product design &middot; platform</span></h3>
-            <p class="cv-note">Led design for two development teams across forms, branding, listings and AI, on web and mobile, and designed the Branding Center, which sixteen teams now build on. I ran the design team meetings and mentored six junior designers, one of whom now leads their own area.</p>
+            <h3>Keap, acquired by Thryv <span class="cv-org">Lead product designer &middot; platform</span></h3>
+            <p class="cv-note">Led design for two development teams across forms, branding, listings and AI, on web and mobile, and designed the Branding Center, which sixteen teams now build on. I drove a design system migration that replaced duplicate components with shared patterns, and set the research and testing standards behind product decisions. I ran the design team meetings and mentored six junior designers, one of whom now leads their own area.</p>
           </div>
           </div>
         </div>
@@ -1273,7 +1346,7 @@
           <div class="ir-body cv-body">
             <div class="cv-when">2020 to 2022</div>
             <div class="cv-what">
-            <h3>Blue Raster <span class="cv-org">UX/UI design &middot; agency</span></h3>
+            <h3>Blue Raster <span class="cv-org">Senior UX/UI designer &middot; agency</span></h3>
             <p class="cv-note">Designed web and mobile data visualization and geospatial products for government agencies, enterprise clients and nonprofits, owning research through implementation. My nonprofit work for the Red Cross and the Smithsonian helped save people and wildlife, and I won first place in the Esri Ocean Storymap Contest.</p>
           </div>
           </div>
@@ -1283,8 +1356,8 @@
           <div class="ir-body cv-body">
             <div class="cv-when">2017 to 2020</div>
             <div class="cv-what">
-            <h3>Allego <span class="cv-org">Product design &middot; enterprise SaaS</span></h3>
-            <p class="cv-note">Sales enablement tools for an enterprise learning platform on web, tablet, iOS and Android, where I built my enterprise UX and research practice.</p>
+            <h3>Allego <span class="cv-org">Product designer &middot; enterprise SaaS</span></h3>
+            <p class="cv-note">Designed sales enablement tools for an enterprise learning platform on web, tablet, iOS and Android, and led the final design of its 2020 redesign.</p>
           </div>
           </div>
         </div>
@@ -1293,7 +1366,7 @@
           <div class="ir-body cv-body">
             <div class="cv-when">2016 to 2017</div>
             <div class="cv-what">
-            <h3>Monterey DevOps <span class="cv-org">Visual design &middot; custom software</span></h3>
+            <h3>Monterey DevOps <span class="cv-org">Visual designer &middot; custom software</span></h3>
             <p class="cv-note">UI and visual design across client projects for a custom software development firm.</p>
           </div>
           </div>
@@ -1365,7 +1438,7 @@
             <p>My work centers on creative problem solving. I lead design workshops, align design with business goals, and turn scattered versions of the same feature into one system everyone can use.</p>
             <p>I do the research and product work around the design too. I plan and run studies, from interviews and surveys to usability tests and Kano studies, and use what I find to change the roadmap. I&rsquo;ve owned roadmaps and priorities, written requirements, and run backlogs and sprints.</p>
             <p>I use AI to sort through research, draft flows and copy, and turn my Figma files into working prototypes. The forms and Branding Center prototypes in my case studies were built this way, and I still make the calls on what ships and what doesn&rsquo;t.</p>
-            <p>I lead without needing the title. I ran our design team meetings, shared team management work with the Design Manager, and mentored six junior designers. One of them now runs their own area independently.</p>
+            <p>I lead without needing a manager title. I ran our design team meetings, shared team management work with the Design Manager, and mentored six junior designers. One of them now runs their own area independently.</p>
           </div>
         </div>
         <div class="fade-up">
@@ -1379,6 +1452,14 @@
                 <span class="skill-tag">iOS and Android apps</span>
                 <span class="skill-tag">Tablet layouts</span>
                 <span class="skill-tag">Mobile forms</span>
+              </div>
+            </div>
+            <div class="skill-row">
+              <span class="skill-name">Data and maps</span>
+              <div class="skill-tags">
+                <span class="skill-tag">Dashboards</span>
+                <span class="skill-tag">Data visualization</span>
+                <span class="skill-tag">Esri story maps</span>
               </div>
             </div>
             <div class="skill-row">
