@@ -11,12 +11,12 @@
   <meta property="og:url" content="https://dbyxdesign.com/" />
   <meta property="og:title" content="Denise Barrett · Lead Product Designer" />
   <meta property="og:description" content="Lead product designer with 10+ years designing web and mobile apps across B2B SaaS, fintech, nonprofits and government. I untangle complex product and business problems and build systems that scale." />
-  <meta property="og:image" content="https://dbyxdesign.com/img/og-card.png?v=20261111c" />
+  <meta property="og:image" content="https://dbyxdesign.com/img/og-card.png?v=20261111d" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Denise Barrett, lead product designer. Design strategy, from the problem up. 10+ years in design, 16 teams on one brand system, 6M users reached, 220K small businesses." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://dbyxdesign.com/img/og-card.png?v=20261111c" />
+  <meta name="twitter:image" content="https://dbyxdesign.com/img/og-card.png?v=20261111d" />
   <meta name="twitter:image:alt" content="Denise Barrett, lead product designer. Design strategy, from the problem up. 10+ years in design, 16 teams on one brand system, 6M users reached, 220K small businesses." />
   <meta name="twitter:title" content="Denise Barrett · Lead Product Designer" />
   <meta name="twitter:description" content="Lead product designer with 10+ years designing web and mobile apps across B2B SaaS, fintech, nonprofits and government. I untangle complex product and business problems and build systems that scale." />
@@ -151,7 +151,7 @@
                   border-color 0.35s var(--ease), backdrop-filter 0.35s;
       border-bottom: 1px solid transparent;
     }
-    nav.scrolled {
+    nav.scrolled, nav.menu-open {
       background: rgba(255,255,255,0.86);
       backdrop-filter: saturate(180%) blur(16px);
       -webkit-backdrop-filter: saturate(180%) blur(16px);
@@ -190,6 +190,20 @@
       will-change: transform;
     }
     .nav-cta:hover { background: var(--accent-deep); }
+    nav.menu-open { background: var(--surface); }
+    /* One group for the links and the CTA: at the right of the bar on wider screens, and
+       the panel the Menu button opens on a phone (PHONE MENU). */
+    .nav-menu { display: flex; align-items: center; }
+    .nav-toggle {
+      display: none; align-items: center; gap: 0.55rem;
+      min-height: 2.75rem; padding: 0 0.15rem 0 0.75rem; margin-right: -0.15rem;
+      font: 600 var(--type-sm)/1 var(--font-body); color: inherit;
+      background: none; border: 0; border-radius: 6px; cursor: pointer;
+    }
+    .nav-toggle svg { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; }
+    .nav-toggle path { transform-box: fill-box; transform-origin: center; transition: transform 0.25s var(--ease); }
+    nav.menu-open .nav-toggle .l1 { transform: translateY(3px) rotate(45deg); }
+    nav.menu-open .nav-toggle .l2 { transform: translateY(-3px) rotate(-45deg); }
 
     /* ── HERO (dark, full bleed) ── */
     #hero {
@@ -289,6 +303,10 @@
       background: var(--accent-light);
     }
     .hero-eyebrow.in { opacity: 1; transform: none; }
+    /* One line wherever the hero has two columns. It is 23px wider than the text column
+       (80px just above 1080px) and runs into the empty space above the collage. The
+       zero minimum keeps the long line from widening the column and pushing the collage. */
+    @media (min-width: 1081px) { .hero-left { min-width: 0; } .hero-eyebrow { white-space: nowrap; } }
 
     .hero-desc {
       font-size: clamp(1.15rem, 1.6vw, 1.35rem);
@@ -1011,7 +1029,8 @@
       outline-offset: 3px;
       border-radius: 4px;
     }
-    #hero a:focus-visible, #contact a:focus-visible, footer a:focus-visible, nav:not(.scrolled) a:focus-visible {
+    #hero a:focus-visible, #contact a:focus-visible, footer a:focus-visible, nav:not(.scrolled):not(.menu-open) a:focus-visible,
+    nav:not(.scrolled):not(.menu-open) .nav-toggle:focus-visible {
       outline-color: var(--accent-light);
     }
 
@@ -1095,8 +1114,8 @@
     }
     @media (max-width: 900px) {
       .work-grid { grid-template-columns: 1fr; }
-      /* The links shrink rather than collapse: this nav is the only way to reach
-         Experience and Resume on a phone, so hiding them strands those sections. */
+      /* The links shrink to share one line with the CTA. Below 700px they move into
+         the Menu panel (PHONE MENU). */
       .nav-links { gap: 1.1rem; margin-right: 1.25rem; }
       .nav-links a { font-size: 0.8rem; }
       .nav-logo { font-size: 1.2rem; }
@@ -1108,19 +1127,35 @@
       .cv-when { padding-top: 0; }
       .cv-extra { grid-template-columns: 1fr; gap: 1.25rem; }
     }
-    @media (max-width: 560px) {
-      /* Below this the CTA and the four links cannot share the bar. The links win:
-         "Let's talk" is repeated in the hero, the contact section and the footer. */
-      .nav-cta { display: none; }
-      .nav-links { gap: 0.75rem; margin-right: 0; }
-      .nav-links a { font-size: 0.75rem; }
-      .nav-logo { font-size: 1rem; }
+    /* ── PHONE MENU ──
+       Below 700px the five links and the CTA no longer fit beside the name, so they move
+       into a panel under the bar that the Menu button opens. Each row is a 48px tap
+       target, and "Let's talk" comes back as a full width button at the bottom. */
+    @media (max-width: 700px) {
+      .nav-toggle { display: inline-flex; }
+      .nav-menu {
+        position: absolute; top: 100%; left: 0; right: 0;
+        flex-direction: column; align-items: stretch;
+        padding: 0.25rem 2rem 1.5rem;
+        background: var(--surface); color: var(--ink);
+        border-bottom: 1px solid var(--rule);
+        box-shadow: 0 28px 40px -24px rgba(7, 50, 106, 0.3);
+        visibility: hidden; opacity: 0; transform: translateY(-6px);
+        transition: opacity 0.2s var(--ease), transform 0.2s var(--ease), visibility 0s linear 0.2s;
+      }
+      nav.menu-open .nav-menu { visibility: visible; opacity: 1; transform: none; transition-delay: 0s; }
+      .nav-links { flex-direction: column; gap: 0; margin: 0; }
+      .nav-links li + li { border-top: 1px solid var(--rule); }
+      .nav-links a { display: flex; align-items: center; min-height: 3rem; padding: 0; font-size: var(--type-md); opacity: 1; }
+      .nav-links a::after { display: none; }
+      .nav-cta { margin-top: 1rem; padding: 0.9rem 1.25rem; text-align: center; font-size: var(--type-base); }
     }
     @media (max-width: 620px) {
       .about-id { gap: 1.1rem; }
       .about-photo { width: 84px; height: 84px; border-radius: 12px; }
       .container { padding: 0 1.25rem; }
       nav { padding: 0 1rem; }
+      .nav-menu { padding-left: 1rem; padding-right: 1rem; }
       #hero { padding-top: calc(var(--nav-h) + 3rem); }
       /* Two up, so the four numbers take about one screen on a phone instead of four. */
       .hero-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
@@ -1167,6 +1202,8 @@
       .word-reveal span { transform: none !important; opacity: 1 !important; }
       .mosaic-card { opacity: 1 !important; translate: none !important; animation: none !important; }
       .mosaic-stage { transform: none !important; }
+      .nav-menu, .nav-toggle path { transition: none !important; }
+      .nav-menu { transform: none !important; }
     }
   </style>
   <noscript>
@@ -1189,13 +1226,17 @@
   <!-- NAV -->
   <nav id="nav" aria-label="Primary">
     <a href="#hero" class="nav-logo">Denise Barrett</a>
-    <ul class="nav-links">
-      <li><a href="#work">Work</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a class="nav-resume" href="img/denise-barrett-resume.pdf" download>Resume</a></li>
-    </ul>
-    <a href="#contact" class="nav-cta">Let's talk</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">Menu<svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true" focusable="false"><path class="l1" d="M2.5 6h13"/><path class="l2" d="M2.5 12h13"/></svg></button>
+    <div class="nav-menu" id="nav-menu">
+      <ul class="nav-links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#approach">Approach</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a class="nav-resume" href="img/denise-barrett-resume.pdf" download>Resume</a></li>
+      </ul>
+      <a href="#contact" class="nav-cta">Let's talk</a>
+    </div>
   </nav>
 
   <main id="main">
@@ -1206,7 +1247,7 @@
     <div class="container">
       <div class="hero-inner">
         <div class="hero-left">
-          <p class="hero-eyebrow">Lead&nbsp;product&nbsp;designer&nbsp;&middot; Web&nbsp;and&nbsp;mobile&nbsp;&middot; Design&nbsp;systems&nbsp;and&nbsp;AI</p>
+          <p class="hero-eyebrow">Lead&nbsp;product&nbsp;designer&nbsp;&middot; Web&nbsp;and&nbsp;mobile&nbsp;&middot; Design&nbsp;systems&nbsp;and&nbsp;AI&nbsp;products</p>
           <h1>
             Design strategy,<br>
             <em>from the problem up</em>.
@@ -1655,6 +1696,22 @@
     window.addEventListener('resize', updateNav);
     window.addEventListener('load', updateNav);
     updateNav();
+
+    /* ── PHONE MENU ──
+       The Menu button shows the links on a phone. Choosing any link, tapping outside,
+       pressing Escape, tabbing out of the panel or widening past 700px closes it. */
+    (() => {
+      const btn = nav.querySelector('.nav-toggle'), menu = document.getElementById('nav-menu');
+      const phone = window.matchMedia('(max-width: 700px)');
+      const isOpen = () => nav.classList.contains('menu-open');
+      const setOpen = open => { nav.classList.toggle('menu-open', open); btn.setAttribute('aria-expanded', String(open)); };
+      btn.addEventListener('click', () => setOpen(!isOpen()));
+      nav.addEventListener('click', e => { if (isOpen() && e.target.closest('a')) setOpen(false); });
+      menu.addEventListener('focusout', e => { if (isOpen() && e.relatedTarget && !nav.contains(e.relatedTarget)) setOpen(false); });
+      document.addEventListener('click', e => { if (isOpen() && !nav.contains(e.target)) setOpen(false); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape' && isOpen()) { setOpen(false); btn.focus(); } });
+      phone.addEventListener('change', () => { if (!phone.matches) setOpen(false); });
+    })();
 
     /* ── FADE-UP OBSERVER ── */
     const observer = new IntersectionObserver((entries) => {
