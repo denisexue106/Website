@@ -424,17 +424,18 @@
     .mosaic-card:hover .mosaic-label, .mosaic-card:focus-visible .mosaic-label { opacity: 1; transform: none; }
     /* Three cards, one per case study, each readable: Forms in front on the left (it plays the
        AI chat, so it is the largest), the Branding Center behind it at the top right, and
-       Listings as a phone in front at the bottom right, clear of the Forms card. Each moves
+       Listings as a phone in front at the bottom right. They overlap only at the edges. Each moves
        less with the pointer than the one in front of it. */
-    .mc-1 { --r: rotate(-2.5deg); --d: 16; --dl: 0.05s; --fd: 6.5s; --f: -8px; left: 0;  top: 17%; z-index: 2; width: 66%; }
-    .mc-2 { --r: rotate(3deg);    --d: 9;  --dl: 0.2s;  --fd: 7.5s; --f: -6px; right: 0; top: 0;   z-index: 1; width: 63%; }
+    .mc-1 { --r: rotate(-2.5deg); --d: 16; --dl: 0.05s; --fd: 6.5s; --f: -8px; left: 0;  top: 24%; z-index: 2; width: 60%; }
+    .mc-2 { --r: rotate(3deg);    --d: 9;  --dl: 0.2s;  --fd: 7.5s; --f: -6px; right: 0; top: 0;   z-index: 1; width: 58%; }
     .mc-4 {
       --r: rotate(3deg); --d: 22; --dl: 0.36s; --fd: 7s; --f: -7px;
-      right: 3%; bottom: 0; z-index: 3; width: 25%;
+      right: 2%; bottom: 0; z-index: 3; width: 25%;
       padding: 0.8%; border: 0; border-radius: 16% / 7.4%; overflow: visible;
       background: linear-gradient(155deg, #FFFFFF 0%, #EEF3F8 50%, #D9E2EC 100%);
     }
-    .mc-4 img { border-radius: 13.4% / 6.2%; }
+    .mc-screen { position: relative; display: block; overflow: hidden; border-radius: 13.4% / 6.2%; }
+    .mc-4 .mosaic-video { top: 0; height: 100%; object-fit: cover; }
     .mc-4 .mosaic-label { left: auto; right: 8px; bottom: 8px; }
     @media (max-width: 1080px) { .mc-4 { width: 23%; } }
     /* the hover recording sits over the still and fades in once it is actually playing */
@@ -1232,7 +1233,7 @@
           <div class="mosaic-stage">
             <a class="mosaic-card mc-1" href="case-form-unification.html" aria-label="Read the Form Unification case study"><span class="mosaic-chrome"></span><img src="img/fu-hero-chat-still.jpg" data-video="img/fu-hero-chat.mp4" alt="" width="680" height="590" decoding="async" /><span class="mosaic-label" aria-hidden="true">Merging seven form builders into one <svg width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
             <a class="mosaic-card mc-2" href="case-branding-center.html" aria-label="Read the Branding Center case study"><span class="mosaic-chrome"></span><img src="img/bc-card-ai-still.jpg" data-video="img/bc-card-ai.mp4" alt="" width="840" height="500" decoding="async" /><span class="mosaic-label" aria-hidden="true">Building the Branding Center <svg width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-            <a class="mosaic-card mc-4" href="case-business-listing.html#s05" aria-label="See the Business Listing case study on a phone"><img src="img/hero-m-bl.jpg" alt="" width="360" height="779" decoding="async" /><span class="mosaic-label" aria-hidden="true">Listings on a phone <svg width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+            <a class="mosaic-card mc-4" href="case-business-listing.html#s05" aria-label="See the Business Listing case study on a phone"><span class="mc-screen"><img src="img/hero-m-bl.jpg" data-video="img/hero-m-bl.mp4" alt="" width="360" height="780" decoding="async" /></span><span class="mosaic-label" aria-hidden="true">Listings on a phone <svg width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
           </div>
         </div>
       </div>
