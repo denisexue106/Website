@@ -11,12 +11,12 @@
   <meta property="og:url" content="https://dbyxdesign.com/" />
   <meta property="og:title" content="Denise Barrett · Lead Product Designer" />
   <meta property="og:description" content="Lead product designer with 10+ years designing web and mobile apps across B2B SaaS, fintech, nonprofits and government. I untangle complex product and business problems and build systems that scale." />
-  <meta property="og:image" content="https://dbyxdesign.com/img/og-card.png?v=20261111b" />
+  <meta property="og:image" content="https://dbyxdesign.com/img/og-card.png?v=20261111c" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Denise Barrett, lead product designer. Design strategy, from the problem up. 10+ years in design, 16 teams on one brand system, 6M users reached, 220K small businesses." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://dbyxdesign.com/img/og-card.png?v=20261111b" />
+  <meta name="twitter:image" content="https://dbyxdesign.com/img/og-card.png?v=20261111c" />
   <meta name="twitter:image:alt" content="Denise Barrett, lead product designer. Design strategy, from the problem up. 10+ years in design, 16 teams on one brand system, 6M users reached, 220K small businesses." />
   <meta name="twitter:title" content="Denise Barrett · Lead Product Designer" />
   <meta name="twitter:description" content="Lead product designer with 10+ years designing web and mobile apps across B2B SaaS, fintech, nonprofits and government. I untangle complex product and business problems and build systems that scale." />
@@ -1022,37 +1022,47 @@
     .case-card.featured .case-phone { width: 24%; right: -7%; bottom: -6%; }
 
     /* ── RANGE ──
-       Two smaller project cards, then four one line tiles, so the range shows without a
-       case study for every project. Same card grammar as Work, on the alt surface. */
-    #range { background: var(--surface-alt); }
-    .range-lede { max-width: 60ch; margin: -1.25rem 0 2.75rem; font-size: var(--type-md); line-height: 1.65; color: var(--ink-muted); }
-    .range-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem; }
-    #range .case-card h3 { font-size: clamp(1.25rem, 1.8vw, 1.5rem); }
-    .range-tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 2.5rem; }
+       One grid of eight short tiles (her ask: the section made the page too long). The two
+       with case studies link to them. Four across, two across under 860px, and one column on
+       phones with the icon beside the text. */
+    #range { background: var(--surface-alt); padding: var(--space-lg) 0; }
+    #range .section-header { margin-bottom: 2.25rem; }
+    .range-tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
     .range-tile {
+      display: flex; flex-direction: column;
       background: var(--surface); border: 1px solid var(--rule); border-radius: 14px;
-      padding: 1.25rem 1.25rem 1.35rem;
+      padding: 1.15rem 1.15rem 1.2rem;
       box-shadow: 0 8px 22px rgba(7,50,106,0.05);
+      color: inherit; text-decoration: none;
     }
     .rt-icon {
-      display: grid; place-items: center; width: 2.4rem; height: 2.4rem; margin-bottom: 0.95rem;
+      display: grid; place-items: center; width: 2.25rem; height: 2.25rem; margin-bottom: 0.85rem; flex: none;
       border-radius: 8px; border: 1px solid rgba(10,97,201,0.40);
       background: var(--accent-wash); color: var(--accent);
     }
-    .rt-icon .icon { width: 1.15rem; height: 1.15rem; }
+    .rt-icon .icon { width: 1.1rem; height: 1.1rem; }
     .range-tile h3 {
       font-family: var(--font-body); font-size: var(--type-xs); font-weight: 700;
       letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink);
-      margin-bottom: 0.45rem;
+      margin-bottom: 0.4rem;
     }
-    .range-tile p { font-size: 0.86rem; line-height: 1.6; color: var(--ink-muted); }
+    .range-tile p { font-size: 0.86rem; line-height: 1.55; color: var(--ink-muted); }
+    .rt-link {
+      display: inline-flex; align-items: center; gap: 0.4rem; margin-top: auto; padding-top: 0.75rem;
+      font-size: var(--type-xs); font-weight: 600; color: var(--accent);
+      transition: gap 0.3s var(--ease);
+    }
+    a.range-tile { transition: border-color 0.3s var(--ease), transform 0.4s var(--ease), box-shadow 0.4s var(--ease); }
+    a.range-tile:hover { border-color: var(--rule-strong); transform: translateY(-3px); box-shadow: 0 16px 34px rgba(7,50,106,0.10); }
+    a.range-tile:hover .rt-link { gap: 0.7rem; }
     .range-tile.hi { background: var(--accent-wash); border-color: rgba(10,97,201,0.42); box-shadow: inset 0 0 0 1px rgba(10,97,201,0.18), 0 12px 28px rgba(10,97,201,0.12); }
     .range-tile.hi .rt-icon { background: var(--surface); }
-    @media (max-width: 1080px) { .range-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (max-width: 900px) { .range-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 860px) { .range-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
     @media (max-width: 620px) {
-      .range-lede { margin: -0.75rem 0 2rem; font-size: var(--type-base); }
-      .range-tiles { grid-template-columns: 1fr; }
+      .range-tiles { grid-template-columns: 1fr; gap: 0.75rem; }
+      .range-tile { display: grid; grid-template-columns: 2.25rem minmax(0, 1fr); column-gap: 0.9rem; padding: 1rem 1rem 1.05rem; }
+      .rt-icon { grid-row: 1 / span 3; margin-bottom: 0; }
+      .rt-link { padding-top: 0.5rem; }
       .case-card .case-phone, .case-card.featured .case-phone { width: 26%; right: -2%; bottom: -5%; }
     }
 
@@ -1316,26 +1326,11 @@
           <h2>Work across <span class="hl">industries</span></h2>
         </div>
       </div>
-      <p class="range-lede fade-up">The case studies above are software for small businesses. I&rsquo;ve also designed for fintech, sales enablement, nonprofits, local government, supply chain and sports, on web, tablet and phone.</p>
-      <div class="range-grid">
-        <a class="case-card fade-up" href="case-widget-cloud.html">
-          <div class="band"><div class="stage"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/wc-card.jpg" alt="The Widget Cloud dashboard: total account value with an allocation chart and a list of accounts" loading="lazy" width="840" height="494" /></div><span class="case-phone"><img src="img/home-m-wc.jpg" alt="The accounts screen on a phone: total account value with an allocation chart" loading="lazy" decoding="async" width="360" height="779" /></span></div></div>
-          <div class="case-meta"><span class="case-tag">Freelance &middot; Sole designer</span><span class="case-year">Fintech &middot; Web and mobile &middot; 2022</span></div>
-          <h3>An investment app for <span class="hl">web and phone</span></h3>
-          <p class="case-desc">Clients of an investment firm had to visit the office to manage their money. I designed a dashboard for web and phone where they can see every account, plan for retirement and reach their advisor.</p>
-          <div class="case-arrow">Read case study <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        </a>
-        <a class="case-card fade-up" href="case-allego.html">
-          <div class="band"><div class="stage"><div class="case-shot"><div class="case-chrome"></div><img class="case-cover" src="img/al-card.jpg" alt="The redesigned Allego home page: a greeting, colored summary tiles and side navigation" loading="lazy" width="840" height="494" /></div><span class="case-phone"><img src="img/home-m-al.jpg" alt="The redesigned Allego home on a phone, with recommended videos" loading="lazy" decoding="async" width="360" height="779" /></span></div></div>
-          <div class="case-meta"><span class="case-tag">Allego &middot; Product designer</span><span class="case-year">Sales enablement &middot; Web, tablet, mobile &middot; 2020</span></div>
-          <h3>Redesigning Allego <span class="hl">for every screen</span></h3>
-          <p class="case-desc">Allego&rsquo;s interface hadn&rsquo;t changed since 2010, and the clutter was costing it business. We tested three proposals with 15 people, and I led the final design that merged them, on web, tablet and phone.</p>
-          <div class="case-arrow">Read case study <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        </a>
-      </div>
       <div class="range-tiles">
+        <a class="range-tile link fade-up" href="case-widget-cloud.html"><span class="rt-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chart-up"/></svg></span><h3>Fintech</h3><p>Widget Cloud, an investment app for web and phone. Freelance, as the only designer.</p><span class="rt-link">Read case study <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+        <a class="range-tile link fade-up" href="case-allego.html"><span class="rt-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-mentor"/></svg></span><h3>Sales enablement</h3><p>Allego&rsquo;s redesign for web, tablet and phone. I led the final design.</p><span class="rt-link">Read case study <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
         <div class="range-tile fade-up"><span class="rt-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-heart"/></svg></span><h3>Humanitarian</h3><p>Esri dashboards for the Red Cross and Feeding America.</p></div>
-        <div class="range-tile fade-up"><span class="rt-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-leaf"/></svg></span><h3>Conservation</h3><p>A story map about saving whales for the Smithsonian, dashboards and story maps for the Jane Goodall Institute, and web and mobile apps for the Forest Stewardship Council.</p></div>
+        <div class="range-tile fade-up"><span class="rt-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-leaf"/></svg></span><h3>Conservation</h3><p>Story maps for the Smithsonian and the Jane Goodall Institute, and web and mobile apps for the Forest Stewardship Council.</p></div>
         <div class="range-tile fade-up"><span class="rt-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-landmark"/></svg></span><h3>Local government</h3><p>Mobile apps for Sacramento County, and data and map products for government agencies.</p></div>
         <div class="range-tile fade-up"><span class="rt-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-box"/></svg></span><h3>Supply chain</h3><p>Supply Savvy, a supply chain web app for makeup supplies.</p></div>
         <div class="range-tile fade-up"><span class="rt-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-ball"/></svg></span><h3>Sports analytics</h3><p>Gameday, a data analysis app for basketball.</p></div>
