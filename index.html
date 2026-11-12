@@ -987,7 +987,8 @@
       background: var(--d-bg);
       color: var(--d-subtle);
       border-top: 1px solid var(--d-rule);
-      padding: 2.25rem 2rem;
+      /* the right side stays clear of the back to top button, which floats over this corner */
+      padding: 2.25rem calc(1.5rem + 46px + 1rem) 2.25rem 2rem;
       display: flex; flex-wrap: wrap; gap: 1rem;
       align-items: center; justify-content: space-between;
       font-size: var(--type-xs);

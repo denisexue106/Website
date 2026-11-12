@@ -140,7 +140,8 @@ p+p{margin-top:1rem}
   border:1px solid var(--d-rule);text-decoration:none;transition:color .25s,border-color .25s,background .25s}
 .btn-out:hover{border-color:var(--accent-light);color:#fff;background:rgba(130,168,209,.14)}
 .next-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-footer{background:var(--d-bg);padding:1.9rem 2rem;border-top:1px solid var(--d-rule);
+/* the right side stays clear of the back to top button, which floats over this corner */
+footer{background:var(--d-bg);padding:1.9rem calc(1.5rem + 46px + 1rem) 1.9rem 2rem;border-top:1px solid var(--d-rule);
   display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 footer span,footer a{font-size:var(--type-xs);color:var(--d-subtle);text-decoration:none}
 footer a{transition:color .25s}
