@@ -1010,7 +1010,7 @@
     .range-lede { max-width: 60ch; margin: -1.25rem 0 2.75rem; font-size: var(--type-md); line-height: 1.65; color: var(--ink-muted); }
     .range-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem; }
     #range .case-card h3 { font-size: clamp(1.25rem, 1.8vw, 1.5rem); }
-    .range-tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; margin-top: 2.5rem; }
+    .range-tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 2.5rem; }
     .range-tile {
       background: var(--surface); border: 1px solid var(--rule); border-radius: 14px;
       padding: 1.25rem 1.25rem 1.35rem;
@@ -1028,6 +1028,8 @@
       margin-bottom: 0.45rem;
     }
     .range-tile p { font-size: 0.86rem; line-height: 1.6; color: var(--ink-muted); }
+    .range-tile.hi { background: var(--accent-wash); border-color: rgba(10,97,201,0.42); box-shadow: inset 0 0 0 1px rgba(10,97,201,0.18), 0 12px 28px rgba(10,97,201,0.12); }
+    .range-tile.hi .rt-icon { background: var(--surface); }
     @media (max-width: 1080px) { .range-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
     @media (max-width: 900px) { .range-grid { grid-template-columns: 1fr; } }
     @media (max-width: 620px) {
@@ -1139,7 +1141,7 @@
   </noscript>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="i-chart-up" viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M7 15.5l3.3-4 2.9 2.4L17.8 8"/></symbol><symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></symbol><symbol id="i-document" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="12" y2="16"/></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></symbol><symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.4-7-11.3A7 7 0 1 1 19 9.7C19 14.6 12 21 12 21z"/><circle cx="12" cy="9.7" r="2.4"/></symbol><symbol id="i-mentor" viewBox="0 0 24 24"><circle cx="9" cy="7" r="3"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0"/><path d="M16.5 4.8a3 3 0 0 1 0 5.9"/><path d="M15.5 14.3c2.9.8 5 3.2 5 5.7"/></symbol><symbol id="i-code" viewBox="0 0 24 24"><path d="M8.7 8L4.3 12l4.4 4"/><path d="M15.3 8l4.4 4-4.4 4"/></symbol><symbol id="i-users" viewBox="0 0 24 24"><circle cx="8.7" cy="8" r="3"/><path d="M2.7 20a6 6 0 0 1 12 0"/><circle cx="16.7" cy="9" r="2.3"/><path d="M15 14.3a5.5 5.5 0 0 1 6.6 5.2"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v5l3.3 1.9"/></symbol><symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.6 2.6L16.2 9"/></symbol><symbol id="i-flag" viewBox="0 0 24 24"><line x1="6" y1="3" x2="6" y2="21"/><path d="M6 4.2h11l-3 3.9 3 3.9H6"/></symbol><symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z"/><path d="M19 15l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7.7-2z"/></symbol><symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 8h13.5l-3-3"/><path d="M20 16H6.5l3 3"/></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7 7-7z"/></symbol><symbol id="i-landmark" viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M6 17.5v-6.5"/><path d="M10 17.5v-6.5"/><path d="M14 17.5v-6.5"/><path d="M18 17.5v-6.5"/><path d="M12 3l8.5 5h-17L12 3z"/></symbol><symbol id="i-box" viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M4 7.5l8 4.5 8-4.5"/><path d="M12 12v9"/></symbol><symbol id="i-ball" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/><path d="M5.6 18.4L18.4 5.6"/><path d="M12 3a9 9 0 0 0 9 9"/><path d="M3 12a9 9 0 0 1 9 9"/></symbol></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="i-chart-up" viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M7 15.5l3.3-4 2.9 2.4L17.8 8"/></symbol><symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></symbol><symbol id="i-document" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="12" y2="16"/></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></symbol><symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.4-7-11.3A7 7 0 1 1 19 9.7C19 14.6 12 21 12 21z"/><circle cx="12" cy="9.7" r="2.4"/></symbol><symbol id="i-mentor" viewBox="0 0 24 24"><circle cx="9" cy="7" r="3"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0"/><path d="M16.5 4.8a3 3 0 0 1 0 5.9"/><path d="M15.5 14.3c2.9.8 5 3.2 5 5.7"/></symbol><symbol id="i-code" viewBox="0 0 24 24"><path d="M8.7 8L4.3 12l4.4 4"/><path d="M15.3 8l4.4 4-4.4 4"/></symbol><symbol id="i-users" viewBox="0 0 24 24"><circle cx="8.7" cy="8" r="3"/><path d="M2.7 20a6 6 0 0 1 12 0"/><circle cx="16.7" cy="9" r="2.3"/><path d="M15 14.3a5.5 5.5 0 0 1 6.6 5.2"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v5l3.3 1.9"/></symbol><symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.6 2.6L16.2 9"/></symbol><symbol id="i-flag" viewBox="0 0 24 24"><line x1="6" y1="3" x2="6" y2="21"/><path d="M6 4.2h11l-3 3.9 3 3.9H6"/></symbol><symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z"/><path d="M19 15l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7.7-2z"/></symbol><symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 8h13.5l-3-3"/><path d="M20 16H6.5l3 3"/></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7 7-7z"/></symbol><symbol id="i-landmark" viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M6 17.5v-6.5"/><path d="M10 17.5v-6.5"/><path d="M14 17.5v-6.5"/><path d="M18 17.5v-6.5"/><path d="M12 3l8.5 5h-17L12 3z"/></symbol><symbol id="i-box" viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M4 7.5l8 4.5 8-4.5"/><path d="M12 12v9"/></symbol><symbol id="i-ball" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/><path d="M5.6 18.4L18.4 5.6"/><path d="M12 3a9 9 0 0 0 9 9"/><path d="M3 12a9 9 0 0 1 9 9"/></symbol><symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10z"/><path d="M2 21c0-3 1.9-5.4 5.1-6C9.5 14.5 12 13 13 12"/></symbol><symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.6 13.9L7 22l5-3 5 3-1.6-8.1"/></symbol></svg>
   <a href="#work" class="skip-link">Skip to work</a>
 
   <!-- NAV -->
@@ -1312,10 +1314,12 @@
         </a>
       </div>
       <div class="range-tiles">
-        <div class="range-tile fade-up"><span class="rt-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-heart"/></svg></span><h3>Nonprofits</h3><p>Esri dashboards for the Red Cross and Feeding America, and a story map about saving whales for the Smithsonian.</p></div>
+        <div class="range-tile fade-up"><span class="rt-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-heart"/></svg></span><h3>Humanitarian</h3><p>Esri dashboards for the Red Cross and Feeding America.</p></div>
+        <div class="range-tile fade-up"><span class="rt-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-leaf"/></svg></span><h3>Conservation</h3><p>A story map about saving whales for the Smithsonian, dashboards and story maps for the Jane Goodall Institute, and web and mobile apps for the Forest Stewardship Council.</p></div>
         <div class="range-tile fade-up"><span class="rt-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-landmark"/></svg></span><h3>Local government</h3><p>Mobile apps for Sacramento County, and data and map products for government agencies.</p></div>
         <div class="range-tile fade-up"><span class="rt-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-box"/></svg></span><h3>Supply chain</h3><p>Supply Savvy, a supply chain web app for makeup supplies.</p></div>
         <div class="range-tile fade-up"><span class="rt-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-ball"/></svg></span><h3>Sports analytics</h3><p>Gameday, a data analysis app for basketball.</p></div>
+        <div class="range-tile hi fade-up"><span class="rt-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-award"/></svg></span><h3>Award</h3><p>First place in the Esri Ocean Storymap Contest, for the Smithsonian whale story map.</p></div>
       </div>
     </div>
   </section>
@@ -1347,7 +1351,7 @@
             <div class="cv-when">2020 to 2022</div>
             <div class="cv-what">
             <h3>Blue Raster <span class="cv-org">Senior UX/UI designer &middot; agency</span></h3>
-            <p class="cv-note">Designed web and mobile data visualization and geospatial products for government agencies, enterprise clients and nonprofits, owning research through implementation. My nonprofit work for the Red Cross and the Smithsonian helped save people and wildlife, and I won first place in the Esri Ocean Storymap Contest.</p>
+            <p class="cv-note">Designed web and mobile data visualization and geospatial products for nonprofits, government agencies and enterprise clients, owning research through implementation. Clients included the Red Cross, Feeding America, the Smithsonian, the Jane Goodall Institute, the Forest Stewardship Council and Sacramento County. My work for the Red Cross and the Smithsonian helped save people and wildlife, and my Smithsonian whale story map won first place in the Esri Ocean Storymap Contest.</p>
           </div>
           </div>
         </div>
@@ -1381,7 +1385,7 @@
         </div>
         <div class="panel cv-col">
           <div class="panel-head"><h4>Awards</h4><span class="aff" aria-hidden="true">&middot;&middot;&middot;</span></div>
-          <p><strong>Esri Ocean Storymap Contest</strong><span>First place &middot; 2021</span></p>
+          <p><strong>Esri Ocean Storymap Contest</strong><span>First place &middot; Smithsonian whale story map &middot; 2021</span></p>
           <p><strong>CGDA Visual Communication Design</strong><span>Excellence award &middot; 2016</span></p>
         </div>
       </div>
