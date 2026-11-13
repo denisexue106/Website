@@ -1187,6 +1187,87 @@ a.range-tile:hover .rt-link { gap: 0.7rem; }
   .mini-roles li { grid-template-columns: minmax(0, 1fr); row-gap: 0.3rem; }
 }
 
+/* ── WHY ME ──
+   Right after the four numbers, the answer to "why her" a hiring manager can take in at a glance
+   (her asks, 2026-11-13: "improve the home to let the hire manger know why me" and "Faster visual
+   scanning"). Four claims in a few words, the operative phrase in the accent, a line of proof
+   under each copied from the case studies and About, and a link to the page that proves it. On the
+   tint, so it reads apart from the navy numbers above and the white Work below. */
+#why { background: var(--surface-alt); padding: var(--space-lg) 0; }
+#why .section-header { margin-bottom: 1.6rem; padding-bottom: 1.25rem; }
+#why .section-header h2 { font-size: clamp(1.75rem, 3.3vw, 2.6rem); }
+.why-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.85rem; }
+.why-card {
+  display: flex; flex-direction: column;
+  background: var(--surface); border: 1px solid var(--rule); border-radius: 14px;
+  padding: 1.15rem 1.15rem 1.1rem;
+  box-shadow: 0 8px 22px rgba(7,50,106,0.05);
+  color: inherit; text-decoration: none;
+  transition: border-color 0.3s var(--ease), transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+a.why-card:hover { border-color: var(--rule-strong); transform: translateY(-3px); box-shadow: 0 16px 34px rgba(7,50,106,0.10); }
+.why-icon {
+  display: grid; place-items: center; width: 2.25rem; height: 2.25rem; margin-bottom: 0.9rem; flex: none;
+  border-radius: 8px; border: 1px solid rgba(10,97,201,0.40); background: var(--accent-wash); color: var(--accent);
+}
+.why-icon .icon { width: 1.1rem; height: 1.1rem; }
+.why-card h3 { font-size: var(--type-md); line-height: 1.22; letter-spacing: -0.02em; margin-bottom: 0.5rem; text-wrap: balance; }
+.why-card p { font-size: 0.86rem; line-height: 1.55; color: var(--ink-muted); }
+.why-link {
+  display: inline-flex; align-items: center; gap: 0.4rem; margin-top: auto; padding-top: 0.85rem;
+  font-size: var(--type-xs); font-weight: 600; color: var(--accent); transition: gap 0.3s var(--ease);
+}
+a.why-card:hover .why-link { gap: 0.7rem; }
+@media (max-width: 1080px) { .why-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 620px) {
+  .why-grid { grid-template-columns: minmax(0, 1fr); gap: 0.6rem; }
+  /* the icon beside the claim, the proof and the link across the full width under them */
+  .why-card { display: grid; grid-template-columns: 2.1rem minmax(0, 1fr); align-items: center; gap: 0.5rem 0.8rem; padding: 0.9rem 1rem 0.95rem; }
+  .why-icon { width: 2.1rem; height: 2.1rem; margin-bottom: 0; }
+  .why-card h3 { margin-bottom: 0; }
+  .why-card p, .why-link { grid-column: 1 / -1; }
+  .why-link { padding-top: 0.1rem; }
+}
+
+/* ── FASTER TO SCAN ──
+   The sentence about what she did reads in dark ink after the muted context, on the case cards and
+   at the start of each About paragraph. */
+.case-desc strong, .about-body p strong { color: var(--ink); font-weight: 600; }
+/* no text under 12px */
+.statcard .sc-label { font-size: 0.78rem; }
+/* every link takes a 44px tall tap: the logo grows, the small text links get invisible padding */
+.nav-logo { display: inline-flex; align-items: center; min-height: 44px; }
+.section-link { position: relative; }
+.section-link::after { content: ''; position: absolute; inset: -11px -8px; }
+.mini-link { min-height: 44px; padding: 0; margin-top: 1.3rem; }
+
+/* ── PHONES ──
+   (her ask, 2026-11-13: "Improve mobile design on the portfolio"). At 620px and below the intro
+   collage steps aside: its screens are too small to read on a phone, and the same screens show
+   larger in the case cards just below. The intro buttons line up, the featured card's callouts
+   become rows with the icon beside them, every row of numbers becomes one line each (the figure,
+   then what it means), and How I work gives its text the full width with the icon by the title. */
+@media (max-width: 620px) {
+  .hero-mosaic { display: none; }
+  .hero-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+  .hero-actions .btn-primary { grid-column: 1 / -1; }
+  .hero-actions a { justify-content: center; }
+  .callouts { gap: 0.85rem; padding-top: 0; }
+  .callout { display: grid; grid-template-columns: 2.6rem minmax(0, 1fr); column-gap: 0.85rem; text-align: left; max-width: none; margin: 0; }
+  .callout .ring { grid-row: 1 / span 2; width: 2.6rem; margin: 0; }
+  .callout h4 { margin: 0.2rem 0 0.25rem; }
+  .statcards, .statcards.stack { grid-template-columns: minmax(0, 1fr); gap: 0.5rem; padding-top: 0; }
+  .statcard { display: grid; grid-template-columns: 5.4rem minmax(0, 1fr); align-items: center; column-gap: 0.85rem; padding: 0.8rem 0.95rem; }
+  .statcard .sc-value, .case-card.featured .statcard .sc-value { font-size: 1.5rem; padding-right: 0; }
+  .statcard .sc-label { margin-top: 0; }
+  .statcard .sc-icon { display: none; }
+  .statcard .sc-bar { grid-column: 1 / -1; margin-top: 0.6rem; }
+  .approach-rows .iconrow { position: relative; grid-template-columns: minmax(0, 1fr); }
+  .approach-rows .ir-icon { position: absolute; top: 1.2rem; left: 1.15rem; z-index: 1; width: 2.2rem; height: 2.2rem; background: none; }
+  .approach-rows .ir-icon::before { width: 2.2rem; height: 2.2rem; }
+  .approach-rows h3 { min-height: 2.2rem; display: flex; align-items: center; padding-left: 3rem; }
+}
+
 /* ── MOTION ──
    How things arrive (her ask, 2026-11-13: "Add some more UI motion on the website like how
    things show up"). Titles rise out of a mask a line or a word at a time, labels slide in ahead
@@ -1400,6 +1481,17 @@ section[id] { scroll-margin-top: 1.5rem; }
 }
 @keyframes vt-out { to { opacity: 0; transform: translateY(-14px); } }
 @keyframes vt-in { from { opacity: 0; transform: translateY(18px); } }
+
+/* Why me: the cards arrive in turn, each icon popping in after its card */
+.motion a.why-card.fade-up {
+  transition: opacity 0.75s ease var(--stagger, 0s), transform 0.75s var(--ease) var(--stagger, 0s),
+    border-color 0.3s var(--ease), box-shadow 0.4s var(--ease);
+}
+.motion .why-card.fade-up .why-icon {
+  opacity: 0; scale: 0.5;
+  transition: opacity 0.5s ease calc(var(--stagger, 0s) + 0.25s), scale 0.75s cubic-bezier(.3, 1.5, .5, 1) calc(var(--stagger, 0s) + 0.25s);
+}
+.motion .why-card.fade-up.visible .why-icon { opacity: 1; scale: 1; }
 
 /* ── REDUCED MOTION ── */
 @media (prefers-reduced-motion: reduce) {

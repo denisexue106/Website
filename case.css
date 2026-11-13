@@ -98,7 +98,7 @@ p+p{margin-top:1rem}
 /* status list */
 .status{display:flex;flex-direction:column;gap:.9rem;margin-top:1.5rem}
 .st{display:flex;gap:.85rem;align-items:flex-start;font-size:var(--type-sm)}
-.pill{flex:none;font-size:.68rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+.pill{flex:none;font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
   padding:.22rem .6rem;border-radius:100px;margin-top:.12rem}
 .pill.ship{background:var(--accent);color:#fff}
 .pill.prog{background:var(--accent-wash);color:var(--accent)}
@@ -585,3 +585,11 @@ html.gated .gate{display:grid;position:fixed;inset:0;z-index:1000;place-items:ce
 }
 @keyframes vt-out{to{opacity:0;transform:translateY(-14px)}}
 @keyframes vt-in{from{opacity:0;transform:translateY(18px)}}
+
+/* Every link takes a 44px tall tap (her ask, 2026-11-13: "Improve mobile design on the portfolio"):
+   invisible padding around the small text links in the bar, the On this page links and All case
+   studies, so nothing about how they look changes. */
+.nav-back,.nav-link,.nav-cta,.more-all,.jump a{position:relative}
+.nav-back::after,.nav-link::after,.more-all::after{content:"";position:absolute;inset:-11px -8px}
+.nav-cta::after{content:"";position:absolute;inset:-3px -3px}
+.jump a::after{content:"";position:absolute;inset:-8px -9px}
