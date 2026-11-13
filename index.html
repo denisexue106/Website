@@ -295,17 +295,10 @@
       opacity: 0; transform: translateY(16px);
       transition: opacity 0.7s ease, transform 0.7s var(--ease);
     }
-    /* Inline rather than a flex item: as a flex item the 22px rule becomes its own
-       line the moment the label wraps, which it does on a phone. */
-    .hero-eyebrow::before {
-      content: ''; display: inline-block; vertical-align: middle;
-      width: 22px; height: 1px; margin-right: 0.6rem;
-      background: var(--accent-light);
-    }
     .hero-eyebrow.in { opacity: 1; transform: none; }
-    /* One line wherever the hero has two columns. It is 23px wider than the text column
-       (80px just above 1080px) and runs into the empty space above the collage. The
-       zero minimum keeps the long line from widening the column and pushing the collage. */
+    /* One line wherever the hero has two columns. Just above 1080px it is wider than the
+       text column and runs into the empty space above the collage. The zero minimum keeps
+       the long line from widening the column and pushing the collage. */
     @media (min-width: 1081px) { .hero-left { min-width: 0; } .hero-eyebrow { white-space: nowrap; } }
 
     .hero-desc {
@@ -508,17 +501,12 @@
       letter-spacing: -0.022em; line-height: 1.25;
       color: var(--d-ink);
     }
-    /* Reserve two lines so the rule and the supporting line start level across the row,
+    /* Reserve two lines so the supporting line starts level across the row,
        even at widths where one label wraps and the others do not. */
     .fact .stat-label { min-height: 2.5em; }
 
-    .stat-rule {
-      display: block; width: 36px; height: 1px;
-      background: rgba(255,255,255,0.45);
-      margin: 1.05rem 0;
-    }
-
     .stat-sub {
+      margin-top: 0.75rem;
       font-size: var(--type-sm);
       line-height: 1.5;
       color: var(--d-subtle);
@@ -539,9 +527,6 @@
       letter-spacing: 0.14em; text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 0.9rem;
-    }
-    .section-label::before {
-      content: ''; width: 22px; height: 1px; background: var(--accent); display: block;
     }
     .section-header h2 { font-size: var(--type-2xl); }
     .section-link {
@@ -911,7 +896,6 @@
     }
     #contact .container { position: relative; z-index: 1; }
     #contact .section-label { justify-content: center; color: var(--accent-light); }
-    #contact .section-label::before { background: var(--accent-light); }
     #contact h2 {
       font-size: clamp(2.2rem, 5.6vw, 4.4rem);
       line-height: 1.02;
@@ -921,43 +905,10 @@
       font-size: var(--type-md);
       color: var(--d-muted);
       max-width: 48ch;
-      margin: 0 auto 1.5rem;
+      margin: 0 auto 2.5rem;
       line-height: 1.6;
       text-wrap: balance;
     }
-    .contact-criteria {
-      font-size: var(--type-sm);
-      color: var(--d-muted);
-      max-width: 52ch;
-      margin: 0 auto 2.75rem;
-      line-height: 1.7;
-    }
-    .contact-criteria .ck {
-      display: block;
-      font-size: var(--type-xs); font-weight: 600;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--accent-light);
-      margin-bottom: 0.5rem;
-    }
-    /* the address itself, for anyone whose browser has no mail app set up */
-    .contact-mail {
-      margin-top: 1.6rem;
-      display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.6rem;
-      font-size: var(--type-sm); color: var(--d-muted);
-    }
-    .contact-mail a {
-      color: #fff; font-weight: 600;
-      text-decoration: underline; text-decoration-color: rgba(255,255,255,0.35); text-underline-offset: 3px;
-    }
-    .contact-mail a:hover { text-decoration-color: #fff; }
-    .copy-mail {
-      font: inherit; font-size: var(--type-xs); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--accent-light); background: transparent; cursor: pointer;
-      border: 1px solid var(--d-rule); border-radius: 100px; padding: 0.3rem 0.8rem;
-      transition: color 0.2s, border-color 0.2s;
-    }
-    .copy-mail:hover { color: #fff; border-color: rgba(255,255,255,0.5); }
-    .copy-note { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
     .contact-actions {
       display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center;
     }
@@ -1163,8 +1114,7 @@
       .fact { padding: 1.3rem 1.1rem 1.25rem; border-radius: 14px; }
       .stat-num { font-size: 2.3rem; margin-bottom: 0.55rem; }
       .stat-label { font-size: 0.95rem; }
-      .stat-rule { margin: 0.8rem 0; }
-      .stat-sub { font-size: 0.8rem; }
+      .stat-sub { font-size: 0.8rem; margin-top: 0.5rem; }
       .section-header { margin-bottom: 2.5rem; }
       .case-card, .case-card.featured { padding: 1.25rem 1.15rem 1.4rem; }
       .showcase-grid { grid-template-columns: 1fr; }
@@ -1289,25 +1239,21 @@
         <div class="fact">
           <span class="stat-num">10+</span>
           <span class="stat-label">Years in design</span>
-          <span class="stat-rule"></span>
           <span class="stat-sub">Since 2016, across enterprise, startup and design agency.</span>
         </div>
         <div class="fact">
           <span class="stat-num">16</span>
           <span class="stat-label">Teams on one brand system</span>
-          <span class="stat-rule"></span>
           <span class="stat-sub">I designed it, and every team builds from it.</span>
         </div>
         <div class="fact">
           <span class="stat-num">6M</span>
           <span class="stat-label">Users reached</span>
-          <span class="stat-rule"></span>
           <span class="stat-sub">Through six features I led across three products.</span>
         </div>
         <div class="fact">
           <span class="stat-num">220K</span>
           <span class="stat-label">Small businesses</span>
-          <span class="stat-rule"></span>
           <span class="stat-sub">On software I designed or led design for.</span>
         </div>
       </div>
@@ -1606,7 +1552,6 @@
       <div class="section-label" style="margin-bottom:1rem;">Contact</div>
       <h2 style="margin-bottom:1rem;">Let’s <span class="hl">talk</span></h2>
       <p class="contact-sub">I want to help teams solve complex business and product problems, whatever shape they take. I&rsquo;m open to every kind of challenge, including research and product work.</p>
-      <p class="contact-criteria"><span class="ck">Looking for</span> web and mobile product design, from platforms and design systems to AI, in B2B SaaS or any other industry, where the job is setting direction across more than one product area. Remote US.</p>
       <div class="contact-actions">
         <a href="mailto:denisexue106@gmail.com" class="btn-light">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4h12v8H2V4zm0 0l6 5 6-5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1621,7 +1566,6 @@
           Download resume
         </a>
       </div>
-      <p class="contact-mail">Or write to <a href="mailto:denisexue106@gmail.com">denisexue106@gmail.com</a><button type="button" class="copy-mail" data-copy="denisexue106@gmail.com">Copy</button><span class="copy-note" role="status"></span></p>
     </div>
   </section>
 
@@ -1786,9 +1730,6 @@
       });
       hero.addEventListener('pointerleave', () => { px = 0; py = 0; if (!raf) raf = requestAnimationFrame(apply); });
     })();
-  
-    /* copy the email address, for anyone whose browser has no mail app set up */
-    (function(){var b=document.querySelector('.copy-mail');if(!b)return;var n=document.querySelector('.copy-note'),a=b.previousElementSibling;b.addEventListener('click',function(){var t=b.getAttribute('data-copy');var done=function(){b.textContent='Copied';n.textContent='Email address copied';setTimeout(function(){b.textContent='Copy';n.textContent='';},2000);};var pick=function(){var r=document.createRange();r.selectNodeContents(a);var g=getSelection();g.removeAllRanges();g.addRange(r);};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,pick);}else{pick();}});})();
   </script>
 </body>
 </html>
