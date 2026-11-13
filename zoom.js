@@ -23,11 +23,14 @@
   dlg.className = "zoom";
   dlg.setAttribute("aria-label", "Enlarged picture");
   dlg.tabIndex = -1;
-  dlg.innerHTML = '<div class="zoom-pane"><img class="zoom-img" alt="" /></div>' +
+  dlg.innerHTML = '<div class="zoom-pane"></div>' +
     '<button class="zoom-close" type="button" aria-label="Close the enlarged picture"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg></button>' +
     '<p class="zoom-hint">Drag to look around</p>';
   document.body.appendChild(dlg);
-  var pane = dlg.querySelector(".zoom-pane"), big = dlg.querySelector(".zoom-img"), pushed = false, opener = null;
+  // the enlarged picture joins the viewer only while it's open, so the page never holds an image with no source
+  var pane = dlg.querySelector(".zoom-pane"), big = document.createElement("img"), pushed = false, opener = null;
+  big.className = "zoom-img";
+  big.alt = "";
 
   function open(img, fx, fy) {
     opener = document.activeElement;
@@ -42,6 +45,7 @@
     big.alt = img.alt || "";
     big.style.width = tw + "px";
     big.style.height = Math.round(tw * h / w) + "px";
+    pane.appendChild(big);
     dlg.classList.toggle("fits", tw <= vw - 40);
     document.documentElement.classList.add("zoom-open");
     dlg.showModal();
@@ -59,6 +63,7 @@
     if (!dlg.open) return;
     dlg.close();
     document.documentElement.classList.remove("zoom-open");
+    big.remove();
     big.removeAttribute("src");
     if (pushed && !fromHistory) { pushed = false; history.back(); }
     pushed = false;
