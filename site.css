@@ -1,0 +1,1256 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* ── LIGHT SURFACES ── */
+  --ink: #07326A;             /* navy: 12.6:1 on white */
+  --ink-2: #064089;
+  --ink-muted: #43546B;       /* 7.7:1 on white, 7.1:1 on --surface-alt */
+  --ink-subtle: #57677C;      /* 5.8:1 on white, 5.3:1 on --surface-alt */
+  --ink-faint: #7B8BA0;       /* large text only: 3.2:1 on --surface-alt */
+  --surface: #ffffff;
+  --surface-alt: #F1F7F9;
+  --rule: #DCE5EE;
+  --rule-strong: #C3D0DE;
+
+  /* ── THE ONE Color ── */
+  --accent: #0A61C9;          /* 5.9:1 on white */
+  --accent-deep: #064089;
+  --accent-light: #82A8D1;    /* #749DC8 lifted a step so small labels clear 4.5:1 on navy (5.1:1) */
+  --accent-wash: #E7EFFA;
+
+  /* ── DARK SURFACES ── */
+  --d-bg: #07326A;
+  --d-bg-2: #064089;
+  --d-bg-3: #064089;    /* hero stat cards, readable as a card against --d-bg */
+  --d-ink: #ffffff;
+  --d-muted: rgba(255,255,255,0.74);
+  --d-subtle: rgba(255,255,255,0.62);   /* 5.8:1 on --d-bg, 4.8:1 on the stat cards */
+  --d-rule: rgba(255,255,255,0.16);
+
+  --font-display: 'Inter Tight', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --type-xs: 0.75rem;
+  --type-sm: 0.875rem;
+  --type-base: 1rem;
+  --type-md: 1.125rem;
+  --type-lg: 1.375rem;
+  --type-xl: 2rem;
+  --type-2xl: clamp(2.2rem, 5vw, 4rem);
+  /* Sized so "from the problem up." holds one line: it is 8.96em wide and the hero
+     column stops growing at 605px past 1180px. Any larger and the line wraps, and the
+     full stop, which is its own animated word, drops onto a line by itself. */
+  --type-3xl: clamp(2.2rem, 5vw, 4rem);
+
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 7.5rem;
+
+  --nav-h: 4.5rem;
+  --max-w: 1180px;
+  --reading-w: 680px;
+
+  --ease: cubic-bezier(.25,.46,.45,.94);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--surface);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.028em;
+  line-height: 1.02;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+::selection { background: var(--accent); color: #fff; }
+
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+section { padding: var(--space-xl) 0; position: relative; }
+
+/* ── SKIP LINK ── */
+.skip-link {
+  position: absolute; left: 50%; top: 0; transform: translate(-50%, -110%);
+  z-index: 1100; background: var(--accent); color: #fff;
+  padding: 0.6rem 1.2rem; border-radius: 0 0 6px 6px;
+  font-size: var(--type-sm); font-weight: 600;
+  transition: transform 0.18s ease;
+}
+.skip-link:focus { transform: translate(-50%, 0); }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 300;
+  height: var(--nav-h);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem;
+  color: var(--d-ink);
+  transition: background 0.35s var(--ease), color 0.35s var(--ease),
+              border-color 0.35s var(--ease), backdrop-filter 0.35s;
+  border-bottom: 1px solid transparent;
+}
+nav.scrolled, nav.menu-open {
+  background: rgba(255,255,255,0.86);
+  backdrop-filter: saturate(180%) blur(16px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  border-bottom-color: var(--rule);
+  color: var(--ink);
+}
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  display: block;
+}
+.nav-links {
+  display: flex; gap: 2rem; list-style: none;
+  margin-left: auto; margin-right: 2rem;
+}
+.nav-links a {
+  font-size: var(--type-sm); font-weight: 500;
+  opacity: 0.68; position: relative; padding-bottom: 2px;
+  transition: opacity 0.2s;
+}
+.nav-links a::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
+  background: var(--accent); transform: scaleX(0); transform-origin: right;
+  transition: transform 0.3s var(--ease);
+}
+.nav-links a:hover { opacity: 1; }
+.nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
+.nav-cta {
+  font-size: var(--type-sm); font-weight: 600;
+  padding: 0.52rem 1.25rem;
+  background: var(--accent); color: #fff;
+  border-radius: 100px;
+  transition: background 0.25s;
+  will-change: transform;
+}
+.nav-cta:hover { background: var(--accent-deep); }
+nav.menu-open { background: var(--surface); }
+/* One group for the links and the CTA: at the right of the bar on wider screens, and
+   the panel the Menu button opens on a phone (PHONE MENU). */
+.nav-menu { display: flex; align-items: center; }
+.nav-toggle {
+  display: none; align-items: center; gap: 0.55rem;
+  min-height: 2.75rem; padding: 0 0.15rem 0 0.75rem; margin-right: -0.15rem;
+  font: 600 var(--type-sm)/1 var(--font-body); color: inherit;
+  background: none; border: 0; border-radius: 6px; cursor: pointer;
+}
+.nav-toggle svg { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; }
+.nav-toggle path { transform-box: fill-box; transform-origin: center; transition: transform 0.25s var(--ease); }
+nav.menu-open .nav-toggle .l1 { transform: translateY(3px) rotate(45deg); }
+nav.menu-open .nav-toggle .l2 { transform: translateY(-3px) rotate(-45deg); }
+
+/* ── HERO (dark, full bleed) ── */
+#hero {
+  background: var(--d-bg);
+  color: var(--d-ink);
+  padding: calc(var(--nav-h) + 5.5rem) 0 0;
+  /* Not clipped: the collage shadows run past the hero's bottom edge, and clipping them
+     left a hard line across the mountains below. */
+  overflow-x: clip; overflow-y: visible;
+}
+/* Film grain over the top of the hero. feTurbulence as a data URI, so there is no
+   extra request and nothing to go soft on a 2x screen; feColorMatrix drops the
+   saturation, because raw turbulence is RGB noise and reads as JPEG artefacting.
+   Blended normally rather than soft-light: against a backdrop this close to black,
+   soft-light has almost nothing to work with and the grain disappears. Masked out
+   by 76% so the hero is flat black again where it meets the stats band. */
+/* Film grain over the top of the hero. feTurbulence as a data URI, so there is no
+   extra request and nothing to go soft on a 2x screen. The color matrix paints the
+   grain white and keeps the turbulence in the alpha channel, then feComponentTransfer
+   stretches that alpha: against a backdrop this close to black, flat grey noise only
+   lifts the whole surface and no texture survives. Masked out by 76% so the hero is
+   flat black again where it meets the stats band. */
+#hero::after, .page-hero::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='2.6' intercept='-0.8'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  opacity: 0.1;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,0.72) 40%, rgba(0,0,0,0) 76%);
+  mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,0.72) 40%, rgba(0,0,0,0) 76%);
+}
+#hero .container { position: relative; z-index: 1; }
+/* A navy duotone of a layered mountain photo behind the hero and the stats band (her ask,
+   2026-11-11: "an image tinted in there"). Photo by Dmytro Koplyk on Unsplash, free under
+   the Unsplash License. The two sections go transparent inside one navy block, so the photo
+   runs behind both with no seam. The scrim keeps the text side and the strip under the nav
+   dark; the mask fades the photo back to navy before the white Work section. */
+.hero-block { position: relative; background: var(--d-bg); }
+.hero-block #hero, .hero-block .hero-stats { background: transparent; }
+.hero-photo {
+  position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 80%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0, #000 80%, transparent 100%);
+}
+.hero-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+.hero-photo::after {
+  content: ''; position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(7,50,106,0.92) 0%, rgba(7,50,106,0.72) 18%, rgba(7,50,106,0) 34%),
+    linear-gradient(90deg, rgba(7,50,106,0.86) 0%, rgba(7,50,106,0.66) 36%, rgba(7,50,106,0.16) 62%, rgba(7,50,106,0.04) 100%);
+}
+@media (max-width: 1080px) {
+  .hero-photo::after {
+    background: linear-gradient(180deg, rgba(7,50,106,0.96) 0%, rgba(7,50,106,0.96) 14%, rgba(7,50,106,0.88) 24%, rgba(7,50,106,0.74) 34%, rgba(7,50,106,0.34) 50%, rgba(7,50,106,0.14) 72%, rgba(7,50,106,0.1) 100%);
+  }
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3rem;
+  align-items: center;
+}
+/* The headline column cannot shrink (line two needs about 590px), so the collage grows
+   into the empty margin on the right instead, stopping 24px short of the viewport edge. */
+@media (min-width: 1081px) {
+  .hero-mosaic { width: calc(100% + clamp(0px, calc(8px + (100vw - 1180px) / 2), 12rem)); }
+}
+
+#hero h1 {
+  font-size: var(--type-3xl);
+  letter-spacing: -0.042em;
+  line-height: 1.1;
+  margin-bottom: 2.25rem;
+  text-wrap: balance;
+}
+#hero h1 em {
+  font-style: normal;
+  color: var(--accent-light);
+  display: inline-block;
+}
+
+/* The intro steps down three times: the headline, the promise, the range.
+   Each level drops a size and a shade so the eye can stop after any one. */
+.hero-eyebrow {
+  font-size: var(--type-xs); font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent-light);
+  margin-bottom: 1.1rem;
+  opacity: 0; transform: translateY(16px);
+  transition: opacity 0.7s ease, transform 0.7s var(--ease);
+}
+.hero-eyebrow.in { opacity: 1; transform: none; }
+/* One line wherever the hero has two columns. Just above 1080px it is wider than the
+   text column and runs into the empty space above the collage. The zero minimum keeps
+   the long line from widening the column and pushing the collage. */
+@media (min-width: 1081px) { .hero-left { min-width: 0; } .hero-eyebrow { white-space: nowrap; } }
+
+.hero-desc {
+  font-size: clamp(1.15rem, 1.6vw, 1.35rem);
+  color: var(--d-ink);
+  max-width: 34ch;
+  line-height: 1.35;
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  margin-bottom: 0.9rem;
+  text-wrap: balance;
+  opacity: 0; transform: translateY(16px);
+  transition: opacity 0.7s ease, transform 0.7s var(--ease);
+}
+.hero-desc.in { opacity: 1; transform: none; }
+
+.hero-body {
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
+  color: var(--d-muted);
+  max-width: 48ch;
+  line-height: 1.6;
+  margin-bottom: 2.25rem;
+  text-wrap: pretty;
+  opacity: 0; transform: translateY(16px);
+  transition: opacity 0.7s ease, transform 0.7s var(--ease);
+}
+.hero-body.in { opacity: 1; transform: none; }
+
+.hero-actions {
+  display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center;
+  opacity: 0; transform: translateY(16px);
+  transition: opacity 0.7s ease, transform 0.7s var(--ease);
+}
+.hero-actions.in { opacity: 1; transform: none; }
+
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-size: var(--type-sm); font-weight: 600;
+  padding: 0.85rem 1.6rem;
+  color: #fff; background: var(--accent);
+  border-radius: 100px;
+  transition: background 0.25s;
+  will-change: transform;
+}
+.btn-primary:hover { background: var(--accent-deep); }
+.btn-primary svg { transition: transform 0.3s var(--ease); }
+.btn-primary:hover svg { transform: translateX(4px); }
+
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 0.55rem;
+  font-size: var(--type-sm); font-weight: 500;
+  padding: 0.85rem 1.4rem;
+  color: var(--d-muted);
+  border: 1px solid var(--d-rule);
+  border-radius: 100px;
+  transition: color 0.25s, border-color 0.25s, background 0.25s;
+}
+.btn-ghost:hover { color: var(--d-ink); border-color: var(--accent-light); background: rgba(130,168,209,0.14); }
+
+/* ── HERO MOSAIC ── */
+/* Three windows, one per case study. The front one plays Thryv AI creating a form in the
+   Forms prototype. Each card links to its own case study. The stack leans toward the
+   pointer, the cards deal in with the hero, then drift slightly at rest. */
+.hero-mosaic {
+  position: relative; aspect-ratio: 1 / 0.92; display: block;
+  opacity: 0; transform: translateY(26px);
+  transition: opacity 0.9s ease, transform 0.9s var(--ease);
+}
+.hero-mosaic.in { opacity: 1; transform: none; }
+.mosaic-stage {
+  position: absolute; inset: 0;
+  transform: perspective(1300px) rotateX(calc(var(--ty, 0) * -4deg)) rotateY(calc(var(--tx, 0) * 6deg));
+  transition: transform 0.7s var(--ease);
+}
+/* a soft indigo light that follows the pointer behind the cards */
+.mosaic-stage::before {
+  content: ''; position: absolute; inset: -16%; z-index: 0; pointer-events: none;
+  background: radial-gradient(40% 40% at calc(50% + var(--tx, 0) * 24%) calc(50% + var(--ty, 0) * 24%),
+    rgba(10,97,201,0.5), rgba(10,97,201,0) 72%);
+  transition: background 0.6s var(--ease);
+}
+.mosaic-card {
+  position: absolute; display: block;
+  border-radius: 10px; overflow: hidden;
+  background: var(--d-bg-2);
+  border: 1px solid var(--d-rule);
+  box-shadow: 0 28px 60px rgba(0,0,0,0.5);
+  color: inherit; text-decoration: none;
+  transform: translate(calc(var(--tx, 0) * var(--d) * 1px), calc(var(--ty, 0) * var(--d) * 1px)) var(--r);
+  opacity: 0; translate: 0 34px;
+  transition: transform 0.6s var(--ease), border-color 0.4s, box-shadow 0.5s var(--ease), filter 0.4s ease,
+    opacity 0.7s ease var(--dl), translate 0.95s var(--ease) var(--dl);
+}
+.hero-mosaic.in .mosaic-card {
+  opacity: 1; translate: 0 0;
+  animation: mosaic-float var(--fd) ease-in-out calc(var(--dl) + 1.2s) infinite;
+}
+@keyframes mosaic-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 var(--f); } }
+.mosaic-card img { width: 100%; height: auto; display: block; }
+.mosaic-card:hover, .mosaic-card:focus-visible {
+  z-index: 5;
+  transform: translate(calc(var(--tx, 0) * var(--d) * 1px), calc(var(--ty, 0) * var(--d) * 1px - 10px)) rotate(0deg) scale(1.04);
+  border-color: var(--accent-light);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.62), 0 0 0 1px rgba(130,168,209,0.5);
+  animation-play-state: paused;
+  outline: none;
+}
+.mosaic-stage:has(.mosaic-card:hover) .mosaic-card:not(:hover),
+.mosaic-stage:has(.mosaic-card:focus-visible) .mosaic-card:not(:focus-visible) { filter: brightness(0.5) saturate(0.7); }
+/* Same window chrome as the case cards, scaled down so it still reads at this size. */
+.mosaic-chrome {
+  display: block; height: 16px;
+  background: #E6EEF5;
+  border-bottom: 1px solid rgba(7,50,106,0.10);
+  position: relative;
+}
+.mosaic-chrome::before {
+  content: ''; position: absolute; left: 7px; top: 50%;
+  width: 4px; height: 4px; margin-top: -2px;
+  border-radius: 50%; background: #C3D0DE;
+  box-shadow: 7px 0 0 #C3D0DE, 14px 0 0 #C3D0DE;
+}
+/* the case title, shown when a card is pointed at or focused */
+.mosaic-label {
+  position: absolute; left: 10px; bottom: 10px; z-index: 2;
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  padding: 0.45rem 0.8rem; border-radius: 100px;
+  background: rgba(7,50,106,0.92); color: #fff;
+  font-size: 0.75rem; font-weight: 600; white-space: nowrap;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+  opacity: 0; transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.45s var(--ease);
+}
+.mosaic-card:hover .mosaic-label, .mosaic-card:focus-visible .mosaic-label { opacity: 1; transform: none; }
+/* Three cards, one per case study, each readable: Forms in front on the left (it plays the
+   AI chat, so it is the largest), the Branding Center behind it at the top right, and
+   Listings as a phone in front at the bottom right. They overlap only at the edges. Each moves
+   less with the pointer than the one in front of it. */
+.mc-1 { --r: rotate(-2.5deg); --d: 16; --dl: 0.05s; --fd: 6.5s; --f: -8px; left: 0;  top: 24%; z-index: 2; width: 60%; }
+.mc-2 { --r: rotate(3deg);    --d: 9;  --dl: 0.2s;  --fd: 7.5s; --f: -6px; right: 0; top: 0;   z-index: 1; width: 58%; }
+.mc-4 {
+  --r: rotate(3deg); --d: 22; --dl: 0.36s; --fd: 7s; --f: -7px;
+  right: 2%; bottom: 0; z-index: 3; width: 25%;
+  padding: 0.8%; border: 0; border-radius: 16% / 7.4%; overflow: visible;
+  background: linear-gradient(155deg, #FFFFFF 0%, #EEF3F8 50%, #D9E2EC 100%);
+}
+.mc-screen { position: relative; display: block; overflow: hidden; border-radius: 13.4% / 6.2%; }
+.mc-4 .mosaic-video { top: 0; height: 100%; object-fit: cover; }
+.mc-4 .mosaic-label { left: auto; right: 8px; bottom: 8px; }
+@media (max-width: 1080px) { .mc-4 { width: 23%; } }
+/* the hover recording sits over the still and fades in once it is actually playing */
+.mosaic-video { position: absolute; left: 0; right: 0; top: 16px; width: 100%; height: auto; opacity: 0; transition: opacity 0.25s ease; pointer-events: none; }
+.mosaic-card.playing .mosaic-video { opacity: 1; }
+
+/* ── HERO STATS ── */
+/* A row of cards rather than a rule-divided row, so the numbers get room to be large.
+   Four cards, so the grid divides evenly at 4, 2 and 1 columns. */
+/* Dark the whole way through and continuous with the hero above it, ending on a
+   clean edge against the white of Work. */
+.hero-stats {
+  position: relative;
+  background: var(--d-bg);
+  color: var(--d-ink);
+  padding: 4.5rem 0 var(--space-lg);
+}
+.hero-stats .container { position: relative; z-index: 1; }
+/* Overlap the hero by a pixel: it often ends on a fractional pixel, and the white page
+   showed through the seam as a light hairline across the navy. */
+.hero-stats { margin-top: -1px; }
+
+.hero-facts {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  opacity: 0; transform: translateY(16px);
+  transition: opacity 0.8s ease, transform 0.8s var(--ease);
+}
+.hero-facts.in { opacity: 1; transform: none; }
+
+.fact {
+  display: flex; flex-direction: column;
+  padding: 2.1rem 1.8rem 1.9rem;
+  border-radius: 16px;
+  background: var(--d-bg-3);
+  border: 1px solid var(--d-rule);
+}
+
+.stat-num {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 4.4vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+  color: var(--accent-light);
+  margin-bottom: 0.7rem;
+}
+
+.stat-label {
+  font-family: var(--font-display);
+  font-size: 1.05rem; font-weight: 700;
+  letter-spacing: -0.022em; line-height: 1.25;
+  color: var(--d-ink);
+}
+/* Reserve two lines so the supporting line starts level across the row,
+   even at widths where one label wraps and the others do not. */
+.fact .stat-label { min-height: 2.5em; }
+
+.stat-sub {
+  margin-top: 0.75rem;
+  font-size: var(--type-sm);
+  line-height: 1.5;
+  color: var(--d-subtle);
+  max-width: 30ch;
+}
+
+/* ── SECTION HEADERS ── */
+.section-header {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 2rem; flex-wrap: wrap;
+  padding-bottom: 1.75rem;
+  margin-bottom: 3.5rem;
+  border-bottom: 1px solid var(--ink);
+}
+.section-label {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-size: var(--type-xs); font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.9rem;
+}
+.section-header h2 { font-size: var(--type-2xl); }
+.section-link {
+  font-size: var(--type-sm); font-weight: 600;
+  color: var(--ink-muted);
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  transition: color 0.25s, gap 0.25s;
+}
+.section-link:hover { color: var(--accent); gap: 0.7rem; }
+
+/* ── DECK GRAMMAR ──
+   The layout language of her interview deck, in the site's navy and blue:
+   1. a screen sits in a bezel on a band of raised ground and overhangs the band's top edge
+   2. the text that explains a screen sits beside it as ring callouts, not under it
+   3. figures sit in stat cards, and in any row exactly one is promoted
+   4. lists sit in panels or icon rows that read like a product surface
+   5. titles are two tone, with the operative phrase in the accent */
+.hl { color: var(--accent); }
+#contact .hl { color: var(--accent-light); }
+svg.icon {
+  width: 1em; height: 1em; flex: none;
+  fill: none; stroke: currentColor; stroke-width: 1.7;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* children of a revealed block arrive one after another */
+.fade-up .iconrow, .fade-up .statcard, .fade-up .callout, .fade-up .panel {
+  opacity: 0; transform: translateY(12px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+.fade-up.visible .iconrow, .fade-up.visible .statcard, .fade-up.visible .callout, .fade-up.visible .panel {
+  opacity: 1; transform: none;
+}
+
+/* ── WORK ── */
+#work { padding-top: var(--space-lg); }
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+}
+.case-card {
+  display: flex; flex-direction: column;
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 18px;
+  padding: 1.6rem 1.6rem 1.75rem;
+  transition: border-color 0.35s var(--ease), transform 0.45s var(--ease), box-shadow 0.45s var(--ease);
+}
+.case-card::after {
+  content: ''; position: absolute; left: 18px; right: 18px; top: -1px; height: 3px;
+  border-radius: 0 0 3px 3px;
+  background: var(--accent);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.5s var(--ease);
+}
+.case-card:hover {
+  border-color: var(--rule-strong);
+  transform: translateY(-5px);
+  box-shadow: 0 22px 50px rgba(7,50,106,0.12);
+}
+.case-card:hover::after { transform: scaleX(1); }
+.case-card.featured { grid-column: 1 / -1; padding: 2.25rem 2.25rem 2.4rem; }
+
+/* The band: raised ground that starts below the top of the screen, so the screen
+   overhangs its edge instead of floating on the card. */
+.band {
+  position: relative; isolation: isolate;
+  padding: 0 clamp(1rem, 2.4vw, 1.6rem) clamp(1rem, 2.4vw, 1.5rem);
+  margin-bottom: 1.6rem;
+}
+.band::before {
+  content: ''; position: absolute; z-index: -1;
+  left: 0; right: 0; top: 2.6rem; bottom: 0;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #E1EBF8 0%, var(--surface-alt) 100%);
+  box-shadow: inset 0 0 0 1px rgba(7,50,106,0.05);
+}
+.case-card.featured .band { margin: 1.75rem 0 0; padding-bottom: 2rem; }
+
+/* the bezel: drawn window chrome, so every screen gets the same one */
+.case-shot {
+  position: relative;
+  display: flex; flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px rgba(7,50,106,0.12), 0 22px 46px rgba(7,50,106,0.20);
+  transition: transform 0.55s var(--ease), box-shadow 0.55s var(--ease);
+}
+.case-chrome {
+  flex: none; height: 24px;
+  background: #E6EEF5;
+  border-bottom: 1px solid rgba(7,50,106,0.10);
+  position: relative;
+}
+.case-chrome::before {
+  content: ''; position: absolute; left: 11px; top: 50%;
+  width: 7px; height: 7px; margin-top: -3.5px;
+  border-radius: 50%; background: #C3D0DE;
+  box-shadow: 12px 0 0 #C3D0DE, 24px 0 0 #C3D0DE;
+}
+.case-cover { display: block; width: 100%; height: auto; object-fit: cover; object-position: top center; }
+.case-card:not(.featured) .case-cover { aspect-ratio: 16 / 9.4; }
+.case-card.featured video.case-cover { aspect-ratio: 680 / 590; }
+.case-card:hover .case-shot {
+  transform: translateY(-6px);
+  box-shadow: 0 0 0 1px rgba(7,50,106,0.14), 0 32px 60px rgba(7,50,106,0.26);
+}
+
+/* featured: callouts on the left, the screen in the middle, the numbers on the right */
+.case-head {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 1.25rem 2.5rem; flex-wrap: wrap;
+}
+.case-head .case-meta { margin-bottom: 0.9rem; }
+.case-head h3 { margin-bottom: 0; }
+.case-head .case-arrow { margin-top: 0; }
+.showcase-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.35fr) minmax(0, 0.6fr);
+  gap: 1.5rem clamp(1.25rem, 2.6vw, 2.25rem);
+  align-items: center;
+}
+.showcase-grid > .stage { min-width: 0; }
+.callouts { display: grid; gap: 1.25rem; padding-top: 3.4rem; }
+.callout { text-align: center; max-width: 16.5rem; margin-inline: auto; }
+.callout .ring {
+  width: 3rem; aspect-ratio: 1; border-radius: 50%;
+  margin: 0 auto 0.6rem;
+  display: grid; place-items: center;
+  background: var(--surface);
+  border: 1.5px solid rgba(10,97,201,0.45);
+  color: var(--accent);
+  transition: transform 0.45s var(--ease), background 0.3s;
+}
+.callout .ring .icon { width: 42%; height: 42%; }
+.case-card:hover .callout .ring { transform: scale(1.06); }
+.callout h4 {
+  font-family: var(--font-body);
+  font-size: var(--type-xs); font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 0.35rem;
+}
+.callout p { font-size: 0.84rem; color: var(--ink-muted); line-height: 1.55; text-wrap: pretty; }
+
+/* stat cards: figure, icon, label, and a bar only where the figure is a share */
+.statcards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.7rem; margin-top: auto; }
+.statcards.stack { grid-template-columns: 1fr; gap: 0.85rem; padding-top: 2.6rem; margin-top: 0; }
+.statcard {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  padding: 0.95rem 1rem 1rem;
+  box-shadow: 0 8px 22px rgba(7,50,106,0.06);
+}
+.statcard .sc-icon { position: absolute; top: 0.85rem; right: 0.9rem; width: 1.05rem; height: 1.05rem; color: var(--ink-faint); }
+.statcard .sc-value {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 800; letter-spacing: -0.03em; line-height: 1;
+  font-size: clamp(1.2rem, 1.55vw, 1.45rem);
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  padding-right: 1.5rem;
+}
+.case-card.featured .statcard .sc-value { font-size: clamp(1.7rem, 2.5vw, 2.2rem); }
+.statcard .sc-label { display: block; margin-top: 0.45rem; font-size: 0.74rem; color: var(--ink-subtle); line-height: 1.45; }
+.statcard .sc-bar { display: block; margin-top: 0.75rem; height: 0.28rem; border-radius: 999px; background: var(--rule); overflow: hidden; }
+.statcard .sc-bar i { display: block; height: 100%; width: 0; border-radius: 999px; background: var(--accent); transition: width 1.2s var(--ease) 0.35s; }
+.fade-up.visible .statcard .sc-bar i { width: var(--v); }
+.statcard.hi {
+  background: var(--accent-wash);
+  border-color: rgba(10,97,201,0.42);
+  box-shadow: inset 0 0 0 1px rgba(10,97,201,0.22), 0 14px 32px rgba(10,97,201,0.14);
+}
+.statcard.hi .sc-value, .statcard.hi .sc-icon { color: var(--accent); }
+.statcard.hi .sc-label { color: var(--ink); }
+
+/* The company pill, then the project line on its own row, the same on every card. */
+.case-meta {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+.case-tag {
+  font-size: var(--type-xs); font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  background: var(--accent-wash);
+  padding: 0.3rem 0.7rem;
+  border-radius: 100px;
+}
+.case-year {
+  font-size: var(--type-xs); font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--ink-subtle);
+}
+.case-card h3 {
+  font-size: clamp(1.5rem, 2.6vw, 2.35rem);
+  margin-bottom: 0.8rem;
+  line-height: 1.05;
+}
+.case-card:not(.featured) h3 { font-size: clamp(1.35rem, 2vw, 1.7rem); }
+.case-desc {
+  font-size: var(--type-sm);
+  color: var(--ink-muted);
+  line-height: 1.7;
+  margin-bottom: 1.4rem;
+}
+.case-arrow {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-size: var(--type-sm); font-weight: 600;
+  color: var(--accent);
+  margin-top: 1.4rem;
+  transition: gap 0.3s var(--ease);
+}
+.case-card:hover .case-arrow { gap: 0.85rem; }
+
+/* ── ICON ROWS ──
+   An outlined tile spine down the left edge, and row fills stepped through a tonal
+   ramp, so the rows read as one object rather than separate cards. */
+.iconrows { display: flex; flex-direction: column; border-radius: 16px; overflow: hidden; box-shadow: 0 14px 36px rgba(7,50,106,0.07); }
+.iconrow { display: grid; grid-template-columns: 4.75rem minmax(0, 1fr); }
+/* Experience rows have no icon column (her call, 2026-11-11). */
+.iconrows.cv .iconrow { grid-template-columns: minmax(0, 1fr); }
+.ir-icon { display: grid; place-items: center; background: #D5E2F1; color: var(--accent); }
+.ir-icon::before {
+  content: ''; grid-area: 1 / 1;
+  width: 2.4rem; height: 2.4rem; border-radius: 8px;
+  border: 1px solid rgba(10,97,201,0.40);
+  background: rgba(255,255,255,0.5);
+  transition: transform 0.4s var(--ease), background 0.3s;
+}
+.ir-icon .icon { grid-area: 1 / 1; width: 1.15rem; height: 1.15rem; position: relative; }
+.ir-body { padding: 1.6rem 1.9rem; background: #E4EDF8; transition: background 0.3s; }
+.iconrow + .iconrow .ir-body { box-shadow: inset 0 1px 0 rgba(255,255,255,0.7); }
+.iconrow:nth-child(2) .ir-body { background: #EAF1F9; }
+.iconrow:nth-child(3) .ir-body { background: #F0F5FB; }
+.iconrow:nth-child(4) .ir-body { background: #F6F9FC; }
+.iconrow:hover .ir-icon::before { transform: scale(1.08); background: #fff; }
+.iconrow:hover .ir-body { background: #DCE8F6; }
+
+/* ── EXPERIENCE ── */
+.cv-body { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 1.75rem; }
+.cv-when {
+  font-size: var(--type-xs); font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent);
+  padding-top: 0.45rem;
+}
+.cv-what h3 {
+  font-size: var(--type-lg);
+  font-weight: 700;
+  margin-bottom: 0.45rem;
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem;
+}
+.cv-org {
+  font-family: var(--font-body);
+  font-size: var(--type-xs); font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--ink-subtle);
+}
+.cv-note { font-size: var(--type-sm); color: var(--ink-muted); line-height: 1.65; max-width: 62ch; }
+
+/* panels: a small label, a ··· affordance, and the content, like a product surface */
+.panel {
+  background: var(--surface-alt);
+  border-radius: 16px;
+  padding: 1.2rem 1.6rem 1.35rem;
+  box-shadow: 0 0 0 1px rgba(7,50,106,0.05), 0 14px 36px rgba(7,50,106,0.07);
+}
+.panel-head {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
+  padding-bottom: 0.8rem; margin-bottom: 1.1rem;
+  border-bottom: 1px solid var(--rule-strong);
+}
+.panel-head h4 {
+  font-family: var(--font-body);
+  font-size: var(--type-xs); font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-subtle);
+}
+.cv-extra {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem; margin-top: 2.5rem;
+}
+.cv-col p { margin-bottom: 1rem; display: flex; flex-direction: column; gap: 0.2rem; }
+.cv-col p:last-child { margin-bottom: 0; }
+.cv-col p strong { font-size: var(--type-sm); font-weight: 600; color: var(--ink); }
+.cv-col p span { font-size: var(--type-xs); color: var(--ink-subtle); }
+
+/* ── APPROACH ── */
+#approach { background: var(--surface-alt); }
+.approach-rows .ir-body { display: grid; grid-template-columns: minmax(0, 17rem) minmax(0, 1fr); gap: 2rem; align-items: baseline; background: #FFFFFF; }
+.approach-rows .iconrow:nth-child(2) .ir-body { background: #FAFCFE; }
+.approach-rows .iconrow:nth-child(3) .ir-body { background: #F5F9FD; }
+.approach-rows .iconrow:nth-child(4) .ir-body { background: #EFF5FB; }
+.approach-rows .iconrow:hover .ir-body { background: var(--accent-wash); }
+.approach-rows h3 { font-size: var(--type-md); line-height: 1.2; }
+.approach-desc { font-size: var(--type-sm); color: var(--ink-muted); line-height: 1.65; }
+
+/* ── ABOUT ── */
+/* Her photo sits beside her name in the section header, so the layout below is unchanged. */
+.about-id { display: flex; align-items: center; gap: 1.5rem; }
+.about-photo {
+  flex: none; width: 112px; height: 112px;
+  object-fit: cover; border-radius: 16px;
+  background: var(--surface-alt);
+  box-shadow: 0 0 0 1px rgba(7,50,106,0.08), 0 14px 32px rgba(7,50,106,0.12);
+}
+.about-grid {
+  display: grid; grid-template-columns: 1.15fr 0.85fr;
+  gap: 4.5rem;
+}
+.about-lead {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.18;
+  color: var(--ink);
+  margin-bottom: 2rem;
+  text-wrap: balance;
+}
+.about-body p {
+  font-size: var(--type-sm);
+  color: var(--ink-muted);
+  line-height: 1.8;
+  max-width: var(--reading-w);
+}
+.about-body p + p { margin-top: 1.25rem; }
+.about-body p { text-wrap: pretty; }
+
+.skills-panel { padding-bottom: 0.6rem; }
+.skills-panel .panel-head { margin-bottom: 0; }
+.skill-row {
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--rule);
+  display: flex; flex-direction: column; gap: 0.7rem;
+}
+.skill-name {
+  font-size: var(--type-sm); font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.skill-tag {
+  font-size: var(--type-xs);
+  color: var(--ink-muted);
+  border: 1px solid var(--rule);
+  padding: 0.25rem 0.65rem;
+  border-radius: 100px;
+  transition: border-color 0.3s, color 0.3s, background 0.3s;
+}
+.skill-row:last-child { border-bottom: 0; }
+.skill-tag { background: var(--surface); }
+.skill-row:hover .skill-tag { border-color: var(--accent); color: var(--accent); background: var(--accent-wash); }
+
+/* ── CONTACT (dark, full bleed) ── */
+#contact {
+  background: var(--d-bg);
+  color: var(--d-ink);
+  overflow: hidden;
+  text-align: center;
+}
+#contact .container { position: relative; z-index: 1; }
+#contact .section-label { justify-content: center; color: var(--accent-light); }
+#contact h2 {
+  font-size: clamp(2.2rem, 5.6vw, 4.4rem);
+  line-height: 1.02;
+  text-wrap: balance;
+}
+.contact-sub {
+  font-size: var(--type-md);
+  color: var(--d-muted);
+  max-width: 48ch;
+  margin: 0 auto 2.5rem;
+  line-height: 1.6;
+  text-wrap: balance;
+}
+.contact-actions {
+  display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center;
+}
+.btn-light {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-size: var(--type-sm); font-weight: 600;
+  padding: 0.9rem 1.7rem;
+  background: var(--accent); color: #fff;
+  border-radius: 100px;
+  transition: background 0.25s;
+  will-change: transform;
+}
+.btn-light:hover { background: var(--accent-deep); }
+.btn-outline-light {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-size: var(--type-sm); font-weight: 500;
+  padding: 0.9rem 1.5rem;
+  color: var(--d-muted);
+  border: 1px solid var(--d-rule);
+  border-radius: 100px;
+  transition: color 0.25s, border-color 0.25s, background 0.25s;
+}
+.btn-outline-light:hover { color: var(--d-ink); border-color: var(--accent-light); background: rgba(130,168,209,0.14); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--d-bg);
+  color: var(--d-subtle);
+  border-top: 1px solid var(--d-rule);
+  /* the right side stays clear of the back to top button, which floats over this corner */
+  padding: 2.25rem calc(1.5rem + 46px + 1rem) 2.25rem 2rem;
+  display: flex; flex-wrap: wrap; gap: 1rem;
+  align-items: center; justify-content: space-between;
+  font-size: var(--type-xs);
+}
+.footer-name { letter-spacing: 0.02em; }
+.footer-links { display: flex; gap: 1.75rem; list-style: none; }
+.footer-links a { transition: color 0.25s; }
+.footer-links a:hover { color: var(--accent-light); }
+
+/* ── BACK TO TOP ── */
+.to-top {
+  position: fixed; right: 1.5rem; bottom: 1.5rem;
+  width: 46px; height: 46px; border-radius: 50%;
+  border: none; background: var(--accent); color: #fff;
+  font-size: 1.1rem; cursor: pointer;
+  box-shadow: 0 10px 28px rgba(10,97,201,0.4);
+  z-index: 90; display: grid; place-items: center;
+  transition: background 0.25s, transform 0.25s var(--ease);
+}
+.to-top[hidden] { display: none; }
+.to-top:hover { background: var(--accent-deep); transform: translateY(-3px); }
+
+/* ── REVEAL ── */
+.fade-up {
+  opacity: 0; transform: translateY(26px);
+  transition: opacity 0.75s ease, transform 0.75s var(--ease);
+}
+.fade-up.visible { opacity: 1; transform: none; }
+/* The clip is what hides each word below its line before it slides up, but at the
+   hero's 0.95 line height it also cut the descenders off g, y and the comma. The padding
+   makes room for them and the negative margin gives it back, so the line box is unchanged. */
+.word-reveal { display: inline-block; overflow: hidden; vertical-align: bottom;
+  padding-bottom: 0.15em; margin-bottom: -0.15em; }
+.word-reveal span { display: inline-block; transform: translateY(105%); opacity: 0; }
+
+/* ── FOCUS ── */
+a:focus-visible, button:focus-visible, .case-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+#hero a:focus-visible, .page-hero a:focus-visible, #contact a:focus-visible, footer a:focus-visible, nav:not(.scrolled):not(.menu-open) a:focus-visible,
+nav:not(.scrolled):not(.menu-open) .nav-toggle:focus-visible {
+  outline-color: var(--accent-light);
+}
+
+/* ── PHONE BESIDE THE SCREEN ──
+   On cards with a phone design, a phone overlaps the corner of the desktop screen, so
+   web and mobile both show before anyone opens a case study. */
+.stage { position: relative; }
+.case-phone {
+  position: absolute; z-index: 2; right: -3%; bottom: -7%;
+  width: 23%; padding: clamp(3px, 0.4vw, 5px);
+  border-radius: 16% / 7.4%;
+  background: linear-gradient(155deg, #FFFFFF 0%, #EEF3F8 50%, #D9E2EC 100%); line-height: 0;
+  box-shadow: inset 0 0 0 1px rgba(7,50,106,0.14), 0 0 0 1px rgba(7,50,106,0.08), 0 14px 30px rgba(7,50,106,0.16);
+  transition: transform 0.55s var(--ease);
+}
+.case-phone img {
+  display: block; width: 100%; height: auto; aspect-ratio: 390 / 844; object-fit: cover;
+  border-radius: 13.4% / 6.2%; background: #F3F5F8;
+  box-shadow: 0 0 0 1px rgba(7,50,106,0.18);
+}
+.case-card:hover .case-phone { transform: translateY(-10px); }
+.case-card.featured .case-phone { width: 24%; right: -7%; bottom: -6%; }
+
+/* ── RANGE ──
+   One grid of eight short tiles (her ask: the section made the page too long). The two
+   with case studies link to them. Four across, two across under 860px, and one column on
+   phones with the icon beside the text. */
+#range { background: var(--surface-alt); padding: var(--space-lg) 0; }
+#range .section-header { margin-bottom: 2.25rem; }
+.range-tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+.range-tile {
+  display: flex; flex-direction: column;
+  background: var(--surface); border: 1px solid var(--rule); border-radius: 14px;
+  padding: 1.15rem 1.15rem 1.2rem;
+  box-shadow: 0 8px 22px rgba(7,50,106,0.05);
+  color: inherit; text-decoration: none;
+}
+.rt-icon {
+  display: grid; place-items: center; width: 2.25rem; height: 2.25rem; margin-bottom: 0.85rem; flex: none;
+  border-radius: 8px; border: 1px solid rgba(10,97,201,0.40);
+  background: var(--accent-wash); color: var(--accent);
+}
+.rt-icon .icon { width: 1.1rem; height: 1.1rem; }
+.range-tile h3 {
+  font-family: var(--font-body); font-size: var(--type-xs); font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+.range-tile p { font-size: 0.86rem; line-height: 1.55; color: var(--ink-muted); }
+.rt-link {
+  display: inline-flex; align-items: center; gap: 0.4rem; margin-top: auto; padding-top: 0.75rem;
+  font-size: var(--type-xs); font-weight: 600; color: var(--accent);
+  transition: gap 0.3s var(--ease);
+}
+a.range-tile { transition: border-color 0.3s var(--ease), transform 0.4s var(--ease), box-shadow 0.4s var(--ease); }
+a.range-tile:hover { border-color: var(--rule-strong); transform: translateY(-3px); box-shadow: 0 16px 34px rgba(7,50,106,0.10); }
+a.range-tile:hover .rt-link { gap: 0.7rem; }
+.range-tile.hi { background: var(--accent-wash); border-color: rgba(10,97,201,0.42); box-shadow: inset 0 0 0 1px rgba(10,97,201,0.18), 0 12px 28px rgba(10,97,201,0.12); }
+.range-tile.hi .rt-icon { background: var(--surface); }
+@media (max-width: 860px) { .range-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 620px) {
+  .range-tiles { grid-template-columns: 1fr; gap: 0.75rem; }
+  .range-tile { display: grid; grid-template-columns: 2.25rem minmax(0, 1fr); column-gap: 0.9rem; padding: 1rem 1rem 1.05rem; }
+  .rt-icon { grid-row: 1 / span 3; margin-bottom: 0; }
+  .rt-link { padding-top: 0.5rem; }
+  .case-card .case-phone, .case-card.featured .case-phone { width: 26%; right: -2%; bottom: -5%; }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1080px) {
+  :root { --space-xl: 5.5rem; }
+  .hero-inner { grid-template-columns: 1fr; gap: 3.5rem; }
+  .hero-mosaic { max-width: 680px; aspect-ratio: 1 / 0.86; }
+  /* Four columns would leave about 200px a card, which the numbers overrun. */
+  .hero-facts { grid-template-columns: repeat(2, 1fr); }
+  /* The screen takes the full row, with the callouts and numbers side by side under it. */
+  .showcase-grid { grid-template-columns: 1fr 1fr; }
+  .showcase-grid > .stage { grid-column: 1 / -1; order: -1; max-width: 560px; width: 100%; margin-inline: auto; }
+  .callouts, .statcards.stack { padding-top: 0; }
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+}
+@media (max-width: 900px) {
+  .work-grid { grid-template-columns: 1fr; }
+  /* The links shrink to share one line with the CTA. Below 700px they move into
+     the Menu panel (PHONE MENU). */
+  .nav-links { gap: 1.1rem; margin-right: 1.25rem; }
+  .nav-links a { font-size: 0.8rem; }
+  .nav-logo { font-size: 1.2rem; }
+  .stat-sub { max-width: none; }
+}
+@media (max-width: 860px) {
+  :root { --space-xl: 4.5rem; }
+  .cv-body, .approach-rows .ir-body { grid-template-columns: 1fr; gap: 0.5rem; }
+  .cv-when { padding-top: 0; }
+  .cv-extra { grid-template-columns: 1fr; gap: 1.25rem; }
+}
+/* ── PHONE MENU ──
+   Below 700px the five links and the CTA no longer fit beside the name, so they move
+   into a panel under the bar that the Menu button opens. Each row is a 48px tap
+   target, and "Let's talk" comes back as a full width button at the bottom. */
+@media (max-width: 700px) {
+  .nav-toggle { display: inline-flex; }
+  .nav-menu {
+    position: absolute; top: 100%; left: 0; right: 0;
+    flex-direction: column; align-items: stretch;
+    padding: 0.25rem 2rem 1.5rem;
+    background: var(--surface); color: var(--ink);
+    border-bottom: 1px solid var(--rule);
+    box-shadow: 0 28px 40px -24px rgba(7, 50, 106, 0.3);
+    visibility: hidden; opacity: 0; transform: translateY(-6px);
+    transition: opacity 0.2s var(--ease), transform 0.2s var(--ease), visibility 0s linear 0.2s;
+  }
+  nav.menu-open .nav-menu { visibility: visible; opacity: 1; transform: none; transition-delay: 0s; }
+  .nav-links { flex-direction: column; gap: 0; margin: 0; }
+  .nav-links li + li { border-top: 1px solid var(--rule); }
+  .nav-links a { display: flex; align-items: center; min-height: 3rem; padding: 0; font-size: var(--type-md); opacity: 1; }
+  .nav-links a::after { display: none; }
+  .nav-cta { margin-top: 1rem; padding: 0.9rem 1.25rem; text-align: center; font-size: var(--type-base); }
+}
+@media (max-width: 620px) {
+  .about-id { gap: 1.1rem; }
+  .about-photo { width: 84px; height: 84px; border-radius: 12px; }
+  .container { padding: 0 1.25rem; }
+  nav { padding: 0 1rem; }
+  .nav-menu { padding-left: 1rem; padding-right: 1rem; }
+  #hero { padding-top: calc(var(--nav-h) + 3rem); }
+  /* Two up, so the four numbers take about one screen on a phone instead of four. */
+  .hero-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
+  .fact { padding: 1.3rem 1.1rem 1.25rem; border-radius: 14px; }
+  .stat-num { font-size: 2.3rem; margin-bottom: 0.55rem; }
+  .stat-label { font-size: 0.95rem; }
+  .stat-sub { font-size: 0.8rem; margin-top: 0.5rem; }
+  .section-header { margin-bottom: 2.5rem; }
+  .case-card, .case-card.featured { padding: 1.25rem 1.15rem 1.4rem; }
+  .showcase-grid { grid-template-columns: 1fr; }
+  .statcards { grid-template-columns: 1fr; }
+  .iconrow { grid-template-columns: 3.4rem minmax(0, 1fr); }
+  .ir-icon::before { width: 2rem; height: 2rem; }
+  .ir-body { padding: 1.2rem 1.15rem; }
+  .panel { padding: 1.1rem 1.15rem 1.2rem; }
+  /* The chrome is sized for a desktop card. At phone width it would eat the
+     screenshot, so it shrinks and the window keeps the room. */
+  .case-chrome { height: 17px; }
+  .case-chrome::before {
+    left: 8px; width: 5px; height: 5px; margin-top: -2.5px;
+    box-shadow: 9px 0 0 #C3D0DE, 18px 0 0 #C3D0DE;
+  }
+  footer { flex-direction: column; align-items: flex-start; }
+}
+@media (hover: none) {
+}
+
+/* ── PAGE HEADER ──
+   Experience, Approach and About each open on a navy band, so the bar behaves as it does on
+   the homepage: white over navy at the top, solid the moment anything scrolls. */
+.page-hero {
+  position: relative; isolation: isolate;
+  background: var(--d-bg); color: var(--d-ink);
+  padding: calc(var(--nav-h) + 4.5rem) 0 4.25rem;
+}
+.page-hero .container { position: relative; z-index: 1; }
+.page-hero .section-label { color: var(--accent-light); }
+.page-hero h1 { font-size: var(--type-2xl); letter-spacing: -0.042em; line-height: 1.05; text-wrap: balance; }
+.page-hero h1 .hl { color: var(--accent-light); }
+.page-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+.page-hero .about-photo { box-shadow: 0 0 0 1px rgba(255,255,255,0.16), 0 14px 32px rgba(0,0,0,0.22); }
+.page-body { padding-top: var(--space-lg); }
+/* the page you are on stays underlined in the bar */
+.nav-links a[aria-current="page"] { opacity: 1; }
+.nav-links a[aria-current="page"]::after { transform: scaleX(1); }
+@media (max-width: 620px) {
+  .page-hero { padding: calc(var(--nav-h) + 2.75rem) 0 2.75rem; }
+  .page-body { padding-top: 2.75rem; }
+}
+
+/* ── MOTION ──
+   How things arrive (her ask, 2026-11-13: "Add some more UI motion on the website like how
+   things show up"). Titles rise out of a mask a line or a word at a time, labels slide in ahead
+   of them and the header rule draws across, screens settle into their frames with the phone
+   landing a beat later, numbers count up, and rows, tiles and tags arrive one after another.
+   Only transform and opacity move. Every hidden state here waits on html.motion, which the head
+   script sets unless reduced motion is on, so without it nothing is hidden. */
+:root { --rise: cubic-bezier(.2, .75, .25, 1); }
+.counting { font-variant-numeric: tabular-nums; }
+/* Linked sections land a little below the bar. Since the dashes came out the labels sit 4px
+   higher, and Work's label landed tucked under the bar. */
+section[id] { scroll-margin-top: 1.5rem; }
+
+/* blocks that arrive together, and the rows, cards and panels inside them (site.js sets these) */
+.fade-up { transition-delay: var(--stagger, 0s); }
+.fade-up .iconrow, .fade-up .statcard, .fade-up .callout, .fade-up .panel { transition-delay: calc(var(--ri, 0) * 90ms); }
+
+/* a title a word at a time, each word sliding up into its own mask. The padding keeps ascenders,
+   descenders and overhangs inside the mask, and the negative margin gives the space back. */
+.w { display: inline-block; overflow: hidden; vertical-align: bottom; padding: 0.12em 0.05em 0.16em; margin: -0.12em -0.05em -0.16em; }
+.w > span { display: inline-block; }
+.motion .w > span { transform: translateY(110%); transition: transform 0.95s var(--rise) calc(var(--wi, 0) * 70ms + 0.12s); }
+.motion .visible .w > span, .motion .page-hero.in .w > span { transform: none; }
+
+/* the homepage title a line at a time, then the rest of the intro in reading order */
+#hero h1 .ln { display: block; overflow: hidden; padding: 0.1em 0.05em 0.16em; margin: -0.1em -0.05em -0.16em; }
+#hero h1 .ln > span { display: inline-block; }
+.motion #hero h1 .ln > span { transform: translateY(110%); transition: transform 1.05s var(--rise) 0.08s; }
+.motion #hero h1 .ln + .ln > span { transition-delay: 0.2s; }
+.motion #hero h1.in .ln > span { transform: none; }
+.motion .hero-desc.in { transition-delay: 0.42s; }
+.motion .hero-body.in { transition-delay: 0.52s; }
+.motion .hero-actions.in { transition-delay: 0.62s; }
+
+/* the four numbers: each card rises in turn when the row comes into view, and counts up */
+.motion .hero-facts .fact { opacity: 0; translate: 0 24px; transition: opacity 0.7s ease, translate 0.9s var(--rise); }
+.motion .hero-facts .fact:nth-child(2) { transition-delay: 0.09s; }
+.motion .hero-facts .fact:nth-child(3) { transition-delay: 0.18s; }
+.motion .hero-facts .fact:nth-child(4) { transition-delay: 0.27s; }
+.motion .hero-facts.in .fact { opacity: 1; translate: 0 0; }
+
+/* section headers: the label slides in, the title rises a word at a time, the rule draws across */
+.motion .section-header.fade-up.has-words { opacity: 1; transform: none; position: relative; border-bottom-color: transparent; }
+.motion .section-header.has-words::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px; background: var(--ink);
+  transform: scaleX(0); transform-origin: left; transition: transform 1.2s var(--rise) 0.2s;
+}
+.motion .section-header.has-words.visible::after { transform: scaleX(1); }
+.motion .has-words .section-label, .motion .reveal .section-label { opacity: 0; translate: -16px 0; transition: opacity 0.6s ease, translate 0.8s var(--rise); }
+.motion .has-words.visible .section-label, .motion .reveal.visible .section-label { opacity: 1; translate: 0 0; }
+.motion .has-words .section-link { opacity: 0; translate: 0 8px; transition: opacity 0.6s ease 0.55s, translate 0.8s var(--rise) 0.55s, color 0.25s, gap 0.25s; }
+.motion .has-words.visible .section-link { opacity: 1; translate: 0 0; }
+
+/* each page header: the label, the title a word at a time, then what sits under it */
+.motion .page-hero .section-label { opacity: 0; translate: -16px 0; transition: opacity 0.6s ease, translate 0.8s var(--rise); }
+.motion .page-hero .page-actions { opacity: 0; translate: 0 14px; transition: opacity 0.7s ease 0.5s, translate 0.9s var(--rise) 0.5s; }
+.motion .page-hero .about-photo { opacity: 0; scale: 0.88; transition: opacity 0.7s ease, scale 1s var(--rise); }
+.motion .page-hero.in .section-label, .motion .page-hero.in .page-actions { opacity: 1; translate: 0 0; }
+.motion .page-hero.in .about-photo { opacity: 1; scale: 1; }
+
+/* case cards: the card rises, its screen settles into the frame, and the phone lands a beat
+   later. The card moves on translate, so its hover lift on transform works again. */
+.motion .case-card.fade-up {
+  transition: opacity 0.8s ease var(--stagger, 0s), translate 0.95s var(--rise) var(--stagger, 0s),
+    border-color 0.35s var(--ease), transform 0.45s var(--ease), box-shadow 0.45s var(--ease);
+}
+.motion .case-card.fade-up:not(.visible) { transform: none; translate: 0 34px; }
+.motion .case-card.fade-up.visible:hover { transform: translateY(-5px); }
+.motion .case-card.fade-up .case-shot {
+  opacity: 0; scale: 0.94; translate: 0 26px;
+  transition: opacity 0.8s ease 0.15s, scale 1.1s var(--rise) 0.15s, translate 1.1s var(--rise) 0.15s,
+    transform 0.55s var(--ease), box-shadow 0.55s var(--ease);
+}
+.motion .case-card.fade-up .case-phone {
+  opacity: 0; translate: 22px 30px; rotate: 4deg;
+  transition: opacity 0.7s ease 0.5s, translate 1s var(--rise) 0.5s, rotate 1s var(--rise) 0.5s, transform 0.55s var(--ease);
+}
+.motion .case-card.fade-up.visible .case-shot, .motion .case-card.fade-up.visible .case-phone { opacity: 1; scale: 1; translate: 0 0; rotate: 0deg; }
+
+/* range tiles arrive in a wave, each icon popping in after its tile */
+.motion a.range-tile.fade-up {
+  transition: opacity 0.75s ease var(--stagger, 0s), transform 0.6s var(--ease) var(--stagger, 0s),
+    border-color 0.3s var(--ease), box-shadow 0.4s var(--ease);
+}
+.motion .range-tile.fade-up .rt-icon {
+  opacity: 0; scale: 0.5;
+  transition: opacity 0.5s ease calc(var(--stagger, 0s) + 0.25s), scale 0.75s cubic-bezier(.3, 1.5, .5, 1) calc(var(--stagger, 0s) + 0.25s);
+}
+.motion .range-tile.fade-up.visible .rt-icon { opacity: 1; scale: 1; }
+
+/* approach: each icon pops in after its row. Experience: the dates slide in after theirs. */
+.motion .approach-rows.fade-up .ir-icon .icon {
+  opacity: 0; scale: 0.4; rotate: -25deg;
+  transition: opacity 0.5s ease, scale 0.8s cubic-bezier(.3, 1.55, .5, 1), rotate 0.8s var(--rise);
+  transition-delay: calc(var(--ri, 0) * 90ms + 0.3s);
+}
+.motion .approach-rows.fade-up.visible .ir-icon .icon { opacity: 1; scale: 1; rotate: 0deg; }
+.motion .cv.fade-up .cv-when { opacity: 0; translate: -12px 0; transition: opacity 0.6s ease, translate 0.8s var(--rise); transition-delay: calc(var(--ri, 0) * 90ms + 0.2s); }
+.motion .cv.fade-up.visible .cv-when { opacity: 1; translate: 0 0; }
+
+/* skills: the tags arrive one after another */
+.motion .fade-up .skill-tag {
+  opacity: 0; translate: 0 8px;
+  transition: border-color 0.3s, color 0.3s, background 0.3s,
+    opacity 0.45s ease calc(var(--ti, 0) * 18ms + 0.35s), translate 0.55s var(--rise) calc(var(--ti, 0) * 18ms + 0.35s);
+}
+.motion .fade-up.visible .skill-tag { opacity: 1; translate: 0 0; }
+
+/* Let's talk: the label, the title a word at a time, the line under it, then the buttons in turn */
+.motion #contact .reveal .contact-sub, .motion #contact .reveal .contact-actions > * { opacity: 0; translate: 0 18px; }
+.motion #contact .reveal .contact-sub { transition: opacity 0.7s ease 0.35s, translate 0.9s var(--rise) 0.35s; }
+.motion #contact .reveal .contact-actions > * {
+  transition: opacity 0.6s ease var(--bd, 0.5s), translate 0.8s var(--rise) var(--bd, 0.5s),
+    background 0.25s, color 0.25s, border-color 0.25s;
+}
+.motion #contact .reveal .contact-actions > :nth-child(2) { --bd: 0.58s; }
+.motion #contact .reveal .contact-actions > :nth-child(3) { --bd: 0.66s; }
+.motion #contact .reveal.visible .contact-sub, .motion #contact .reveal.visible .contact-actions > * { opacity: 1; translate: 0 0; }
+
+/* ── REDUCED MOTION ── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .fade-up, .hero-eyebrow, .hero-desc, .hero-body, .hero-actions, .hero-facts, .hero-mosaic,
+  .fade-up .iconrow, .fade-up .statcard, .fade-up .callout, .fade-up .panel {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .statcard .sc-bar i { width: var(--v) !important; }
+  .word-reveal span { transform: none !important; opacity: 1 !important; }
+  .mosaic-card { opacity: 1 !important; translate: none !important; animation: none !important; }
+  .mosaic-stage { transform: none !important; }
+  .nav-menu, .nav-toggle path { transition: none !important; }
+  .nav-menu { transform: none !important; }
+}

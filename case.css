@@ -535,3 +535,28 @@ html.gated .gate{display:grid;position:fixed;inset:0;z-index:1000;place-items:ce
 @media (max-width:700px){.phones .phone.tab{width:min(72vw,290px)}}
 /* flows and wireframes pan like charts, with their own hint */
 @media (max-width:700px){figure:has(> .pan.see-all) > figcaption::before{content:"Swipe sideways to see all of it";content:"Swipe sideways to see all of it" / ""}}
+
+/* ── MOTION ── (her ask, 2026-11-13: "Add some more UI motion on the website like how things
+   show up"). The hero arrives in reading order on load: the label slides in, the title wipes up
+   out of a mask, then the summary, the buttons, the facts one by one and the cover. Further down,
+   labels slide in and titles, lead lines and glance facts rise as they scroll into view, beside
+   the screens and cards that already settle, where the browser supports scroll timelines. */
+@media (prefers-reduced-motion:no-preference){
+  .case-hero .eyebrow{animation:cs-slide .7s cubic-bezier(.2,.75,.25,1) both}
+  .case-hero h1{animation:cs-wipe 1.05s cubic-bezier(.2,.75,.25,1) .08s both}
+  .case-hero .lede{animation:cs-rise .9s cubic-bezier(.2,.75,.25,1) .3s both}
+  .case-hero .container>p:not(.lede){animation:cs-rise .9s cubic-bezier(.2,.75,.25,1) .42s both}
+  .case-hero .meta{animation:cs-rise .8s cubic-bezier(.2,.75,.25,1) both}
+  .case-hero .meta:nth-child(1){animation-delay:.5s}.case-hero .meta:nth-child(2){animation-delay:.56s}
+  .case-hero .meta:nth-child(3){animation-delay:.62s}.case-hero .meta:nth-child(4){animation-delay:.68s}
+  .case-hero .meta:nth-child(5){animation-delay:.74s}.case-hero .meta:nth-child(6){animation-delay:.8s}
+  .hero-cover{animation:cs-cover 1.2s cubic-bezier(.2,.75,.25,1) .6s both}
+  @keyframes cs-slide{from{opacity:0;transform:translateX(-16px)}to{opacity:1;transform:none}}
+  @keyframes cs-wipe{from{opacity:0;clip-path:inset(0 0 100% 0);transform:translateY(.3em)}to{opacity:1;clip-path:inset(-20% -5% -30% -5%);transform:none}}
+  @keyframes cs-rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+  @keyframes cs-cover{from{opacity:0;transform:translateY(36px) scale(.97)}to{opacity:1;transform:none}}
+  @supports (animation-timeline:view()){
+    .sec-label{animation:cs-slide linear both;animation-timeline:view();animation-range:entry 5% entry 60%}
+    section h2,.lead-p,.glance .meta{animation:settle linear both;animation-timeline:view();animation-range:entry 0% entry 55%}
+  }
+}
