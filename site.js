@@ -31,7 +31,10 @@ if (motion) {
   const contact = document.querySelector('#contact .container');
   if (contact) { splitWords(contact.querySelector('h2')); contact.classList.add('reveal'); }
   document.querySelectorAll('.about-lead').forEach(splitWords);
-  document.querySelectorAll('.skill-tag').forEach((t, i) => t.style.setProperty('--ti', i));
+  // Long blocks play out as you scroll down them: each row, panel, paragraph and skill row arrives
+  // as it comes into view (MOTION, More of it), and a row's tags arrive in turn after it.
+  document.querySelectorAll('.iconrows .iconrow, .cv-extra .panel, .about-body p, .skills-panel .skill-row').forEach(el => el.classList.add('reveal'));
+  document.querySelectorAll('.skill-row').forEach(r => r.querySelectorAll('.skill-tag').forEach((t, i) => t.style.setProperty('--ti', i)));
   // Case cards play out as you scroll down them: each part has its own reveal (MOTION, case cards).
   document.querySelectorAll('.case-card').forEach(card => {
     splitWords(card.querySelector('h3'));

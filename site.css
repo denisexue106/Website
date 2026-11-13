@@ -1289,7 +1289,8 @@ section[id] { scroll-margin-top: 1.5rem; }
   transition: opacity 0.7s ease calc(var(--stagger, 0s) + 0.55s), translate 1.1s cubic-bezier(.22, 1.3, .4, 1) calc(var(--stagger, 0s) + 0.55s),
     rotate 1.1s var(--rise) calc(var(--stagger, 0s) + 0.55s), transform 0.55s var(--ease);
 }
-.motion .band.reveal:not(.visible) .case-phone { opacity: 0; translate: 34px 52px; rotate: 7deg; }
+/* mostly from below: pushed further right it poked past the screen edge at 729px until it landed */
+.motion .band.reveal:not(.visible) .case-phone { opacity: 0; translate: 12px 56px; rotate: 5deg; }
 /* the callouts in turn, each ring popping in after its callout */
 .motion .callouts.reveal .callout { transition-delay: calc(var(--stagger, 0s) + var(--ri, 0) * 110ms); }
 .motion .callouts.reveal:not(.visible) .callout { opacity: 0; transform: translateY(16px); }
@@ -1361,6 +1362,44 @@ section[id] { scroll-margin-top: 1.5rem; }
 .motion .mini-roles.fade-up.visible li { opacity: 1; translate: 0 0; }
 .motion .mini-me.fade-up .about-photo { opacity: 0; scale: 0.88; transition: opacity 0.7s ease 0.12s, scale 1s var(--rise) 0.12s; }
 .motion .mini-me.fade-up.visible .about-photo { opacity: 1; scale: 1; }
+
+/* More of it (her ask, 2026-11-13: "More animation for the websiter"). */
+/* Long blocks play out as you scroll down them: each row of How I work and of Experience, each
+   Education and Awards panel, each paragraph of the About story and each row of skills arrives
+   as it comes into view (site.js marks them .reveal), with its own icon, date or tags after it. */
+.motion .iconrows .iconrow.reveal, .motion .cv-extra .panel.reveal { transition-delay: var(--stagger, 0s); }
+.motion .iconrows .iconrow.reveal:not(.visible), .motion .cv-extra .panel.reveal:not(.visible) { opacity: 0; transform: translateY(16px); }
+.motion .approach-rows .iconrow.reveal .ir-icon .icon { transition-delay: calc(var(--stagger, 0s) + 0.3s); }
+.motion .approach-rows .iconrow.reveal:not(.visible) .ir-icon .icon { opacity: 0; scale: 0.4; rotate: -25deg; }
+.motion .cv .iconrow.reveal .cv-when { transition-delay: calc(var(--stagger, 0s) + 0.2s); }
+.motion .cv .iconrow.reveal:not(.visible) .cv-when { opacity: 0; translate: -12px 0; }
+.motion .about-body p.reveal { transition: opacity 0.7s ease var(--stagger, 0s), translate 0.9s var(--rise) var(--stagger, 0s); }
+.motion .about-body p.reveal:not(.visible) { opacity: 0; translate: 0 16px; }
+.motion .skill-row.reveal { transition: opacity 0.6s ease var(--stagger, 0s), translate 0.8s var(--rise) var(--stagger, 0s); }
+.motion .skill-row.reveal:not(.visible) { opacity: 0; translate: 0 12px; }
+.motion .skill-row.reveal .skill-tag {
+  transition: border-color 0.3s, color 0.3s, background 0.3s,
+    opacity 0.45s ease calc(var(--stagger, 0s) + var(--ti, 0) * 45ms + 0.15s), translate 0.55s var(--rise) calc(var(--stagger, 0s) + var(--ti, 0) * 45ms + 0.15s);
+}
+.motion .skill-row.reveal:not(.visible) .skill-tag { opacity: 0; translate: 0 8px; }
+/* depth: the mountains behind the intro drift down a little as the page scrolls */
+@supports (animation-timeline: scroll()) {
+  .motion .hero-photo img { transform-origin: 50% 100%; animation: hero-depth linear both; animation-timeline: scroll(root); animation-range: 0 100vh; }
+}
+@keyframes hero-depth { from { transform: scale(1.08); } to { transform: translateY(6%) scale(1.08); } }
+/* the back to top button rises in when it appears */
+.motion .to-top { transition: background 0.25s, transform 0.25s var(--ease), opacity 0.35s ease, translate 0.45s var(--rise); }
+@starting-style { .motion .to-top { opacity: 0; translate: 0 16px; } }
+/* page to page: the page you leave fades up and out, the next one rises in, and the bar stays
+   put. Browsers without cross page view transitions load the next page as before. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+  #nav { view-transition-name: site-nav; }
+  ::view-transition-old(root) { animation: vt-out 0.24s cubic-bezier(.4, 0, 1, 1) both; }
+  ::view-transition-new(root) { animation: vt-in 0.5s cubic-bezier(.2, .75, .25, 1) both; }
+}
+@keyframes vt-out { to { opacity: 0; transform: translateY(-14px); } }
+@keyframes vt-in { from { opacity: 0; transform: translateY(18px); } }
 
 /* ── REDUCED MOTION ── */
 @media (prefers-reduced-motion: reduce) {

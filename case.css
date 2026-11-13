@@ -563,3 +563,25 @@ html.gated .gate{display:grid;position:fixed;inset:0;z-index:1000;place-items:ce
     section h2,.lead-p,.glance .meta{animation:settle linear both;animation-timeline:view();animation-range:entry 0% entry 55%}
   }
 }
+
+/* More of it (her ask, 2026-11-13: "More animation for the websiter"). Figures, quotes and the More
+   work cards settle in as they scroll into view, and the icons on the cards pop in. The keyframes
+   move translate, scale and rotate, not transform, so the hover lifts still work. The back to top
+   button rises in when it appears, and moving between pages, the page you leave fades up and out
+   while the next one rises in under a bar that stays put. */
+@media (prefers-reduced-motion:no-preference){
+  @supports (animation-timeline:view()){
+    .shot:not(.screen):not(.phones),.quote,.more-card{animation:cs-settle linear both;animation-timeline:view();animation-range:entry 0% entry 60%}
+    .card .ring{animation:cs-pop linear both;animation-timeline:view();animation-range:entry 15% entry 75%}
+  }
+  @keyframes cs-settle{from{opacity:0;translate:0 26px;scale:.98}to{opacity:1;translate:0 0;scale:1}}
+  @keyframes cs-pop{0%{opacity:0;scale:.4;rotate:-30deg}70%{opacity:1;scale:1.08;rotate:0deg}100%{opacity:1;scale:1;rotate:0deg}}
+  .to-top{transition:background .25s,transform .25s var(--ease),opacity .35s ease,translate .45s cubic-bezier(.2,.75,.25,1)}
+  @starting-style{.to-top{opacity:0;translate:0 16px}}
+  @view-transition{navigation:auto}
+  nav:not(.jump){view-transition-name:site-nav}
+  ::view-transition-old(root){animation:vt-out .24s cubic-bezier(.4,0,1,1) both}
+  ::view-transition-new(root){animation:vt-in .5s cubic-bezier(.2,.75,.25,1) both}
+}
+@keyframes vt-out{to{opacity:0;transform:translateY(-14px)}}
+@keyframes vt-in{from{opacity:0;transform:translateY(18px)}}
