@@ -32,6 +32,11 @@ if (motion) {
   if (contact) { splitWords(contact.querySelector('h2')); contact.classList.add('reveal'); }
   document.querySelectorAll('.about-lead').forEach(splitWords);
   document.querySelectorAll('.skill-tag').forEach((t, i) => t.style.setProperty('--ti', i));
+  // Case cards play out as you scroll down them: each part has its own reveal (MOTION, case cards).
+  document.querySelectorAll('.case-card').forEach(card => {
+    splitWords(card.querySelector('h3'));
+    card.querySelectorAll('.case-meta, h3, .case-desc, .case-arrow, .band, .callouts, .statcards').forEach(el => el.classList.add('reveal'));
+  });
 }
 
 // Every hero element that ships hidden belongs in this list. Anything missing from it stays
@@ -121,18 +126,25 @@ const observer = new IntersectionObserver((entries) => {
     kids.forEach((c, j) => c.style.setProperty('--ri', j));
     if (kids.length) setTimeout(() => kids.forEach(c => c.style.removeProperty('--ri')), kids.length * 90 + 1600);
     t.classList.add('visible');
-    if (motion) t.querySelectorAll('.sc-value').forEach(countUp);
+    // Numbers inside a part with its own reveal (a case card's row of numbers) wait for that part,
+    // then each counts up as its own card appears.
+    if (motion) t.querySelectorAll('.sc-value').forEach(v => {
+      const part = v.closest('.reveal');
+      if (part && part !== t && t.contains(part)) return;
+      const ri = parseFloat(v.closest('.statcard')?.style.getPropertyValue('--ri')) || 0;
+      countUp(v, (parseFloat(t.style.getPropertyValue('--stagger')) || 0) + (part === t ? ri * 110 : 0));
+    });
     observer.unobserve(t);
   });
 }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 if (!reduceMotion) document.querySelectorAll('.fade-up, .reveal').forEach(el => observer.observe(el));
 
 /* ── COUNT UP ── a number counts up from zero the first time it arrives, then reads exactly as written */
-function countUp(el) {
+function countUp(el, delay = 0) {
   const m = el.textContent.trim().match(/^([+]?)(\d+)([%+KM]?)$/);
   if (!m || el.dataset.counted) return;
   el.dataset.counted = '1';
-  const final = el.textContent, to = +m[2], dur = 1200, start = performance.now() + 150;
+  const final = el.textContent, to = +m[2], dur = 1200, start = performance.now() + 150 + delay;
   el.classList.add('counting');
   el.textContent = m[1] + '0' + m[3];
   const tick = now => {
@@ -147,7 +159,7 @@ function countUp(el) {
 (() => {
   const facts = document.querySelector('.hero-facts');
   if (!facts || facts.classList.contains('in')) return;
-  const go = () => { facts.classList.add('in'); if (motion) facts.querySelectorAll('.stat-num').forEach(countUp); };
+  const go = () => { facts.classList.add('in'); if (motion) facts.querySelectorAll('.stat-num').forEach((n, i) => countUp(n, i * 90)); };
   if (reduceMotion || !('IntersectionObserver' in window)) { go(); return; }
   const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { io.disconnect(); go(); } }, { threshold: 0.2 });
   io.observe(facts);
