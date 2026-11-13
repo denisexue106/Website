@@ -901,7 +901,8 @@ footer {
   font-size: var(--type-xs);
 }
 .footer-name { letter-spacing: 0.02em; }
-.footer-links { display: flex; gap: 1.75rem; list-style: none; }
+/* the menu's items in the menu's order, Email for Let's talk (her ask: "footer menu match?") */
+.footer-links { display: flex; flex-wrap: wrap; gap: 0.6rem 1.75rem; list-style: none; }
 .footer-links a { transition: color 0.25s; }
 .footer-links a:hover { color: var(--accent-light); }
 
@@ -1087,6 +1088,7 @@ a.range-tile:hover .rt-link { gap: 0.7rem; }
     box-shadow: 9px 0 0 #C3D0DE, 18px 0 0 #C3D0DE;
   }
   footer { flex-direction: column; align-items: flex-start; }
+  .footer-links { gap: 0.6rem 1.25rem; }
 }
 @media (hover: none) {
 }
@@ -1106,6 +1108,9 @@ a.range-tile:hover .rt-link { gap: 0.7rem; }
 .page-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
 .page-hero .about-photo { box-shadow: 0 0 0 1px rgba(255,255,255,0.16), 0 14px 32px rgba(0,0,0,0.22); }
 .page-body { padding-top: var(--space-lg); }
+/* How I work sits on the tint right below Work, so Range after it goes white and the sections
+   keep alternating instead of running together. */
+#approach + #range { background: var(--surface); }
 /* the page you are on stays underlined in the bar */
 .nav-links a[aria-current="page"] { opacity: 1; }
 .nav-links a[aria-current="page"]::after { transform: scaleX(1); }

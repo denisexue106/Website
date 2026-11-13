@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script>/* motion is on unless the visitor asked for less (MOTION in site.css) */if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('motion');</script>
-  <script>/* the old one page anchors now have pages of their own */if(/^#(experience|approach|about)$/.test(location.hash))location.replace(location.hash==="#approach"?"about.html#approach":location.hash.slice(1)+".html");</script>
+  <script>/* the old one page anchors now have pages of their own */if(/^#(experience|about)$/.test(location.hash))location.replace(location.hash.slice(1)+".html");</script>
   <title>Denise Barrett · Lead Product Designer</title>
   <meta name="description" content="Denise Barrett, lead product designer with 10+ years designing web and mobile apps across B2B SaaS, fintech, nonprofits and government, and an MFA from Rochester Institute of Technology. Most recently at Keap, acquired by Thryv. Design strategy, UX research, product management, design systems and AI. Remote in the US, open to new roles." />
   <link rel="canonical" href="https://dbyxdesign.com/" />
@@ -205,6 +205,36 @@
     </div>
   </section>
 
+  <!-- APPROACH -->
+  <section id="approach">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div>
+          <div class="section-label">How I work</div>
+          <h2>My <span class="hl">approach</span></h2>
+        </div>
+      </div>
+      <div class="iconrows approach-rows fade-up">
+        <div class="iconrow">
+          <div class="ir-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-gauge"/></svg></div>
+          <div class="ir-body"><h3>I measure first</h3><p class="approach-desc">I pull the current numbers before I design anything, or I can&rsquo;t tell you what changed. On forms, that&rsquo;s how I found the most used form had gotten worse after its rebuild.</p></div>
+        </div>
+        <div class="iconrow">
+          <div class="ir-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-scale"/></svg></div>
+          <div class="ir-body"><h3>I argue in business terms</h3><p class="approach-desc">Leadership decides on cost, risk and the roadmap, so that&rsquo;s how I make the case. On forms, I made the case against a rebuild of twelve months or more and shipped one builder in stages instead.</p></div>
+        </div>
+        <div class="iconrow">
+          <div class="ir-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-checklist"/></svg></div>
+          <div class="ir-body"><h3>I write the rules down</h3><p class="approach-desc">Sixteen teams build on the Branding Center, and I can&rsquo;t sit in on all their reviews. So I wrote down three rules every surface has to follow, whoever builds it.</p></div>
+        </div>
+        <div class="iconrow">
+          <div class="ir-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-alert"/></svg></div>
+          <div class="ir-body"><h3>I design the messy cases</h3><p class="approach-desc">Errors, empty accounts and data that doesn&rsquo;t match. Those turn into support tickets, so I design them early. In the Branding Center, that meant accounts with no logo, or a logo that didn&rsquo;t match the profile.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- RANGE -->
   <section id="range">
     <div class="container">
@@ -259,7 +289,9 @@
     <span class="footer-name">© 2026 Denise Barrett</span>
     <ul class="footer-links">
       <li><a href="#work">Work</a></li>
+      <li><a href="experience.html">Experience</a></li>
       <li><a href="about.html">About</a></li>
+      <li><a href="img/denise-barrett-resume.pdf" download>Resume</a></li>
       <li><a href="mailto:denisexue106@gmail.com">Email</a></li>
     </ul>
   </footer>
