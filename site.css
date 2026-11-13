@@ -943,6 +943,54 @@ nav:not(.scrolled):not(.menu-open) .nav-toggle:focus-visible {
   outline-color: var(--accent-light);
 }
 
+/* ── MORE CASE STUDIES ──
+   Allego and Widget Cloud under the three big cards (2026-11-13 review: they had no card on the
+   homepage, and they are the most mobile work). A phone screen in the same bezel as the big
+   cards' phones, then the pill, the project line, the title, one line and the link. Two across,
+   one per row from 860px. */
+.more-cases { margin-top: 2.25rem; }
+.more-label {
+  font-size: var(--type-xs); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-subtle); margin-bottom: 0.9rem;
+}
+.more-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+.mini-case {
+  position: relative;
+  display: grid; grid-template-columns: 5.25rem minmax(0, 1fr); column-gap: 1.35rem; align-items: center;
+  background: var(--surface); border: 1px solid var(--rule); border-radius: 18px;
+  padding: 1.15rem 1.35rem 1.15rem 1.15rem;
+  color: inherit; text-decoration: none;
+  transition: border-color 0.35s var(--ease), transform 0.45s var(--ease), box-shadow 0.45s var(--ease);
+}
+.mini-case:hover { border-color: var(--rule-strong); transform: translateY(-4px); box-shadow: 0 18px 40px rgba(7,50,106,0.10); }
+.mini-phone {
+  display: block; padding: 3px; line-height: 0;
+  border-radius: 16% / 7.4%;
+  background: linear-gradient(155deg, #FFFFFF 0%, #EEF3F8 50%, #D9E2EC 100%);
+  box-shadow: inset 0 0 0 1px rgba(7,50,106,0.14), 0 0 0 1px rgba(7,50,106,0.08), 0 10px 22px rgba(7,50,106,0.14);
+  transition: transform 0.55s var(--ease);
+}
+.mini-phone img {
+  display: block; width: 100%; height: auto; aspect-ratio: 360 / 779; object-fit: cover;
+  border-radius: 13.4% / 6.2%; background: #F3F5F8; box-shadow: 0 0 0 1px rgba(7,50,106,0.18);
+}
+.mini-case:hover .mini-phone { transform: translateY(-6px) rotate(-2deg); }
+.mini-body { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; }
+.mini-case .case-meta { gap: 0.45rem; margin-bottom: 0.7rem; }
+.mini-case h3 { font-size: clamp(1.1rem, 1.5vw, 1.3rem); line-height: 1.2; margin-bottom: 0.4rem; text-wrap: balance; }
+.mini-desc { font-size: var(--type-sm); line-height: 1.55; color: var(--ink-muted); text-wrap: pretty; }
+.mini-case .case-arrow { margin-top: 0.75rem; }
+.mini-case:hover .case-arrow { gap: 0.85rem; }
+@media (max-width: 860px) {
+  .more-grid { grid-template-columns: minmax(0, 1fr); gap: 0.9rem; }
+}
+@media (max-width: 620px) {
+  .more-cases { margin-top: 1.75rem; }
+  .mini-case { grid-template-columns: 4.5rem minmax(0, 1fr); column-gap: 1rem; align-items: start; padding: 1rem 1rem 1.05rem 0.9rem; }
+  .mini-case .case-meta { margin-bottom: 0.55rem; }
+  .mini-case .case-arrow { margin-top: 0.55rem; }
+}
+
 /* ── PHONE BESIDE THE SCREEN ──
    On cards with a phone design, a phone overlaps the corner of the desktop screen, so
    web and mobile both show before anyone opens a case study. */
@@ -1188,46 +1236,123 @@ a.range-tile:hover .rt-link { gap: 0.7rem; }
 }
 
 /* ── WHY ME ──
-   Right after the four numbers, the answer to "why her" a hiring manager can take in at a glance
-   (her asks, 2026-11-13: "improve the home to let the hire manger know why me" and "Faster visual
-   scanning"). Four claims in a few words, the operative phrase in the accent, a line of proof
-   under each copied from the case studies and About, and a link to the page that proves it. On the
-   tint, so it reads apart from the navy numbers above and the white Work below. */
+   Right after Work, then Let's talk (her asks, 2026-11-13: "Merge My aproach into why me and put
+   below the work", "3 section on the home. Hero, work, why me", "make why me very visual
+   attractive with icons and less text", "On the Why me also add Ai", "Better illustrated icons",
+   "Also market myself can do exsisting product and 0 to 1", "Title too big", "Too much tile, Can
+   you mix a couple and shrink it down a bit"). Six tiles, each a two tone illustration
+   (hm-review/ill40.py draws them), the claim, one proof line led by a figure in the accent, and a
+   link to its proof; then the industries as one slim strip. Every figure and name is on the site.
+   On the tint, between the white Work and the navy Let's talk. */
 #why { background: var(--surface-alt); padding: var(--space-lg) 0; }
-#why .section-header { margin-bottom: 1.6rem; padding-bottom: 1.25rem; }
+#why .section-header { margin-bottom: 1.5rem; padding-bottom: 1.2rem; }
 #why .section-header h2 { font-size: clamp(1.75rem, 3.3vw, 2.6rem); }
-.why-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.85rem; }
-.why-card {
-  display: flex; flex-direction: column;
+.why-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; }
+.why-card, .why-strip {
   background: var(--surface); border: 1px solid var(--rule); border-radius: 14px;
-  padding: 1.15rem 1.15rem 1.1rem;
   box-shadow: 0 8px 22px rgba(7,50,106,0.05);
   color: inherit; text-decoration: none;
   transition: border-color 0.3s var(--ease), transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
 }
-a.why-card:hover { border-color: var(--rule-strong); transform: translateY(-3px); box-shadow: 0 16px 34px rgba(7,50,106,0.10); }
-.why-icon {
-  display: grid; place-items: center; width: 2.25rem; height: 2.25rem; margin-bottom: 0.9rem; flex: none;
-  border-radius: 8px; border: 1px solid rgba(10,97,201,0.40); background: var(--accent-wash); color: var(--accent);
+.why-card {
+  display: grid; grid-template-columns: 3rem minmax(0, 1fr); grid-template-rows: auto auto 1fr; column-gap: 0.9rem;
+  padding: 1rem 1.1rem 0.95rem;
 }
-.why-icon .icon { width: 1.1rem; height: 1.1rem; }
-.why-card h3 { font-size: var(--type-md); line-height: 1.22; letter-spacing: -0.02em; margin-bottom: 0.5rem; text-wrap: balance; }
-.why-card p { font-size: 0.86rem; line-height: 1.55; color: var(--ink-muted); }
+a.why-card:hover, a.why-strip:hover { border-color: var(--rule-strong); transform: translateY(-3px); box-shadow: 0 16px 34px rgba(7,50,106,0.10); }
+/* the illustration: two tone spot art on a soft tile */
+.why-ill {
+  grid-row: 1 / -1; align-self: start;
+  display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 13px; flex: none;
+  background: linear-gradient(160deg, #F7FAFE 0%, #E4EEFA 100%);
+  box-shadow: inset 0 0 0 1px rgba(10,97,201,0.14);
+  transition: transform 0.4s var(--ease);
+}
+.why-art { width: 2.3rem; height: 2.3rem; }
+a.why-card:hover .why-ill, a.why-strip:hover .why-ill { transform: rotate(-4deg) scale(1.06); }
+/* the claim at 1rem (her ask: "Title too big") */
+.why-card h3, .why-strip h3 { font-size: 1rem; line-height: 1.28; letter-spacing: -0.015em; text-wrap: balance; }
+.why-card h3 { margin: 0.2rem 0 0.35rem; }
+.why-proof { font-size: var(--type-sm); line-height: 1.4; color: var(--ink-muted); }
+.why-proof b { font-family: var(--font-display); font-size: 1.08rem; font-weight: 800; letter-spacing: -0.02em; color: var(--accent); }
 .why-link {
-  display: inline-flex; align-items: center; gap: 0.4rem; margin-top: auto; padding-top: 0.85rem;
+  align-self: end; justify-self: start; display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.6rem;
+  font-size: var(--type-xs); font-weight: 600; color: var(--accent); white-space: nowrap; transition: gap 0.3s var(--ease);
+}
+a.why-card:hover .why-link, a.why-strip:hover .why-link { gap: 0.7rem; }
+/* the AI tile links each product to its case study (her ask: "Thryv AI I will link to the buisiness listing") */
+.why-links { align-self: end; display: flex; flex-wrap: wrap; gap: 0.3rem 1.1rem; margin-top: 0.6rem; }
+.why-links a {
+  position: relative; display: inline-flex; align-items: center; gap: 0.4rem; white-space: nowrap;
   font-size: var(--type-xs); font-weight: 600; color: var(--accent); transition: gap 0.3s var(--ease);
 }
-a.why-card:hover .why-link { gap: 0.7rem; }
-@media (max-width: 1080px) { .why-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.why-links a::after { content: ''; position: absolute; inset: -13px -6px; }
+.why-links a:hover { gap: 0.7rem; }
+/* the industries: one slim strip across the bottom, the claim, the tags, the case study */
+.why-strip {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 0.6rem 1rem;
+  margin-top: 0.75rem; padding: 0.75rem 1.1rem;
+}
+.why-strip .why-link { margin: 0 0 0 auto; }
+.why-tags { display: flex; flex-wrap: wrap; gap: 0.28rem; }
+/* in the strip the tags take whatever room is left and wrap inside it, so the link keeps its line */
+.why-strip .why-tags { flex: 1 1 0; min-width: 0; }
+.why-tags span {
+  font-size: 0.75rem; font-weight: 600; line-height: 1.25; color: var(--ink-muted);
+  background: var(--surface-alt); border: 1px solid var(--rule); border-radius: 100px; padding: 0.16rem 0.46rem;
+}
+/* three across is cramped below 1100px, so two across there, and one on phones */
+@media (max-width: 1100px) {
+  .why-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  /* the strip: the link up on the claim's line, the tags on their own line under them */
+  .why-strip .why-link { order: 3; }
+  .why-strip .why-tags { order: 4; flex-basis: 100%; }
+}
 @media (max-width: 620px) {
   .why-grid { grid-template-columns: minmax(0, 1fr); gap: 0.6rem; }
-  /* the icon beside the claim, the proof and the link across the full width under them */
-  .why-card { display: grid; grid-template-columns: 2.1rem minmax(0, 1fr); align-items: center; gap: 0.5rem 0.8rem; padding: 0.9rem 1rem 0.95rem; }
-  .why-icon { width: 2.1rem; height: 2.1rem; margin-bottom: 0; }
-  .why-card h3 { margin-bottom: 0; }
-  .why-card p, .why-link { grid-column: 1 / -1; }
-  .why-link { padding-top: 0.1rem; }
+  .why-card { grid-template-columns: 2.75rem minmax(0, 1fr); column-gap: 0.85rem; padding: 0.95rem; }
+  .why-ill { width: 2.75rem; height: 2.75rem; border-radius: 12px; }
+  .why-art { width: 2.1rem; height: 2.1rem; }
+  .why-strip { margin-top: 0.6rem; padding: 0.9rem 0.95rem; }
+  .why-strip .why-tags { order: 3; }
+  .why-strip .why-link { order: 4; margin: 0; }
 }
+
+/* ── REVIEW FIXES (2026-11-13, hiring manager review) ──
+   Her title is the first thing a reviewer screens, so it reads in white in the intro label. */
+.hero-eyebrow .hero-title { color: var(--d-ink); }
+/* The collage stacked under the intro at 1080px and below, about 640px with half of it empty, so
+   it steps aside there as it does on phones; the four numbers stay in one row from 900px. */
+@media (max-width: 1080px) { .hero-mosaic { display: none; } }
+@media (min-width: 621px) and (max-width: 1080px) {
+  #hero { padding-top: calc(var(--nav-h) + 3.5rem); }
+  .hero-stats { padding-top: 3rem; }
+}
+@media (min-width: 900px) and (max-width: 1080px) {
+  .hero-facts { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.75rem; }
+  .fact { padding: 1.6rem 1.25rem 1.5rem; }
+}
+/* short laptop screens: less air above the intro and the numbers, so the numbers start sooner */
+@media (min-width: 1081px) and (max-height: 820px) {
+  #hero { padding-top: calc(var(--nav-h) + 2.5rem); }
+  #hero h1 { margin-bottom: 1.5rem; }
+  .hero-stats { padding-top: 2rem; }
+}
+/* footer links take a 44px tap; the back to top button is smaller on phones so it covers less */
+.footer-links a { position: relative; }
+.footer-links a::after { content: ''; position: absolute; inset: -15px -6px; }
+@media (max-width: 620px) {
+  .to-top { width: 40px; height: 40px; right: 0.75rem; bottom: 0.75rem; font-size: 1rem; }
+}
+/* Experience: one claim per line, then the case studies that show it */
+.cv-points { list-style: none; display: grid; gap: 0.4rem; max-width: 64ch; }
+.cv-points li { position: relative; padding-left: 1.05rem; font-size: var(--type-sm); line-height: 1.6; color: var(--ink-muted); }
+.cv-points li::before { content: ''; position: absolute; left: 0; top: 0.62em; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+.cv-cases { margin-top: 0.7rem; font-size: var(--type-xs); font-weight: 600; letter-spacing: 0.02em; color: var(--ink-subtle); }
+.cv-cases a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.cv-cases a:hover { text-decoration-thickness: 2px; }
+/* About: links inside the story read as links */
+.about-body a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.about-body a:hover { text-decoration-thickness: 2px; }
 
 /* ── FASTER TO SCAN ──
    The sentence about what she did reads in dark ink after the muted context, on the case cards and
@@ -1482,16 +1607,42 @@ section[id] { scroll-margin-top: 1.5rem; }
 @keyframes vt-out { to { opacity: 0; transform: translateY(-14px); } }
 @keyframes vt-in { from { opacity: 0; transform: translateY(18px); } }
 
-/* Why me: the cards arrive in turn, each icon popping in after its card */
-.motion a.why-card.fade-up {
+/* Why me: the tiles arrive in turn, each illustration popping in after its tile, then the
+   industry strip with its tags one after another */
+.motion a.why-card.fade-up, .motion a.why-strip.fade-up {
   transition: opacity 0.75s ease var(--stagger, 0s), transform 0.75s var(--ease) var(--stagger, 0s),
     border-color 0.3s var(--ease), box-shadow 0.4s var(--ease);
 }
-.motion .why-card.fade-up .why-icon {
-  opacity: 0; scale: 0.5;
-  transition: opacity 0.5s ease calc(var(--stagger, 0s) + 0.25s), scale 0.75s cubic-bezier(.3, 1.5, .5, 1) calc(var(--stagger, 0s) + 0.25s);
+.motion .why-card.fade-up .why-ill, .motion .why-strip.fade-up .why-ill {
+  opacity: 0; scale: 0.5; rotate: -12deg;
+  transition: opacity 0.5s ease calc(var(--stagger, 0s) + 0.25s), scale 0.8s cubic-bezier(.3, 1.5, .5, 1) calc(var(--stagger, 0s) + 0.25s),
+    rotate 0.8s var(--rise) calc(var(--stagger, 0s) + 0.25s), transform 0.4s var(--ease);
 }
-.motion .why-card.fade-up.visible .why-icon { opacity: 1; scale: 1; }
+.motion .why-card.fade-up.visible .why-ill, .motion .why-strip.fade-up.visible .why-ill { opacity: 1; scale: 1; rotate: 0deg; }
+.motion .why-strip.fade-up .why-tags span { opacity: 0; translate: 0 8px; transition: opacity 0.45s ease, translate 0.6s var(--rise); }
+.motion .why-strip.fade-up.visible .why-tags span { opacity: 1; translate: 0 0; }
+.motion .why-strip.fade-up .why-tags span:nth-child(1) { transition-delay: calc(var(--stagger, 0s) + 0.30s); }
+.motion .why-strip.fade-up .why-tags span:nth-child(2) { transition-delay: calc(var(--stagger, 0s) + 0.34s); }
+.motion .why-strip.fade-up .why-tags span:nth-child(3) { transition-delay: calc(var(--stagger, 0s) + 0.38s); }
+.motion .why-strip.fade-up .why-tags span:nth-child(4) { transition-delay: calc(var(--stagger, 0s) + 0.42s); }
+.motion .why-strip.fade-up .why-tags span:nth-child(5) { transition-delay: calc(var(--stagger, 0s) + 0.46s); }
+.motion .why-strip.fade-up .why-tags span:nth-child(6) { transition-delay: calc(var(--stagger, 0s) + 0.50s); }
+.motion .why-strip.fade-up .why-tags span:nth-child(7) { transition-delay: calc(var(--stagger, 0s) + 0.54s); }
+.motion .why-strip.fade-up .why-tags span:nth-child(8) { transition-delay: calc(var(--stagger, 0s) + 0.58s); }
+.motion .why-strip.fade-up .why-tags span:nth-child(9) { transition-delay: calc(var(--stagger, 0s) + 0.62s); }
+.motion .why-strip.fade-up .why-tags span:nth-child(10) { transition-delay: calc(var(--stagger, 0s) + 0.66s); }
+.motion .why-strip.fade-up .why-tags span:nth-child(11) { transition-delay: calc(var(--stagger, 0s) + 0.70s); }
+.motion .why-strip.fade-up .why-tags span:nth-child(12) { transition-delay: calc(var(--stagger, 0s) + 0.74s); }
+.motion .why-strip.fade-up .why-tags span:nth-child(13) { transition-delay: calc(var(--stagger, 0s) + 0.78s); }
+
+/* ── PHONE PASS 44 ── */
+/* The featured card's Read case study at the end once the card stacks (1080px and below), where
+   the other cards have it and where the reader finishes the card. */
+@media (max-width: 1080px) {
+  .case-card.featured .case-head { display: contents; }
+  .case-card.featured .case-head .case-arrow { order: 3; margin-top: 1.4rem; }
+}
+/* ── END PHONE PASS 44 ── */
 
 /* ── REDUCED MOTION ── */
 @media (prefers-reduced-motion: reduce) {

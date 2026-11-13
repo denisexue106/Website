@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script>/* motion is on unless the visitor asked for less (MOTION in site.css) */if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('motion');</script>
-  <script>/* the old one page anchors now have pages of their own */if(/^#(experience|about)$/.test(location.hash))location.replace(location.hash.slice(1)+".html");</script>
+  <script>/* the old one page anchors now have pages of their own */if(/^#(experience|about)$/.test(location.hash))location.replace(location.hash.slice(1)+".html");else if(/^#(approach|range)$/.test(location.hash))location.replace("#why");</script>
   <title>Denise Barrett · Lead Product Designer</title>
   <meta name="description" content="Denise Barrett, lead product designer with 10+ years designing web and mobile apps across B2B SaaS, fintech, nonprofits and government, and an MFA from Rochester Institute of Technology. Most recently at Keap, acquired by Thryv. Design strategy, UX research, product management, design systems and AI. Remote in the US, open to new roles." />
   <link rel="canonical" href="https://dbyxdesign.com/" />
@@ -58,7 +58,7 @@
   </noscript>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="i-chart-up" viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M7 15.5l3.3-4 2.9 2.4L17.8 8"/></symbol><symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></symbol><symbol id="i-document" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="12" y2="16"/></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></symbol><symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.4-7-11.3A7 7 0 1 1 19 9.7C19 14.6 12 21 12 21z"/><circle cx="12" cy="9.7" r="2.4"/></symbol><symbol id="i-mentor" viewBox="0 0 24 24"><circle cx="9" cy="7" r="3"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0"/><path d="M16.5 4.8a3 3 0 0 1 0 5.9"/><path d="M15.5 14.3c2.9.8 5 3.2 5 5.7"/></symbol><symbol id="i-code" viewBox="0 0 24 24"><path d="M8.7 8L4.3 12l4.4 4"/><path d="M15.3 8l4.4 4-4.4 4"/></symbol><symbol id="i-users" viewBox="0 0 24 24"><circle cx="8.7" cy="8" r="3"/><path d="M2.7 20a6 6 0 0 1 12 0"/><circle cx="16.7" cy="9" r="2.3"/><path d="M15 14.3a5.5 5.5 0 0 1 6.6 5.2"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v5l3.3 1.9"/></symbol><symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.6 2.6L16.2 9"/></symbol><symbol id="i-flag" viewBox="0 0 24 24"><line x1="6" y1="3" x2="6" y2="21"/><path d="M6 4.2h11l-3 3.9 3 3.9H6"/></symbol><symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z"/><path d="M19 15l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7.7-2z"/></symbol><symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 8h13.5l-3-3"/><path d="M20 16H6.5l3 3"/></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7 7-7z"/></symbol><symbol id="i-landmark" viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M6 17.5v-6.5"/><path d="M10 17.5v-6.5"/><path d="M14 17.5v-6.5"/><path d="M18 17.5v-6.5"/><path d="M12 3l8.5 5h-17L12 3z"/></symbol><symbol id="i-box" viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M4 7.5l8 4.5 8-4.5"/><path d="M12 12v9"/></symbol><symbol id="i-ball" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/><path d="M5.6 18.4L18.4 5.6"/><path d="M12 3a9 9 0 0 0 9 9"/><path d="M3 12a9 9 0 0 1 9 9"/></symbol><symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10z"/><path d="M2 21c0-3 1.9-5.4 5.1-6C9.5 14.5 12 13 13 12"/></symbol><symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.6 13.9L7 22l5-3 5 3-1.6-8.1"/></symbol><symbol id="i-gauge" viewBox="0 0 24 24"><path d="M12 14l4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></symbol><symbol id="i-scale" viewBox="0 0 24 24"><path d="M16 16l3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/><path d="M2 16l3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></symbol><symbol id="i-checklist" viewBox="0 0 24 24"><path d="M3 17l2 2 4-4"/><path d="M3 7l2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></symbol><symbol id="i-alert" viewBox="0 0 24 24"><path d="M21.73 18l-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3z"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="i-chart-up" viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M7 15.5l3.3-4 2.9 2.4L17.8 8"/></symbol><symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></symbol><symbol id="i-document" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="12" y2="16"/></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></symbol><symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.4-7-11.3A7 7 0 1 1 19 9.7C19 14.6 12 21 12 21z"/><circle cx="12" cy="9.7" r="2.4"/></symbol><symbol id="i-mentor" viewBox="0 0 24 24"><circle cx="9" cy="7" r="3"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0"/><path d="M16.5 4.8a3 3 0 0 1 0 5.9"/><path d="M15.5 14.3c2.9.8 5 3.2 5 5.7"/></symbol><symbol id="i-code" viewBox="0 0 24 24"><path d="M8.7 8L4.3 12l4.4 4"/><path d="M15.3 8l4.4 4-4.4 4"/></symbol><symbol id="i-users" viewBox="0 0 24 24"><circle cx="8.7" cy="8" r="3"/><path d="M2.7 20a6 6 0 0 1 12 0"/><circle cx="16.7" cy="9" r="2.3"/><path d="M15 14.3a5.5 5.5 0 0 1 6.6 5.2"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.2v5l3.3 1.9"/></symbol><symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.6 2.6L16.2 9"/></symbol><symbol id="i-flag" viewBox="0 0 24 24"><line x1="6" y1="3" x2="6" y2="21"/><path d="M6 4.2h11l-3 3.9 3 3.9H6"/></symbol><symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z"/><path d="M19 15l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7.7-2z"/></symbol><symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 8h13.5l-3-3"/><path d="M20 16H6.5l3 3"/></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7 7-7z"/></symbol><symbol id="i-landmark" viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M6 17.5v-6.5"/><path d="M10 17.5v-6.5"/><path d="M14 17.5v-6.5"/><path d="M18 17.5v-6.5"/><path d="M12 3l8.5 5h-17L12 3z"/></symbol><symbol id="i-box" viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M4 7.5l8 4.5 8-4.5"/><path d="M12 12v9"/></symbol><symbol id="i-ball" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/><path d="M5.6 18.4L18.4 5.6"/><path d="M12 3a9 9 0 0 0 9 9"/><path d="M3 12a9 9 0 0 1 9 9"/></symbol><symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10z"/><path d="M2 21c0-3 1.9-5.4 5.1-6C9.5 14.5 12 13 13 12"/></symbol><symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.6 13.9L7 22l5-3 5 3-1.6-8.1"/></symbol><symbol id="i-gauge" viewBox="0 0 24 24"><path d="M12 14l4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></symbol><symbol id="i-scale" viewBox="0 0 24 24"><path d="M16 16l3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/><path d="M2 16l3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></symbol><symbol id="i-checklist" viewBox="0 0 24 24"><path d="M3 17l2 2 4-4"/><path d="M3 7l2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></symbol><symbol id="i-alert" viewBox="0 0 24 24"><path d="M21.73 18l-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3z"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol><symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol></svg>
   <a href="#work" class="skip-link">Skip to work</a>
 
   <!-- NAV -->
@@ -70,7 +70,7 @@
         <li><a href="#work">Work</a></li>
         <li><a href="experience.html">Experience</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a class="nav-resume" href="img/denise-barrett-resume.pdf" download>Resume</a></li>
+        <li><a class="nav-resume" href="img/denise-barrett-resume.pdf" target="_blank" rel="noopener">Resume</a></li>
       </ul>
       <a href="#contact" class="nav-cta">Let's talk</a>
     </div>
@@ -84,7 +84,7 @@
     <div class="container">
       <div class="hero-inner">
         <div class="hero-left">
-          <p class="hero-eyebrow">Lead&nbsp;product&nbsp;designer&nbsp;&middot; Web&nbsp;and&nbsp;mobile&nbsp;&middot; Design&nbsp;systems&nbsp;and&nbsp;AI&nbsp;products</p>
+          <p class="hero-eyebrow"><span class="hero-title">Lead&nbsp;product&nbsp;designer</span>&nbsp;&middot; Web&nbsp;and&nbsp;mobile&nbsp;&middot; Design&nbsp;systems&nbsp;and&nbsp;AI&nbsp;products</p>
           <h1>
             <span class="ln"><span>Design strategy,</span></span>
             <span class="ln"><span><em>from the problem up</em>.</span></span>
@@ -96,9 +96,9 @@
               View selected work
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
-            <a href="img/denise-barrett-resume.pdf" class="btn-ghost" download>
+            <a href="img/denise-barrett-resume.pdf" class="btn-ghost" target="_blank" rel="noopener">
               Resume
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v8M4 7.5L7 10.5 10 7.5M2.5 12h9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M4.5 9.5l5-5M5.5 4.5h4v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
             <a href="https://www.linkedin.com/in/deniseb106/" target="_blank" rel="noopener" class="btn-ghost">
               LinkedIn
@@ -147,44 +147,6 @@
   </section>
   </div>
 
-  <!-- WHY ME: what a hiring manager gets, each with its proof and a link to it -->
-  <section id="why">
-    <div class="container">
-      <div class="section-header fade-up">
-        <div>
-          <div class="section-label">Why me</div>
-          <h2>What I <span class="hl">bring</span></h2>
-        </div>
-      </div>
-      <div class="why-grid">
-        <a class="why-card fade-up" href="case-form-unification.html">
-          <span class="why-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-target"/></svg></span>
-          <h3>I untangle problems <span class="hl">no single team owns</span></h3>
-          <p>Seven form builders became one, owned by one team. That one builder is what lets AI draft a complete form from a prompt.</p>
-          <span class="why-link">Forms case study <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </a>
-        <a class="why-card fade-up" href="case-branding-center.html">
-          <span class="why-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-layers"/></svg></span>
-          <h3>I build systems <span class="hl">other teams build on</span></h3>
-          <p>Sixteen teams build on the Branding Center I designed. A landing page now takes 15 minutes instead of 25.</p>
-          <span class="why-link">Branding Center case study <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </a>
-        <a class="why-card fade-up" href="case-business-listing.html">
-          <span class="why-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chart-up"/></svg></span>
-          <h3>I turn research <span class="hl">into decisions</span></h3>
-          <p>I set the usability bar every listings vendor had to meet, and got an AI requirement into the scorecard.</p>
-          <span class="why-link">Listings case study <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </a>
-        <a class="why-card fade-up" href="about.html">
-          <span class="why-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-mentor"/></svg></span>
-          <h3>I lead <span class="hl">without the title</span></h3>
-          <p>I ran our design team meetings and mentored six junior designers. One of them now runs their own area.</p>
-          <span class="why-link">More about me <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </a>
-      </div>
-    </div>
-  </section>
-
   <!-- WORK -->
   <section id="work">
     <div class="container">
@@ -215,7 +177,7 @@
             <div class="stage"><div class="case-shot"><div class="case-chrome"></div><video class="case-cover" data-src="img/fu-hero-chat.mp4" poster="img/fu-hero-chat-still.jpg" muted loop playsinline preload="none" width="680" height="590" aria-label="Thryv AI creating a client intake form in chat, in the interactive prototype: a prompt is typed, two questions are answered, and the form builds beside a live preview"></video></div><span class="case-phone"><img src="img/home-m-fu.jpg" alt="The finished client intake form on a phone, in the Spotlight template" loading="lazy" decoding="async" width="360" height="779" /></span></div>
             <div class="statcards stack">
               <div class="statcard"><svg class="icon sc-icon" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg><span class="sc-value">12+</span><span class="sc-label">Month rebuild I argued against</span></div>
-              <div class="statcard hi"><svg class="icon sc-icon" aria-hidden="true" focusable="false"><use href="#i-users"/></svg><span class="sc-value">7→1</span><span class="sc-label">Form builders became one, owned by one team</span></div>
+              <div class="statcard hi"><svg class="icon sc-icon" aria-hidden="true" focusable="false"><use href="#i-users"/></svg><span class="sc-value">7→1</span><span class="sc-label">Form builders designed into one, shipping in stages</span></div>
               <div class="statcard"><svg class="icon sc-icon" aria-hidden="true" focusable="false"><use href="#i-check-circle"/></svg><span class="sc-value">79%</span><span class="sc-label">Of items migrated in six months needed no repeat fixes</span><span class="sc-bar" style="--v:79%"><i></i></span></div>
             </div>
           </div></div>
@@ -234,42 +196,107 @@
           <div class="band"><div class="stage"><div class="case-shot"><div class="case-chrome"></div><video class="case-cover" data-src="img/bl-card.mp4" poster="img/bl-card-still.jpg" muted loop playsinline preload="none" width="840" height="476" aria-label="Concept in the Listings Management prototype: Apple Maps shows the wrong phone, hours and category, Thryv AI drafts the three corrections, and they are sent only after approval"></video></div><span class="case-phone"><img src="img/home-m-bl.jpg" alt="The reviews inbox on a phone, with the reviews that still need a reply at the top" loading="lazy" decoding="async" width="360" height="779" /></span></div></div>
           <div class="case-meta"><span class="case-tag">Thryv · Design &amp; research lead</span><span class="case-year">Business listing · Third party vendor · Web and mobile · 2026</span></div>
           <h3>Moving listings to <span class="hl">a new vendor</span></h3>
-          <p class="case-desc">Picking the vendor wasn&rsquo;t my call. <strong>I set the usability bar every vendor had to meet, got an AI requirement into the scorecard, and specified a layer that keeps the experience the same whichever one won.</strong></p>
+          <p class="case-desc">The platform had to move its business listings to a new vendor by a fixed deadline. <strong>I set the usability bar every vendor had to meet, got an AI requirement into the scorecard, and specified a layer that keeps the experience the same whichever one won.</strong></p>
           <div class="statcards"><div class="statcard"><svg class="icon sc-icon" aria-hidden="true" focusable="false"><use href="#i-swap"/></svg><span class="sc-value">2</span><span class="sc-label">Shortlisted vendors tested in a live prototype</span></div><div class="statcard"><svg class="icon sc-icon" aria-hidden="true" focusable="false"><use href="#i-layers"/></svg><span class="sc-value">3→1</span><span class="sc-label">Studies combined into one usability bar</span></div><div class="statcard hi"><svg class="icon sc-icon" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span class="sc-value">160K</span><span class="sc-label">Locations in scope</span></div></div>
           <div class="case-arrow">Read case study <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </a>
 
       </div>
+
+      <div class="more-cases fade-up">
+        <p class="more-label">More case studies</p>
+        <div class="more-grid">
+          <a class="mini-case" href="case-allego.html">
+            <span class="mini-phone"><img src="img/home-m-al.jpg" alt="The redesigned Allego home screen on a phone, with recommended videos and featured channels" loading="lazy" decoding="async" width="360" height="779" /></span>
+            <span class="mini-body">
+              <span class="case-meta"><span class="case-tag">Allego &middot; Product designer</span><span class="case-year">Sales enablement &middot; 2020</span></span>
+              <h3>Redesigning Allego for <span class="hl">web, tablet and phone</span></h3>
+              <span class="mini-desc">I led the final design, merged from three proposals tested with 15 people.</span>
+              <span class="case-arrow">Read case study <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </span>
+          </a>
+          <a class="mini-case" href="case-widget-cloud.html">
+            <span class="mini-phone"><img src="img/home-m-wc.jpg" alt="Widget Cloud on a phone: total account value, an allocation chart and two accounts" loading="lazy" decoding="async" width="360" height="779" /></span>
+            <span class="mini-body">
+              <span class="case-meta"><span class="case-tag">Freelance &middot; Sole designer</span><span class="case-year">Fintech &middot; 2022</span></span>
+              <h3>Designing an investment app for <span class="hl">web and phone</span></h3>
+              <span class="mini-desc">The only designer, from client interviews to handoff in 12 weeks.</span>
+              <span class="case-arrow">Read case study <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </span>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- APPROACH -->
-  <section id="approach">
+  <!-- WHY ME: six tiles, each with an illustration, its proof and a link to it, then the industries strip -->
+  <section id="why">
     <div class="container">
       <div class="section-header fade-up">
         <div>
-          <div class="section-label">How I work</div>
-          <h2>My <span class="hl">approach</span></h2>
+          <div class="section-label">Why me</div>
+          <h2>What I <span class="hl">bring</span></h2>
         </div>
       </div>
-      <div class="iconrows approach-rows fade-up">
-        <div class="iconrow">
-          <div class="ir-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-gauge"/></svg></div>
-          <div class="ir-body"><h3>I measure first</h3><p class="approach-desc">I pull the current numbers before I design anything, or I can&rsquo;t tell you what changed. On forms, that&rsquo;s how I found the most used form had gotten worse after its rebuild.</p></div>
-        </div>
-        <div class="iconrow">
-          <div class="ir-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-scale"/></svg></div>
-          <div class="ir-body"><h3>I argue in business terms</h3><p class="approach-desc">Leadership decides on cost, risk and the roadmap, so that&rsquo;s how I make the case. On forms, I made the case against a rebuild of twelve months or more and shipped one builder in stages instead.</p></div>
-        </div>
-        <div class="iconrow">
-          <div class="ir-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-checklist"/></svg></div>
-          <div class="ir-body"><h3>I write the rules down</h3><p class="approach-desc">Sixteen teams build on the Branding Center, and I can&rsquo;t sit in on all their reviews. So I wrote down three rules every surface has to follow, whoever builds it.</p></div>
-        </div>
-        <div class="iconrow">
-          <div class="ir-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-alert"/></svg></div>
-          <div class="ir-body"><h3>I design the messy cases</h3><p class="approach-desc">Errors, empty accounts and data that doesn&rsquo;t match. Those turn into support tickets, so I design them early. In the Branding Center, that meant accounts with no logo, or a logo that didn&rsquo;t match the profile.</p></div>
-        </div>
+      <div class="why-grid">
+        <a class="why-card fade-up" href="case-form-unification.html">
+          <span class="why-ill"><svg class="why-art" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M17 12c6 0 7 12 13 12M17 24h13M17 36c6 0 7-12 13-12" fill="none" stroke="#6FA3E6" stroke-width="2.2" stroke-linecap="round"/>
+<rect x="4" y="8" width="14" height="8" rx="2.5" fill="#CFE0F6"/><rect x="4" y="20" width="14" height="8" rx="2.5" fill="#6FA3E6"/><rect x="4" y="32" width="14" height="8" rx="2.5" fill="#CFE0F6"/>
+<rect x="29" y="13" width="15" height="22" rx="3.5" fill="#0A61C9"/><rect x="32.5" y="18" width="8" height="2.4" rx="1.2" fill="#FFFFFF"/><rect x="32.5" y="23" width="6" height="2.4" rx="1.2" fill="#FFFFFF" opacity=".75"/><rect x="32.5" y="28" width="8" height="2.4" rx="1.2" fill="#FFFFFF" opacity=".75"/></svg></span>
+          <h3>I take on problems <span class="hl">no single team owns</span></h3>
+          <p class="why-proof"><b>7</b> form builders designed into one, across <b>4</b> teams</p>
+          <span class="why-link">Forms case study <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a class="why-card fade-up" href="case-branding-center.html">
+          <span class="why-ill"><svg class="why-art" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="10" cy="11" r="1.6" fill="#6FA3E6"/><circle cx="39" cy="40" r="1.4" fill="#6FA3E6"/><circle cx="7" cy="27" r="1.1" fill="#CFE0F6"/>
+<g transform="rotate(45 24 24)"><path d="M21.5 38h5L24 45.5z" fill="#CFE0F6"/><path d="M20 32h8l-1.5 6h-5z" fill="#07326A"/>
+<path d="M16 26l-5 6v4l5-2zM32 26l5 6v4l-5-2z" fill="#6FA3E6"/><path d="M24 4c6 5 8 12 8 20v8H16v-8c0-8 2-15 8-20z" fill="#0A61C9"/>
+<circle cx="24" cy="18" r="3.8" fill="#FFFFFF"/><circle cx="24" cy="18" r="1.9" fill="#6FA3E6"/></g></svg></span>
+          <h3>I build <span class="hl">new products</span> and improve existing ones</h3>
+          <p class="why-proof">Several <b>0&rarr;1</b> launches, including the Branding Center and Widget Cloud</p>
+          <span class="why-link">Branding Center case study <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a class="why-card fade-up" href="case-business-listing.html">
+          <span class="why-ill"><svg class="why-art" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect x="5" y="11" width="26" height="31" rx="4" fill="#CFE0F6"/><rect x="9" y="17" width="13" height="3" rx="1.5" fill="#0A61C9"/>
+<rect x="9" y="23.5" width="18" height="3" rx="1.5" fill="#FFFFFF"/><rect x="9" y="29.5" width="18" height="3" rx="1.5" fill="#FFFFFF"/><rect x="9" y="35.5" width="10" height="3" rx="1.5" fill="#6FA3E6"/>
+<path d="M35.5 4l2.4 6.6L44.5 13l-6.6 2.4L35.5 22l-2.4-6.6L26.5 13l6.6-2.4z" fill="#0A61C9"/><path d="M42 24l1.2 3.3 3.3 1.2-3.3 1.2L42 33l-1.2-3.3-3.3-1.2 3.3-1.2z" fill="#6FA3E6"/></svg></span>
+          <h3>I design and ship <span class="hl">AI products</span></h3>
+          <p class="why-proof"><b>2</b> AI products launched: Form AI and Thryv AI</p>
+          <span class="why-link">Listings case study <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a class="why-card fade-up" href="case-branding-center.html">
+          <span class="why-ill"><svg class="why-art" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 42L43 32.5 24 23 5 32.5z" fill="#CFE0F6"/><path d="M24 34L43 24.5 24 15 5 24.5z" fill="#6FA3E6"/>
+<path d="M24 26L43 16.5 24 7 5 16.5z" fill="#0A61C9"/><path d="M24 11l11 5.5-11 5.5-11-5.5z" fill="#FFFFFF" opacity=".22"/></svg></span>
+          <h3>I build systems <span class="hl">other teams build on</span></h3>
+          <p class="why-proof"><b>16</b> teams use the Branding Center I designed</p>
+          <span class="why-link">Branding Center case study <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a class="why-card fade-up" href="about.html">
+          <span class="why-ill"><svg class="why-art" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="11.5" cy="19" r="5" fill="#6FA3E6"/><path d="M2.5 38c0-6.6 4-10.5 9-10.5s9 3.9 9 10.5z" fill="#CFE0F6"/>
+<circle cx="36.5" cy="19" r="5" fill="#6FA3E6"/><path d="M27.5 38c0-6.6 4-10.5 9-10.5s9 3.9 9 10.5z" fill="#CFE0F6"/>
+<circle cx="24" cy="15.5" r="6.5" fill="#0A61C9"/><path d="M12.5 41c0-8.3 5-13 11.5-13s11.5 4.7 11.5 13z" fill="#0A61C9"/></svg></span>
+          <h3>I lead <span class="hl">without a manager title</span></h3>
+          <p class="why-proof"><b>6</b> junior designers mentored, one now leads their own area</p>
+          <span class="why-link">More about me <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a class="why-card fade-up" href="case-branding-center.html">
+          <span class="why-ill"><svg class="why-art" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M7 33a17 17 0 0 1 34 0" fill="none" stroke="#CFE0F6" stroke-width="6" stroke-linecap="round"/>
+<path d="M7 33a17 17 0 0 1 24.5-15.3" fill="none" stroke="#0A61C9" stroke-width="6" stroke-linecap="round"/>
+<path d="M24 33l8.5-10" stroke="#07326A" stroke-width="3" stroke-linecap="round"/><circle cx="24" cy="33" r="3.6" fill="#07326A"/><rect x="13" y="39.5" width="22" height="3.5" rx="1.75" fill="#6FA3E6"/></svg></span>
+          <h3>I measure <span class="hl">before and after</span></h3>
+          <p class="why-proof"><b>+20%</b> landing page builder adoption after it shipped</p>
+          <span class="why-link">Branding Center case study <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
       </div>
+      <a class="why-strip fade-up" href="case-widget-cloud.html">
+        <span class="why-ill"><svg class="why-art" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="22" cy="27" r="16" fill="#CFE0F6"/><path d="M22 11c-5 4.4-7.5 9.8-7.5 16s2.5 11.6 7.5 16c5-4.4 7.5-9.8 7.5-16S27 15.4 22 11z" fill="none" stroke="#6FA3E6" stroke-width="2"/>
+<path d="M6 27h32M8.4 19h27.2M8.4 35h27.2" stroke="#6FA3E6" stroke-width="2"/>
+<path d="M37 3a7 7 0 0 0-7 7c0 5.3 7 12 7 12s7-6.7 7-12a7 7 0 0 0-7-7z" fill="#0A61C9"/><circle cx="37" cy="10" r="2.6" fill="#FFFFFF"/>
+<path d="M12 15a4.5 4.5 0 0 0-4.5 4.5c0 3.4 4.5 7.7 4.5 7.7s4.5-4.3 4.5-7.7A4.5 4.5 0 0 0 12 15z" fill="#07326A"/><circle cx="12" cy="19.5" r="1.6" fill="#FFFFFF"/></svg></span>
+        <h3>I work <span class="hl">across industries</span></h3>
+        <span class="why-tags"><span>B2B SaaS</span><span>Small business</span><span>Marketing automation</span><span>Fintech</span><span>Sales enablement</span><span>Enterprise learning</span><span>Nonprofits</span><span>Humanitarian</span><span>Conservation</span><span>Government</span><span>Geospatial</span><span>Supply chain</span><span>Sports analytics</span></span>
+        <span class="why-link">Fintech case study <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
     </div>
   </section>
 
@@ -302,32 +329,10 @@
           <div class="mini-me fade-up">
             <img class="about-photo" src="img/denise-barrett.jpg" alt="Denise Barrett" width="640" height="640" loading="lazy" decoding="async" />
             <p class="mini-lead">I build systems and use AI to move faster.</p>
-            <p class="mini-text">I lead without needing a manager title. I ran our design team meetings, shared team management work with the Design Manager, and mentored six junior designers. One of them now runs their own area independently.</p>
+            <p class="mini-text">I&rsquo;ve spent over a decade in design. Most recently, I worked on landing pages, email broadcasts, forms and automation tools for small businesses, on web and mobile. Before that, I designed web and mobile apps for enterprise learning, fintech and geospatial mapping.</p>
           </div>
           <a class="mini-link fade-up" href="about.html">More about me <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- RANGE -->
-  <section id="range">
-    <div class="container">
-      <div class="section-header fade-up">
-        <div>
-          <div class="section-label">Range</div>
-          <h2>Work across <span class="hl">industries</span></h2>
-        </div>
-      </div>
-      <div class="range-tiles">
-        <a class="range-tile link fade-up" href="case-widget-cloud.html"><span class="rt-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chart-up"/></svg></span><h3>Fintech</h3><p>Widget Cloud, an investment app for web and phone. Freelance, as the only designer.</p><span class="rt-link">Read case study <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-        <a class="range-tile link fade-up" href="case-allego.html"><span class="rt-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-mentor"/></svg></span><h3>Sales enablement</h3><p>Allego&rsquo;s redesign for web, tablet and phone. I led the final design.</p><span class="rt-link">Read case study <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-        <div class="range-tile fade-up"><span class="rt-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-heart"/></svg></span><h3>Humanitarian</h3><p>Esri dashboards for the Red Cross and Feeding America.</p></div>
-        <div class="range-tile fade-up"><span class="rt-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-leaf"/></svg></span><h3>Conservation</h3><p>Story maps for the Smithsonian and the Jane Goodall Institute, and web and mobile apps for the Forest Stewardship Council.</p></div>
-        <div class="range-tile fade-up"><span class="rt-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-landmark"/></svg></span><h3>Local government</h3><p>Mobile apps for Sacramento County, and data and map products for government agencies.</p></div>
-        <div class="range-tile fade-up"><span class="rt-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-box"/></svg></span><h3>Supply chain</h3><p>Supply Savvy, a supply chain web app for makeup supplies.</p></div>
-        <div class="range-tile fade-up"><span class="rt-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-ball"/></svg></span><h3>Sports analytics</h3><p>Gameday, a data analysis app for basketball.</p></div>
-        <div class="range-tile hi fade-up"><span class="rt-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-award"/></svg></span><h3>Award</h3><p>First place in the Esri Ocean Storymap Contest, for the Smithsonian whale story map.</p></div>
       </div>
     </div>
   </section>
@@ -366,7 +371,7 @@
       <li><a href="#work">Work</a></li>
       <li><a href="experience.html">Experience</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="img/denise-barrett-resume.pdf" download>Resume</a></li>
+      <li><a href="img/denise-barrett-resume.pdf" target="_blank" rel="noopener">Resume</a></li>
       <li><a href="mailto:denisexue106@gmail.com">Email</a></li>
     </ul>
   </footer>

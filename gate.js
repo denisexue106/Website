@@ -9,6 +9,25 @@
   var form = gate.querySelector("form"), input = document.getElementById("gate-pw"), err = document.getElementById("gate-err");
   input.focus({ preventScroll: true });
   input.addEventListener("input", function () { err.textContent = ""; });
+  /* ONE TAP 45 */
+  /* The password under the box is a button: one tap fills it in and opens the case study, so
+     nobody has to type it on a phone (2026-11-13). The box shows Go on a phone keyboard. */
+  input.setAttribute("enterkeyhint", "go");
+  var shown = gate.querySelector(".gate-note strong");
+  if (shown) {
+    var fill = document.createElement("button");
+    fill.type = "button";
+    fill.className = "gate-fill";
+    fill.textContent = shown.textContent;
+    fill.setAttribute("aria-label", "Use the password " + shown.textContent + " and open the case study");
+    shown.replaceWith(fill);
+    fill.addEventListener("click", function () {
+      input.value = PASSWORD;
+      if (form.requestSubmit) form.requestSubmit();
+      else form.dispatchEvent(new Event("submit", { cancelable: true }));
+    });
+  }
+  /* END ONE TAP 45 */
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     if (input.value.trim().toLowerCase() !== PASSWORD) {

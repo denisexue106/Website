@@ -380,8 +380,7 @@ svg.icon{width:1em;height:1em;flex:none;fill:none;stroke:currentColor;stroke-wid
 .dec:not(.dec-grid):not(.dec-lesson) .dec-row:last-child{border-bottom:0}
 .dec-grid .dec-row,.dec-grid .dec-row:first-child{position:relative;border:0;border-radius:16px;
   box-shadow:0 0 0 1px rgba(7,50,106,.05),0 14px 36px rgba(7,50,106,.07)}
-.dec-grid .dec-q{color:var(--ink-subtle);padding:0 2.2rem .75rem 0;margin-bottom:.9rem;border-bottom:1px solid var(--rule-strong)}
-.dec-grid .dec-row::after{content:'···';position:absolute;top:1.45rem;right:1.4rem;color:var(--ink-faint);letter-spacing:.16em;font-size:.9rem;line-height:1}
+.dec-grid .dec-q{color:var(--ink-subtle);padding:0 0 .75rem;margin-bottom:.9rem;border-bottom:1px solid var(--rule-strong)}
 .band{border:0;border-radius:16px;box-shadow:0 0 0 1px rgba(7,50,106,.05),0 14px 36px rgba(7,50,106,.07)}
 
 /* screens: a bezel on raised ground, overhanging its top edge */
@@ -474,6 +473,15 @@ html.gated .gate{display:grid;position:fixed;inset:0;z-index:1000;place-items:ce
   font-size:var(--type-sm);font-weight:600;cursor:pointer;transition:background .25s}
 .gate-btn:hover{background:var(--accent-deep)}
 .gate-btn:focus-visible,.gate-back:focus-visible{outline:2px solid var(--accent-light);outline-offset:3px}
+/* ── ONE TAP PASSWORD 45 ── */
+/* The printed password is a button that fills it in and opens the page (2026-11-13). It reads
+   as the bold word it was, underlined, with a 44px tap area. */
+.gate-fill{position:relative;display:inline;padding:0;border:0;background:none;color:#fff;font:inherit;font-weight:700;
+  text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;cursor:pointer}
+.gate-fill::after{content:"";position:absolute;inset:-13px -10px}
+.gate-fill:hover{color:var(--accent-light)}
+.gate-fill:focus-visible{outline:2px solid var(--accent-light);outline-offset:3px;border-radius:3px}
+/* ── END ONE TAP PASSWORD 45 ── */
 .gate-err{min-height:1.35em;margin:.65rem 0 0;font-size:var(--type-sm);color:#FFC7BD}
 .gate-note{margin:.2rem 0 0;font-size:var(--type-sm);color:var(--d-muted)}
 .gate-note strong{color:#fff;font-weight:600;letter-spacing:.02em}
@@ -530,6 +538,8 @@ html.gated .gate{display:grid;position:fixed;inset:0;z-index:1000;place-items:ce
 .ba{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1.5rem;align-items:start}
 .ba-tag{display:block;margin-bottom:.6rem;font-size:var(--type-xs);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-subtle)}
 .ba-tag.after{color:var(--accent)}
+/* the After tag shares its class with the .after paragraphs, so it drops their top margin */
+.ba-tag.after{margin-top:0}
 .ba-fig+.ba-fig{margin-top:2.5rem}
 @media (max-width:700px){.ba{grid-template-columns:minmax(0,1fr);gap:1.25rem}}
 .phones.tabs{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -593,3 +603,58 @@ html.gated .gate{display:grid;position:fixed;inset:0;z-index:1000;place-items:ce
 .nav-back::after,.nav-link::after,.more-all::after{content:"";position:absolute;inset:-11px -8px}
 .nav-cta::after{content:"";position:absolute;inset:-3px -3px}
 .jump a::after{content:"";position:absolute;inset:-8px -9px}
+
+/* ── hiring manager reviews (2026-11-13) ──
+   On a phone only the menu bar stays put. The On this page links scroll away with the page, so two
+   sticky bars no longer take 142px of a small screen, and a linked section lands just under the bar. */
+@media (max-width:700px){
+  .jump{position:static}
+  section[id]{scroll-margin-top:80px}
+}
+/* a drawn diagram that pans but has no caption still says so, under the diagram */
+@media (max-width:700px){
+  figure:has(> .pan):not(:has(> figcaption))::after{content:"Swipe sideways to see the whole chart";content:"Swipe sideways to see the whole chart" / "";
+    display:block;margin-top:.75rem;font-size:var(--type-xs);font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+}
+
+/* ── TAP TO ENLARGE 47 ── */
+/* Phones and small tablets only (zoom.js). The enlarge button sits in the top right corner of
+   each picture: navy glass, white magnifier, 34px with a 44px tap area. The viewer fills the
+   screen in dark navy, with a navy close button and hint that read over any picture; the picture shows at its desktop size and scrolls both
+   ways. */
+.zoom-btn{display:none}
+.zoom-frame{position:relative}
+@media (max-width:860px){
+  .zoom-btn{display:grid;place-items:center;position:absolute;z-index:3;top:8px;right:8px;width:34px;height:34px;padding:0;border:0;
+    border-radius:50%;background:rgba(7,50,106,.78);color:#fff;cursor:zoom-in;line-height:0;
+    box-shadow:0 0 0 1px rgba(255,255,255,.28),0 6px 16px rgba(7,50,106,.28);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+  .zoom-btn::after{content:"";position:absolute;inset:-5px}
+  .zoom-btn:focus-visible{outline:2px solid var(--accent-light);outline-offset:2px}
+  .phone .zoom-btn{top:auto;bottom:7%;right:7%}
+  img.zoomable{cursor:zoom-in}
+}
+.zoom{position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;
+  background:#05203F;color:#fff;overflow:hidden}
+.zoom::backdrop{background:rgba(4,24,52,.6)}
+.zoom:focus{outline:none}
+.zoom-pane{position:absolute;inset:0;display:flex;overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
+  padding:72px 20px 64px}
+.zoom-img{display:block;flex:none;margin:auto;max-width:none;border-radius:8px;background:#fff;
+  box-shadow:0 0 0 1px rgba(255,255,255,.14),0 24px 60px rgba(0,0,0,.45)}
+.zoom-close{position:fixed;z-index:2;top:max(14px,env(safe-area-inset-top));right:14px;display:grid;place-items:center;width:44px;height:44px;
+  padding:0;border:0;border-radius:50%;background:rgba(7,50,106,.92);color:#fff;cursor:pointer;
+  box-shadow:0 0 0 1.5px rgba(255,255,255,.55),0 8px 20px rgba(0,0,0,.35)}
+.zoom-close:hover{background:var(--accent)}
+.zoom-close:focus-visible{outline:2px solid var(--accent-light);outline-offset:2px}
+.zoom-hint{position:fixed;left:50%;bottom:max(18px,env(safe-area-inset-bottom));translate:-50% 0;margin:0;padding:.4rem .85rem;border-radius:100px;
+  background:rgba(7,50,106,.92);box-shadow:0 0 0 1px rgba(255,255,255,.2);white-space:nowrap;
+  font-size:var(--type-xs);font-weight:600;letter-spacing:.04em;color:#fff;pointer-events:none}
+.zoom.fits .zoom-hint{display:none}
+html.zoom-open,html.zoom-open body{overflow:hidden}
+@media (prefers-reduced-motion:no-preference){
+  .zoom[open]{animation:zoom-in .28s ease both}
+  .zoom[open] .zoom-img{animation:zoom-pop .38s cubic-bezier(.2,.8,.25,1) both}
+}
+@keyframes zoom-in{from{opacity:0}}
+@keyframes zoom-pop{from{opacity:0;scale:.94}}
+/* ── END TAP TO ENLARGE 47 ── */
