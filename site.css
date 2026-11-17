@@ -1786,3 +1786,49 @@ section[id] { scroll-margin-top: 1.5rem; }
 .statcard.hi .sc-value, .statcard.hi .sc-icon { color: var(--result); }
 .statcard .sc-bar i { background: var(--result); }
 
+
+/* ── EXPERIENCE TIMELINE (2026-11-17) ──
+   White page, no tinted card. A thin rail with one dot per job; the current
+   job's dot is blue. The role sits under the company in plain case. */
+.iconrows.cv { --cv-date: 9rem; --cv-rail: calc(var(--cv-date) + 1.6rem);
+  box-shadow: none; border-radius: 0; overflow: visible; }
+.iconrows.cv .iconrow { position: relative; }
+.iconrows.cv .ir-body,
+.iconrows.cv .iconrow:hover .ir-body { background: transparent; box-shadow: none; padding: 2.1rem 0; }
+.iconrows.cv .cv-body { grid-template-columns: var(--cv-date) minmax(0, 1fr); gap: 0 3.2rem; }
+.iconrows.cv .iconrow::before {
+  content: ''; position: absolute; left: var(--cv-rail); top: 0; bottom: 0;
+  width: 1px; background: var(--rule-strong);
+}
+.iconrows.cv .iconrow:first-child::before { top: 2.65rem; }
+.iconrows.cv .iconrow:last-child::before { bottom: auto; height: 2.65rem; }
+.iconrows.cv .iconrow::after {
+  content: ''; position: absolute; left: calc(var(--cv-rail) - 5px); top: 2.35rem;
+  width: 11px; height: 11px; border-radius: 50%; box-sizing: border-box;
+  background: var(--surface); border: 2px solid var(--rule-strong);
+  transition: border-color 0.25s, transform 0.25s;
+}
+.iconrows.cv .iconrow:first-child::after {
+  background: var(--accent); border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-wash);
+}
+.iconrows.cv .iconrow:hover::after { border-color: var(--accent); transform: scale(1.15); }
+.iconrows.cv .cv-when {
+  padding-top: 0.4rem; color: var(--ink-subtle); font-variant-numeric: tabular-nums; letter-spacing: 0.08em;
+}
+.iconrows.cv .cv-what h3 { display: block; margin-bottom: 0.7rem; }
+.iconrows.cv .cv-org {
+  display: block; margin-top: 0.25rem;
+  font-size: var(--type-sm); font-weight: 500; letter-spacing: 0; text-transform: none;
+  color: var(--ink-muted);
+}
+#experience .panel { background: var(--surface); box-shadow: none; border: 1px solid var(--rule); }
+#experience .cv-extra { margin-top: 1.5rem; }
+@media (max-width: 860px) {
+  .iconrows.cv { --cv-rail: 0px; }
+  .iconrows.cv .cv-body { grid-template-columns: 1fr; gap: 0.35rem; }
+  .iconrows.cv .ir-body, .iconrows.cv .iconrow:hover .ir-body { padding: 1.6rem 0 1.6rem 1.75rem; }
+  .iconrows.cv .iconrow::after { top: 1.75rem; }
+  .iconrows.cv .iconrow:first-child::before { top: 2rem; }
+  .iconrows.cv .iconrow:last-child::before { height: 2rem; }
+  .iconrows.cv .cv-when { padding-top: 0; }
+}
