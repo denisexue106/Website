@@ -263,6 +263,14 @@ section[id]{scroll-margin-top:110px}
 /* at a glance: the outcome numbers, read before the story */
 .glance{background:var(--surface-alt);padding:2.75rem 0}
 .glance .sec-label{margin-bottom:1.25rem}
+/* TL;DR: three or four sentences above the numbers, inside the At a glance band. */
+.tldr{max-width:62ch;margin-bottom:2.25rem}
+.tldr p{font-size:var(--type-md);line-height:1.6}
+.metric-note{margin-top:1.25rem;max-width:var(--read-w)}
+/* Screen labels: Shipped, Prototype (demo data) or Concept, at the start of a caption. */
+figcaption .pill{display:inline-block;margin:0 .45rem 0 0;vertical-align:.08em}
+.case-status{margin:.9rem 0 0}
+.case-status .pill{display:inline-block}
 .stats-4{grid-template-columns:repeat(4,minmax(0,1fr));margin-top:0}
 @media (max-width:860px){.stats-4{grid-template-columns:repeat(2,minmax(0,1fr));gap:1.75rem 1.5rem}}
 
@@ -449,45 +457,6 @@ svg.icon{width:1em;height:1em;flex:none;fill:none;stroke:currentColor;stroke-wid
 /* six facts sit in two rows of three */
 .meta-row.six{display:grid;grid-template-columns:repeat(3,minmax(0,max-content));justify-content:start;gap:1.5rem 3.5rem}
 @media (max-width:560px){.meta-row.six{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:1.25rem}}
-
-/* ── password gate (2026-11-11) ──
-   A soft gate: the password is printed under the box on purpose. html.gated is set in each page head
-   before first paint, so the case study never flashes. Without JavaScript the class is never set and
-   the page simply shows. */
-.gate{display:none}
-html.gated,html.gated body{background:var(--d-bg)}
-html.gated body{overflow:hidden}
-html.gated body>:not(.gate){visibility:hidden}
-html.gated .gate{display:grid;position:fixed;inset:0;z-index:1000;place-items:center;padding:2rem 1.5rem;overflow-y:auto;
-  color:#fff;background:radial-gradient(900px 560px at 88% -12%,rgba(10,97,201,.32),transparent 62%),var(--d-bg)}
-.gate-box{width:min(34rem,100%)}
-.gate-eyebrow{display:block;font-size:var(--type-xs);font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-light);margin-bottom:1.1rem}
-.gate-h{font-family:var(--font-display);font-weight:800;font-size:clamp(2rem,5.2vw,3.1rem);line-height:1.03;letter-spacing:-.035em;margin:0 0 .9rem;text-wrap:balance}
-.gate-p{color:var(--d-muted);font-size:var(--type-md);line-height:1.6;margin:0 0 2rem}
-.gate-label{display:block;font-size:var(--type-xs);font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-light);margin-bottom:.55rem}
-.gate-row{display:flex;flex-wrap:wrap;gap:.6rem}
-.gate-row input{flex:1 1 13rem;min-width:0;height:3.1rem;padding:0 1.15rem;border:1px solid rgba(255,255,255,.28);border-radius:100px;
-  background:rgba(255,255,255,.07);color:#fff;font:inherit;font-size:1rem;letter-spacing:.04em}
-.gate-row input:focus{outline:2px solid var(--accent-light);outline-offset:2px;border-color:transparent}
-.gate-btn{flex:none;height:3.1rem;padding:0 1.5rem;border:0;border-radius:100px;background:var(--accent);color:#fff;font:inherit;
-  font-size:var(--type-sm);font-weight:600;cursor:pointer;transition:background .25s}
-.gate-btn:hover{background:var(--accent-deep)}
-.gate-btn:focus-visible,.gate-back:focus-visible{outline:2px solid var(--accent-light);outline-offset:3px}
-/* ── ONE TAP PASSWORD 45 ── */
-/* The printed password is a button that fills it in and opens the page (2026-11-13). It reads
-   as the bold word it was, underlined, with a 44px tap area. */
-.gate-fill{position:relative;display:inline;padding:0;border:0;background:none;color:#fff;font:inherit;font-weight:700;
-  text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;cursor:pointer}
-.gate-fill::after{content:"";position:absolute;inset:-13px -10px}
-.gate-fill:hover{color:var(--accent-light)}
-.gate-fill:focus-visible{outline:2px solid var(--accent-light);outline-offset:3px;border-radius:3px}
-/* ── END ONE TAP PASSWORD 45 ── */
-.gate-err{min-height:1.35em;margin:.65rem 0 0;font-size:var(--type-sm);color:#FFC7BD}
-.gate-note{margin:.2rem 0 0;font-size:var(--type-sm);color:var(--d-muted)}
-.gate-note strong{color:#fff;font-weight:600;letter-spacing:.02em}
-.gate-back{display:inline-flex;align-items:center;gap:.45rem;margin-top:2.25rem;font-size:var(--type-sm);font-weight:500;color:var(--d-muted);text-decoration:none;transition:color .25s}
-.gate-back:hover{color:#fff}
-@media (max-width:480px){.gate-btn{flex:1 1 100%}}
 
 /* ── PHONES ──
    Phone screens from the interactive prototype stand in a bezel on the same raised ground as the

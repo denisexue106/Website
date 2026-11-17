@@ -282,6 +282,16 @@ nav.menu-open .nav-toggle .l2 { transform: translateY(-3px) rotate(-45deg); }
   transition: opacity 0.7s ease, transform 0.7s var(--ease);
 }
 .hero-body.in { opacity: 1; transform: none; }
+/* Who I'm looking for: one line in the eyebrow's label style, under the intro. */
+.hero-open {
+  font-size: var(--type-xs); font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent-light);
+  margin: -1.1rem 0 2.25rem;
+  opacity: 0; transform: translateY(16px);
+  transition: opacity 0.7s ease, transform 0.7s var(--ease);
+}
+.hero-open.in { opacity: 1; transform: none; }
 
 .hero-actions {
   display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center;
@@ -1425,6 +1435,7 @@ section[id] { scroll-margin-top: 1.5rem; }
 .motion #hero h1.in .ln > span { transform: none; }
 .motion .hero-desc.in { transition-delay: 0.42s; }
 .motion .hero-body.in { transition-delay: 0.52s; }
+.motion .hero-open.in { transition-delay: 0.57s; }
 .motion .hero-actions.in { transition-delay: 0.62s; }
 
 /* the four numbers: each card rises in turn when the row comes into view, and counts up */
@@ -1660,6 +1671,7 @@ section[id] { scroll-margin-top: 1.5rem; }
   #hero h1 { margin-bottom: 1.3rem; }
   .hero-desc { margin-bottom: 1.75rem; }
   .hero-body { display: none; }
+  .hero-open { margin-top: -0.75rem; margin-bottom: 1.75rem; }
 
   /* the four numbers: figure and label */
   .fact { padding: 0.95rem 1rem 1rem; border-radius: 12px; }
@@ -1731,7 +1743,7 @@ section[id] { scroll-margin-top: 1.5rem; }
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
-  .fade-up, .hero-eyebrow, .hero-desc, .hero-body, .hero-actions, .hero-facts, .hero-mosaic,
+  .fade-up, .hero-eyebrow, .hero-desc, .hero-body, .hero-open, .hero-actions, .hero-facts, .hero-mosaic,
   .fade-up .iconrow, .fade-up .statcard, .fade-up .callout, .fade-up .panel {
     opacity: 1 !important;
     transform: none !important;
