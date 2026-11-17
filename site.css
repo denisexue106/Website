@@ -178,26 +178,6 @@ nav.menu-open .nav-toggle .l2 { transform: translateY(-3px) rotate(-45deg); }
      left a hard line across the mountains below. */
   overflow-x: clip; overflow-y: visible;
 }
-/* Film grain over the top of the hero. feTurbulence as a data URI, so there is no
-   extra request and nothing to go soft on a 2x screen; feColorMatrix drops the
-   saturation, because raw turbulence is RGB noise and reads as JPEG artefacting.
-   Blended normally rather than soft-light: against a backdrop this close to black,
-   soft-light has almost nothing to work with and the grain disappears. Masked out
-   by 76% so the hero is flat black again where it meets the stats band. */
-/* Film grain over the top of the hero. feTurbulence as a data URI, so there is no
-   extra request and nothing to go soft on a 2x screen. The color matrix paints the
-   grain white and keeps the turbulence in the alpha channel, then feComponentTransfer
-   stretches that alpha: against a backdrop this close to black, flat grey noise only
-   lifts the whole surface and no texture survives. Masked out by 76% so the hero is
-   flat black again where it meets the stats band. */
-#hero::after, .page-hero::after {
-  content: ''; position: absolute; inset: 0; pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='2.6' intercept='-0.8'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  opacity: 0.1;
-  -webkit-mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,0.72) 40%, rgba(0,0,0,0) 76%);
-  mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,0.72) 40%, rgba(0,0,0,0) 76%);
-}
 #hero .container { position: relative; z-index: 1; }
 /* A navy duotone of a layered mountain photo behind the hero and the stats band (her ask,
    2026-11-11: "an image tinted in there"). Photo by Dmytro Koplyk on Unsplash, free under
