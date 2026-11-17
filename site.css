@@ -180,7 +180,7 @@ nav.menu-open .nav-toggle .l2 { transform: translateY(-3px) rotate(-45deg); }
 }
 #hero .container { position: relative; z-index: 1; }
 /* A navy duotone of a layered mountain photo behind the hero and the stats band (her ask,
-   2026-11-11: "an image tinted in there"). Photo by Dmytro Koplyk on Unsplash, free under
+   2026-11-11: "an image tinted in there"). Photo by Marek Piwnicki on Unsplash, free under
    the Unsplash License. The two sections go transparent inside one navy block, so the photo
    runs behind both with no seam. The scrim keeps the text side and the strip under the nav
    dark; the mask fades the photo back to navy before the white Work section. */
@@ -1577,11 +1577,6 @@ section[id] { scroll-margin-top: 1.5rem; }
     opacity 0.45s ease calc(var(--stagger, 0s) + var(--ti, 0) * 45ms + 0.15s), translate 0.55s var(--rise) calc(var(--stagger, 0s) + var(--ti, 0) * 45ms + 0.15s);
 }
 .motion .skill-row.reveal:not(.visible) .skill-tag { opacity: 0; translate: 0 8px; }
-/* depth: the mountains behind the intro drift down a little as the page scrolls */
-@supports (animation-timeline: scroll()) {
-  .motion .hero-photo img { transform-origin: 50% 100%; animation: hero-depth linear both; animation-timeline: scroll(root); animation-range: 0 100vh; }
-}
-@keyframes hero-depth { from { transform: scale(1.08); } to { transform: translateY(6%) scale(1.08); } }
 /* the back to top button rises in when it appears */
 .motion .to-top { transition: background 0.25s, transform 0.25s var(--ease), opacity 0.35s ease, translate 0.45s var(--rise); }
 @starting-style { .motion .to-top { opacity: 0; translate: 0 16px; } }
