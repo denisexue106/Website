@@ -301,7 +301,7 @@ p+.note{margin-top:1rem}
 
 /* the one lesson, set apart */
 .dec-lesson .dec-row,.dec-lesson .dec-row:first-child{grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:2.5rem;padding:2rem;
-  border:1px solid #C9DAF0;border-radius:14px;background:var(--accent-wash)}
+  border:1px solid var(--rule);border-radius:14px;background:var(--accent-wash)}
 .dec-lesson .dec-q{font-family:var(--font-display);font-weight:800;font-size:1.375rem;letter-spacing:-.03em;line-height:1.15}
 .dec-lesson .dec-a{font-size:var(--type-base);line-height:1.6}
 @media (max-width:760px){.dec-lesson .dec-row,.dec-lesson .dec-row:first-child{grid-template-columns:minmax(0,1fr);gap:.9rem;padding:1.5rem}}
@@ -443,7 +443,7 @@ svg.icon{width:1em;height:1em;flex:none;fill:none;stroke:currentColor;stroke-wid
 .tour-box{position:relative;background:#000;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.45)}
 .tour-box video{display:block;width:100%;height:auto;max-height:calc(100vh - 7rem);border-radius:14px}
 .tour-x{position:absolute;top:-3rem;right:0;width:2.4rem;height:2.4rem;border-radius:50%;border:0;display:grid;place-items:center;
-  background:rgba(255,255,255,.94);color:#0b1a33;cursor:pointer;transition:background .2s}
+  background:rgba(255,255,255,.94);color:var(--ink);cursor:pointer;transition:background .2s}
 .tour-x:hover{background:#fff}
 .tour-x:focus-visible{outline:2px solid var(--accent-light);outline-offset:3px}
 
@@ -466,10 +466,10 @@ svg.icon{width:1em;height:1em;flex:none;fill:none;stroke:currentColor;stroke-wid
   background:linear-gradient(180deg,var(--accent-wash) 0%,var(--surface-alt) 100%);box-shadow:inset 0 0 0 1px rgba(4,26,61,.05)}
 .phones.four{grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(.9rem,2.4vw,2rem)}
 .phones.one{grid-template-columns:minmax(0,300px);justify-content:center;padding-bottom:1.75rem}
-.phone{position:relative;width:100%;max-width:300px;padding:3.2%;border-radius:16%/7.4%;background:#10151d;line-height:0;
-  box-shadow:inset 0 0 0 1.5px #2c3544,0 0 0 1px rgba(4,26,61,.10),0 24px 48px rgba(4,26,61,.22)}
+.phone{position:relative;width:100%;max-width:300px;padding:3.2%;border-radius:16%/7.4%;background:var(--ink);line-height:0;
+  box-shadow:inset 0 0 0 1.5px var(--ink-2),0 0 0 1px rgba(4,26,61,.10),0 24px 48px rgba(4,26,61,.22)}
 .phone img,.phone video,.shot .phone img{display:block;width:100%;height:auto;aspect-ratio:390/844;object-fit:cover;
-  border:0;border-radius:13.4%/6.2%;background:#F3F5F8}
+  border:0;border-radius:13.4%/6.2%;background:var(--surface-alt)}
 @media (max-width:860px) and (min-width:701px){.phones.four{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:700px){
   .phones,.phones.four{display:flex;gap:.9rem;overflow-x:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;
@@ -602,7 +602,7 @@ svg.icon{width:1em;height:1em;flex:none;fill:none;stroke:currentColor;stroke-wid
   img.zoomable{cursor:zoom-in}
 }
 .zoom{position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;
-  background:#05203F;color:#fff;overflow:hidden}
+  background:var(--d-bg);color:#fff;overflow:hidden}
 .zoom::backdrop{background:rgba(4,24,52,.6)}
 .zoom:focus{outline:none}
 .zoom-pane{position:absolute;inset:0;display:flex;overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;

@@ -418,7 +418,7 @@ nav.menu-open .nav-toggle .l2 { transform: translateY(-3px) rotate(-45deg); }
   --r: rotate(3deg); --d: 22; --dl: 0.36s; --fd: 7s; --f: -7px;
   right: 2%; bottom: 0; z-index: 3; width: 25%;
   padding: 0.8%; border: 0; border-radius: 16% / 7.4%; overflow: visible;
-  background: linear-gradient(155deg, #FFFFFF 0%, #EEF3F8 50%, #D9E2EC 100%);
+  background: linear-gradient(155deg, #FFFFFF 0%, var(--surface-alt-2) 50%, var(--rule) 100%);
 }
 .mc-screen { position: relative; display: block; overflow: hidden; border-radius: 13.4% / 6.2%; }
 .mc-4 .mosaic-video { top: 0; height: 100%; object-fit: cover; }
@@ -985,13 +985,13 @@ nav:not(.scrolled):not(.menu-open) .nav-toggle:focus-visible {
 .mini-phone {
   display: block; padding: 3px; line-height: 0;
   border-radius: 16% / 7.4%;
-  background: linear-gradient(155deg, #FFFFFF 0%, #EEF3F8 50%, #D9E2EC 100%);
+  background: linear-gradient(155deg, #FFFFFF 0%, var(--surface-alt-2) 50%, var(--rule) 100%);
   box-shadow: inset 0 0 0 1px rgba(4,26,61,0.14), 0 0 0 1px rgba(4,26,61,0.08), 0 10px 22px rgba(4,26,61,0.14);
   transition: transform 0.55s var(--ease);
 }
 .mini-phone img {
   display: block; width: 100%; height: auto; aspect-ratio: 360 / 779; object-fit: cover;
-  border-radius: 13.4% / 6.2%; background: #F3F5F8; box-shadow: 0 0 0 1px rgba(4,26,61,0.18);
+  border-radius: 13.4% / 6.2%; background: var(--surface-alt); box-shadow: 0 0 0 1px rgba(4,26,61,0.18);
 }
 .mini-case:hover .mini-phone { transform: translateY(-6px) rotate(-2deg); }
 .mini-body { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; }
@@ -1018,13 +1018,13 @@ nav:not(.scrolled):not(.menu-open) .nav-toggle:focus-visible {
   position: absolute; z-index: 2; right: -3%; bottom: -7%;
   width: 23%; padding: clamp(3px, 0.4vw, 5px);
   border-radius: 16% / 7.4%;
-  background: linear-gradient(155deg, #FFFFFF 0%, #EEF3F8 50%, #D9E2EC 100%); line-height: 0;
+  background: linear-gradient(155deg, #FFFFFF 0%, var(--surface-alt-2) 50%, var(--rule) 100%); line-height: 0;
   box-shadow: inset 0 0 0 1px rgba(4,26,61,0.14), 0 0 0 1px rgba(4,26,61,0.08), 0 14px 30px rgba(4,26,61,0.16);
   transition: transform 0.55s var(--ease);
 }
 .case-phone img {
   display: block; width: 100%; height: auto; aspect-ratio: 390 / 844; object-fit: cover;
-  border-radius: 13.4% / 6.2%; background: #F3F5F8;
+  border-radius: 13.4% / 6.2%; background: var(--surface-alt);
   box-shadow: 0 0 0 1px rgba(4,26,61,0.18);
 }
 .case-card:hover .case-phone { transform: translateY(-10px); }
