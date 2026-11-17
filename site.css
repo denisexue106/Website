@@ -196,7 +196,8 @@ nav.menu-open .nav-toggle .l2 { transform: translateY(-3px) rotate(-45deg); }
    the Unsplash License. The two sections go transparent inside one navy block, so the photo
    runs behind both with no seam. The scrim keeps the text side and the strip under the nav
    dark; the mask fades the photo back to navy before the white Work section. */
-.hero-block { position: relative; background: var(--d-bg); }
+/* The homepage hero runs a step darker than the other navy surfaces (2026-11-17). */
+.hero-block { position: relative; background: #041A3D; }
 .hero-block #hero, .hero-block .hero-stats { background: transparent; }
 .hero-photo {
   position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none;
@@ -207,12 +208,12 @@ nav.menu-open .nav-toggle .l2 { transform: translateY(-3px) rotate(-45deg); }
 .hero-photo::after {
   content: ''; position: absolute; inset: 0;
   background:
-    linear-gradient(180deg, rgba(7,50,106,0.92) 0%, rgba(7,50,106,0.72) 18%, rgba(7,50,106,0) 34%),
-    linear-gradient(90deg, rgba(7,50,106,0.86) 0%, rgba(7,50,106,0.66) 36%, rgba(7,50,106,0.16) 62%, rgba(7,50,106,0.04) 100%);
+    linear-gradient(180deg, rgba(4,26,61,0.94) 0%, rgba(4,26,61,0.78) 18%, rgba(4,26,61,0) 34%),
+    linear-gradient(90deg, rgba(4,26,61,0.9) 0%, rgba(4,26,61,0.74) 36%, rgba(4,26,61,0.42) 62%, rgba(4,26,61,0.32) 100%);
 }
 @media (max-width: 1080px) {
   .hero-photo::after {
-    background: linear-gradient(180deg, rgba(7,50,106,0.96) 0%, rgba(7,50,106,0.96) 14%, rgba(7,50,106,0.88) 24%, rgba(7,50,106,0.74) 34%, rgba(7,50,106,0.34) 50%, rgba(7,50,106,0.14) 72%, rgba(7,50,106,0.1) 100%);
+    background: linear-gradient(180deg, rgba(4,26,61,0.97) 0%, rgba(4,26,61,0.97) 14%, rgba(4,26,61,0.9) 24%, rgba(4,26,61,0.8) 34%, rgba(4,26,61,0.5) 50%, rgba(4,26,61,0.34) 72%, rgba(4,26,61,0.3) 100%);
   }
 }
 
