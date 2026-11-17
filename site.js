@@ -45,7 +45,7 @@ if (motion) {
 // Every hero element that ships hidden belongs in this list. Anything missing from it stays
 // invisible forever, which is how the eyebrow removal broke the hero once. The four numbers
 // are not here: they arrive when they scroll into view (HERO NUMBERS).
-const HERO_PARTS = ['.hero-eyebrow', '#hero h1', '.hero-desc', '.hero-body', '.hero-open', '.hero-actions', '.hero-mosaic', '.page-hero'];
+const HERO_PARTS = ['.hero-eyebrow', '#hero h1', '.hero-desc', '.hero-body', '.hero-actions', '.hero-mosaic', '.page-hero'];
 
 function revealHero() {
   HERO_PARTS.forEach(sel => document.querySelector(sel)?.classList.add('in'));
