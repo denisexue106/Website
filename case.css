@@ -269,8 +269,6 @@ section[id]{scroll-margin-top:110px}
 .metric-note{margin-top:1.25rem;max-width:var(--read-w)}
 /* Screen labels: Shipped, Prototype (demo data) or Concept, at the start of a caption. */
 figcaption .pill{display:inline-block;margin:0 .45rem 0 0;vertical-align:.08em}
-.case-status{margin:.9rem 0 0}
-.case-status .pill{display:inline-block}
 .stats-4{grid-template-columns:repeat(4,minmax(0,1fr));margin-top:0}
 @media (max-width:860px){.stats-4{grid-template-columns:repeat(2,minmax(0,1fr));gap:1.75rem 1.5rem}}
 
