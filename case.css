@@ -641,3 +641,6 @@ html.zoom-open,html.zoom-open body{overflow:hidden}
 .stats>div.hi .stat-v,.stats>div.hi .sc-icon{color:var(--result)}
 .sc-bar i{background:var(--result)}
 .pill.ship{background:var(--ok);color:#fff}
+
+/* label under the hero recording */
+.hero-cover-cap{margin-top:.75rem;font-size:var(--type-sm);color:var(--d-subtle)}
