@@ -286,6 +286,7 @@ figcaption .pill{display:inline-block;margin:0 .45rem 0 0;vertical-align:.08em}
 p+.note{margin-top:1rem}
 .quote+.note{margin-top:1.4rem}
 .after{margin-top:1.75rem}
+.after p{max-width:none}  /* closing paragraphs run the full container width */
 
 /* numbered moves as two columns */
 .moves.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:3rem}
