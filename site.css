@@ -1798,7 +1798,7 @@ section[id] { scroll-margin-top: 1.5rem; }
 
 /* ── CASES FIRST (2026-11-20) ──
    GA showed most visitors leaving the homepage without opening a case study, so the cases
-   come straight after the intro and the four numbers move below them. */
+   come straight after the hero. */
 /* each card names its outcome under the title */
 .case-outcome {
   margin: 0.5rem 0 0.9rem;
@@ -1808,12 +1808,8 @@ section[id] { scroll-margin-top: 1.5rem; }
 .case-head .case-outcome { margin-bottom: 0; }
 /* the pitch sits straight above the buttons */
 .hero-desc { margin-bottom: 2rem; }
-/* the numbers band no longer follows the hero, so the hero ends on its own room */
-#hero { padding-bottom: 5rem; }
 /* the hero collage shows its outcome labels all the time, not only on hover */
 .mosaic-label { opacity: 1; transform: none; }
-/* the numbers band now stands on its own between Work and Why */
-.hero-stats { margin-top: 0; padding: var(--space-lg) 0; }
 /* Resume beside Menu on a phone, so it is one tap from the header */
 .nav-resume-m { display: none; }
 @media (max-width: 700px) {
@@ -1831,8 +1827,7 @@ section[id] { scroll-margin-top: 1.5rem; }
    "View selected work" (the cases are right below it), and a slimmer Work header whose
    heading stays for screen readers. */
 @media (max-width: 620px) {
-  .hero-stats { padding: 2.75rem 0; }
-  #hero { padding-top: calc(var(--nav-h) + 1.75rem); padding-bottom: 2.25rem; }
+  #hero { padding-top: calc(var(--nav-h) + 1.75rem); }
   .hero-desc { margin-bottom: 1.5rem; }
   .hero-actions .btn-primary { display: none; }
   #work { padding-top: 1.75rem; }
