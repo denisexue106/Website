@@ -1839,3 +1839,52 @@ section[id] { scroll-margin-top: 1.5rem; }
   #work .case-card .case-year { display: none; }
 }
 /* ── END CASES FIRST ── */
+
+/* ── PHONE REVIEW (2026-11-20) ──
+   On a phone the hero collage becomes a row of the three case recordings you can swipe. Each
+   plays while it is on screen, and the one in the middle sits slightly forward. The case
+   cards keep the recording, title, outcome and numbers, and drop the longer text. */
+@media (max-width: 620px) {
+  .hero-inner { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+  .hero-mosaic { display: block; aspect-ratio: auto; max-width: none; margin: 0 -1.25rem; }
+  .mosaic-stage {
+    position: static; display: flex; gap: 0.75rem; transform: none;
+    overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+    padding: 0.5rem 1.25rem 0.75rem; scroll-padding-inline: 1.25rem;
+  }
+  .mosaic-stage::-webkit-scrollbar { display: none; }
+  .mosaic-stage::before { display: none; }
+  .mosaic-card, .mc-4 {
+    position: relative; inset: auto; flex: 0 0 auto; display: flex; flex-direction: column;
+    transform: scale(var(--s, 0.94)); scroll-snap-align: start;
+    padding: 0; border: 1px solid var(--d-rule); border-radius: 12px; overflow: hidden;
+    background: var(--d-bg-2); box-shadow: 0 14px 30px rgba(0,0,0,0.4);
+    transition: opacity 0.7s ease var(--dl), translate 0.95s var(--ease) var(--dl), transform 0.5s var(--ease), border-color 0.4s;
+  }
+  .hero-mosaic.in .mosaic-card { animation: none; }
+  .mosaic-card.on { --s: 1; border-color: rgba(92,180,255,0.55); }
+  .mosaic-card:hover, .mosaic-card:focus-visible { transform: scale(var(--s, 0.94)); box-shadow: 0 14px 30px rgba(0,0,0,0.4); }
+  .mosaic-stage:has(.mosaic-card:hover) .mosaic-card:not(:hover),
+  .mosaic-stage:has(.mosaic-card:focus-visible) .mosaic-card:not(:focus-visible) { filter: none; }
+  .mc-1 { width: 220px; }
+  .mc-2 { width: 300px; }
+  .mc-4 { width: 140px; }
+  .mosaic-card img { width: 100%; height: 176px; object-fit: cover; object-position: top; }
+  .mc-screen { border-radius: 0; }
+  .mc-4 img { height: 192px; }
+  .mosaic-video { top: 16px; height: 176px; object-fit: cover; object-position: top; }
+  .mc-4 .mosaic-video { top: 0; height: 192px; }
+  .mosaic-label, .mc-4 .mosaic-label {
+    position: static; display: flex; justify-content: space-between; gap: 0.4rem;
+    padding: 0.6rem 0.75rem; border-radius: 0; box-shadow: none;
+    background: none; font-size: 0.75rem; line-height: 1.3; white-space: normal;
+  }
+  .mc-4 .mosaic-label { padding-inline: 0.6rem; }
+
+  /* slimmer case cards: the recording, title, outcome and numbers */
+  #work .case-card .callouts, #work .case-card .case-desc { display: none; }
+}
+@media (max-width: 620px) and (prefers-reduced-motion: reduce) {
+  .mosaic-card, .mc-4 { transform: none !important; transition: none !important; }
+}
+/* ── END PHONE REVIEW ── */

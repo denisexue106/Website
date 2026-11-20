@@ -133,5 +133,6 @@ if(matchMedia('(prefers-reduced-motion: reduce)').matches)document.querySelector
 (function(){var d=document.querySelector('.tour-dlg'),a=document.querySelector('a[data-tour]');if(!d||!a||typeof d.showModal!=='function')return;var v=d.querySelector('video');a.addEventListener('click',function(e){if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;e.preventDefault();if(!v.getAttribute('src'))v.src=a.getAttribute('href');d.showModal();var p=v.play();if(p&&p.catch)p.catch(function(){});});d.querySelector('.tour-x').addEventListener('click',function(){d.close();});d.addEventListener('click',function(e){if(e.target===d)d.close();});d.addEventListener('close',function(){v.pause();a.focus();});})();
 </script>
 <script src="zoom.js" defer></script>
+<script src="case.js" defer></script>
 </body>
 </html>

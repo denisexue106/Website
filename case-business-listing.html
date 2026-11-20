@@ -148,5 +148,6 @@ if(matchMedia('(prefers-reduced-motion: reduce)').matches)document.querySelector
 (function(){var vs=document.querySelectorAll('video[data-src]');if(!vs.length)return;var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;function go(v){v.src=v.getAttribute('data-src');v.removeAttribute('data-src');if(rm){v.controls=true;v.preload='metadata';return;}v.muted=true;var p=v.play();if(p&&p.catch)p.catch(function(){v.controls=true;});}if(!('IntersectionObserver' in window)){vs.forEach(go);return;}var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){io.unobserve(e.target);go(e.target);}});},{rootMargin:'600px 0px'});vs.forEach(function(v){io.observe(v);});})();
 </script>
 <script src="zoom.js" defer></script>
+<script src="case.js" defer></script>
 </body>
 </html>

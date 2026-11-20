@@ -194,6 +194,50 @@ function countUp(el, delay = 0) {
   }), { once: true });
 })();
 
+/* ── PHONE HERO STRIP: on a phone the three hero recordings play while their card is on
+   screen, and the card nearest the middle steps forward. With reduced motion they stay still. ── */
+(() => {
+  const stage = document.querySelector('.mosaic-stage');
+  if (!stage || !('IntersectionObserver' in window)) return;
+  const phone = window.matchMedia('(max-width: 620px)');
+  const cards = [...stage.querySelectorAll('.mosaic-card')];
+  let io = null;
+  const vid = card => {
+    const img = card.querySelector('img[data-video]');
+    if (!img) return null;
+    let v = card.querySelector('.mosaic-video');
+    if (!v) {
+      v = document.createElement('video');
+      v.className = 'mosaic-video'; v.muted = true; v.loop = true; v.playsInline = true; v.preload = 'none';
+      v.setAttribute('aria-hidden', 'true');
+      v.addEventListener('playing', () => card.classList.add('playing'));
+      img.after(v);
+    }
+    return v;
+  };
+  const start = () => {
+    if (io) return;
+    io = new IntersectionObserver(entries => entries.forEach(e => {
+      const card = e.target;
+      card.classList.toggle('on', e.intersectionRatio >= 0.75);
+      if (reduceMotion) return;
+      const v = vid(card);
+      if (!v) return;
+      if (e.isIntersecting) { if (!v.src) v.src = card.querySelector('img[data-video]').dataset.video; v.play().catch(() => {}); }
+      else v.pause();
+    }), { threshold: [0, 0.75] });
+    cards.forEach(c => io.observe(c));
+  };
+  const stop = () => {
+    if (!io) return;
+    io.disconnect(); io = null;
+    cards.forEach(c => { c.classList.remove('on', 'playing'); const v = c.querySelector('.mosaic-video'); if (v) v.pause(); });
+  };
+  const sync = () => (phone.matches ? start() : stop());
+  sync();
+  phone.addEventListener('change', sync);
+})();
+
 /* ── CARD VIDEOS: loaded when near the screen and played only while on it. With reduced
    motion they keep the still poster. ── */
 (() => {

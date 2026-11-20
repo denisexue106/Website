@@ -649,3 +649,27 @@ html.zoom-open,html.zoom-open body{overflow:hidden}
 /* footer links get the same finger-sized target as the rest of the site (2026-11-20) */
 .footer-links a{position:relative}
 .footer-links a::after{content:"";position:absolute;inset:-15px -6px}
+
+/* ── PHONE REVIEW (2026-11-20) ──
+   A thin bar under the menu fills as you read. The On this page link for the section you are in
+   lights up, and on a phone those links stay under the menu in a slimmer bar. The hero video
+   comes straight after the title on a phone, above a tighter grid of facts. */
+.read-progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--accent-light);
+  transform-origin:0 50%;transform:scaleX(var(--p,0));pointer-events:none}
+.jump a.on{color:var(--accent);border-bottom-color:var(--accent)}
+@media (max-width:700px){
+  .jump{position:sticky;top:var(--nav-h,57px);padding:0}
+  .jump .container{gap:1rem;padding-block:.6rem}
+  .jump a{font-size:var(--type-xs)}
+  section[id]{scroll-margin-top:110px}
+}
+@media (max-width:620px){
+  .case-hero .container{display:flex;flex-direction:column}
+  .case-hero .container > *{order:0}
+  .case-hero .hero-cover{order:1;margin-top:1.5rem}
+  .case-hero .hero-cover-cap{order:2}
+  .case-hero .meta-row{order:3;margin-top:1.75rem;padding-top:1.25rem;gap:.9rem 1.25rem}
+  .case-hero .meta{gap:.15rem}
+  .case-hero .meta-k{font-size:.7rem}
+  .case-hero .meta-v{font-size:.8125rem;line-height:1.4}
+}
