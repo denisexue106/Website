@@ -271,16 +271,6 @@ nav.menu-open .nav-toggle .l2 { transform: translateY(-3px) rotate(-45deg); }
   transition: opacity 0.7s ease, transform 0.7s var(--ease);
 }
 .hero-body.in { opacity: 1; transform: none; }
-/* Who I'm looking for: one line in the eyebrow's label style, under the intro. */
-.hero-open {
-  font-size: var(--type-xs); font-weight: 600;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--accent-light);
-  margin: -1.1rem 0 2.25rem;
-  opacity: 0; transform: translateY(16px);
-  transition: opacity 0.7s ease, transform 0.7s var(--ease);
-}
-.hero-open.in { opacity: 1; transform: none; }
 
 .hero-actions {
   display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center;
@@ -1424,7 +1414,6 @@ section[id] { scroll-margin-top: 1.5rem; }
 .motion #hero h1.in .ln > span { transform: none; }
 .motion .hero-desc.in { transition-delay: 0.42s; }
 .motion .hero-body.in { transition-delay: 0.52s; }
-.motion .hero-open.in { transition-delay: 0.57s; }
 .motion .hero-actions.in { transition-delay: 0.62s; }
 
 /* the four numbers: each card rises in turn when the row comes into view, and counts up */
@@ -1655,7 +1644,6 @@ section[id] { scroll-margin-top: 1.5rem; }
   #hero h1 { margin-bottom: 1.3rem; }
   .hero-desc { margin-bottom: 1.75rem; }
   .hero-body { display: none; }
-  .hero-open { margin-top: -0.75rem; margin-bottom: 1.75rem; }
 
   /* the four numbers: figure and label */
   .fact { padding: 0.95rem 1rem 1rem; border-radius: 12px; }
@@ -1727,7 +1715,7 @@ section[id] { scroll-margin-top: 1.5rem; }
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
-  .fade-up, .hero-eyebrow, .hero-desc, .hero-body, .hero-open, .hero-actions, .hero-facts, .hero-mosaic,
+  .fade-up, .hero-eyebrow, .hero-desc, .hero-body, .hero-actions, .hero-facts, .hero-mosaic,
   .fade-up .iconrow, .fade-up .statcard, .fade-up .callout, .fade-up .panel {
     opacity: 1 !important;
     transform: none !important;
@@ -1807,3 +1795,52 @@ section[id] { scroll-margin-top: 1.5rem; }
   .iconrows.cv .iconrow:last-child::before { height: 2rem; }
   .iconrows.cv .cv-when { padding-top: 0; }
 }
+
+/* ── CASES FIRST (2026-11-20) ──
+   GA showed most visitors leaving the homepage without opening a case study, so the cases
+   come straight after the intro and the four numbers move below them. */
+/* each card names its outcome under the title */
+.case-outcome {
+  margin: 0.5rem 0 0.9rem;
+  font-size: var(--type-sm); font-weight: 600; line-height: 1.45;
+  color: var(--ok);
+}
+.case-head .case-outcome { margin-bottom: 0; }
+/* the pitch sits straight above the buttons */
+.hero-desc { margin-bottom: 2rem; }
+/* the numbers band no longer follows the hero, so the hero ends on its own room */
+#hero { padding-bottom: 5rem; }
+/* the hero collage shows its outcome labels all the time, not only on hover */
+.mosaic-label { opacity: 1; transform: none; }
+/* the numbers band now stands on its own between Work and Why */
+.hero-stats { margin-top: 0; padding: var(--space-lg) 0; }
+/* Resume beside Menu on a phone, so it is one tap from the header */
+.nav-resume-m { display: none; }
+@media (max-width: 700px) {
+  .nav-resume-m {
+    display: inline-flex; align-items: center; min-height: 2.75rem;
+    margin-left: auto; margin-right: 1rem; padding: 0 0.25rem;
+    font-size: var(--type-sm); font-weight: 600;
+  }
+  nav.menu-open .nav-resume-m { visibility: hidden; }
+}
+/* Experience: the case study links in each role get a finger-sized target */
+.cv-cases a { position: relative; }
+.cv-cases a::after { content: ''; position: absolute; inset: -14px -4px; }
+/* On a phone the first case card has to start on the first screen: a tighter intro, no
+   "View selected work" (the cases are right below it), and a slimmer Work header whose
+   heading stays for screen readers. */
+@media (max-width: 620px) {
+  .hero-stats { padding: 2.75rem 0; }
+  #hero { padding-top: calc(var(--nav-h) + 1.75rem); padding-bottom: 2.25rem; }
+  .hero-desc { margin-bottom: 1.5rem; }
+  .hero-actions .btn-primary { display: none; }
+  #work { padding-top: 1.75rem; }
+  #work .section-header { margin-bottom: 1rem; padding-bottom: 0.75rem; align-items: center; }
+  #work .section-header h2 {
+    position: absolute; width: 1px; height: 1px; overflow: hidden;
+    clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+  }
+  #work .case-card .case-year { display: none; }
+}
+/* ── END CASES FIRST ── */

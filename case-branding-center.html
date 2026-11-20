@@ -114,8 +114,8 @@
     <h2>Let&rsquo;s <span class="hl">talk</span></h2>
     <div class="next-actions">
       <a href="mailto:denisexue106@gmail.com" class="btn-light">Get in touch</a>
-      <a href="img/denise-barrett-resume.pdf" class="btn-out" download>Download resume</a>
-      <a href="index.html#work" class="btn-out">See other work</a>
+      <a href="img/denise-barrett-resume.pdf" class="btn-out" download="Denise-Barrett-Resume.pdf">Download resume</a>
+      <a href="case-business-listing.html" class="btn-out">Next case study &rarr;</a>
     </div>
   </div>
 </section>
@@ -126,6 +126,7 @@
 </footer>
 <dialog class="tour-dlg" aria-label="Prototype tour"><div class="tour-box"><button type="button" class="tour-x" aria-label="Close the tour"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 2l10 10M12 2L2 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button><video controls playsinline preload="none"></video></div></dialog>
 <script>
+/* respect reduced motion: no autoplaying loops, controls instead */
 if(matchMedia('(prefers-reduced-motion: reduce)').matches)document.querySelectorAll('video[autoplay]').forEach(function(v){v.removeAttribute('autoplay');v.pause();v.controls=true;});
 (function(){var b=document.getElementById('to-top');if(!b)return;var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;addEventListener('scroll',function(){b.hidden=scrollY<600},{passive:true});b.addEventListener('click',function(){scrollTo({top:0,behavior:rm?'auto':'smooth'})});})();
 /* the tour plays on the page, in a dialog, instead of opening a bare video file */

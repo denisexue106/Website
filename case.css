@@ -645,3 +645,7 @@ html.zoom-open,html.zoom-open body{overflow:hidden}
 
 /* label under the hero recording */
 .hero-cover-cap{margin-top:.75rem;font-size:var(--type-sm);color:var(--d-subtle)}
+
+/* footer links get the same finger-sized target as the rest of the site (2026-11-20) */
+.footer-links a{position:relative}
+.footer-links a::after{content:"";position:absolute;inset:-15px -6px}
